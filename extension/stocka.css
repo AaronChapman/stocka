@@ -1,0 +1,70 @@
+* {
+	font-family: 'Varela Round', sans-serif;
+	outline: none !important;
+	-webkit-highlight: none !important;
+}
+
+body {
+	
+}
+
+input:hover, button:hover, a:hover {
+	cursor: pointer;
+}
+
+.add_tickers_area {
+	padding: 5px;
+}
+
+.tickers_to_add {
+  border: 1px solid seagreen;
+  padding: 10px;
+  border-radius: 5px;
+  width: 15%;
+}
+
+.ticker {
+	margin: 5px;
+  height: 30px;
+  width: fit-content;
+  font-size: x-large;
+  color: white;
+  background: lightgrey;
+  transition: all 7.5s ease-in-out;
+  padding: 5px 10px;
+  white-space: nowrap;
+  overflow: hidden;
+  text-shadow: 0 2px 1px #000000;
+  border-radius: 10px;
+  box-shadow: 0 2px 1px #000000;
+}
+
+.ticker_container {
+	display: inline-flex;
+}
+
+.ticker_list {
+  display: grid;
+  width: 50%;
+  zoom: 0.75;
+}
+
+.remove_ticker {
+  margin: 10px 5px;
+  height: 30px;
+  width: 30px;
+  border: 1px dashed;
+  border-radius: 10px;
+}
+
+.remove_ticker:hover {
+  background: lightgrey;
+}
+
+.down {
+	background: #782130;
+}
+
+.up {
+	background: seagreen;
+}
