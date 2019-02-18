@@ -103,8 +103,12 @@ function setup_event_listeners() {
 
 function save_tickers() {
 	chrome.storage.sync.set({'tickers': tickers}, function() {
-	  console.log('saving: ', tickers);
+	  //console.log('saving: ', tickers);
 	});
+}
+
+function sort_tickers() {
+	
 }
 
 $(document).ready(function() {
@@ -121,13 +125,4 @@ $(document).ready(function() {
 	$('.add_tickers').click(function() {
 		add_tickers();
 	});
-	/*
-	let event_listener_setup = setInterval(function() {
-		if ($('button.remove_ticker').length === tickers.length) {
-			clearInterval(event_listener_setup);
-			
-			setup_event_listeners();
-		}
-	}, 250);
-	*/
 });
