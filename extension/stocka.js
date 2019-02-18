@@ -2,7 +2,7 @@
 // list of predefined screener links
 
 
-let tickers = ['AEYE', 'CRBP', 'DTRM', 'HARP', 'USAT'];
+let tickers = ['AEYE', 'AMD', 'CRBP', 'DTRM', 'HARP', 'NAUH', 'PTX', 'RIOT', 'SNNA', 'USAT'];
 
 function stock_up() {
 	let url = 'https://api.iextrading.com/1.0/stock/market/batch?types=quote&symbols=' + tickers.join(',') + '&filter=symbol,change,latestPrice';
@@ -29,9 +29,11 @@ function set_content(data) {
 		else { $('.ticker:last').addClass('up'); }
 	});
 	
-	var move_tickers = setInterval(function() {
+	setup_event_listeners();
+	
+	/*var move_tickers = setInterval(function() {
 		activate_tickers();
-	}, 7500);
+	}, 7500);*/
 }
 
 function activate_tickers() {
@@ -71,14 +73,31 @@ function validate_ticker_input(ticker_input) {
 	}
 }
 
+function setup_event_listeners() {
+	$('button.remove_ticker').click(function() {
+		$(this).parent().remove();
+		
+		let tt_info = $(this).next().text().trim();
+		let temp_ticker = tt_info.substring(0, tt_info.indexOf(':'));
+		let index = tickers.indexOf(temp_ticker);
+		
+		if (index !== -1) tickers.splice(index, 1);
+	});
+}
+
 $(document).ready(function() {
 	stock_up();
 	
 	$('.add_tickers').click(function() {
 		add_tickers();
 	});
-	
-	$('.remove_ticker').click(function() {
-		$(this).parent().remove()
-	});
+	/*
+	let event_listener_setup = setInterval(function() {
+		if ($('button.remove_ticker').length === tickers.length) {
+			clearInterval(event_listener_setup);
+			
+			setup_event_listeners();
+		}
+	}, 250);
+	*/
 });

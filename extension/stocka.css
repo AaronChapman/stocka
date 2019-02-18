@@ -5,7 +5,7 @@
 }
 
 body {
-	
+  width: 300px;
 }
 
 input:hover, button:hover, a:hover {
@@ -13,14 +13,25 @@ input:hover, button:hover, a:hover {
 }
 
 .add_tickers_area {
-	padding: 5px;
+	padding: 5px 0;
+  width: 300px;
+}
+
+.add_tickers {
+  border: 2px solid seagreen;
+  padding: 10px;
+  border-radius: 5px;
+  width: -webkit-fill-available;
+  margin: 5px 30px;
+
 }
 
 .tickers_to_add {
-  border: 1px solid seagreen;
+  border: 2px solid seagreen;
   padding: 10px;
   border-radius: 5px;
-  width: 15%;
+  width: -webkit-fill-available;
+  margin: 5px 30px;
 }
 
 .ticker {
@@ -45,8 +56,12 @@ input:hover, button:hover, a:hover {
 
 .ticker_list {
   display: grid;
-  width: 50%;
+  width: 300px;
   zoom: 0.75;
+  margin: auto;
+  padding: 10px;
+  border: 2px solid seagreen;
+  border-radius: 5px;
 }
 
 .remove_ticker {
