@@ -1,11 +1,7 @@
-// sort tickers alphabetically
-// list of predefined screener links
-
-
 let tickers = [];
 
 function stock_up() {
-	let url = 'https://api.iextrading.com/1.0/stock/market/batch?types=quote&symbols=' + tickers.join(',') + '&filter=symbol,change,latestPrice';
+	let url = 'https://api.iextrading.com/1.0/stock/market/batch?types=quote&symbols=' + tickers.join(',') + '&filter=symbol,change,latestPrice,changePercent';
 	let info = {};
   
   fetch(url).then(res => res.json()).then(data => set_content(data));
@@ -17,9 +13,11 @@ function set_content(data) {
 	
 	tickers.forEach(function(ticker) {
 		var markup = '<div class="ticker_container">';
-		markup += '<button class="remove_ticker">✕</button>';
-		markup += '<span class="ticker">' + ticker + ': $' + data[ticker].quote.latestPrice + '</span>';
+		markup += '<button class="remove_ticker">✖</button>';
+		markup += '<span class="ticker" data-change-percent="' + data[ticker].quote.changePercent + '" data-latest-price="' + data[ticker].quote.latestPrice + '">' + ticker + ': $' + data[ticker].quote.latestPrice + '</span>';
 		markup += '</div>';
+		
+		console.log(data[ticker].quote.changePercent);
 		
 		$('.ticker_list').append(markup);
 		
@@ -85,6 +83,21 @@ function setup_event_listeners() {
 		if (index !== -1) tickers.splice(index, 1);
 		
 		save_tickers();
+	});
+	
+	
+	$('.ticker').mouseover(function() {
+		let symbol_info = $(this).text().trim();
+		let symbol = symbol_info.substring(0, symbol_info.indexOf(':'));
+		
+		$(this).text(symbol + ': ' + $(this).attr('data-change-percent') + '%');
+	});
+	
+	$('.ticker').mouseout(function() {
+		let symbol_info = $(this).text().trim();
+		let symbol = symbol_info.substring(0, symbol_info.indexOf(':'));
+		
+		$(this).text(symbol + ': ' + $(this).attr('data-latest-price'));
 	});
 }
 
