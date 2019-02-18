@@ -6,6 +6,7 @@
 
 body {
   width: fit-content;
+  background: snow;
 }
 
 input:hover, button:hover, a:hover {
@@ -64,7 +65,7 @@ input:hover, button:hover, a:hover {
   width: 300px;
   zoom: 0.75;
   padding: 10px;
-  border: 2px solid seagreen;
+  border: 2px solid darkgrey;
   border-radius: 5px;
 }
 
@@ -72,8 +73,9 @@ input:hover, button:hover, a:hover {
   margin: 10px 5px;
   height: 30px;
   width: 30px;
-  border: 1px dashed;
+  border: 2px solid;
   border-radius: 10px;
+  font-weight: bold;
 }
 
 .remove_ticker:hover {

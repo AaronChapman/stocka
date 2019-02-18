@@ -2,7 +2,7 @@
 // list of predefined screener links
 
 
-let tickers = ['AEYE', 'AMD', 'CRBP', 'DTRM', 'HARP', 'NAUH', 'PTX', 'RIOT', 'SNNA', 'USAT'];
+let tickers = [];
 
 function stock_up() {
 	let url = 'https://api.iextrading.com/1.0/stock/market/batch?types=quote&symbols=' + tickers.join(',') + '&filter=symbol,change,latestPrice';
@@ -30,6 +30,7 @@ function set_content(data) {
 	});
 	
 	setup_event_listeners();
+	save_tickers();
 	
 	/*var move_tickers = setInterval(function() {
 		activate_tickers();
@@ -82,11 +83,27 @@ function setup_event_listeners() {
 		let index = tickers.indexOf(temp_ticker);
 		
 		if (index !== -1) tickers.splice(index, 1);
+		
+		save_tickers();
+	});
+}
+
+function save_tickers() {
+	chrome.storage.sync.set({'tickers': tickers}, function() {
+	  console.log('saving: ', tickers);
 	});
 }
 
 $(document).ready(function() {
-	stock_up();
+	chrome.storage.sync.get(['tickers'], function(result) {
+	  if (result.tickers.length > 0) {
+		  tickers = result.tickers;
+	  } else {
+		  tickers = [];
+	  }
+	  
+	  stock_up();
+	});
 	
 	$('.add_tickers').click(function() {
 		add_tickers();
