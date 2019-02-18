@@ -5,7 +5,7 @@
 }
 
 body {
-  width: 300px;
+  width: fit-content;
 }
 
 input:hover, button:hover, a:hover {
@@ -13,21 +13,26 @@ input:hover, button:hover, a:hover {
 }
 
 .add_tickers_area {
-	padding: 5px 0;
+  padding: 5px 0;
   width: 300px;
+  margin: 0 -28px;
 }
 
 .add_tickers {
-  border: 2px solid seagreen;
+  border: 2px solid darkgrey;
+  background: #eeeeee;
   padding: 10px;
   border-radius: 5px;
   width: -webkit-fill-available;
   margin: 5px 30px;
+}
 
+.add_tickers:hover {
+	opacity: 0.5;
 }
 
 .tickers_to_add {
-  border: 2px solid seagreen;
+  border: 2px solid darkgrey;
   padding: 10px;
   border-radius: 5px;
   width: -webkit-fill-available;
@@ -58,7 +63,6 @@ input:hover, button:hover, a:hover {
   display: grid;
   width: 300px;
   zoom: 0.75;
-  margin: auto;
   padding: 10px;
   border: 2px solid seagreen;
   border-radius: 5px;
@@ -82,4 +86,8 @@ input:hover, button:hover, a:hover {
 
 .up {
 	background: seagreen;
+}
+
+::-webkit-input-placeholder {
+  text-align: center;
 }
