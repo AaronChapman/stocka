@@ -139,10 +139,10 @@ function setup_init_listeners() {
 		
 		if ($(this).hasClass('descending')) {
 			$(this).addClass('ascending').removeClass('descending');
-			$('.sorting_options_button').text('sort ⤒');
+			$(this).text('symbol ⤒');
 		} else if ($(this).hasClass('ascending')) {
 			$(this).addClass('descending').removeClass('ascending');
-			$('.sorting_options_button').text('sort ⤓');
+			$(this).text('symbol ⤓');
 			
 			temporary_tickers.reverse();
 		}
@@ -165,10 +165,10 @@ function setup_init_listeners() {
 		
 		if ($(this).hasClass('descending')) {
 			$(this).addClass('ascending').removeClass('descending');
-			$('.sorting_options_button').text('sort ⤒');
+			$(this).text('price ⤒');
 		} else if ($(this).hasClass('ascending')) {
 			$(this).addClass('descending').removeClass('ascending');
-			$('.sorting_options_button').text('sort ⤓');
+			$(this).text('price ⤓');
 			
 			temporary_tickers.reverse();
 		}
@@ -191,10 +191,10 @@ function setup_init_listeners() {
 		
 		if ($(this).hasClass('descending')) {
 			$(this).addClass('ascending').removeClass('descending');
-			$('.sorting_options_button').text('sort ⤒');
+			$(this).text('percentage ⤒');
 		} else if ($(this).hasClass('ascending')) {
 			$(this).addClass('descending').removeClass('ascending');
-			$('.sorting_options_button').text('sort ⤓');
+			$(this).text('percentage ⤓');
 			
 			temporary_tickers.reverse();
 		}
