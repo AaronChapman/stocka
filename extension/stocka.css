@@ -9,8 +9,12 @@ body {
   background: snow;
 }
 
-input:hover, button:hover, a:hover {
+input:hover, button:hover, a:hover, .ticker:hover {
 	cursor: pointer;
+}
+
+button:hover {
+	opacity: 0.5;
 }
 
 .add_tickers_area {
@@ -52,8 +56,13 @@ input:hover, button:hover, a:hover {
   white-space: nowrap;
   overflow: hidden;
   text-shadow: 0 2px 1px #000000;
-  border-radius: 10px;
+  border-radius: 5px;
   box-shadow: 0 2px 1px #000000;
+}
+
+.tickers {
+  border: 2px solid darkgrey;
+  border-radius: 5px;
 }
 
 .ticker_container {
@@ -65,8 +74,7 @@ input:hover, button:hover, a:hover {
   width: 300px;
   zoom: 0.75;
   padding: 10px;
-  border: 2px solid darkgrey;
-  border-radius: 5px;
+  min-height: 100px
 }
 
 .remove_ticker {
@@ -79,8 +87,37 @@ input:hover, button:hover, a:hover {
   color: darkgray;
 }
 
-.remove_ticker:hover {
-  background: lightgrey;
+.sorting_options {
+  transition: all 0.5s ease-in-out;
+  overflow: hidden;
+  display: flex;
+  justify-content: center;
+}
+
+.sorting_options.closed {
+	height: 0;
+}
+
+.sorting_options.open {
+	height: 30px;
+}
+
+.sorting_option {
+  height: 20px;
+  border: 2px solid darkgray;
+  border-radius: 3px;
+  margin: 5px;
+  color: darkgray;
+}
+
+.sorting_options_button {
+  height: 20px;
+  border: 2px solid darkgray;
+  border-radius: 3px;
+  margin: 5px;
+  position: fixed;
+  color: darkgray;
+  margin-left: 185px;
 }
 
 .down {
