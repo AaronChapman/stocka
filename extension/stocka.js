@@ -60,7 +60,13 @@ function set_content(data) {
 
 function setup_event_listeners() {
 	$('button.remove_ticker').click(function() {
-		$(this).parent().remove();
+		var ticker_to_remove = $(this).parent();
+		
+		ticker_to_remove.addClass('closed');
+		
+		setTimeout(function() {
+			ticker_to_remove.remove();
+		}, 750);
 		
 		let tt_info = $(this).next().text().trim();
 		let temp_ticker = tt_info.substring(0, tt_info.indexOf(':'));
@@ -137,12 +143,12 @@ function setup_init_listeners() {
 	$('.sorting_option_symbol').click(function() {
 		let temporary_tickers = tickers.sort();
 		
-		if ($(this).hasClass('descending')) {
-			$(this).addClass('ascending').removeClass('descending');
-			$(this).text('symbol ⤒');
+		if ($(this).hasClass('descending') || $(this).hasClass('unsorted')) {
+			$(this).addClass('ascending').removeClass('descending unsorted');
+			$(this).text('symbol ⇡');
 		} else if ($(this).hasClass('ascending')) {
 			$(this).addClass('descending').removeClass('ascending');
-			$(this).text('symbol ⤓');
+			$(this).text('symbol ⇣');
 			
 			temporary_tickers.reverse();
 		}
@@ -163,12 +169,12 @@ function setup_init_listeners() {
 			temporary_tickers.push(item.ticker);
 		});
 		
-		if ($(this).hasClass('descending')) {
-			$(this).addClass('ascending').removeClass('descending');
-			$(this).text('price ⤒');
+		if ($(this).hasClass('descending') || $(this).hasClass('unsorted')) {
+			$(this).addClass('ascending').removeClass('descending unsorted');
+			$(this).text('price ⇡');
 		} else if ($(this).hasClass('ascending')) {
 			$(this).addClass('descending').removeClass('ascending');
-			$(this).text('price ⤓');
+			$(this).text('price ⇣');
 			
 			temporary_tickers.reverse();
 		}
@@ -189,12 +195,12 @@ function setup_init_listeners() {
 			temporary_tickers.push(item.ticker);
 		});
 		
-		if ($(this).hasClass('descending')) {
-			$(this).addClass('ascending').removeClass('descending');
-			$(this).text('percentage ⤒');
+		if ($(this).hasClass('descending') || $(this).hasClass('unsorted')) {
+			$(this).addClass('ascending').removeClass('descending unsorted');
+			$(this).text('percentage ⇡');
 		} else if ($(this).hasClass('ascending')) {
 			$(this).addClass('descending').removeClass('ascending');
-			$(this).text('percentage ⤓');
+			$(this).text('percentage ⇣');
 			
 			temporary_tickers.reverse();
 		}
@@ -203,4 +209,8 @@ function setup_init_listeners() {
 		
 		stock_up();
 	});
+}
+
+function setup_sorting_option_toggles() {
+	
 }
