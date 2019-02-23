@@ -116,6 +116,8 @@ button:hover {
   border-radius: 3px;
   margin: 5px;
   color: darkgray;
+  width: 30%;
+  text-align: left;
 }
 
 .sorting_options_button {

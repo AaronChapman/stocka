@@ -1,8 +1,8 @@
 // for holding ticker information
 let tickers = [];
+let temporary_tickers = [];
 let prices = [];
 let percentages = [];
-let $bpa = $;
 
 // when the document has finished loading
 document.addEventListener("DOMContentLoaded", function(event) {
@@ -51,8 +51,8 @@ function set_content(data) {
 			markup += '</div>';
 			
 			// push the information to the ticker list data arrays
-			prices.push({'ticker':ticker, 'price':parseFloat(latest_price).toFixed(2)});
-			percentages.push({'ticker':ticker, 'percentage':parseFloat(change_percent).toFixed(2)});
+			prices.push({'ticker':ticker, 'array_value':parseFloat(latest_price).toFixed(2)});
+			percentages.push({'ticker':ticker, 'array_value':parseFloat(change_percent).toFixed(2)});
 					
 			// and append the new ticker to the document
 			$('.ticker_list').append(markup);
@@ -184,19 +184,9 @@ function setup_init_listeners() {
 	
 	// sort ticker list by symbol
 	$('.sorting_option_symbol').click(function() {
-		let temporary_tickers = tickers.sort();
+		temporary_tickers = tickers.sort();
 		
-		// first alphabetically
-		if ($(this).hasClass('descending') || $(this).hasClass('unsorted')) {
-			$(this).addClass('ascending').removeClass('descending unsorted');
-			$(this).text('symbol ⇡');
-		} else if ($(this).hasClass('ascending')) {
-			// and if requested, reversed
-			$(this).addClass('descending').removeClass('ascending');
-			$(this).text('symbol ⇣');
-			
-			temporary_tickers.reverse();
-		}
+		sort_update_interface($(this));
 		
 		// update local array and ticker list container
 		tickers = temporary_tickers;
@@ -206,65 +196,49 @@ function setup_init_listeners() {
 	
 	// sort ticker list by price
 	$('.sorting_option_price').click(function() {
-		let temporary_tickers = [];
-		
-		// sort array of ticker prices
-		prices.sort(function(a, b) {
-			return a.price - b.price;
-		});
-		
-		// temporarily store the sorted array of prices
-		prices.forEach(function(item) {
-			temporary_tickers.push(item.ticker);
-		});
-		
-		// first return ascending price
-		if ($(this).hasClass('descending') || $(this).hasClass('unsorted')) {
-			$(this).addClass('ascending').removeClass('descending unsorted');
-			$(this).text('price ⇡');
-		} else if ($(this).hasClass('ascending')) {
-			// and if requested, reversed
-			$(this).addClass('descending').removeClass('ascending');
-			$(this).text('price ⇣');
-			
-			temporary_tickers.reverse();
-		}
-		
-		// update local array and ticker list container
-		tickers = temporary_tickers;
-		
-		stock_up();
+		sorting_option_number(prices, $(this));
 	});
 	
 	// sort ticker list by price
 	$('.sorting_option_percent').click(function() {
-		let temporary_tickers = [];
-		
-		// sort array of ticker percentage changes
-		percentages.sort(function(a, b) {
-			return a.percentage - b.percentage;
-		});
-		
-		// temporarily store the sorted array of percentage changes
-		percentages.forEach(function(item) {
-			temporary_tickers.push(item.ticker);
-		});
-		
-		// first return ascending % changes
-		if ($(this).hasClass('descending') || $(this).hasClass('unsorted')) {
-			$(this).addClass('ascending').removeClass('descending unsorted');
-			$(this).text('percentage ⇡');
-		} else if ($(this).hasClass('ascending')) {
-			// and if requested, reversed
-			$(this).addClass('descending').removeClass('ascending');
-			$(this).text('percentage ⇣');
-			
-			temporary_tickers.reverse();
-		}
-		
-		// update local array and ticker list container
-		tickers = temporary_tickers;
-		
-		stock_up();
+		sorting_option_number(percentages, $(this));
 	});
+}
+
+function sort_update_interface(sorting_option) {
+	$('.sorting_options .sorting_option').each(function() {
+		if ($(this).text().indexOf('⇡') != -1 || $(this).text().indexOf('⇣') != -1) {
+			$(this).text($(this).text().substring(0, $(this).text().length - 1));
+		}
+	});
+	
+	// first return ascending array and interface updates
+	if (sorting_option.hasClass('descending') || sorting_option.hasClass('unsorted')) {
+		sorting_option.addClass('ascending').removeClass('descending unsorted');
+		sorting_option.text(sorting_option.text() + ' ⇡');
+	} else if (sorting_option.hasClass('ascending')) {
+		// and if requested, reversed
+		sorting_option.addClass('descending').removeClass('ascending');
+		sorting_option.text(sorting_option.text().substring(0, sorting_option.text().length - 1) + ' ⇣');
+		
+		temporary_tickers.reverse();
+	}
+}
+
+function sorting_option_number(array_to_use, option_clicked) {
+	temporary_tickers = [];
+		
+	array_to_use.sort(function(a, b) {
+		return a.array_value - b.array_value;
+	});
+	
+	array_to_use.forEach(function(item) {
+		temporary_tickers.push(item.ticker);
+	});
+
+	sort_update_interface(option_clicked);
+			
+	tickers = temporary_tickers;
+	
+	stock_up();
 }
