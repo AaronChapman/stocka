@@ -136,6 +136,10 @@ button:hover {
 	background: seagreen;
 }
 
+.no_change {
+	background: lightgrey;
+}
+
 ::-webkit-input-placeholder {
   text-align: center;
 }
