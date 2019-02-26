@@ -47,7 +47,7 @@ function set_content(data) {
 			// and create a ticker container element with data attributes
 			let markup = '<div class="ticker_container">';
 			markup += '<button class="remove_ticker">✕</button>';
-			markup += '<span class="ticker" data-change-percent="' + change_percent + '" data-latest-price="' + latest_price + '">' + ticker + ': $' + latest_price + '</span>';
+			markup += '<span class="ticker" data-displayed="price" data-symbol="' + ticker + '" data-change-percent="' + change_percent + '" data-latest-price="' + latest_price + '">' + ticker + ': $' + latest_price + '</span>';
 			markup += '</div>';
 			
 			// push the information to the ticker list data arrays
@@ -72,6 +72,14 @@ function set_content(data) {
 			
 			if (index !== -1) tickers.splice(index, 1);
 		}
+	});
+	
+	$('.ticker').each(function() {
+		if ($('.ticker_list').attr('data-displayed') === "price") {
+			$(this).text($(this).attr('data-symbol') + ': $' + $(this).attr('data-latest-price'));
+		} else if ($('.ticker_list').attr('data-displayed') === "percent") {
+			$(this).text($(this).attr('data-symbol') + ': ' + $(this).attr('data-change-percent') + '%');
+		} 
 	});
 	
 	// set up the event listeners for the new added tickers
@@ -104,20 +112,22 @@ function setup_event_listeners() {
 		save_tickers();
 	});
 	
-	// when a ticker is moused over show the percentage change
+	// when a ticker is moused over show the other value change
 	$('.ticker').mouseover(function() {
-		let symbol_info = $(this).text().trim();
-		let symbol = symbol_info.substring(0, symbol_info.indexOf(':'));
-		
-		$(this).text(symbol + ': ' + $(this).attr('data-change-percent') + '%');
+		if ($('.ticker_list').attr('data-displayed') === "price") {
+			$(this).text($(this).attr('data-symbol') + ': ' + $(this).attr('data-change-percent') + '%');
+		} else if ($('.ticker_list').attr('data-displayed') === "percent") {
+			$(this).text($(this).attr('data-symbol') + ': $' + $(this).attr('data-latest-price'));
+		}
 	});
 	
 	// when the ticker is moused out of, reset the ticker display
 	$('.ticker').mouseout(function() {
-		let symbol_info = $(this).text().trim();
-		let symbol = symbol_info.substring(0, symbol_info.indexOf(':'));
-		
-		$(this).text(symbol + ': $' + $(this).attr('data-latest-price'));
+		if ($('.ticker_list').attr('data-displayed') === "price") {
+			$(this).text($(this).attr('data-symbol') + ': $' + $(this).attr('data-latest-price'));
+		} else if ($('.ticker_list').attr('data-displayed') === "percent") {
+			$(this).text($(this).attr('data-symbol') + ': ' + $(this).attr('data-change-percent') + '%');
+		}
 	});
 }
 
@@ -146,6 +156,7 @@ function validate_ticker_input(ticker_input) {
 		tickers = temp_tickers;
 	}
 }
+
 
 // add new tickers
 function add_tickers() {
@@ -180,6 +191,7 @@ function sorting_options() {
 function setup_init_listeners() {
 	// obvious
 	$('.add_tickers').click(function() { add_tickers(); });
+	
 	$('.sorting_options_button').click(function() { sorting_options(); });
 	
 	// sort ticker list by symbol
@@ -197,11 +209,23 @@ function setup_init_listeners() {
 	// sort ticker list by price
 	$('.sorting_option_price').click(function() {
 		sorting_option_number(prices, $(this));
+		
+		$('.ticker_list').attr('data-displayed', 'price');
+		
+		$('.ticker').each(function() {
+			$(this).text($(this).attr('data-symbol') + ': $' + $(this).attr('data-latest-price'));
+		});
 	});
 	
 	// sort ticker list by price
 	$('.sorting_option_percent').click(function() {
 		sorting_option_number(percentages, $(this));
+		
+		$('.ticker_list').attr('data-displayed', 'percent');
+		
+		$('.ticker').each(function() {
+			$(this).text($(this).attr('data-symbol') + ': ' + $(this).attr('data-change-percent') + '%');
+		});
 	});
 }
 
