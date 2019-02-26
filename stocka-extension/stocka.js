@@ -74,6 +74,7 @@ function set_content(data) {
 		}
 	});
 	
+	// put forth the ticker data that is to be displayed
 	$('.ticker').each(function() {
 		if ($('.ticker_list').attr('data-displayed') === "price") {
 			$(this).text($(this).attr('data-symbol') + ': $' + $(this).attr('data-latest-price'));
@@ -157,7 +158,6 @@ function validate_ticker_input(ticker_input) {
 	}
 }
 
-
 // add new tickers
 function add_tickers() {
 	let tickers_to_add = $('.tickers_to_add').val().trim();
@@ -217,6 +217,7 @@ function setup_init_listeners() {
 		});
 	});
 	
+	
 	// sort ticker list by price
 	$('.sorting_option_percent').click(function() {
 		sorting_option_number(percentages, $(this));
@@ -229,33 +230,29 @@ function setup_init_listeners() {
 	});
 }
 
+// update the ticker list based on the sortion option clicked
 function sort_update_interface(sorting_option) {
-	$('.sorting_options .sorting_option').each(function() {
-		if ($(this).text().indexOf('⇡') != -1 || $(this).text().indexOf('⇣') != -1) {
-			$(this).text($(this).text().substring(0, $(this).text().length - 1));
-		}
-	});
-	
 	// first return ascending array and interface updates
 	if (sorting_option.hasClass('descending') || sorting_option.hasClass('unsorted')) {
 		sorting_option.addClass('ascending').removeClass('descending unsorted');
-		sorting_option.text(sorting_option.text() + ' ⇡');
 	} else if (sorting_option.hasClass('ascending')) {
 		// and if requested, reversed
 		sorting_option.addClass('descending').removeClass('ascending');
-		sorting_option.text(sorting_option.text().substring(0, sorting_option.text().length - 1) + ' ⇣');
 		
 		temporary_tickers.reverse();
 	}
 }
 
+// for sorting numeric value arrays
 function sorting_option_number(array_to_use, option_clicked) {
 	temporary_tickers = [];
 		
+	// perform sort
 	array_to_use.sort(function(a, b) {
 		return a.array_value - b.array_value;
 	});
 	
+	// get tickers array in order
 	array_to_use.forEach(function(item) {
 		temporary_tickers.push(item.ticker);
 	});
@@ -264,5 +261,6 @@ function sorting_option_number(array_to_use, option_clicked) {
 			
 	tickers = temporary_tickers;
 	
+	// and stock up
 	stock_up();
 }

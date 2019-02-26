@@ -1,3 +1,7 @@
+/*/STOCKA STYLING/*/
+
+/*--document---------------*/
+
 * {
 	font-family: 'Varela Round', sans-serif;
 	outline: none !important;
@@ -9,6 +13,11 @@ body {
   width: fit-content;
   background: snow;
 }
+
+::-webkit-input-placeholder {
+  text-align: center;
+
+/*--interaction---------------*/
 
 input:hover, button:hover, a:hover, .ticker:hover {
 	cursor: pointer;
@@ -45,22 +54,7 @@ button:hover {
   margin: 5px 30px;
 }
 
-.ticker {
-	margin: 5px;
-  height: 30px;
-  width: fit-content;
-  font-size: x-large;
-  color: white;
-  background: lightgrey;
-  transition: all 7.5s ease-in-out !important;
-  padding: 5px 10px;
-  white-space: nowrap;
-  overflow: hidden;
-  text-shadow: 0 2px 1px #000000;
-  border-radius: 5px;
-  box-shadow: 0 2px 1px #000000;
-}
-
+/*--tickers---------------*/
 .tickers {
   border: 2px solid darkgrey;
   border-radius: 5px;
@@ -86,6 +80,22 @@ button:hover {
 	transition: height 0.5s ease-in-out !important;
 }
 
+.ticker {
+	margin: 5px;
+  height: 30px;
+  width: fit-content;
+  font-size: x-large;
+  color: white;
+  background: lightgrey;
+  transition: all 7.5s ease-in-out !important;
+  padding: 5px 10px;
+  white-space: nowrap;
+  overflow: hidden;
+  text-shadow: 0 2px 1px #000000;
+  border-radius: 5px;
+  box-shadow: 0 2px 1px #000000;
+}
+
 .remove_ticker {
   margin: 10px 5px;
   height: 30px;
@@ -95,6 +105,21 @@ button:hover {
   padding-top: 4px;
   color: darkgray;
 }
+
+.up {
+	background: #427557;
+}
+
+.down {
+	background: #ce8988;
+}
+
+.no_change {
+	background: #427557;
+	opacity: 0.75;
+}
+
+/*--sorting---------------*/
 
 .sorting_options {
   transition: all 0.5s ease-in-out !important;
@@ -117,8 +142,6 @@ button:hover {
   border-radius: 3px;
   margin: 5px;
   color: darkgray;
-  width: 30%;
-  text-align: left;
 }
 
 .sorting_options_button {
@@ -130,20 +153,4 @@ button:hover {
   color: darkgray;
   margin-left: 199px;
 }
-
-.down {
-	background: #ce8988;
-}
-
-.up {
-	background: #427557;
-}
-
-.no_change {
-	background: #427557;
-	opacity: 0.75;
-}
-
-::-webkit-input-placeholder {
-  text-align: center;
 }
