@@ -8,11 +8,11 @@ let percentages = [];
 document.addEventListener("DOMContentLoaded", function(event) {
 	// check extension's storage to see if ticker data exists and if so, update local variables with it
 	chrome.storage.sync.get(['tickers'], function(result) {
-	  if (result.tickers.length > 0) { tickers = result.tickers; }
-	  else { tickers = []; }
-	  
-	  // get ticker data
-	  stock_up();
+	  if (result.tickers.length > 0) {
+		  tickers = result.tickers;
+		  
+		  stock_up();
+		} else { tickers = []; }
 	});
 	
 	// set up event listeners for pre-script html elements

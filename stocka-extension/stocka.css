@@ -2,6 +2,7 @@
 	font-family: 'Varela Round', sans-serif;
 	outline: none !important;
 	-webkit-highlight: none !important;
+	transition: all 0.1s ease-in-out;
 }
 
 body {
@@ -51,7 +52,7 @@ button:hover {
   font-size: x-large;
   color: white;
   background: lightgrey;
-  transition: all 7.5s ease-in-out;
+  transition: all 7.5s ease-in-out !important;
   padding: 5px 10px;
   white-space: nowrap;
   overflow: hidden;
@@ -82,7 +83,7 @@ button:hover {
   zoom: 0.75;
   padding: 10px;
   min-height: 100px;
-	transition: height 0.5s ease-in-out;
+	transition: height 0.5s ease-in-out !important;
 }
 
 .remove_ticker {
@@ -96,7 +97,7 @@ button:hover {
 }
 
 .sorting_options {
-  transition: all 0.5s ease-in-out;
+  transition: all 0.5s ease-in-out !important;
   overflow: hidden;
   display: flex;
   justify-content: center;
@@ -131,15 +132,16 @@ button:hover {
 }
 
 .down {
-	background: #782130;
+	background: #ce8988;
 }
 
 .up {
-	background: seagreen;
+	background: #427557;
 }
 
 .no_change {
-	background: lightgrey;
+	background: #427557;
+	opacity: 0.75;
 }
 
 ::-webkit-input-placeholder {
