@@ -1,9 +1,9 @@
 {
 	"manifest_version": 2,
 	"name": "stocka",
-	"description": "my chrome extension",
-	"version": "1",
-	"author": "aaron chapman",
+	"description": "monitor your portfolio",
+	"version": "1.1",
+	"author": "oylo",
 	"browser_action": {"default_popup": "stocka.html"},
 	"permissions": ["activeTab", "storage"],
 	"icons": {"16": "icon16.png", "48": "icon48.png", "128": "icon128.png"}

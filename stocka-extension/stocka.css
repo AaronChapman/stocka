@@ -1,7 +1,3 @@
-/*/STOCKA STYLING/*/
-
-/*--document---------------*/
-
 * {
 	font-family: 'Varela Round', sans-serif;
 	outline: none !important;
@@ -16,8 +12,7 @@ body {
 
 ::-webkit-input-placeholder {
   text-align: center;
-
-/*--interaction---------------*/
+}
 
 input:hover, button:hover, a:hover, .ticker:hover {
 	cursor: pointer;
@@ -54,7 +49,6 @@ button:hover {
   margin: 5px 30px;
 }
 
-/*--tickers---------------*/
 .tickers {
   border: 2px solid darkgrey;
   border-radius: 5px;
@@ -119,8 +113,6 @@ button:hover {
 	opacity: 0.75;
 }
 
-/*--sorting---------------*/
-
 .sorting_options {
   transition: all 0.5s ease-in-out !important;
   overflow: hidden;
@@ -152,5 +144,4 @@ button:hover {
   position: fixed;
   color: darkgray;
   margin-left: 199px;
-}
 }
