@@ -13,7 +13,11 @@ document.addEventListener("DOMContentLoaded", function(event) {
 		  tickers = result.tickers;
 		  
 		  stock_up();
-		} else { tickers = []; }
+		} else {
+			tickers = ['AAPL', 'AMZN', 'FB', 'GOOGL', 'MSFT'];
+		
+			stock_up();	
+		}
 	});
 	
 	// set up event listeners for pre-script html elements
@@ -26,7 +30,9 @@ function stock_up() {
 	let url = 'https://api.iextrading.com/1.0/stock/market/batch?types=quote&symbols=' + tickers.join(',') + '&filter=symbol,change,latestPrice,changePercent';
   
   // make the api request and start setting up ticker elements in the DOM
-  fetch(url).then(res => res.json()).then(data => set_content(data));
+  if (tickers.length > 0) {
+	  fetch(url).then(res => res.json()).then(data => set_content(data));
+	}
 }
 
 // set up the ticker list
