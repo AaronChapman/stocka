@@ -69,9 +69,9 @@ button:hover {
   display: grid;
   width: 300px;
   zoom: 0.75;
-  padding: 10px;
+  padding: 10px 10px 15px 10px;
   min-height: 100px;
-	transition: height 0.5s ease-in-out !important;
+	transition: all 0.5s ease-in-out !important;
 }
 
 .ticker {
@@ -81,7 +81,7 @@ button:hover {
   font-size: x-large;
   color: white;
   background: lightgrey;
-  transition: all 7.5s ease-in-out !important;
+  transition: opacity 0.5s ease-in-out !important;
   padding: 5px 10px;
   white-space: nowrap;
   overflow: hidden;
@@ -90,8 +90,23 @@ button:hover {
   box-shadow: 0 2px 1px #000000;
 }
 
+.ticker_elements {
+	display: inline-flex;
+  list-style-type: none;
+  width: -webkit-fill-available;
+  padding: 0;
+  margin-left: 10px;
+}
+
+.ticker_symbol {
+	min-width: 90%;
+}
+
+.ticker_removal {
+	min-width 10%;
+}
+
 .remove_ticker {
-  margin: 10px 5px;
   height: 30px;
   width: 30px;
   border: 2px solid darkgray;
@@ -141,7 +156,5 @@ button:hover {
   border: 2px solid darkgray;
   border-radius: 3px;
   margin: 5px;
-  position: fixed;
   color: darkgray;
-  margin-left: 199px;
 }

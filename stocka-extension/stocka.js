@@ -2,6 +2,7 @@
 let tickers = [];
 let temporary_tickers = [];
 let prices = [];
+let changes = [];
 let percentages = [];
 
 // when the document has finished loading
@@ -36,6 +37,7 @@ function set_content(data) {
 	
 	// empty local variables
 	prices = [];
+	changes = [];
 	percentages = [];
 	
 	// for each item defined in the tickers array
@@ -43,23 +45,32 @@ function set_content(data) {
 		if (data[ticker]) {
 			// get & store the data requested from iex
 			let latest_price = parseFloat(data[ticker].quote.latestPrice).toFixed(2);
+			let change = parseFloat(data[ticker].quote.change).toFixed(2);
 			let change_percent = parseFloat(data[ticker].quote.changePercent).toFixed(2);
 			// and create a ticker container element with data attributes
 			let markup = '<div class="ticker_container">';
-			markup += '<button class="remove_ticker">✕</button>';
-			markup += '<span class="ticker" data-displayed="price" data-symbol="' + ticker + '" data-change-percent="' + change_percent + '" data-latest-price="' + latest_price + '">' + ticker + ': $' + latest_price + '</span>';
+			markup += '<ul class="ticker_elements"><li class="ticker_symbol">';
+			markup += '<span ';
+			markup += 'class="ticker" ';
+			markup += 'data-displayed="price" ';
+			markup += 'data-symbol="' + ticker + '" ';
+			markup += 'data-latest-price="' + latest_price + '" ';
+			markup += 'data-change="' + change + '" ';
+			markup += 'data-change-percent="' + change_percent + '"';
+			markup += '>' + ticker + ': ' + latest_price;
+			markup += '</span></li>'
+			markup += '<li class="ticker_removal"><button class="remove_ticker">✕</button></li>';
 			markup += '</div>';
 			
 			// push the information to the ticker list data arrays
-			prices.push({'ticker':ticker, 'array_value':parseFloat(latest_price).toFixed(2)});
-			percentages.push({'ticker':ticker, 'array_value':parseFloat(change_percent).toFixed(2)});
+			prices.push({'ticker':ticker, 'array_value':latest_price});
+			changes.push({'ticker':ticker, 'array_value':change});
+			percentages.push({'ticker':ticker, 'array_value':change_percent});
 					
 			// and append the new ticker to the document
 			$('.ticker_list').append(markup);
 			
 			// determine styling for the newly added ticker based on day change
-			let change = data[ticker].quote.change.toString();
-					
 			if (change.indexOf('-') != -1) { $('.ticker:last').addClass('down'); }
 			else if (change == '0') { $('.ticker:last').addClass('no_change'); }
 			else { $('.ticker:last').addClass('up'); }
@@ -75,13 +86,7 @@ function set_content(data) {
 	});
 	
 	// put forth the ticker data that is to be displayed
-	$('.ticker').each(function() {
-		if ($('.ticker_list').attr('data-displayed') === "price") {
-			$(this).text($(this).attr('data-symbol') + ': $' + $(this).attr('data-latest-price'));
-		} else if ($('.ticker_list').attr('data-displayed') === "percent") {
-			$(this).text($(this).attr('data-symbol') + ': ' + $(this).attr('data-change-percent') + '%');
-		} 
-	});
+	set_ticker_display_data();
 	
 	// set up the event listeners for the new added tickers
 	setup_event_listeners();
@@ -89,11 +94,27 @@ function set_content(data) {
 	save_tickers();
 }
 
+function set_ticker_display_data() {	
+	$('.ticker').each(function() {
+		if ($('.ticker_list').attr('data-displayed') === "price") {
+			$(this).text($(this).attr('data-symbol') + ': ' + $(this).attr('data-latest-price'));
+		} else if ($('.ticker_list').attr('data-displayed') === "change") {
+			$(this).text($(this).attr('data-symbol') + ': ' + $(this).attr('data-change'));
+		}  else if ($('.ticker_list').attr('data-displayed') === "percent") {
+			$(this).text($(this).attr('data-symbol') + ': ' + $(this).attr('data-change-percent') + '%');
+		} 
+	});
+		
+	setTimeout(function() {
+		$('.ticker_list').css('opacity', '1');
+	}, 250);
+}
+
 // adding event listeners for content that was appended to the page
 function setup_event_listeners() {
 	// the ticker removal button
 	$('button.remove_ticker').click(function() {
-		var ticker_to_remove = $(this).parent();
+		var ticker_to_remove = $(this).parents('.ticker_container').eq(0);
 		
 		// this could be simpler but a e s t h e t i c (the cool fade)
 		ticker_to_remove.addClass('closed');
@@ -103,11 +124,41 @@ function setup_event_listeners() {
 		}, 750);
 		
 		// get the symbol, find the match in the tickers array, and pop that mf
-		let tt_info = $(this).next().text().trim();
+		let tt_info = $(this).parents('.ticker_elements').eq(0).find('.ticker').text().trim();
 		let temp_ticker = tt_info.substring(0, tt_info.indexOf(':'));
-		let index = tickers.indexOf(temp_ticker);
+		let ticker_index = tickers.indexOf(temp_ticker);
 		
-		if (index !== -1) tickers.splice(index, 1);
+		if (ticker_index !== -1) tickers.splice(ticker_index, 1);
+				
+		let price_index = 0;
+		
+		prices.forEach(function(item) {
+			if (item.ticker === temp_ticker) {
+				prices.splice(price_index, 1);
+			}
+			
+			price_index++;
+		});
+		
+		let change_index = 0;
+		
+		 changes.forEach(function(item) {
+			if (item.ticker === temp_ticker) {
+				changes.splice(change_index, 1);
+			}
+			
+			change_index++;
+		});
+		
+		let percentage_index = 0;
+		
+		percentages.forEach(function(item) {
+			if (item.ticker === temp_ticker) {
+				percentages.splice(percentage_index, 1);
+			}
+			
+			percentage_index++;
+		});
 		
 		// then update chrome storage
 		save_tickers();
@@ -115,20 +166,16 @@ function setup_event_listeners() {
 	
 	// when a ticker is moused over show the other value change
 	$('.ticker').mouseover(function() {
-		if ($('.ticker_list').attr('data-displayed') === "price") {
+		if ($('.ticker_list').attr('data-displayed') === "price" || $('.ticker_list').attr('data-displayed') === "change") {
 			$(this).text($(this).attr('data-symbol') + ': ' + $(this).attr('data-change-percent') + '%');
 		} else if ($('.ticker_list').attr('data-displayed') === "percent") {
-			$(this).text($(this).attr('data-symbol') + ': $' + $(this).attr('data-latest-price'));
+			$(this).text($(this).attr('data-symbol') + ': ' + $(this).attr('data-change'));
 		}
 	});
 	
 	// when the ticker is moused out of, reset the ticker display
 	$('.ticker').mouseout(function() {
-		if ($('.ticker_list').attr('data-displayed') === "price") {
-			$(this).text($(this).attr('data-symbol') + ': $' + $(this).attr('data-latest-price'));
-		} else if ($('.ticker_list').attr('data-displayed') === "percent") {
-			$(this).text($(this).attr('data-symbol') + ': ' + $(this).attr('data-change-percent') + '%');
-		}
+		set_ticker_display_data();
 	});
 }
 
@@ -196,37 +243,72 @@ function setup_init_listeners() {
 	
 	// sort ticker list by symbol
 	$('.sorting_option_symbol').click(function() {
-		temporary_tickers = tickers.sort();
+		$('.ticker_list').css('opacity', '0');
 		
-		sort_update_interface($(this));
+		var option_clicked = $(this);
 		
-		// update local array and ticker list container
-		tickers = temporary_tickers;
-		
-		stock_up();
+		setTimeout(function() {			
+			temporary_tickers = tickers.sort();
+			
+			sort_update_interface(option_clicked);
+			
+			// update local array and ticker list container
+			tickers = temporary_tickers;
+			
+			stock_up();
+		}, 500);
 	});
 	
 	// sort ticker list by price
 	$('.sorting_option_price').click(function() {
-		sorting_option_number(prices, $(this));
+		$('.ticker_list').css('opacity', '0');
 		
-		$('.ticker_list').attr('data-displayed', 'price');
+		var option_clicked = $(this);
 		
-		$('.ticker').each(function() {
-			$(this).text($(this).attr('data-symbol') + ': $' + $(this).attr('data-latest-price'));
-		});
+		setTimeout(function() {	
+			sorting_option_number(prices, option_clicked);
+			
+			$('.ticker_list').attr('data-displayed', 'price');
+			
+			$('.ticker').each(function() {
+				$(this).text(option_clicked.attr('data-symbol') + ': ' + option_clicked.attr('data-latest-price'));
+			});
+		}, 500);
 	});
 	
 	
 	// sort ticker list by price
+	$('.sorting_option_change').click(function() {
+		$('.ticker_list').css('opacity', '0');
+		
+		var option_clicked = $(this);
+		
+		setTimeout(function() {	
+			sorting_option_number(changes, option_clicked);
+			
+			$('.ticker_list').attr('data-displayed', 'change');
+			
+			$('.ticker').each(function() {
+				$(this).text($(this).attr('data-symbol') + ': ' + $(this).attr('data-change'));
+			});
+		}, 500);
+	});
+	
+	// sort ticker list by price
 	$('.sorting_option_percent').click(function() {
-		sorting_option_number(percentages, $(this));
+		$('.ticker_list').css('opacity', '0');
 		
-		$('.ticker_list').attr('data-displayed', 'percent');
+		var option_clicked = $(this);
 		
-		$('.ticker').each(function() {
-			$(this).text($(this).attr('data-symbol') + ': ' + $(this).attr('data-change-percent') + '%');
-		});
+		setTimeout(function() {	
+			sorting_option_number(percentages, option_clicked);
+			
+			$('.ticker_list').attr('data-displayed', 'percent');
+			
+			$('.ticker').each(function() {
+				$(this).text($(this).attr('data-symbol') + ': ' + $(this).attr('data-change-percent') + '%');
+			});
+		}, 500);
 	});
 }
 
