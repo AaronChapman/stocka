@@ -44,21 +44,22 @@ function research(symbol) {
 }
 
 function set_ticker_details(data, ticker) {
-	console.log(ticker);
+	let ticker_to_get = $('.ticker[data-symbol="' + ticker + '"]');
 	
+	$('.ticker_detail .ticker').text(ticker_to_get.text().trim()).attr('class', ticker_to_get.attr('class'));
 	$('.ticker_detail_data').empty();
-	$('.ticker_detail .ticker').text($('.ticker[data-symbol="' + ticker + '"]').text().trim());
 	
 	let ticker_details = {
-		'change':0.00,
-		'change_percent':0.00,
+		'change':'',
 		'highest_price':0.00,
 		'lowest_price':0.00,
 		'volume_traded':0
 	};
 	
-	ticker_details['change'] = parseFloat(data[data.length - 1].high - data[0].close).toFixed(2);
-	ticker_details['change_percent'] = parseFloat(data[data.length - 1].changeOverTime).toFixed(2);
+	temp_change = parseFloat(data[data.length - 1].high - data[0].close).toFixed(2);
+	temp_change = temp_change.toString() + ' (' + parseFloat(data[data.length - 1].changeOverTime).toFixed(2) + ' %)';
+	
+	ticker_details['change'] = temp_change
 	ticker_details['lowest_price'] = parseFloat(data[0].low).toFixed(2);
 	
 	data.forEach(function(obj) {
@@ -75,7 +76,7 @@ function set_ticker_details(data, ticker) {
 		
 	for (var datum in ticker_details) {
     if (ticker_details.hasOwnProperty(datum)) { 
-			$('.ticker_detail_data').append('<tr><td>' + datum + '</td><td>' + ticker_details[datum] + '</td></tr>');   
+			$('.ticker_detail_data').append('<tr><td>' + datum.replace('_', ' ').replace('percent', ' (%)') + '</td><td>' + ticker_details[datum] + '</td></tr>');   
     }
 	}
 	
@@ -122,11 +123,11 @@ function set_content(data) {
 					
 			// and append the new ticker to the document
 			$('.ticker_list').append(markup);
-			
+						
 			// determine styling for the newly added ticker based on day change
-			if (change.indexOf('-') != -1) { $('.ticker:last').addClass('down'); }
-			else if (change == '0') { $('.ticker:last').addClass('no_change'); }
-			else { $('.ticker:last').addClass('up'); }
+			if (change.indexOf('-') != -1) { $('.ticker_list .ticker:last').addClass('down'); }
+			else if (change == '0') { $('.ticker_list .ticker:last').addClass('no_change'); }
+			else { $('.ticker_list .ticker:last').addClass('up'); }
 		} else {
 			// if the ticker being added did not receive a valid response from iex
 			console.log(ticker, ' is not a valid ticker');
@@ -331,7 +332,7 @@ function setup_init_listeners() {
 			
 			$('.ticker_list').attr('data-displayed', 'price');
 			
-			$('.ticker').each(function() {
+			$('.ticker_list .ticker').each(function() {
 				$(this).text(option_clicked.attr('data-symbol') + ': ' + option_clicked.attr('data-latest-price'));
 			});
 		}, 500);
@@ -349,7 +350,7 @@ function setup_init_listeners() {
 			
 			$('.ticker_list').attr('data-displayed', 'change');
 			
-			$('.ticker').each(function() {
+			$('.ticker_list .ticker').each(function() {
 				$(this).text($(this).attr('data-symbol') + ': ' + $(this).attr('data-change'));
 			});
 		}, 500);
@@ -366,7 +367,7 @@ function setup_init_listeners() {
 			
 			$('.ticker_list').attr('data-displayed', 'percent');
 			
-			$('.ticker').each(function() {
+			$('.ticker_list .ticker').each(function() {
 				$(this).text($(this).attr('data-symbol') + ': ' + $(this).attr('data-change-percent') + '%');
 			});
 		}, 500);
