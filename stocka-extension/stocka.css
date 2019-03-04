@@ -132,7 +132,7 @@ button:hover {
 }
 
 .ticker_detail_data {
-	margin-top: 15px;
+	margin: 5px 5px 0 5px;
 }
 
 .ticker_detail .ticker {
@@ -146,6 +146,23 @@ button:hover {
 .ticker_detail_data tr td:last {
 	width: 25%;
 	text-algin: right;
+}
+
+.timeframe_options {
+	display: inline-flex;
+	justify-content: center;
+	margin-top 10px;
+}
+
+.timeframe_option {
+  height: 20px;
+  border: 2px solid darkgray;
+  border-radius: 3px;
+  margin: 10px 5px 0 5px;
+  color: darkgray;
+  background: white;
+  padding: 0 5px;
+  white-space: nowrap;
 }
 
 .up {
