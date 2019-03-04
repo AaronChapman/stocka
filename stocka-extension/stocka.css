@@ -115,6 +115,40 @@ button:hover {
   color: darkgray;
 }
 
+.ticker_detail {
+	height: 0px;
+  overflow: hidden;
+  display: grid;
+  transition: all 0.5s ease-in-out !important;
+	padding: 0;
+  margin: 0;
+  border-top: none;
+}
+
+.ticker_detail.open {
+	height: 140px;
+	padding: 10px;
+  margin: 5px 0;
+  border-top: 2px solid darkgray;
+}
+
+.ticker_detail_data {
+	margin-top: 15px;
+}
+
+.ticker_detail .ticker {
+	margin: auto;
+}
+
+.ticker_detail_data tr td:first {
+	width: 75%;
+}
+
+.ticker_detail_data tr td:last {
+	width: 25%;
+	text-algin: right;
+}
+
 .up {
 	background: #427557;
 }

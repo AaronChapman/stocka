@@ -35,6 +35,53 @@ function stock_up() {
 	}
 }
 
+function research(symbol) {
+	let url = 'https://api.iextrading.com/1.0/stock/' + symbol + '/chart/1m';
+  
+  if (tickers.length > 0) {
+	  fetch(url).then(res => res.json()).then(data => set_ticker_details(data, symbol));
+	}
+}
+
+function set_ticker_details(data, ticker) {
+	console.log(ticker);
+	
+	$('.ticker_detail_data').empty();
+	$('.ticker_detail .ticker').text($('.ticker[data-symbol="' + ticker + '"]').text().trim());
+	
+	let ticker_details = {
+		'change':0.00,
+		'change_percent':0.00,
+		'highest_price':0.00,
+		'lowest_price':0.00,
+		'volume_traded':0
+	};
+	
+	ticker_details['change'] = parseFloat(data[data.length - 1].high - data[0].close).toFixed(2);
+	ticker_details['change_percent'] = parseFloat(data[data.length - 1].changeOverTime).toFixed(2);
+	ticker_details['lowest_price'] = parseFloat(data[0].low).toFixed(2);
+	
+	data.forEach(function(obj) {
+		if (obj['high'] > ticker_details['highest_price']) {
+			ticker_details['highest_price'] = obj['high'];
+		}
+		
+		if (obj['low'] < ticker_details['lowest_price']) {
+			ticker_details['lowest_price'] = obj['low'];
+		}
+		
+		ticker_details['volume_traded'] += obj['volume'];
+	});
+		
+	for (var datum in ticker_details) {
+    if (ticker_details.hasOwnProperty(datum)) { 
+			$('.ticker_detail_data').append('<tr><td>' + datum + '</td><td>' + ticker_details[datum] + '</td></tr>');   
+    }
+	}
+	
+	$('.ticker_detail').removeClass('closed').addClass('open');
+}
+
 // set up the ticker list
 function set_content(data) {
 	// first, empty it out
@@ -101,7 +148,7 @@ function set_content(data) {
 }
 
 function set_ticker_display_data() {	
-	$('.ticker').each(function() {
+	$('.ticker_list .ticker').each(function() {
 		if ($('.ticker_list').attr('data-displayed') === "price") {
 			$(this).text($(this).attr('data-symbol') + ': ' + $(this).attr('data-latest-price'));
 		} else if ($('.ticker_list').attr('data-displayed') === "change") {
@@ -170,8 +217,16 @@ function setup_event_listeners() {
 		save_tickers();
 	});
 	
+	$('.ticker_list .ticker').click(function() {
+		research($(this).attr('data-symbol'));
+	});
+	
+	$('.ticker_detail .ticker').click(function() {
+		$('.ticker_detail').removeClass('open').addClass('closed');
+	});
+	
 	// when a ticker is moused over show the other value change
-	$('.ticker').mouseover(function() {
+	$('.ticker_list .ticker').mouseover(function() {
 		if ($('.ticker_list').attr('data-displayed') === "price" || $('.ticker_list').attr('data-displayed') === "change") {
 			$(this).text($(this).attr('data-symbol') + ': ' + $(this).attr('data-change-percent') + '%');
 		} else if ($('.ticker_list').attr('data-displayed') === "percent") {
@@ -180,7 +235,7 @@ function setup_event_listeners() {
 	});
 	
 	// when the ticker is moused out of, reset the ticker display
-	$('.ticker').mouseout(function() {
+	$('.ticker_list .ticker').mouseout(function() {
 		set_ticker_display_data();
 	});
 }
