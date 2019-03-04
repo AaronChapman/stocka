@@ -35,8 +35,8 @@ function stock_up() {
 	}
 }
 
-function research(symbol) {
-	let url = 'https://api.iextrading.com/1.0/stock/' + symbol + '/chart/1m';
+function research(symbol, timeframe) {
+	let url = 'https://api.iextrading.com/1.0/stock/' + symbol + '/chart/' + timeframe;
   
   if (tickers.length > 0) {
 	  fetch(url).then(res => res.json()).then(data => set_ticker_details(data, symbol));
@@ -46,7 +46,7 @@ function research(symbol) {
 function set_ticker_details(data, ticker) {
 	let ticker_to_get = $('.ticker[data-symbol="' + ticker + '"]');
 	
-	$('.ticker_detail .ticker').text(ticker_to_get.text().trim()).attr('class', ticker_to_get.attr('class'));
+	$('.ticker_detail .ticker').text(ticker_to_get.attr('data-symbol') + ': $' + ticker_to_get.attr('data-latest-price')).attr('class', ticker_to_get.attr('class'));
 	$('.ticker_detail_data').empty();
 	
 	let ticker_details = {
@@ -56,10 +56,11 @@ function set_ticker_details(data, ticker) {
 		'volume_traded':0
 	};
 	
-	temp_change = parseFloat(data[data.length - 1].high - data[0].close).toFixed(2);
-	temp_change = temp_change.toString() + ' (' + parseFloat(data[data.length - 1].changeOverTime).toFixed(2) + ' %)';
+	console.log(data);
 	
-	ticker_details['change'] = temp_change
+	temp_change = parseFloat(data[data.length - 1].open - data[0].close).toFixed(2);
+	
+	ticker_details['change'] = temp_change.toString();
 	ticker_details['lowest_price'] = parseFloat(data[0].low).toFixed(2);
 	
 	data.forEach(function(obj) {
@@ -219,7 +220,10 @@ function setup_event_listeners() {
 	});
 	
 	$('.ticker_list .ticker').click(function() {
-		research($(this).attr('data-symbol'));
+		research($(this).attr('data-symbol'), '1m');
+		
+		$('.timeframe_option').removeClass('timeframe_selected');
+		$('.timeframe_option.1m').addClass('timeframe_selected');
 	});
 	
 	$('.ticker_detail .ticker').click(function() {
@@ -371,6 +375,18 @@ function setup_init_listeners() {
 				$(this).text($(this).attr('data-symbol') + ': ' + $(this).attr('data-change-percent') + '%');
 			});
 		}, 500);
+	});
+	
+	$('.timeframe_option').click(function() {
+		var timeframe = $(this).attr('class').split(' ')[1];
+		var ticker = $('.ticker_detail .ticker').text().substring(0, $('.ticker_detail .ticker').text().indexOf(':'));
+		
+		console.log(timeframe);
+		
+		research(ticker, timeframe);
+		
+		$('.timeframe_option').removeClass('timeframe_selected');
+		$(this).addClass('timeframe_selected');
 	});
 }
 

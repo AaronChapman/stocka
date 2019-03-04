@@ -127,8 +127,9 @@ button:hover {
 
 .ticker_detail.open {
 	height: 140px;
-	padding: 10px;
-  margin: 5px 0;
+  padding: 10px 0 15px 0;
+  margin: 5px 0 0 0;
+  border-bottom: 2px solid darkgray;
 }
 
 .ticker_detail_data {
@@ -139,13 +140,13 @@ button:hover {
 	margin: auto;
 }
 
-.ticker_detail_data tr td:first {
+.ticker_detail_data tr td:nth-child(1) {
 	width: 75%;
 }
 
-.ticker_detail_data tr td:last {
+.ticker_detail_data tr td:nth-child(2) {
 	width: 25%;
-	text-algin: right;
+	text-align: right;
 }
 
 .timeframe_options {
@@ -163,6 +164,10 @@ button:hover {
   background: white;
   padding: 0 5px;
   white-space: nowrap;
+}
+
+.timeframe_selected {
+	background: antiquewhite;
 }
 
 .up {
