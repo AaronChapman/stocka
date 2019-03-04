@@ -56,8 +56,6 @@ function set_ticker_details(data, ticker) {
 		'volume_traded':0
 	};
 	
-	console.log(data);
-	
 	temp_change = parseFloat(data[data.length - 1].open - data[0].close).toFixed(2);
 	
 	ticker_details['change'] = temp_change.toString();
@@ -380,8 +378,6 @@ function setup_init_listeners() {
 	$('.timeframe_option').click(function() {
 		var timeframe = $(this).attr('class').split(' ')[1];
 		var ticker = $('.ticker_detail .ticker').text().substring(0, $('.ticker_detail .ticker').text().indexOf(':'));
-		
-		console.log(timeframe);
 		
 		research(ticker, timeframe);
 		
