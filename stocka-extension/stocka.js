@@ -149,7 +149,6 @@ function set_content(data) {
 	
 	// put forth the ticker data that is to be displayed
 	set_ticker_display_data();
-	
 	// set up the event listeners for the new added tickers
 	setup_event_listeners();
 	// and sync the data to chrome storage
@@ -194,9 +193,9 @@ function setup_event_listeners() {
 		
 		if (ticker_index !== -1) tickers.splice(ticker_index, 1);
 				
-		remove_ticker_from_array(0, prices);
-		remove_ticker_from_array(0, changes);
-		remove_ticker_from_array(0, percentages);
+		remove_ticker_from_array(temp_ticker, 0, prices);
+		remove_ticker_from_array(temp_ticker, 0, changes);
+		remove_ticker_from_array(temp_ticker, 0, percentages);
 		
 		// then update chrome storage
 		save_tickers();
@@ -229,7 +228,7 @@ function setup_event_listeners() {
 }
 
 // remove ticker from all related arrays
-function remove_ticker_from_arrays(ticker_index, array_to_use) {
+function remove_ticker_from_array(temp_ticker, ticker_index, array_to_use) {
 	array_to_use.forEach(function(item) {
 		if (item.ticker === temp_ticker) {
 			array_to_use.splice(ticker_index, 1);
@@ -298,6 +297,14 @@ function sorting_options() {
 function setup_init_listeners() {
 	// obvious
 	$('.add_tickers').click(function() { add_tickers(); });
+
+	$('.tickers_to_add').on('keydown', function(event) {
+		if (event.keyCode === 13) {
+			event.preventDefault();
+
+			add_tickers();
+		}
+	});
 	
 	$('.sorting_options_button').click(function() { sorting_options(); });
 	
