@@ -1,4 +1,4 @@
-// for holding ticker information
+// local variables for holding ticker information
 let tickers = [];
 let temporary_tickers = [];
 let prices = [];
@@ -9,10 +9,11 @@ let percentages = [];
 document.addEventListener("DOMContentLoaded", function(event) {
 	// check extension's storage to see if ticker data exists and if so, update local variables with it
 	chrome.storage.sync.get(['tickers'], function(result) {
-	  if (result.tickers.length > 0) {
+	  if (result.tickers && result.tickers.length > 0) {
 		  tickers = result.tickers;
 		  
 		  stock_up();
+		// and stock up with default data if the install is fresh
 		} else {
 			tickers = ['AAPL', 'AMZN', 'FB', 'GOOGL', 'MSFT'];
 		
@@ -35,20 +36,24 @@ function stock_up() {
 	}
 }
 
+// individual ticker lookup
 function research(symbol, timeframe) {
+	// fetch ticker data for selected timeframe from iex api
 	let url = 'https://api.iextrading.com/1.0/stock/' + symbol + '/chart/' + timeframe;
   
-  if (tickers.length > 0) {
-	  fetch(url).then(res => res.json()).then(data => set_ticker_details(data, symbol));
-	}
+	// set up ticker detail view with response data
+	fetch(url).then(res => res.json()).then(data => set_ticker_details(data, symbol));
 }
 
+// update ticker detail view
 function set_ticker_details(data, ticker) {
+	// update ticker being displayed in detail view and empty the data table
 	let ticker_to_get = $('.ticker[data-symbol="' + ticker + '"]');
 	
 	$('.ticker_detail .ticker').text(ticker_to_get.attr('data-symbol') + ': $' + ticker_to_get.attr('data-latest-price')).attr('class', ticker_to_get.attr('class'));
 	$('.ticker_detail_data').empty();
 	
+	// object that holds details about the ticker
 	let ticker_details = {
 		'change':'',
 		'highest_price':0.00,
@@ -56,11 +61,13 @@ function set_ticker_details(data, ticker) {
 		'volume_traded':0
 	};
 	
-	temp_change = parseFloat(data[data.length - 1].open - data[0].close).toFixed(2);
+	// fill up that object with parsed data from iex
+	let temp_change = parseFloat(data[data.length - 1].open - data[0].close).toFixed(2);
 	
 	ticker_details['change'] = temp_change.toString();
 	ticker_details['lowest_price'] = parseFloat(data[0].low).toFixed(2);
 	
+	// loop through object to find highest & lowest prices, as well as volume
 	data.forEach(function(obj) {
 		if (obj['high'] > ticker_details['highest_price']) {
 			ticker_details['highest_price'] = obj['high'];
@@ -73,12 +80,14 @@ function set_ticker_details(data, ticker) {
 		ticker_details['volume_traded'] += obj['volume'];
 	});
 		
+	// loop through the ticker details object and append table data
 	for (var datum in ticker_details) {
     if (ticker_details.hasOwnProperty(datum)) { 
 			$('.ticker_detail_data').append('<tr><td>' + datum.replace('_', ' ').replace('percent', ' (%)') + '</td><td>' + ticker_details[datum] + '</td></tr>');   
     }
 	}
 	
+	// aesthetic
 	$('.ticker_detail').removeClass('closed').addClass('open');
 }
 
@@ -147,6 +156,7 @@ function set_content(data) {
 	save_tickers();
 }
 
+// update which data point is being displayed for each ticker
 function set_ticker_display_data() {	
 	$('.ticker_list .ticker').each(function() {
 		if ($('.ticker_list').attr('data-displayed') === "price") {
@@ -158,6 +168,7 @@ function set_ticker_display_data() {
 		} 
 	});
 		
+	// styling
 	setTimeout(function() {
 		$('.ticker_list').css('opacity', '1');
 	}, 250);
@@ -176,42 +187,16 @@ function setup_event_listeners() {
 			ticker_to_remove.remove();
 		}, 750);
 		
-		// get the symbol, find the match in the tickers array, and pop that mf
+		// get the symbol, find the match in the ticker data arrays, and pop those mfs
 		let tt_info = $(this).parents('.ticker_elements').eq(0).find('.ticker').text().trim();
 		let temp_ticker = tt_info.substring(0, tt_info.indexOf(':'));
 		let ticker_index = tickers.indexOf(temp_ticker);
 		
 		if (ticker_index !== -1) tickers.splice(ticker_index, 1);
 				
-		let price_index = 0;
-		
-		prices.forEach(function(item) {
-			if (item.ticker === temp_ticker) {
-				prices.splice(price_index, 1);
-			}
-			
-			price_index++;
-		});
-		
-		let change_index = 0;
-		
-		 changes.forEach(function(item) {
-			if (item.ticker === temp_ticker) {
-				changes.splice(change_index, 1);
-			}
-			
-			change_index++;
-		});
-		
-		let percentage_index = 0;
-		
-		percentages.forEach(function(item) {
-			if (item.ticker === temp_ticker) {
-				percentages.splice(percentage_index, 1);
-			}
-			
-			percentage_index++;
-		});
+		remove_ticker_from_array(0, prices);
+		remove_ticker_from_array(0, changes);
+		remove_ticker_from_array(0, percentages);
 		
 		// then update chrome storage
 		save_tickers();
@@ -240,6 +225,17 @@ function setup_event_listeners() {
 	// when the ticker is moused out of, reset the ticker display
 	$('.ticker_list .ticker').mouseout(function() {
 		set_ticker_display_data();
+	});
+}
+
+// remove ticker from all related arrays
+function remove_ticker_from_arrays(ticker_index, array_to_use) {
+	array_to_use.forEach(function(item) {
+		if (item.ticker === temp_ticker) {
+			array_to_use.splice(ticker_index, 1);
+		}
+	
+		ticker_index++;
 	});
 }
 
