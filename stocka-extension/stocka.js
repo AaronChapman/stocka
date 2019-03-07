@@ -28,7 +28,7 @@ document.addEventListener("DOMContentLoaded", function(event) {
 // get ticker data from the iex api for every symbol in the local tickers array
 function stock_up() {
 	// currently asking for symbol, price change (day), latest share price, and percentage change (day)
-	let url = 'https://api.iextrading.com/1.0/stock/market/batch?types=quote&symbols=' + tickers.join(',') + '&filter=symbol,change,latestPrice,changePercent';
+	let url = 'https://api.iextrading.com/1.0/stock/market/batch?types=quote&symbols=' + tickers.join(',');
   
   // make the api request and start setting up ticker elements in the DOM
   if (tickers.length > 0) {
@@ -43,6 +43,31 @@ function research(symbol, timeframe) {
   
 	// set up ticker detail view with response data
 	fetch(url).then(res => res.json()).then(data => set_ticker_details(data, symbol));
+}
+
+function research_quote(symbol) {
+	let url = 'https://api.iextrading.com/1.0/stock/' + symbol + '/quote';
+  
+	// set up ticker detail view with response data
+	fetch(url).then(res => res.json()).then(data => add_ticker_details(data, symbol));
+}
+
+function add_ticker_details(data, ticker) {
+	let additional_ticker_details = {
+		'market_cap':0
+	};
+	
+	additional_ticker_details['market_cap'] = data.marketCap;
+	
+	for (var datum in additional_ticker_details) {
+    if (additional_ticker_details.hasOwnProperty(datum)) { 
+			$('.ticker_detail_data').append('<tr><td>' + datum.replace('_', ' ') + '</td><td>' + number_with_commas(additional_ticker_details[datum]) + '</td></tr>');   
+    }
+	}
+}
+
+function number_with_commas(num) {
+  return num.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",");
 }
 
 // update ticker detail view
@@ -83,10 +108,12 @@ function set_ticker_details(data, ticker) {
 	// loop through the ticker details object and append table data
 	for (var datum in ticker_details) {
     if (ticker_details.hasOwnProperty(datum)) { 
-			$('.ticker_detail_data').append('<tr><td>' + datum.replace('_', ' ').replace('percent', ' (%)') + '</td><td>' + ticker_details[datum] + '</td></tr>');   
+			$('.ticker_detail_data').append('<tr><td>' + datum.replace('_', ' ') + '</td><td>' + number_with_commas(ticker_details[datum]) + '</td></tr>');   
     }
 	}
 	
+	research_quote(ticker);
+		
 	// aesthetic
 	$('.ticker_detail').removeClass('closed').addClass('open');
 }
