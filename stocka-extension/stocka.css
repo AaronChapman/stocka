@@ -119,14 +119,14 @@ button:hover {
 	height: 0px;
   overflow: hidden;
   display: grid;
-  transition: all 0.5s ease-in-out !important;
+  transition: all 0.75s ease-in-out !important;
 	padding: 0;
   margin: 0;
   border-top: none;
 }
 
 .ticker_detail.open {
-	height: 155px;
+	height: 275px;
   padding: 10px 0 15px 0;
   margin: 5px 0 0 0;
   border-bottom: 2px solid darkgray;
@@ -168,6 +168,14 @@ button:hover {
 
 .timeframe_selected {
 	background: antiquewhite;
+}
+
+.ticker_news {
+  height: 100px;
+  padding: 10px 10px 0 10px;
+  border-top: 2px solid lightgray;
+  overflow: scroll;
+  margin: 0 0 -20px -5px;
 }
 
 .up {

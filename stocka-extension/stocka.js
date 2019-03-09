@@ -45,11 +45,12 @@ function research(symbol, timeframe) {
 	fetch(url).then(res => res.json()).then(data => set_ticker_details(data, symbol));
 }
 
-function research_quote(symbol) {
-	let url = 'https://api.iextrading.com/1.0/stock/' + symbol + '/quote';
+function additional_research(symbol) {
+	let quote_request_url = 'https://api.iextrading.com/1.0/stock/' + symbol + '/quote';
+	let news_request_url = 'https://api.iextrading.com/1.0/stock/' + symbol + '/news/last/50';
   
-	// set up ticker detail view with response data
-	fetch(url).then(res => res.json()).then(data => add_ticker_details(data, symbol));
+	fetch(quote_request_url).then(res => res.json()).then(data => add_ticker_details(data, symbol));
+	fetch(news_request_url).then(res => res.json()).then(data => add_news_to_ticker_detail_view(data));
 }
 
 function add_ticker_details(data, ticker) {
@@ -68,6 +69,30 @@ function add_ticker_details(data, ticker) {
 
 function number_with_commas(num) {
   return num.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",");
+}
+
+function add_news_to_ticker_detail_view(news_data) {
+	$('.ticker_news').empty();
+	
+	console.log(news_data);
+	
+	if (news_data.length === 1) {
+		$('.ticker_news').css('height', '50px');
+	} else if (news_data.length === 0) {
+		$('.ticker_news').css('height', '0px');
+	} else {
+		$('.ticker_news').css('height', '100px');
+	}
+	
+	news_data.forEach(function(news_item) {
+		let headline_markup = '<span>' + news_item.datetime.substring(0, news_item.datetime.indexOf('T')) + '<br></span><a target="_blank" href="' + news_item.url + '">' + news_item.headline + '</a>';
+		
+			$('.ticker_news').append(headline_markup);
+			
+			if (news_item.index() != news_data.length -1) {
+				$('.ticker_news').append('<br><br>');
+			}
+	});
 }
 
 // update ticker detail view
@@ -112,7 +137,7 @@ function set_ticker_details(data, ticker) {
     }
 	}
 	
-	research_quote(ticker);
+	additional_research(ticker);
 		
 	// aesthetic
 	$('.ticker_detail').removeClass('closed').addClass('open');
