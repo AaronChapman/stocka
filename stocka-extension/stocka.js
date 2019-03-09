@@ -78,10 +78,13 @@ function add_news_to_ticker_detail_view(news_data) {
 	
 	if (news_data.length === 1) {
 		$('.ticker_news').css('height', '50px');
+		$('.ticker_detail').css('height', '225px');
 	} else if (news_data.length === 0) {
 		$('.ticker_news').css('height', '0px');
+		$('.ticker_detail').css('height', '175px');
 	} else {
 		$('.ticker_news').css('height', '100px');
+		$('.ticker_detail').css('height', '275px');
 	}
 	
 	news_data.forEach(function(news_item) {
@@ -89,7 +92,7 @@ function add_news_to_ticker_detail_view(news_data) {
 		
 			$('.ticker_news').append(headline_markup);
 			
-			if (news_item.index() != news_data.length -1) {
+			if (news_data.indexOf(news_item) != news_data.length -1) {
 				$('.ticker_news').append('<br><br>');
 			}
 	});
