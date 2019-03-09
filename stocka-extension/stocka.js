@@ -117,7 +117,7 @@ function add_news_to_ticker_detail_view(news_data) {
 	}
 	
 	news_data.forEach(function(news_item) {
-		let headline_markup = '<span>' + news_item.datetime.substring(0, news_item.datetime.indexOf('T')) + '<br></span><a target="_blank" href="' + news_item.url + '">' + news_item.headline + '</a>';
+		let headline_markup = '<span>' + news_item.datetime.substring(0, news_item.datetime.indexOf('T')) + ':<br></span><a target="_blank" href="' + news_item.url + '">' + news_item.headline + '</a>';
 		
 			$('.ticker_news').append(headline_markup);
 			

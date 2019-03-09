@@ -5,6 +5,11 @@
 	transition: all 0.1s ease-in-out;
 }
 
+a {
+	color: lightslategray;
+  text-decoration: none;
+}
+
 body {
   width: fit-content;
   background: snow;
