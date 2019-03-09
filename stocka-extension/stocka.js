@@ -369,18 +369,18 @@ function save_tickers() {
 }
 
 // open (or close) the sorting options area
-function sorting_options() {
-	if ($('.sorting_options').hasClass('closed')) {
-		$('.sorting_options').addClass('open').removeClass('closed');
-	} else if ($('.sorting_options').hasClass('open')) {
-		$('.sorting_options').addClass('closed').removeClass('open');
+function options_sizing(container) {
+	if (container.hasClass('closed')) {
+		container.addClass('open').removeClass('closed');
+	} else if (container.hasClass('open')) {
+		container.addClass('closed').removeClass('open');
 	}
 }
 
 // set up event listeners for elements that are present in the source document
 function setup_init_listeners() {
 	// obvious
-	$('.add_tickers').click(function() { add_tickers(); });
+	$('.add_tickers').click(function() { options_sizing($('.add_tickers_area')); });
 
 	$('.tickers_to_add').on('keydown', function(event) {
 		if (event.keyCode === 13) {
@@ -390,7 +390,7 @@ function setup_init_listeners() {
 		}
 	});
 	
-	$('.sorting_options_button').click(function() { sorting_options(); });
+	$('.sorting_options_button').click(function() { options_sizing($('.sorting_options')); });
 	
 	// sort ticker list by symbol
 	$('.sorting_option_symbol').click(function() {

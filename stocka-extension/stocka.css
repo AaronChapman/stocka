@@ -3,11 +3,16 @@
 	outline: none !important;
 	-webkit-highlight: none !important;
 	transition: all 0.1s ease-in-out;
+	cursor: default;
 }
 
 a {
 	color: lightslategray;
   text-decoration: none;
+}
+
+a:hover {
+	opacity: 0.5;
 }
 
 body {
@@ -19,8 +24,12 @@ body {
   text-align: center;
 }
 
+input, button, a {
+  transition: opacity 0.15s ease-in-out;
+}
+
 input:hover, button:hover, a:hover, .ticker:hover {
-	cursor: pointer;
+	cursor: pointer !important;
 }
 
 button:hover {
@@ -28,18 +37,18 @@ button:hover {
 }
 
 .add_tickers_area {
-  padding: 5px 0;
-  width: 300px;
-  margin: 0 -28px;
+  transition: all 0.5s ease-in-out !important;
+	height: 0px;
+  overflow: hidden;
+}
+
+.add_tickers_area.open {
+	height: 45px;
+  padding-top: 7px;
 }
 
 .add_tickers {
-  border: 2px solid darkgrey;
-  background: #eeeeee;
-  padding: 10px;
-  border-radius: 5px;
-  width: -webkit-fill-available;
-  margin: 5px 30px;
+  margin: 5px;
 }
 
 .add_tickers:hover {
@@ -51,7 +60,7 @@ button:hover {
   padding: 10px;
   border-radius: 5px;
   width: -webkit-fill-available;
-  margin: 5px 30px;
+  margin: 5px;
 }
 
 .tickers {
@@ -208,9 +217,10 @@ button:hover {
   justify-content: center;
 }
 
-.sorting_options_header {
+.options_header {
 	border-bottom: 2px solid darkgray;
 	padding: 0 0 5px 0;
+	display: flex;
 }
 
 .closed {
@@ -230,12 +240,7 @@ button:hover {
 }
 
 .sorting_options_button {
-  height: 20px;
-  border: 2px solid darkgray;
-  border-radius: 3px;
-  margin: 5px;
-  color: darkgray;
-  background: white;
+  margin: 5px 102px 0 4px;
 }
 
 .market_closed_message {
@@ -244,4 +249,12 @@ button:hover {
   text-align: center;
   font-size: 1.25em;
   color: lightgray;
+}
+
+.container_expander {
+  height: 20px;
+  border: 2px solid darkgray;
+  border-radius: 3px;
+  color: darkgray;
+  background: white;
 }
