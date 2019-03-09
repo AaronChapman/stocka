@@ -21,23 +21,38 @@ document.addEventListener("DOMContentLoaded", function(event) {
 		}
 	});
 	
-	let current_date = new Date();
-	let current_hour = current_date.getUTCHours();
-	let current_minute = current_date.getUTCMinutes();
-	
-	if (current_hour <= 14) {
-		if (current_hour === 14) {
-			if (current_minute < 30) {
-				$('.market_closed_message').css('display', 'block');
-			}
-		}
-	} else if (current_hour >= 21) {
-		$('.market_closed_message').css('display', 'block');
-	}
+	check_if_markets_are_open();
 	
 	// set up event listeners for pre-script html elements
 	setup_init_listeners();
 });
+
+function check_if_markets_are_open() {
+	let current_date = new Date();
+	let current_hour = current_date.getUTCHours();
+	let current_minute = current_date.getUTCMinutes();
+	let weekdays = ["Sunday", "Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday"];
+	let today = weekdays[current_date.getUTCDay()];
+	let market_closed = false;
+	
+	if (today === "Saturday" || today === "Sunday") {
+		market_closed = true;
+	} else {
+		if (current_hour <= 14) {
+			if (current_hour === 14) {
+				if (current_minute < 30) {
+					market_closed = true;
+				}
+			}
+		} else if (current_hour >= 21) {
+			market_closed = true;
+		}
+	}
+	
+	if (market_closed) {
+		$('.market_closed_message').css('display', 'block');
+	}
+}
 
 // get ticker data from the iex api for every symbol in the local tickers array
 function stock_up() {
