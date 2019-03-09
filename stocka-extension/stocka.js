@@ -21,6 +21,20 @@ document.addEventListener("DOMContentLoaded", function(event) {
 		}
 	});
 	
+	let current_date = new Date();
+	let current_hour = current_date.getUTCHours();
+	let current_minute = current_date.getUTCMinutes();
+	
+	if (current_hour <= 14) {
+		if (current_hour === 14) {
+			if (current_minute < 30) {
+				$('.market_closed_message').css('display', 'block');
+			}
+		}
+	} else if (current_hour >= 21) {
+		$('.market_closed_message').css('display', 'block');
+	}
+	
 	// set up event listeners for pre-script html elements
 	setup_init_listeners();
 });

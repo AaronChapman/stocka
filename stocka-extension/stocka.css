@@ -71,7 +71,7 @@ button:hover {
   zoom: 0.75;
   padding: 10px 10px 15px 10px;
   min-height: 100px;
-	transition: all 0.5s ease-in-out !important;
+	transition: all 0.75s ease-in-out !important;
 }
 
 .ticker {
@@ -231,4 +231,12 @@ button:hover {
   margin: 5px;
   color: darkgray;
   background: white;
+}
+
+.market_closed_message {
+	display: none;
+	padding-top: 10px;
+  text-align: center;
+  font-size: 1.25em;
+  color: lightgray;
 }
