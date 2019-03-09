@@ -95,13 +95,18 @@ button:hover {
   font-size: x-large;
   color: white;
   background: lightgrey;
-  transition: opacity 0.5s ease-in-out !important;
+  transition: opacity margin 0.5s ease-in-out !important;
   padding: 5px 10px;
   white-space: nowrap;
   overflow: hidden;
   text-shadow: 0 2px 1px #000000;
   border-radius: 5px;
   box-shadow: 0 2px 1px #000000;
+}
+
+.ticker_list .ticker:hover {
+	margin-left: 15px;
+	opacity: 0.75;
 }
 
 .ticker_elements {

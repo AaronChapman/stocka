@@ -380,7 +380,7 @@ function options_sizing(container) {
 // set up event listeners for elements that are present in the source document
 function setup_init_listeners() {
 	// obvious
-	$('.add_tickers').click(function() { options_sizing($('.add_tickers_area')); });
+	$('.add_tickers').click(function() { options_sizing($('.add_tickers_area')); $('.tickers_to_add').focus(); });
 
 	$('.tickers_to_add').on('keydown', function(event) {
 		if (event.keyCode === 13) {
