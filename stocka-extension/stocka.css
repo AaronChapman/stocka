@@ -85,7 +85,7 @@ button:hover {
   zoom: 0.75;
   padding: 10px 10px 15px 10px;
   min-height: 100px;
-	transition: all 0.75s ease-in-out !important;
+	transition: opacity 0.5s ease-in-out !important;
 }
 
 .ticker {
@@ -246,6 +246,10 @@ button:hover {
 
 .sorting_options_button {
   margin: 5px 102px 0 4px;
+}
+
+.loading_message {
+	margin: auto;
 }
 
 .market_closed_message {

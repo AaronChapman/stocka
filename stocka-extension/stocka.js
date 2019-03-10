@@ -5,6 +5,16 @@ let prices = [];
 let changes = [];
 let percentages = [];
 
+let market_open_hour_utc = 14;
+let market_open_minute_utc = 14;
+let market_close_hour_utc = 21;
+
+
+// to prevent ip blocking from iex api
+// get data when new symbol is added and store it here
+// remove data when appropriate
+let local_chart_data = {};
+
 // when the document has finished loading
 document.addEventListener("DOMContentLoaded", function(event) {
 	// check extension's storage to see if ticker data exists and if so, update local variables with it
@@ -38,13 +48,13 @@ function check_if_markets_are_open() {
 	if (today === "Saturday" || today === "Sunday") {
 		market_closed = true;
 	} else {
-		if (current_hour <= 14) {
-			if (current_hour === 14) {
-				if (current_minute < 30) {
+		if (current_hour <= market_open_hour_utc) {
+			if (current_hour === market_open_hour_utc) {
+				if (current_minute < market_open_minute_utc) {
 					market_closed = true;
 				}
 			}
-		} else if (current_hour >= 21) {
+		} else if (current_hour >= market_close_hour_utc) {
 			market_closed = true;
 		}
 	}
@@ -298,11 +308,13 @@ function setup_event_listeners() {
 	
 	// when a ticker is moused over show the other value change
 	$('.ticker_list .ticker').mouseover(function() {
-		if ($('.ticker_list').attr('data-displayed') === "price" || $('.ticker_list').attr('data-displayed') === "change") {
+		//$(this).text($(this).attr('data-symbol') + ': Details');
+		
+		/*if ($('.ticker_list').attr('data-displayed') === "price" || $('.ticker_list').attr('data-displayed') === "change") {
 			$(this).text($(this).attr('data-symbol') + ': ' + $(this).attr('data-change-percent') + '%');
 		} else if ($('.ticker_list').attr('data-displayed') === "percent") {
 			$(this).text($(this).attr('data-symbol') + ': ' + $(this).attr('data-change'));
-		}
+		}*/
 	});
 	
 	// when the ticker is moused out of, reset the ticker display
@@ -338,8 +350,10 @@ function validate_ticker_input(ticker_input) {
 		
 		// push valid entries to the temporary tickers array
 		tickers.forEach(function(ticker) {
-			if (ticker.length > 0) {
+			if (ticker.length > 0 && temp_tickers.indexOf(ticker) == -1) {
 				temp_tickers.push(ticker);
+			} else {
+				console.log('removing duplicate/invalid ticker(s)');
 			}
 		});
 		
@@ -380,13 +394,19 @@ function options_sizing(container) {
 // set up event listeners for elements that are present in the source document
 function setup_init_listeners() {
 	// obvious
-	$('.add_tickers').click(function() { options_sizing($('.add_tickers_area')); $('.tickers_to_add').focus(); });
+	$('.add_tickers').click(function() {
+		options_sizing($('.add_tickers_area'));
+		
+		$('.tickers_to_add').focus();
+	});
 
 	$('.tickers_to_add').on('keydown', function(event) {
 		if (event.keyCode === 13) {
 			event.preventDefault();
 
 			add_tickers();
+			
+			$('.add_tickers').click();
 		}
 	});
 	
