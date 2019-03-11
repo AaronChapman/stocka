@@ -14,21 +14,23 @@ function check_if_markets_are_open() {
 	let weekdays = ["Sunday", "Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday"];
 	let today = weekdays[current_date.getUTCDay()];
 	let market_closed = false;
-	
+		
 	if (today === "Saturday" || today === "Sunday") {
 		market_closed = true;
 	} else {
 		if (current_hour <= market_open_hour_utc) {
-			if (current_hour === market_open_hour_utc) {
+			if (current_hour == market_open_hour_utc) {
 				if (current_minute < market_open_minute_utc) {
 					market_closed = true;
 				}
+			} else {
+				market_closed = true;
 			}
 		} else if (current_hour >= market_close_hour_utc) {
 			market_closed = true;
 		}
 	}
-	
+		
 	if (market_closed) {
 		$('.market_closed_message').css('display', 'block');
 	}

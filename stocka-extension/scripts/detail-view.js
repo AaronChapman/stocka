@@ -1,3 +1,6 @@
+// populate detail with with default data so there's no stretchning
+// replace html fields with data instead of emptying
+
 // individual ticker lookup
 function research(symbol, timeframe) {
 	// fetch ticker data for selected timeframe from iex api
