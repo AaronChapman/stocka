@@ -20,15 +20,17 @@ function additional_research(symbol) {
 
 function add_ticker_details(data, ticker) {
 	let additional_ticker_details = {
-		'market_cap':0
+		'market_cap':data.marketCap
 	};
 	
-	additional_ticker_details['market_cap'] = data.marketCap;
-	
+	let data_point_index = 4;
+		
 	for (var datum in additional_ticker_details) {
     if (additional_ticker_details.hasOwnProperty(datum)) { 
-			$('.ticker_detail_data').append('<tr><td>' + datum.replace('_', ' ') + '</td><td>' + number_with_commas(additional_ticker_details[datum]) + '</td></tr>');   
+			$('.ticker_detail_data').find('tr').eq(data_point_index).find('td').eq(1).text(number_with_commas(additional_ticker_details[datum]));     
     }
+    
+    data_point_index++;
 	}
 }
 
@@ -65,7 +67,7 @@ function set_ticker_details(data, ticker) {
 	let ticker_to_get = $('.ticker[data-symbol="' + ticker + '"]');
 	
 	$('.ticker_detail .ticker').text(ticker_to_get.attr('data-symbol') + ': $' + ticker_to_get.attr('data-latest-price')).attr('class', ticker_to_get.attr('class'));
-	$('.ticker_detail_data').empty();
+	//$('.ticker_detail_data').empty();
 	
 	// object that holds details about the ticker
 	let ticker_details = {
@@ -93,12 +95,16 @@ function set_ticker_details(data, ticker) {
 		
 		ticker_details['volume_traded'] += obj['volume'];
 	});
+	
+	let data_point_index = 0;
 		
 	// loop through the ticker details object and append table data
 	for (var datum in ticker_details) {
-    if (ticker_details.hasOwnProperty(datum)) { 
-			$('.ticker_detail_data').append('<tr><td>' + datum.replace('_', ' ') + '</td><td>' + number_with_commas(ticker_details[datum]) + '</td></tr>');   
+    if (ticker_details.hasOwnProperty(datum)) {
+	    $('.ticker_detail_data').find('tr').eq(data_point_index).find('td').eq(1).text(number_with_commas(ticker_details[datum]));   
     }
+    
+    data_point_index++;
 	}
 	
 	additional_research(ticker);
