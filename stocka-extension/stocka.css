@@ -48,7 +48,7 @@ button:hover {
 }
 
 .add_tickers {
-  margin: 5px;
+  margin-left: auto;
 }
 
 .add_tickers:hover {
@@ -245,7 +245,7 @@ button:hover {
 }
 
 .sorting_options_button {
-  margin: 5px 102px 0 4px;
+	
 }
 
 .loading_message {
@@ -266,4 +266,25 @@ button:hover {
   border-radius: 3px;
   color: darkgray;
   background: white;
+}
+
+.theme_options {
+	display: flex;
+  justify-content: flex-end;
+}
+
+.theme_option {
+	width: 15px;
+  height: 17.5px;
+  border: 2px solid darkgray;
+  border-radius: 3px;
+  margin: 5px 0 0 5px;
+}
+
+.theme_option.default {
+	background: snow !important;
+}
+
+.theme_option.midnight {
+	background: #251020 !important;
 }
