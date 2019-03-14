@@ -6,6 +6,11 @@
 	cursor: default;
 }
 
+::-webkit-scrollbar {
+  width: 0px;
+  background: transparent;
+}
+
 a {
 	color: lightslategray;
   text-decoration: none;
@@ -138,7 +143,7 @@ button:hover {
 	height: 0px;
   overflow: hidden;
   display: grid;
-  transition: all 0.75s ease-in-out !important;
+  transition: color 0.25s ease-in-out, height 0.75s ease-in-out !important;
 	padding: 0;
   margin: 0;
   border-top: none;
@@ -224,7 +229,7 @@ button:hover {
 
 .options_header {
 	border-bottom: 2px solid darkgray;
-	padding: 0 0 5px 0;
+	padding: 0 0 7.5px 0;
 	display: flex;
 }
 

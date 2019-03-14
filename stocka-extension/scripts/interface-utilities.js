@@ -60,7 +60,7 @@ function setup_theme(theme_to_use) {
 		if (theme.theme_name == theme_to_use) { 
 			$('.ticker.up').css('background', theme.ticker_up_hex_color);
 			$('.ticker.down').css('background', theme.ticker_down_hex_color);
-			$('.ticker_detail').css('color', theme.detail_view_text_color);
+			$('.ticker_news span, .ticker_detail_data td').css('color', theme.detail_view_text_color);
 			$('body, button').css('background', theme.other_background_color);
 		}
 	});
