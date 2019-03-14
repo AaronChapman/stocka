@@ -204,6 +204,8 @@ function set_ticker_display_data() {
 			$(this).text($(this).attr('data-symbol') + ': ' + $(this).attr('data-change-percent') + '%');
 		} 
 	});
+	
+	setup_theme(current_theme);
 		
 	// styling
 	setTimeout(function() {
