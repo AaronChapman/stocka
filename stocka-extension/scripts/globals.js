@@ -10,7 +10,7 @@ let default_tickers = ['AAPL', 'AMZN', 'FB', 'GOOGL', 'MSFT'];
 let current_theme = 'default';
 let themes = 
 [{'theme_name':'default', 'ticker_up_hex_color':'#427557', 'ticker_down_hex_color':'#ce8988', 'other_background_color':'snow', 'detail_view_text_color':'black'}, 
-{'theme_name':'midnight', 'ticker_up_hex_color':'#101035', 'ticker_down_hex_color':'#461133', 'other_background_color':'#251020', 'detail_view_text_color':'white'}];
+{'theme_name':'midnight', 'ticker_up_hex_color':'#122448', 'ticker_down_hex_color':'#461133', 'other_background_color':'rgb(25, 20, 30)', 'detail_view_text_color':'white'}];
 
 let market_open_hour_utc = 13;
 let market_open_minute_utc = 30;

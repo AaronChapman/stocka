@@ -52,6 +52,7 @@ function setup_theme_listeners() {
 		current_theme = $(this).attr('data-theme-name');
 		
 		setup_theme(current_theme);
+		save_tickers();
 	});
 }
 
@@ -60,13 +61,11 @@ function setup_theme(theme_to_use) {
 		if (theme.theme_name == theme_to_use) { 
 			$('.ticker.up').css('background', theme.ticker_up_hex_color);
 			$('.ticker.down').css('background', theme.ticker_down_hex_color);
-			$('.ticker_news span, .ticker_detail_data td').css('color', theme.detail_view_text_color);
-			$('body, button').css('background', theme.other_background_color);
+			$('.ticker_news span, .ticker_detail_data td, input').css('color', theme.detail_view_text_color);
+			$('body, button, input').css('background', theme.other_background_color);
 		}
 	});
 }
-
-
 
 function number_with_commas(num) {
   return num.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",");

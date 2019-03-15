@@ -143,7 +143,7 @@ button:hover {
 	height: 0px;
   overflow: hidden;
   display: grid;
-  transition: color 0.25s ease-in-out, height 0.75s ease-in-out !important;
+  transition: all 0.75s ease-in-out, color 0.25s ease-in-out !important;
 	padding: 0;
   margin: 0;
   border-top: none;

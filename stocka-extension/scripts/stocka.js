@@ -14,6 +14,19 @@ document.addEventListener("DOMContentLoaded", function(event) {
 		}
 	});
 	
+	chrome.storage.sync.get(['theme'], function(result) {
+		console.log(result.theme);
+		
+		if (result.theme) {
+		  current_theme = result.theme;
+		} else {
+			current_theme = 'default';
+		}
+		
+		
+		console.log(current_theme);
+	});
+	
 	// check this
 	check_if_markets_are_open();
 	
