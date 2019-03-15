@@ -286,16 +286,12 @@ button:hover {
   margin: 5px 0 0 5px;
 }
 
+
+/* :: default theme :: */
+
 .theme_option.default {
 	background: snow !important;
 }
-
-.theme_option.midnight {
-	background: #251020 !important;
-}
-
-
-/* :: default theme :: */
 
 .default, .default button, .default input {
 	background: snow;
@@ -318,16 +314,20 @@ button:hover {
 
 /* :: midnight theme :: */
 
+.theme_option.midnight {
+	background: rgb(45, 40, 50) !important;
+}
+
 .midnight, .midnight button, .midnight input {
-	background: rgb(25, 20, 30);
+	background: rgb(45, 40, 50);
 }
 
 .midnight .ticker.up {
-	background: #122448;
+	background: #627488;
 }
 
 .midnight .ticker.down {
-	background: #461133;
+	background: #965656;
 }
 
 .midnight .ticker_news span,
