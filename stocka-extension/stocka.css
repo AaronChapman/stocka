@@ -110,7 +110,7 @@ button:hover {
 }
 
 .ticker_list .ticker:hover {
-	margin-left: 15px;
+	margin-left: 10px;
 	opacity: 0.75;
 }
 
@@ -150,7 +150,7 @@ button:hover {
 }
 
 .ticker_detail.open {
-	height: 275px;
+	max-height: 250px;
   padding: 5px 0 15px 0;
   margin: 5px 0 0 0;
   border-bottom: 2px solid darkgray;
@@ -293,3 +293,69 @@ button:hover {
 .theme_option.midnight {
 	background: #251020 !important;
 }
+
+
+/* :: default theme :: */
+
+.default, .default button, .default input {
+	background: snow;
+}
+
+.default .ticker.up {
+	background: #427557;
+}
+
+.default .ticker.down {
+	background: #ce8988;
+}
+
+.default .ticker_news span,
+.default .ticker_detail_data td,
+.default input {
+	color: black;
+}
+
+
+/* :: midnight theme :: */
+
+.midnight, .midnight button, .midnight input {
+	background: rgb(25, 20, 30);
+}
+
+.midnight .ticker.up {
+	background: #122448;
+}
+
+.midnight .ticker.down {
+	background: #461133;
+}
+
+.midnight .ticker_news span,
+.midnight .ticker_detail_data td,
+.midnight input {
+	color: white;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

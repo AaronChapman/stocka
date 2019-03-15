@@ -58,11 +58,9 @@ function setup_theme_listeners() {
 
 function setup_theme(theme_to_use) {
 	themes.forEach(function(theme) {
-		if (theme.theme_name == theme_to_use) { 
-			$('.ticker.up').css('background', theme.ticker_up_hex_color);
-			$('.ticker.down').css('background', theme.ticker_down_hex_color);
-			$('.ticker_news span, .ticker_detail_data td, input').css('color', theme.detail_view_text_color);
-			$('body, button, input').css('background', theme.other_background_color);
+		if (theme == theme_to_use) { 
+			$('body').attr('class', '');
+			$('body').addClass(theme_to_use);
 		}
 	});
 }

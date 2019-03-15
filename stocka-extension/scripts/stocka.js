@@ -23,8 +23,7 @@ document.addEventListener("DOMContentLoaded", function(event) {
 			current_theme = 'default';
 		}
 		
-		
-		console.log(current_theme);
+		$('body').addClass(current_theme);
 	});
 	
 	// check this
