@@ -10,6 +10,8 @@ function research(symbol, timeframe) {
 	fetch(url).then(res => res.json()).then(data => set_ticker_details(data, symbol));
 }
 
+
+// get addition information about the requested symbol
 function additional_research(symbol) {
 	let quote_request_url = 'https://api.iextrading.com/1.0/stock/' + symbol + '/quote';
 	let news_request_url = 'https://api.iextrading.com/1.0/stock/' + symbol + '/news/last/50';
@@ -18,6 +20,7 @@ function additional_research(symbol) {
 	fetch(news_request_url).then(res => res.json()).then(data => add_news_to_ticker_detail_view(data));
 }
 
+// add market cap info
 function add_ticker_details(data, ticker) {
 	let additional_ticker_details = {
 		'market_cap':data.marketCap
@@ -34,11 +37,11 @@ function add_ticker_details(data, ticker) {
 	}
 }
 
+// pull news items for symbol
 function add_news_to_ticker_detail_view(news_data) {
 	$('.ticker_news').empty();
 	
-	console.log(news_data);
-	
+	// determine news container height	
 	if (news_data.length === 1) {
 		$('.ticker_news').css('height', '50px');
 		$('.ticker_detail').css('height', '225px');
@@ -50,6 +53,7 @@ function add_news_to_ticker_detail_view(news_data) {
 		$('.ticker_detail').css('height', '275px');
 	}
 	
+	// append each formatted item returned from iex
 	news_data.forEach(function(news_item) {
 		let headline_markup = '<span>' + news_item.datetime.substring(0, news_item.datetime.indexOf('T')) + ':<br></span><a target="_blank" href="' + news_item.url + '">' + news_item.headline + '</a>';
 		
@@ -108,6 +112,7 @@ function set_ticker_details(data, ticker) {
 	}
 	
 	additional_research(ticker);
+	chart_data(data);
 		
 	// aesthetic
 	$('.ticker_detail').removeClass('closed').addClass('open');
@@ -122,5 +127,47 @@ function setup_detail_listeners() {
 		
 		$('.timeframe_option').removeClass('timeframe_selected');
 		$(this).addClass('timeframe_selected');
+	});
+}
+
+function chart_data(data) {
+	let chart_container = $('#change_chart');
+	let chart_values = [];
+	let bar_colors = [];
+	let bar_color = $('.ticker_detail .ticker').css('background');
+	
+	console.log(data);
+	
+	
+	data.forEach(function(item) {
+		chart_values.push(item.close);
+		bar_colors.push(bar_color);
+	})
+	
+	var change_chart = new Chart(chart_container, {
+    type: 'bar',
+    data: {
+        labels: chart_values,
+        datasets: [{
+            label: 'share price',
+            data: chart_values,
+            backgroundColor: bar_colors,
+            borderColor: 'white',
+            borderWidth: 1
+        }]
+    },
+    options: {
+      scales: {
+        yAxes: [{
+          ticks: {
+            beginAtZero: false
+          }
+        }]
+      },
+      events: ['click'],
+      legend: {
+		    display: false
+	    }
+    }
 	});
 }

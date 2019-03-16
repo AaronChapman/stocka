@@ -308,7 +308,8 @@ button:hover {
 .default .ticker_news span,
 .default .ticker_detail_data td,
 .default input,
-.sepia .market_closed_message {
+.default .market_closed_message,
+.default .loading_message {
 	color: black;
 }
 
@@ -339,7 +340,8 @@ button:hover {
 .midnight .ticker_news span,
 .midnight .ticker_detail_data td,
 .midnight input,
-.sepia .market_closed_message {
+.midnight .market_closed_message,
+.midnight .loading_message {
 	color: white;
 }
 
@@ -369,6 +371,7 @@ button:hover {
 
 .sepia .ticker_news span,
 .sepia .market_closed_message,
+.sepia .loading_message,
 .sepia .ticker_detail_data td,
 .sepia .tickers_to_add,
 .sepia input,

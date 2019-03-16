@@ -1,7 +1,15 @@
 // when the document has finished loading
 document.addEventListener("DOMContentLoaded", function(event) {
 	// check extension storage to see if ticker data exists and if so, update local variables
-	chrome.storage.sync.get(['tickers'], function(result) {
+	chrome.storage.sync.get(['tickers', 'theme'], function(result) {
+		if (result.theme) {
+		  current_theme = result.theme;
+		} else {
+			current_theme = 'midnight';
+		}
+		
+		$('body').addClass(current_theme);
+		
 	  if (result.tickers && result.tickers.length > 0) {
 		  tickers = result.tickers;
 		  
@@ -12,18 +20,6 @@ document.addEventListener("DOMContentLoaded", function(event) {
 		
 			stock_up();	
 		}
-	});
-	
-	chrome.storage.sync.get(['theme'], function(result) {
-		console.log(result.theme);
-		
-		if (result.theme) {
-		  current_theme = result.theme;
-		} else {
-			current_theme = 'midnight';
-		}
-		
-		$('body').addClass(current_theme);
 	});
 	
 	// check this

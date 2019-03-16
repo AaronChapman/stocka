@@ -7,9 +7,8 @@ function options_sizing(container) {
 	}
 }
 
-// alternate method of checking
-// find a site that has
 
+// do what the fuck it says bruh
 function check_if_markets_are_open() {
 	let current_date = new Date();
 	let current_hour = current_date.getUTCHours();
@@ -18,9 +17,11 @@ function check_if_markets_are_open() {
 	let today = weekdays[current_date.getUTCDay()];
 	let market_closed = false;
 		
+	// if it's a weekday
 	if (today === "Saturday" || today === "Sunday") {
 		market_closed = true;
 	} else {
+		// and the market isn't open
 		if (current_hour <= market_open_hour_utc) {
 			if (current_hour == market_open_hour_utc) {
 				if (current_minute < market_open_minute_utc) {
@@ -34,13 +35,16 @@ function check_if_markets_are_open() {
 		}
 	}
 		
+	// make the market closed message visible
 	if (market_closed) {
 		$('.market_closed_message').css('display', 'block');
 	}
 }
 
+// attach events to theme options
 function setup_theme_listeners() {
 	$('.theme_option').click(function() {
+		// set current theme to clicked option
 		current_theme = $(this).attr('data-theme-name');
 		
 		setup_theme(current_theme);
@@ -48,6 +52,7 @@ function setup_theme_listeners() {
 	});
 }
 
+// switch out body's theme class
 function setup_theme(theme_to_use) {
 	themes.forEach(function(theme) {
 		if (theme == theme_to_use) { 
@@ -57,6 +62,7 @@ function setup_theme(theme_to_use) {
 	});
 }
 
+// format larger numbers
 function number_with_commas(num) {
   return num.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",");
 }
