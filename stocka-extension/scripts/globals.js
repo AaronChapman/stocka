@@ -8,7 +8,7 @@ let percentages = [];
 let default_tickers = ['AAPL', 'AMZN', 'FB', 'GOOGL', 'MSFT'];
 
 let current_theme = 'default';
-let themes = ['default', 'midnight'];
+let themes = ['default', 'midnight', 'sepia'];
 
 let market_open_hour_utc = 13;
 let market_open_minute_utc = 30;

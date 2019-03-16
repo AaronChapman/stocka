@@ -307,8 +307,14 @@ button:hover {
 
 .default .ticker_news span,
 .default .ticker_detail_data td,
-.default input {
+.default input,
+.sepia .market_closed_message {
 	color: black;
+}
+
+.default .tickers,
+.default button {
+	border: 2px solid darkgray;
 }
 
 
@@ -332,8 +338,56 @@ button:hover {
 
 .midnight .ticker_news span,
 .midnight .ticker_detail_data td,
-.midnight input {
+.midnight input,
+.sepia .market_closed_message {
 	color: white;
+}
+
+.midnight .tickers,
+.midnight button {
+	border: 2px solid darkgray;
+}
+
+
+/* :: sepia theme :: */
+
+.theme_option.sepia {
+	background: antiquewhite !important;
+}
+
+.sepia, .sepia button, .sepia input {
+	background: antiquewhite;
+}
+
+.sepia .ticker.up {
+	background: #627465;
+}
+
+.sepia .ticker.down {
+	background: #96565B;
+}
+
+.sepia .ticker_news span,
+.sepia .market_closed_message,
+.sepia .ticker_detail_data td,
+.sepia .tickers_to_add,
+.sepia input,
+.sepia button {
+	color: #aa9095;
+}
+
+.sepia .tickers,
+.sepia .tickers_to_add,
+.sepia button {
+	border: 2px solid #aa9095;
+}
+
+.sepia .ticker_news {
+	border-top: 2px solid #aa9095;
+}
+
+.sepia .options_header {
+	border-bottom: 2px solid #aa9095;
 }
 
 
