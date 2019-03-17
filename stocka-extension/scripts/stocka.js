@@ -25,7 +25,7 @@ document.addEventListener("DOMContentLoaded", function(event) {
 	// check this
 	check_if_markets_are_open();
 	
-	// setup for pre-script element listeners
+	// setup... everything
 	setup_sorting_listeners();
 	setup_detail_listeners();
 	setup_ticker_list_listeners();

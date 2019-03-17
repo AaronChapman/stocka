@@ -1,14 +1,20 @@
+/* :: extension-wide styling :: */
+
+::-webkit-scrollbar {
+  width: 0px;
+  background: transparent;
+}
+
+::-webkit-input-placeholder {
+  text-align: center;
+}
+
 * {
 	font-family: 'Varela Round', sans-serif;
 	outline: none !important;
 	-webkit-highlight: none !important;
 	transition: all 0.1s ease-in-out;
 	cursor: default;
-}
-
-::-webkit-scrollbar {
-  width: 0px;
-  background: transparent;
 }
 
 a {
@@ -22,11 +28,13 @@ a:hover {
 
 body {
   width: fit-content;
+  height: auto;
+  overflow-y: scroll;
   background: snow;
 }
 
-::-webkit-input-placeholder {
-  text-align: center;
+button:hover {
+	opacity: 0.5;
 }
 
 input, button, a {
@@ -37,9 +45,7 @@ input:hover, button:hover, a:hover, .ticker:hover {
 	cursor: pointer !important;
 }
 
-button:hover {
-	opacity: 0.5;
-}
+/* :: NEEDS ORGANIZED :: */
 
 .add_tickers_area {
   transition: all 0.5s ease-in-out !important;
@@ -66,6 +72,10 @@ button:hover {
   border-radius: 5px;
   width: -webkit-fill-available;
   margin: 5px;
+}
+
+.chart_container {
+	padding: 10px 10px 0 5px;
 }
 
 .tickers {
@@ -150,8 +160,8 @@ button:hover {
 }
 
 .ticker_detail.open {
-	max-height: 250px;
-  padding: 5px 0 15px 0;
+	max-height: 470;
+	padding-top: 5px;
   margin: 5px 0 0 0;
   border-bottom: 2px solid darkgray;
 }
@@ -194,10 +204,6 @@ button:hover {
   white-space: nowrap;
 }
 
-.timeframe_selected {
-	background: antiquewhite;
-}
-
 .ticker_news {
   height: 100px;
   padding: 10px;
@@ -237,6 +243,14 @@ button:hover {
 	height: 0;
 }
 
+.container_expander {
+  height: 20px;
+  border: 2px solid darkgray;
+  border-radius: 3px;
+  color: darkgray;
+  background: white;
+}
+
 .sorting_options.open {
 	height: 30px;
 }
@@ -248,10 +262,10 @@ button:hover {
   margin: 5px;
   color: darkgray;
 }
+/* :: NEEDS ORGANIZED :: */
 
-.sorting_options_button {
-	
-}
+
+/* :: extension messages :: */
 
 .loading_message {
 	margin: auto;
@@ -265,12 +279,12 @@ button:hover {
   color: lightgray;
 }
 
-.container_expander {
-  height: 20px;
-  border: 2px solid darkgray;
-  border-radius: 3px;
-  color: darkgray;
-  background: white;
+
+
+/* :: theming options :: */
+
+.theme_to_chart {
+	display: none;
 }
 
 .theme_options {
@@ -297,6 +311,10 @@ button:hover {
 	background: snow;
 }
 
+.default .timeframe_option.selected {
+	background: antiquewhite;
+}
+
 .default .ticker.up {
 	background: #427557;
 }
@@ -310,7 +328,7 @@ button:hover {
 .default input,
 .default .market_closed_message,
 .default .loading_message {
-	color: black;
+	color: darkgray;
 }
 
 .default .tickers,
@@ -327,6 +345,10 @@ button:hover {
 
 .midnight, .midnight button, .midnight input {
 	background: rgb(45, 40, 50);
+}
+
+.midnight .timeframe_option.selected {
+	background: white;
 }
 
 .midnight .ticker.up {
@@ -359,6 +381,10 @@ button:hover {
 
 .sepia, .sepia button, .sepia input {
 	background: antiquewhite;
+}
+
+.sepia .timeframe_option.selected {
+	background: bisque;
 }
 
 .sepia .ticker.up {

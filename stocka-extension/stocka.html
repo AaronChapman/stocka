@@ -36,11 +36,13 @@
 			<div class="ticker_detail closed">
 				<span class="ticker"></span>
 				<div class="timeframe_options">
-					<button class="timeframe_option 1m timeframe_selected">one month</button>
+					<button class="timeframe_option 1m selected">one month</button>
 					<button class="timeframe_option 6m">six months</button>
 					<button class="timeframe_option 1y">one year</button>
 				</div>
-				<canvas id="change_chart" width="300" height="150"></canvas>
+				<div class="chart_container">
+					<canvas id="change_chart" width="200" height="150"></canvas>
+				</div>
 				<table class="ticker_detail_data">
 					<tr><td>change</td><td class="detail_data_change">. . .</td></tr>
 					<tr><td>highest price</td><td class="detail_data_highest">. . .</td></tr>
@@ -59,6 +61,10 @@
 			<button class="theme_option default" data-theme-name="default"></button>
 			<button class="theme_option sepia" data-theme-name="sepia"></button>
 			<button class="theme_option midnight" data-theme-name="midnight"></button>
+			<div class="theme_to_chart">
+				<span class="ticker up">hidden</span>
+				<span class="ticker down">hidden</span>
+			</div>
 		</div>
 	</body>
 </html>

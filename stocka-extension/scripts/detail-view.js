@@ -1,6 +1,3 @@
-// populate detail with with default data so there's no stretchning
-// replace html fields with data instead of emptying
-
 // individual ticker lookup
 function research(symbol, timeframe) {
 	// fetch ticker data for selected timeframe from iex api
@@ -44,13 +41,13 @@ function add_news_to_ticker_detail_view(news_data) {
 	// determine news container height	
 	if (news_data.length === 1) {
 		$('.ticker_news').css('height', '50px');
-		$('.ticker_detail').css('height', '225px');
+		$('.ticker_detail').css('height', '420px');
 	} else if (news_data.length === 0) {
 		$('.ticker_news').css('height', '0px');
-		$('.ticker_detail').css('height', '175px');
+		$('.ticker_detail').css('height', '370px');
 	} else {
 		$('.ticker_news').css('height', '100px');
-		$('.ticker_detail').css('height', '275px');
+		$('.ticker_detail').css('height', '470px');
 	}
 	
 	// append each formatted item returned from iex
@@ -90,11 +87,11 @@ function set_ticker_details(data, ticker) {
 	// loop through object to find highest & lowest prices, as well as volume
 	data.forEach(function(obj) {
 		if (obj['high'] > ticker_details['highest_price']) {
-			ticker_details['highest_price'] = obj['high'];
+			ticker_details['highest_price'] = parseFloat(obj['high']).toFixed(2);
 		}
 		
 		if (obj['low'] < ticker_details['lowest_price']) {
-			ticker_details['lowest_price'] = obj['low'];
+			ticker_details['lowest_price'] = parseFloat(obj['low']).toFixed(2);
 		}
 		
 		ticker_details['volume_traded'] += obj['volume'];
@@ -118,6 +115,7 @@ function set_ticker_details(data, ticker) {
 	$('.ticker_detail').removeClass('closed').addClass('open');
 }
 
+// set up event listeners for the detail-view's timeframe option buttons
 function setup_detail_listeners() {
 	$('.timeframe_option').click(function() {
 		var timeframe = $(this).attr('class').split(' ')[1];
@@ -125,49 +123,61 @@ function setup_detail_listeners() {
 		
 		research(ticker, timeframe);
 		
-		$('.timeframe_option').removeClass('timeframe_selected');
-		$(this).addClass('timeframe_selected');
+		// styling
+		$('.timeframe_option').removeClass('selected');
+		$(this).addClass('selected');
 	});
 }
 
+// display visually charted data for the symbol over the given timeframe
 function chart_data(data) {
+	// get a reference to the html5 canvas
 	let chart_container = $('#change_chart');
+	// create storage for the chart's values and styles
 	let chart_values = [];
 	let bar_colors = [];
-	let bar_color = $('.ticker_detail .ticker').css('background');
+	// grab ascending or descending day styling from hidden elements on the page
+	let bar_color_up = $('.theme_to_chart .up').css('background-color');
+	let bar_color_down = $('.theme_to_chart .down').css('background-color');
+	// temporary value to determine directional gain
+	let temp_last_close = 0;
 	
-	console.log(data);
-	
-	
+	// for each value being charted
 	data.forEach(function(item) {
+		// push the closing price to the array of values
 		chart_values.push(item.close);
-		bar_colors.push(bar_color);
-	})
+		
+		// determine the day's bar color
+		if (temp_last_close < parseFloat(item.close)) {
+			bar_colors.push(bar_color_up);
+		} else {
+			bar_colors.push(bar_color_down);
+		}
+		
+		// update comparator
+		temp_last_close = parseFloat(item.close);
+	});
 	
+	// create chart in the canvas with the appropriate attribute values
 	var change_chart = new Chart(chart_container, {
     type: 'bar',
     data: {
-        labels: chart_values,
-        datasets: [{
-            label: 'share price',
-            data: chart_values,
-            backgroundColor: bar_colors,
-            borderColor: 'white',
-            borderWidth: 1
-        }]
+	    labels: chart_values,
+      datasets: [{
+        label: 'share price',
+        data: chart_values,
+        backgroundColor: bar_colors,
+        borderColor: 'aliceblue',
+        borderWidth: 0
+      }]
     },
     options: {
       scales: {
-        yAxes: [{
-          ticks: {
-            beginAtZero: false
-          }
-        }]
+        yAxes: [{ ticks: { beginAtZero:false } }],
+        xAxes: [{ display:false  }]
       },
-      events: ['click'],
-      legend: {
-		    display: false
-	    }
+			events: ['click'],
+			legend: { display:false }
     }
-	});
+  });
 }

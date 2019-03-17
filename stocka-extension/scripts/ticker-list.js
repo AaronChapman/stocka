@@ -1,3 +1,4 @@
+// set up event listeners related to adding tickers
 function setup_ticker_list_listeners() {
 	// obvious
 	$('.add_tickers').click(function() {
@@ -5,7 +6,8 @@ function setup_ticker_list_listeners() {
 		
 		$('.tickers_to_add').focus();
 	});
-
+	
+	// when [enter] is pressed on the tickers_to_add input
 	$('.tickers_to_add').on('keydown', function(event) {
 		if (event.keyCode === 13) {
 			event.preventDefault();
@@ -45,17 +47,22 @@ function setup_added_listeners() {
 		save_tickers();
 	});
 	
+	// when a symbol is clicked
 	$('.ticker_list .ticker').click(function() {
+		// research the symbol
 		research($(this).attr('data-symbol'), '1m');
 		
-		$('.timeframe_option').removeClass('timeframe_selected');
-		$('.timeframe_option.1m').addClass('timeframe_selected');
+		// change the classes of the options for aesthetic
+		$('.timeframe_option').removeClass('selected');
+		$('.timeframe_option.1m').addClass('selected');
 	});
 	
+	// when the detail view's ticker is clicked, close the view
 	$('.ticker_detail .ticker').click(function() {
 		$('.ticker_detail').removeClass('open').addClass('closed');
 	});
 	
+	// postponed for now because it looks ugly
 	// when a ticker is moused over show the other value change
 	$('.ticker_list .ticker').mouseover(function() {
 		//$(this).text($(this).attr('data-symbol') + ': Details');
