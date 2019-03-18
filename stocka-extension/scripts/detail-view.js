@@ -1,28 +1,35 @@
 // set up event listeners for the detail-view's timeframe option buttons
 function setup_detail_listeners() {
 	$('.timeframe_option').click(function() {
+		// styling
+		$('.timeframe_option').removeClass('selected');
+		$(this).addClass('selected');
+		
 		var timeframe = $(this).attr('class').split(' ')[1];
 		var ticker = $('.ticker_detail .ticker').text().substring(0, $('.ticker_detail .ticker').text().indexOf(':'));
 		
 		research(ticker, timeframe);
-		
-		// styling
-		$('.timeframe_option').removeClass('selected');
-		$(this).addClass('selected');
 	});
 }
 
 // individual ticker lookup
 function research(symbol, timeframe) {
-	console.log('research requested');
-	
 	let local_check = false;
 	
 	local_chart_data.forEach(function(item) {
 		if (item.symbol === symbol) {
-			local_check = true;
+			console.log('found symbol in local');
 			
-			set_ticker_details(item.data, symbol, true);
+			if (has_key(item.data, timeframe)) {
+				
+				console.log('found timeframe data in object');
+				
+				local_check = true;
+			
+				if (timeframe === '1m') { set_ticker_details(item.data['1m'], symbol, timeframe, true); }
+				else if (timeframe === '6m') { set_ticker_details(item.data['6m'], symbol, timeframe, true); }
+				else if (timeframe === '1y') { set_ticker_details(item.data['1y'], symbol, timeframe, true); }
+			}
 		}
 	});
 	
@@ -31,22 +38,27 @@ function research(symbol, timeframe) {
 		let url = 'https://api.iextrading.com/1.0/stock/' + symbol + '/chart/' + timeframe;
 	  
 		// set up ticker detail view with response data	
-		console.log('setting up detail view with new data');
-		fetch(url).then(res => res.json()).then(data => set_ticker_details(data, symbol, false));
+		fetch(url).then(res => res.json()).then(data => set_ticker_details(data, symbol, timeframe, false));
 	}
 }
 
 // update ticker detail view
-function set_ticker_details(data, ticker, from_local) {
+function set_ticker_details(data, ticker, timeframe, from_local) {
 	if (from_local) {
-		console.log('filling detail view from local array');
-		fill_detail_table(data, ticker);
-	} else {
-		console.log('filling detail view from fresh pull');
-		local_chart_data.push({'symbol':ticker, 'data':data});
+		console.log('setting up research view from local copy of symbol data');
 		
-		fill_detail_table(data, ticker);
+		console.log(data);
+	} else {
+		console.log('pushing data to local copy');
+		if (timeframe === '1m') { local_chart_data.push({'symbol':ticker, 'data':{'1m':data}}); }
+		else if (timeframe === '6m') { local_chart_data.push({'symbol':ticker, 'data':{'6m':data}}); }
+		else if (timeframe === '1y') { local_chart_data.push({'symbol':ticker, 'data':{'1y':data}}); }
+		
+		console.log(local_chart_data);
 	}
+	
+	console.log('filling detail table');
+	fill_detail_table(data, ticker);
 }
 
 function fill_detail_table(information_object, for_symbol) {
@@ -63,8 +75,6 @@ function fill_detail_table(information_object, for_symbol) {
 		'lowest_price':0.00,
 		'volume_traded':0
 	};
-	
-	console.log(information_object);
 	
 	// fill up that object with parsed data from iex
 	let temp_change = parseFloat(information_object[information_object.length - 1].open - information_object[0].close).toFixed(2);
@@ -208,4 +218,8 @@ function chart_data(data) {
 			legend: { display:false }
     }
   });
+}
+
+function has_key(object, key) {
+  return object ? hasOwnProperty.call(object, key) : false;
 }

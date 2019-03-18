@@ -19,5 +19,6 @@ let market_open_hour_utc = 13;
 let market_open_minute_utc = 30;
 let market_close_hour_utc = 20;
 
-// future endeavors
+// to help prevent spammy users from getting their ip addresses blocked by iex
+// if another research request is made for the same symbol in the same session, the data will be pulled from a local copy
 let local_chart_data = [];
