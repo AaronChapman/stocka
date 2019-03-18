@@ -18,12 +18,7 @@ function research(symbol, timeframe) {
 	
 	local_chart_data.forEach(function(item) {
 		if (item.symbol === symbol) {
-			console.log('found symbol in local');
-			
 			if (has_key(item.data, timeframe)) {
-				
-				console.log('found timeframe data in object');
-				
 				local_check = true;
 			
 				if (timeframe === '1m') { set_ticker_details(item.data['1m'], symbol, timeframe, true); }
@@ -46,18 +41,12 @@ function research(symbol, timeframe) {
 function set_ticker_details(data, ticker, timeframe, from_local) {
 	if (from_local) {
 		console.log('setting up research view from local copy of symbol data');
-		
-		console.log(data);
 	} else {
-		console.log('pushing data to local copy');
 		if (timeframe === '1m') { local_chart_data.push({'symbol':ticker, 'data':{'1m':data}}); }
 		else if (timeframe === '6m') { local_chart_data.push({'symbol':ticker, 'data':{'6m':data}}); }
 		else if (timeframe === '1y') { local_chart_data.push({'symbol':ticker, 'data':{'1y':data}}); }
-		
-		console.log(local_chart_data);
 	}
 	
-	console.log('filling detail table');
 	fill_detail_table(data, ticker);
 }
 
@@ -215,7 +204,7 @@ function chart_data(data) {
         xAxes: [{ display:false  }]
       },
 			events: ['click'],
-			legend: { display:false }
+			legend: { display:false}
     }
   });
 }

@@ -38,7 +38,7 @@ button:hover {
 }
 
 input, button, a {
-  transition: opacity 0.15s ease-in-out;
+  transition: opacity 0.15s ease-in-out, border 0.15s ease-in-out;
 }
 
 input:hover, button:hover, a:hover, .ticker:hover {
@@ -75,7 +75,7 @@ input:hover, button:hover, a:hover, .ticker:hover {
 }
 
 .chart_container {
-	padding: 10px 10px 0 5px;
+	padding: 5px 10px 0 5px;
 }
 
 .tickers {
@@ -171,7 +171,7 @@ input:hover, button:hover, a:hover, .ticker:hover {
 }
 
 .ticker_detail_data {
-	margin: 5px 5px 0 5px;
+	margin: -5px 5px 0 5px;
 }
 
 .ticker_detail .ticker {
@@ -311,10 +311,16 @@ input:hover, button:hover, a:hover, .ticker:hover {
 	background: snow;
 }
 
-.default .timeframe_option.selected,
-.default .ascending,
-.default .decending {
+.default .timeframe_option.selected {
 	background: antiquewhite;
+}
+
+.default .ascending {
+	border: 2px solid #ce8988;
+}
+
+.default .descending {
+	border: 2px solid #427557;
 }
 
 .default .ticker.up {
@@ -349,10 +355,16 @@ input:hover, button:hover, a:hover, .ticker:hover {
 	background: rgb(45, 40, 50);
 }
 
-.midnight .timeframe_option.selected,
-.midnight .ascending,
-.midnight .decending {
+.midnight .timeframe_option.selected {
 	background: ivory;
+}
+
+.midnight .ascending {
+	border: 2px solid #965656;
+}
+
+.midnight .descending {
+	border: 2px solid #627488;
 }
 
 .midnight .ticker.up {
@@ -360,7 +372,7 @@ input:hover, button:hover, a:hover, .ticker:hover {
 }
 
 .midnight .ticker.down {
-	background: #965656;
+	background:#965656;
 }
 
 .midnight .ticker_news span,
@@ -387,10 +399,16 @@ input:hover, button:hover, a:hover, .ticker:hover {
 	background: antiquewhite;
 }
 
-.sepia .timeframe_option.selected,
-.sepia .ascending,
-.sepia .decending {
-	background: bisque;
+.sepia .timeframe_option.selected {
+	background: #627465;
+}
+
+.sepia .ascending {
+	border: 2px solid #96565B;
+}
+
+.sepia .descending {
+	border: 2px solid #627465;
 }
 
 .sepia .ticker.up {
