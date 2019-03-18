@@ -20,4 +20,4 @@ let market_open_minute_utc = 30;
 let market_close_hour_utc = 20;
 
 // future endeavors
-let local_chart_data = {};
+let local_chart_data = [];

@@ -7,7 +7,6 @@ function options_sizing(container) {
 	}
 }
 
-
 // do what the fuck it says bruh
 function check_if_markets_are_open() {
 	let current_date = new Date();

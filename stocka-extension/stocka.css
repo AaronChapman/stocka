@@ -311,7 +311,9 @@ input:hover, button:hover, a:hover, .ticker:hover {
 	background: snow;
 }
 
-.default .timeframe_option.selected {
+.default .timeframe_option.selected,
+.default .ascending,
+.default .decending {
 	background: antiquewhite;
 }
 
@@ -347,8 +349,10 @@ input:hover, button:hover, a:hover, .ticker:hover {
 	background: rgb(45, 40, 50);
 }
 
-.midnight .timeframe_option.selected {
-	background: white;
+.midnight .timeframe_option.selected,
+.midnight .ascending,
+.midnight .decending {
+	background: ivory;
 }
 
 .midnight .ticker.up {
@@ -383,7 +387,9 @@ input:hover, button:hover, a:hover, .ticker:hover {
 	background: antiquewhite;
 }
 
-.sepia .timeframe_option.selected {
+.sepia .timeframe_option.selected,
+.sepia .ascending,
+.sepia .decending {
 	background: bisque;
 }
 
