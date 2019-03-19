@@ -62,6 +62,11 @@ function setup_added_listeners() {
 		$('.ticker_detail').removeClass('open').addClass('closed');
 	});
 	
+	$('.close_detail_view').click(function() {
+		$('.ticker_detail').removeClass('open').addClass('closed');
+		$('.detail_view_options').addClass('closed').removeClass('open');
+	});
+	
 	// postponed for now because it looks ugly
 	// when a ticker is moused over show the other value change
 	$('.ticker_list .ticker').mouseover(function() {

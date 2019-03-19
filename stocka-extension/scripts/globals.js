@@ -22,3 +22,4 @@ let market_close_hour_utc = 20;
 // to help prevent spammy users from getting their ip addresses blocked by iex
 // if another research request is made for the same symbol in the same session, the data will be pulled from a local copy
 let local_chart_data = [];
+let current_chart_data = [];

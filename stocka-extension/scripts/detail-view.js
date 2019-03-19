@@ -100,6 +100,7 @@ function fill_detail_table(information_object, for_symbol) {
 		
 	// aesthetic
 	$('.ticker_detail').removeClass('closed').addClass('open');
+	$('.detail_view_options').addClass('open').removeClass('closed');
 }
 
 // get addition information about the requested symbol
@@ -158,6 +159,8 @@ function add_news_to_ticker_detail_view(news_data) {
 
 // display visually charted data for the symbol over the given timeframe
 function chart_data(data) {
+	current_chart_data = data;
+	
 	// get a reference to the html5 canvas
 	let chart_container = $('#change_chart');
 	// create storage for the chart's values and styles
@@ -207,6 +210,10 @@ function chart_data(data) {
 			legend: { display:false}
     }
   });
+}
+
+function rechart(data) {
+	chart_data(data);
 }
 
 function has_key(object, key) {

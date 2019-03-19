@@ -57,6 +57,10 @@ function setup_theme(theme_to_use) {
 		if (theme == theme_to_use) { 
 			$('body').attr('class', '');
 			$('body').addClass(theme_to_use);
+			
+			if ($('.ticker_detail').hasClass('open')) {
+				rechart(current_chart_data);
+			}
 		}
 	});
 }
