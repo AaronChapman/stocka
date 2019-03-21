@@ -63,13 +63,13 @@ function onLicenseUpdate(response) {
   var licenses = response.response.details;
   
   if (licenses.length < 1) {
-	  $('#upgrade_stocka, .detail_view').addClass('visible');
-	  
-	  console.log('purchased licenses: ');
-		console.log(licenses);
+	  $('#upgrade_stocka').addClass('visible');
   } else {
 	  $('#upgrade_stocka').remove();
 	  $('body').addClass('upgraded');
+	  
+	  console.log('purchased licenses: ');
+		console.log(licenses);
   }
 }
 

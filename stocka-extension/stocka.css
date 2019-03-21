@@ -136,11 +136,12 @@ input:hover, button:hover, a:hover, .ticker:hover {
 }
 
 .upgrade_button {
+	height: 25px;
 	display: none;
   background: white;
   color: #965656;
   text-shadow: 1px 1px 1px lightgrey;
-  border: 0.5px solid #965656;
+  border: 2px solid #965656;
   border-radius: 3px;
   margin: 2.5% 10%;
   width: 80%;
@@ -153,16 +154,24 @@ input:hover, button:hover, a:hover, .ticker:hover {
 }
 
 .upgraded .chart_container {
-	display: inline;
+	display: inline !important;
 }
 
 .upgraded .ticker_detail.open {
-	height: 290px;
-	max-height: 290px;
+	height: auto;
+	max-height: 470px;
+}
+
+.upgraded .timeframe_options {
+	margin-bottom: 0;
 }
 
 
 /* :: buttons n shit :: */
+
+.add_tickers {
+	margin-left: auto;
+}
 
 .tickers_to_add {
   border: 2px solid darkgrey;
@@ -254,7 +263,8 @@ input:hover, button:hover, a:hover, .ticker:hover {
 }
 
 .ticker_detail.open {
-	max-height: 470px;
+	height: 290px;
+	max-height: 290px;
 	padding-top: 5px;
   margin: 5px 0 0 0;
   border-bottom: 2px solid darkgray;
@@ -267,7 +277,7 @@ input:hover, button:hover, a:hover, .ticker:hover {
 .timeframe_options {
 	display: inline-flex;
 	justify-content: center;
-	margin-top 10px;
+	margin-bottom: 10px;
 }
 
 .ticker_detail_data {
@@ -298,6 +308,7 @@ input:hover, button:hover, a:hover, .ticker:hover {
 }
 
 .chart_container {
+	display: none;
 	padding: 5px 10px 0 5px;
 }
 
