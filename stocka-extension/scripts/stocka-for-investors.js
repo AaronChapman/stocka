@@ -68,6 +68,8 @@ function onLicenseUpdate(response) {
 	  $('#upgrade_stocka').remove();
 	  $('body').addClass('upgraded');
 	  
+	  upgraded = true;
+	  
 	  console.log('purchased licenses: ');
 		console.log(licenses);
   }

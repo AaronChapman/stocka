@@ -129,44 +129,6 @@ input:hover, button:hover, a:hover, .ticker:hover {
 }
 
 
-/* :: stocka for investors :: */
-
-.upgraded .upgrade_button {
-	display: none !important;
-}
-
-.upgrade_button {
-	height: 25px;
-	display: none;
-  background: white;
-  color: #965656;
-  text-shadow: 1px 1px 1px lightgrey;
-  border: 2px solid #965656;
-  border-radius: 3px;
-  margin: 2.5% 10%;
-  width: 80%;
-  padding: 5px 0;
-  font-size: 12px;
-}
-
-.upgrade_button.visible {
-	display: inline;
-}
-
-.upgraded .chart_container {
-	display: inline !important;
-}
-
-.upgraded .ticker_detail.open {
-	height: auto;
-	max-height: 470px;
-}
-
-.upgraded .timeframe_options {
-	margin-bottom: 0;
-}
-
-
 /* :: buttons n shit :: */
 
 .add_tickers {
@@ -336,7 +298,6 @@ input:hover, button:hover, a:hover, .ticker:hover {
 }
 
 
-
 /* :: theming options :: */
 
 .theme_to_chart {
@@ -354,6 +315,45 @@ input:hover, button:hover, a:hover, .ticker:hover {
   border: 2px solid darkgray;
   border-radius: 3px;
   margin: 5px 0 0 5px;
+}
+
+
+/* :: stocka for investors :: */
+
+.upgraded .upgrade_button {
+	display: none !important;
+}
+
+.upgrade_button {
+	height: 25px;
+	display: none;
+  background: white;
+  color: #965656;
+  text-shadow: 1px 1px 1px lightgrey;
+  border: 2px solid #965656;
+  border-radius: 3px;
+  margin: 2.5% 10%;
+  width: 80%;
+  padding: 2.5px 0 5px 0;
+  font-size: 12px;
+}
+
+.upgrade_button.visible {
+	display: inline;
+	margin-top: -5px;
+}
+
+.upgraded .chart_container {
+	display: inline !important;
+}
+
+.upgraded .ticker_detail.open {
+	height: 470px;
+	max-height: 470px;
+}
+
+.upgraded .timeframe_options {
+	margin-bottom: 0;
 }
 
 
@@ -406,7 +406,7 @@ input:hover, button:hover, a:hover, .ticker:hover {
 .default .upgrade_button {
   background: white;
   color: #965656;
-  border: 0.5px solid #965656;
+  border: 2px solid #965656;
 }
 
 
@@ -459,7 +459,7 @@ input:hover, button:hover, a:hover, .ticker:hover {
 .midnight .upgrade_button {
   background: white;
   color: #965656;
-  border: 0.5px solid #965656;
+  border: 2px solid #965656;
 }
 
 
@@ -520,5 +520,4 @@ input:hover, button:hover, a:hover, .ticker:hover {
 }
 
 .sepia .upgrade_button {
-	
 }

@@ -96,7 +96,8 @@ function fill_detail_table(information_object, for_symbol) {
 	}
 	
 	additional_research(for_symbol);
-	chart_data(information_object);
+	
+	if (upgraded) { chart_data(information_object); }
 		
 	// aesthetic
 	$('.ticker_detail').removeClass('closed').addClass('open');
@@ -213,7 +214,7 @@ function chart_data(data) {
 }
 
 function rechart(data) {
-	chart_data(data);
+	if (upgraded) { chart_data(data); }
 }
 
 function has_key(object, key) {
