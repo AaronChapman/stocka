@@ -50,42 +50,26 @@ input:hover, button:hover, a:hover, .ticker:hover {
 	cursor: pointer !important;
 }
 
-/* :: NEEDS ORGANIZED :: */
 
-.add_tickers_area {
-  transition: all 0.5s ease-in-out !important;
-	height: 0px;
-  overflow: hidden;
-}
-
-.add_tickers_area.open {
-	height: 45px;
-  padding-top: 7px;
-}
-
-.add_tickers {
-  margin-left: auto;
-}
-
-.add_tickers:hover {
-	opacity: 0.5;
-}
-
-.tickers_to_add {
-  border: 2px solid darkgrey;
-  padding: 10px;
-  border-radius: 5px;
-  width: -webkit-fill-available;
-  margin: 5px;
-}
-
-.chart_container {
-	padding: 5px 10px 0 5px;
-}
+/* :: ticker list :: */
 
 .tickers {
   border: 2px solid darkgrey;
   border-radius: 5px;
+}
+
+.ticker_list {
+  display: grid;
+  width: 300px;
+  zoom: 0.75;
+  padding: 10px 10px 15px 10px;
+  min-height: 100px;
+	transition: opacity 0.5s ease-in-out !important;
+}
+
+.ticker_list .ticker:hover {
+	margin-left: 10px;
+	opacity: 0.75;
 }
 
 .ticker_container {
@@ -99,13 +83,16 @@ input:hover, button:hover, a:hover, .ticker:hover {
 	opacity: 0;
 }
 
-.ticker_list {
-  display: grid;
-  width: 300px;
-  zoom: 0.75;
-  padding: 10px 10px 15px 10px;
-  min-height: 100px;
-	transition: opacity 0.5s ease-in-out !important;
+.ticker_elements {
+	display: inline-flex;
+  list-style-type: none;
+  width: -webkit-fill-available;
+  padding: 0;
+  margin-left: 10px;
+}
+
+.ticker_symbol {
+	min-width: 90%;
 }
 
 .ticker {
@@ -124,23 +111,6 @@ input:hover, button:hover, a:hover, .ticker:hover {
   box-shadow: 0 2px 1px #000000;
 }
 
-.ticker_list .ticker:hover {
-	margin-left: 10px;
-	opacity: 0.75;
-}
-
-.ticker_elements {
-	display: inline-flex;
-  list-style-type: none;
-  width: -webkit-fill-available;
-  padding: 0;
-  margin-left: 10px;
-}
-
-.ticker_symbol {
-	min-width: 90%;
-}
-
 .ticker_removal {
 	min-width 10%;
 }
@@ -154,48 +124,68 @@ input:hover, button:hover, a:hover, .ticker:hover {
   color: darkgray;
 }
 
-.ticker_detail {
-	height: 0px;
-  overflow: hidden;
-  display: grid;
-  transition: all 0.75s ease-in-out, color 0.25s ease-in-out !important;
-	padding: 0;
-  margin: 0;
-  border-top: none;
-}
-
-.ticker_detail.open {
-	max-height: 470;
-	padding-top: 5px;
-  margin: 5px 0 0 0;
-  border-bottom: 2px solid darkgray;
-}
-
-.ticker_detail.closed {
-	height: 0px !important;
-}
-
-.ticker_detail_data {
-	margin: -5px 5px 0 5px;
-}
-
 .ticker_detail .ticker {
 	margin: auto;
 }
 
-.ticker_detail_data tr td:nth-child(1) {
-	width: 75%;
+
+/* :: stocka for investors :: */
+
+.upgraded .upgrade_button {
+	display: none !important;
 }
 
-.ticker_detail_data tr td:nth-child(2) {
-	width: 25%;
-	text-align: right;
+.upgrade_button {
+	display: none;
+  background: white;
+  color: #965656;
+  text-shadow: 1px 1px 1px lightgrey;
+  border: 0.5px solid #965656;
+  border-radius: 3px;
+  margin: 2.5% 10%;
+  width: 80%;
+  padding: 5px 0;
+  font-size: 12px;
 }
 
-.timeframe_options {
-	display: inline-flex;
-	justify-content: center;
-	margin-top 10px;
+.upgrade_button.visible {
+	display: inline;
+}
+
+.upgraded .chart_container {
+	display: inline;
+}
+
+.upgraded .ticker_detail.open {
+	height: 290px;
+	max-height: 290px;
+}
+
+
+/* :: buttons n shit :: */
+
+.tickers_to_add {
+  border: 2px solid darkgrey;
+  padding: 10px;
+  border-radius: 5px;
+  width: -webkit-fill-available;
+  margin: 5px;
+}
+
+.container_expander {
+  height: 20px;
+  border: 2px solid darkgray;
+  border-radius: 3px;
+  color: darkgray;
+  background: white;
+}
+
+.sorting_option {
+  height: 20px;
+  border: 2px solid darkgray;
+  border-radius: 3px;
+  margin: 5px;
+  color: darkgray;
 }
 
 .timeframe_option {
@@ -209,25 +199,32 @@ input:hover, button:hover, a:hover, .ticker:hover {
   white-space: nowrap;
 }
 
-.ticker_news {
-  height: 100px;
-  padding: 10px;
-  border-top: 2px solid lightgray;
-  overflow: scroll;
-  margin: 0 0 -20px -5px;
+.close_detail_view {
+	height: 20px;
+	overflow: hidden;
+  border-radius: 5px 5px 0 0;
+  border-bottom: none !important;
+  margin-left: 170px;
 }
 
-.up {
-	background: #427557;
+
+/* :: containers :: */
+
+.add_tickers_area {
+  transition: all 0.5s ease-in-out !important;
+	height: 0px;
+  overflow: hidden;
 }
 
-.down {
-	background: #ce8988;
+.add_tickers_area.open {
+	height: 45px;
+  padding-top: 7px;
 }
 
-.no_change {
-	background: #427557;
-	opacity: 0.75;
+.options_header {
+	border-bottom: 2px solid darkgray;
+	padding: 0 0 7.5px 0;
+	display: flex;
 }
 
 .sorting_options {
@@ -238,30 +235,52 @@ input:hover, button:hover, a:hover, .ticker:hover {
   justify-content: center;
 }
 
-.options_header {
-	border-bottom: 2px solid darkgray;
-	padding: 0 0 7.5px 0;
-	display: flex;
+.sorting_options.open {
+	height: 30px;
 }
 
 .closed {
 	height: 0;
 }
 
-.container_expander {
-  height: 20px;
-  border: 2px solid darkgray;
-  border-radius: 3px;
-  color: darkgray;
-  background: white;
+.ticker_detail {
+	height: 0px;
+  overflow: hidden;
+  display: grid;
+  transition: all 0.75s ease-in-out, color 0.25s ease-in-out !important;
+	padding: 0;
+  margin: 0;
+  border-top: none;
 }
 
-.close_detail_view {
-	height: 20px;
-	overflow: hidden;
-  border-radius: 5px 5px 0 0;
-  border-bottom: none !important;
-  margin-left: 170px;
+.ticker_detail.open {
+	max-height: 470px;
+	padding-top: 5px;
+  margin: 5px 0 0 0;
+  border-bottom: 2px solid darkgray;
+}
+
+.ticker_detail.closed {
+	height: 0px !important;
+}
+
+.timeframe_options {
+	display: inline-flex;
+	justify-content: center;
+	margin-top 10px;
+}
+
+.ticker_detail_data {
+	margin: -5px 5px 0 5px;
+}
+
+.ticker_detail_data tr td:nth-child(1) {
+	width: 75%;
+}
+
+.ticker_detail_data tr td:nth-child(2) {
+	width: 25%;
+	text-align: right;
 }
 
 .detail_view_options {
@@ -278,18 +297,17 @@ input:hover, button:hover, a:hover, .ticker:hover {
 	height: 20px;
 }
 
-.sorting_options.open {
-	height: 30px;
+.chart_container {
+	padding: 5px 10px 0 5px;
 }
 
-.sorting_option {
-  height: 20px;
-  border: 2px solid darkgray;
-  border-radius: 3px;
-  margin: 5px;
-  color: darkgray;
+.ticker_news {
+  height: 100px;
+  padding: 10px;
+  border-top: 2px solid lightgray;
+  overflow: scroll;
+  margin: 0 0 -20px -5px;
 }
-/* :: NEEDS ORGANIZED :: */
 
 
 /* :: extension messages :: */
@@ -374,6 +392,12 @@ input:hover, button:hover, a:hover, .ticker:hover {
 	border: 2px solid darkgray;
 }
 
+.default .upgrade_button {
+  background: white;
+  color: #965656;
+  border: 0.5px solid #965656;
+}
+
 
 /* :: midnight theme :: */
 
@@ -419,6 +443,12 @@ input:hover, button:hover, a:hover, .ticker:hover {
 .midnight .tickers,
 .midnight button {
 	border: 2px solid darkgray;
+}
+
+.midnight .upgrade_button {
+  background: white;
+  color: #965656;
+  border: 0.5px solid #965656;
 }
 
 
@@ -478,26 +508,6 @@ input:hover, button:hover, a:hover, .ticker:hover {
 	border-bottom: 2px solid #aa9095;
 }
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+.sepia .upgrade_button {
+	
+}
