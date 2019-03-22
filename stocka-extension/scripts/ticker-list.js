@@ -60,6 +60,7 @@ function setup_added_listeners() {
 	// when the detail view's ticker is clicked, close the view
 	$('.ticker_detail .ticker, .close_detail_view').click(function() {
 		$('.ticker_detail').removeClass('open').addClass('closed');
+		$('.detail_view_options').removeClass('open').addClass('closed');
 	});
 	
 	// postponed for now because it looks ugly
@@ -76,7 +77,7 @@ function setup_added_listeners() {
 	
 	// when the ticker is moused out of, reset the ticker display
 	$('.ticker_list .ticker').mouseout(function() {
-		set_ticker_display_data();
+		//set_ticker_display_data();
 	});
 }
 

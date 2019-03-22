@@ -33,6 +33,8 @@ function getProductList() {
 
 function onSkuDetails(skus) {
 	var product = skus.response.details.inAppProducts[0];
+	
+	//console.log(product);
     
   getLicenses();
 }
@@ -41,7 +43,7 @@ function onSkuDetails(skus) {
 // step 3b - if there was a problem loading the upgrade data
 
 function onSkuDetailsFailed(response) {
-	console.log('failed to retrieve upgrade');
+	console.log('failed to retrieve upgrade because');
   console.log(response);
 }
 
@@ -72,8 +74,7 @@ function onLicenseUpdate(response) {
 	  
 	  setup_upgraded_interface();
 	  
-	  console.log('purchased licenses: ');
-		console.log(licenses);
+	  console.log('looks like you\'re using stocka for investors... nice');
   }
 }
 
@@ -81,7 +82,7 @@ function onLicenseUpdate(response) {
 // step 5b - if something went wrong
 
 function onLicenseUpdateFailed(response) {
-  console.log('failed to update licenses');
+  console.log('failed to update licenses because');
   console.log(response);
 }
 
@@ -117,4 +118,6 @@ function onPurchaseFailed(purchase) {
   console.log(reason.toLowerCase());
 }
 
+
+// start 'er up
 init();

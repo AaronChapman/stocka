@@ -5,7 +5,7 @@ document.addEventListener("DOMContentLoaded", function(event) {
 		if (result.theme) {
 		  current_theme = result.theme;
 		} else {
-			current_theme = 'midnight';
+			current_theme = 'default';
 		}
 		
 		$('body').addClass(current_theme);
@@ -29,5 +29,4 @@ document.addEventListener("DOMContentLoaded", function(event) {
 	setup_sorting_listeners();
 	setup_detail_listeners();
 	setup_ticker_list_listeners();
-	setup_theme_listeners();
 });

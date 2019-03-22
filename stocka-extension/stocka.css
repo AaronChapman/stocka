@@ -372,7 +372,6 @@ input:hover, button:hover, a:hover, .ticker:hover {
 }
 
 .default .timeframe_option.selected {
-	background: antiquewhite;
 	color: #ce8988;
 	border-color: #ce8988;
 }
