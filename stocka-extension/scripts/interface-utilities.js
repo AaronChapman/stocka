@@ -60,13 +60,26 @@ function setup_theme(theme_to_use) {
 			
 			if (upgraded) {
 				$('body').addClass('upgraded');
-			}
-			
-			if ($('.ticker_detail').hasClass('open')) {
-				rechart(current_chart_data);
+				
+				if ($('.ticker_detail').hasClass('open')) {
+					rechart(current_chart_data);
+				}
 			}
 		}
 	});
+}
+
+function setup_upgraded_interface() {
+	add_themes();
+	add_chart();
+}
+
+function add_themes() {
+	$('.theme_options').append('<button class="theme_option sepia" data-theme-name="sepia"></button><button class="theme_option midnight" data-theme-name="midnight"></button>');
+}
+
+function add_chart() {
+	$('.ticker_detail_data').before('<div class="chart_container"><canvas id="change_chart" width="200" height="150"></canvas></div>');
 }
 
 // format larger numbers

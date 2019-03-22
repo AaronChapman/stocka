@@ -12,7 +12,7 @@ document.addEventListener('DOMContentLoaded', function() {
 // step 1 - initialize process
 
 function init() {
-  console.log('fetching upgrade information...');
+  console.log('fetching upgrade information');
   
   getProductList();
 }
@@ -41,7 +41,7 @@ function onSkuDetails(skus) {
 // step 3b - if there was a problem loading the upgrade data
 
 function onSkuDetailsFailed(response) {
-	console.log('failed to retrieve upgrade: ');
+	console.log('failed to retrieve upgrade');
   console.log(response);
 }
 
@@ -70,6 +70,8 @@ function onLicenseUpdate(response) {
 	  
 	  upgraded = true;
 	  
+	  setup_upgraded_interface();
+	  
 	  console.log('purchased licenses: ');
 		console.log(licenses);
   }
@@ -79,7 +81,7 @@ function onLicenseUpdate(response) {
 // step 5b - if something went wrong
 
 function onLicenseUpdateFailed(response) {
-  console.log('failed to update licenses: ');
+  console.log('failed to update licenses');
   console.log(response);
 }
 

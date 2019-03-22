@@ -58,7 +58,7 @@ function setup_added_listeners() {
 	});
 	
 	// when the detail view's ticker is clicked, close the view
-	$('.ticker_detail .ticker. .close_detail_view').click(function() {
+	$('.ticker_detail .ticker, .close_detail_view').click(function() {
 		$('.ticker_detail').removeClass('open').addClass('closed');
 	});
 	
