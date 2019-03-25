@@ -9,6 +9,12 @@ function sort_update_interface(sorting_option) {
 		
 		temporary_tickers.reverse();
 	}
+	
+	$('.sorting_option').each(function() {
+		if ($(this).index() != sorting_option.index()) {
+			$(this).removeClass('ascending descending').addClass('unsorted');
+		}
+	});
 }
 
 // for sorting numeric value arrays

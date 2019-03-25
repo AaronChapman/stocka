@@ -1,19 +1,41 @@
 // stocka for investors
 
 document.addEventListener('DOMContentLoaded', function() {
-  var upgrade_stocka_button = document.getElementById('upgrade_stocka');
+  var show_upgrade = document.getElementById('show_upgrade');
+  var request_upgrade = document.getElementById('request_upgrade');
+  var cancel_upgrade = document.getElementById('cancel_upgrade');
   
-  upgrade_stocka_button.addEventListener('click', function() {
+  show_upgrade.addEventListener('click', function() {
+	  $('#show_upgrade').css('opacity', '0');
+	  
+	  show_upgrade_information();
+  });
+  
+  cancel_upgrade.addEventListener('click', function() {
+	  $('#show_upgrade').css('opacity', '1');
+	  
+	  hide_upgrade_information();
+  });
+  
+  request_upgrade.addEventListener('click', function() {
 	  buyProduct('stockaforinvestors');
   });
 });
 
+function show_upgrade_information() {
+	$('.upgrade_information').addClass('visible');
+}
 
+function hide_upgrade_information() {
+	$('.upgrade_information').removeClass('visible');
+}
+
+
+
+// upgrade flow
 // step 1 - initialize process
 
 function init() {
-  console.log('fetching upgrade information');
-  
   getProductList();
 }
 
@@ -43,8 +65,8 @@ function onSkuDetails(skus) {
 // step 3b - if there was a problem loading the upgrade data
 
 function onSkuDetailsFailed(response) {
-	console.log('failed to retrieve upgrade because');
-  console.log(response);
+	//console.log('failed to retrieve upgrade because');
+  //console.log(response);
 }
 
 
@@ -74,7 +96,7 @@ function onLicenseUpdate(response) {
 	  
 	  setup_upgraded_interface();
 	  
-	  console.log('looks like you\'re using stocka for investors... nice');
+	  console.log('looks like you\'re using stocka for investors\n\nnice');
   }
 }
 

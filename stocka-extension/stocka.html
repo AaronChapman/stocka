@@ -21,6 +21,12 @@
 		<script src="scripts/stocka-for-investors.js" type="text/javascript"></script>
 	</head>
 	<body class="default">
+		<p class="upgrade_information">
+			your favorite portfolio monitor will be expanded with a suite of additional features, including (but not limited to) charted data, additional themes, and access to all future updates of stocka for a <strong>one-time</strong> fee of 0.99<br><br>
+			visit <a href="https://oylo.info/stocka" target="_blank">oylo.info/stocka</a> for a closer look at stocka for investors<br><br>
+			<button id="request_upgrade">upgrade</button>
+			<button id="cancel_upgrade">cancel</button>
+		</p>
 		<div class="options_header">
 			<button class="sorting_options_button container_expander">sort list</button>
 			<button class="add_tickers container_expander">add tickers</button>
@@ -39,11 +45,11 @@
 		</div>
 		<div class="tickers">
 			<div class="ticker_detail closed">
-				<button id="upgrade_stocka" class="upgrade_button">upgrade to <b>stocka for investors</b></button>
+				<button id="show_upgrade" class="upgrade_button visible">upgrade to stocka for investors</button>
 				<span class="ticker"></span>
 				<div class="timeframe_options">
 					<button class="timeframe_option 1m selected">this month</button>
-					<button class="timeframe_option 6m">last six</button>
+					<button class="timeframe_option 6m">last six months</button>
 					<button class="timeframe_option 1y">last year</button>
 				</div>
 				<table class="ticker_detail_data">

@@ -152,6 +152,7 @@ input:hover, button:hover, a:hover, .ticker:hover {
 }
 
 .sorting_option {
+	transition: border-color 0.25s ease-in-out;
   height: 20px;
   border: 2px solid darkgray;
   border-radius: 3px;
@@ -198,7 +199,7 @@ input:hover, button:hover, a:hover, .ticker:hover {
 
 .options_header {
 	border-bottom: 2px solid darkgray;
-	padding: 0 0 7.5px 0;
+	padding: 0 0 10px 0;
 	display: flex;
 }
 
@@ -232,7 +233,6 @@ input:hover, button:hover, a:hover, .ticker:hover {
 	height: 290px;
 	max-height: 290px;
 	padding-top: 5px;
-  margin: 5px 0 0 0;
   border-bottom: 2px solid darkgray;
 }
 
@@ -247,7 +247,7 @@ input:hover, button:hover, a:hover, .ticker:hover {
 }
 
 .ticker_detail_data {
-	margin: -5px 5px 0 5px;
+	margin: -5px 10px 0 10px;
 }
 
 .ticker_detail_data tr td:nth-child(1) {
@@ -344,7 +344,6 @@ input:hover, button:hover, a:hover, .ticker:hover {
 
 .upgrade_button.visible {
 	display: inline;
-	margin-top: -5px;
 }
 
 .upgraded .chart_container {
@@ -360,6 +359,24 @@ input:hover, button:hover, a:hover, .ticker:hover {
 	margin-bottom: 0;
 }
 
+.upgrade_information {
+  height: 0px;
+  margin: 0;
+  transition: height 0.25s ease-in-out;
+  padding: 0 25px 0 25px;
+  overflow: hidden;
+  position: absolute;
+  width: 204px;
+}
+
+.upgrade_information.visible {
+  height: 170px;
+  padding: 0 25px 15px 25px;
+  border-radius: 5px 5px 0 0;
+  border-bottom: 2px solid darkgray;
+  margin-top: -2.5px;
+}
+
 
 /* :: default theme :: */
 
@@ -367,7 +384,8 @@ input:hover, button:hover, a:hover, .ticker:hover {
 	background: snow !important;
 }
 
-.default, .default button, .default input {
+.default, .default button, .default input,
+.default .upgrade_information {
 	background: snow;
 }
 
@@ -424,7 +442,8 @@ input:hover, button:hover, a:hover, .ticker:hover {
 	background: rgb(45, 40, 50) !important;
 }
 
-.midnight, .midnight button, .midnight input {
+.midnight, .midnight button, .midnight input,
+.midnight .upgrade_information {
 	background: rgb(45, 40, 50);
 }
 
@@ -482,7 +501,8 @@ input:hover, button:hover, a:hover, .ticker:hover {
 	background: antiquewhite !important;
 }
 
-.sepia, .sepia button, .sepia input {
+.sepia, .sepia button, .sepia input,
+.sepia .upgrade_information {
 	background: antiquewhite;
 }
 
@@ -538,5 +558,73 @@ input:hover, button:hover, a:hover, .ticker:hover {
 }
 
 .sepia .upgrade_button {
+	
+}
+
+
+
+
+/* :: tangerine theme :: */
+
+.theme_option.tangerine {
+	background: antiquewhite !important;
+}
+
+.tangerine, .tangerine button, .tangerine input {
+	background: antiquewhite;
+}
+
+.tangerine .timeframe_option.selected {
+	background: whitesmoke;
+	color: #96565B;
+	border-color: #96565B;
+}
+.tangerine .ascending {
+	border: 2px solid #96565B;
+}
+
+.tangerine .descending {
+	border: 2px solid #627465;
+}
+
+.tangerine .ticker.up {
+	background: #627465;
+}
+
+.tangerine .ticker.down {
+	background: #96565B;
+}
+
+.tangerine .ticker_news span,
+.tangerine .market_closed_message,
+.tangerine .loading_message,
+.tangerine .ticker_detail_data td,
+.tangerine .tickers_to_add,
+.tangerine input,
+.tangerine button {
+	color: #aa9095;
+}
+
+.tangerine .tickers,
+.tangerine .tickers_to_add,
+.tangerine button {
+	border: 2px solid #aa9095;
+}
+
+.tangerine .ticker_news {
+	border-top: 2px solid #aa9095;
+}
+
+.tangerine .options_header {
+	border-bottom: 2px solid #aa9095;
+}
+
+.tangerine .close_detail_view {
+	background: rgba(00, 00, 00, 00);
+	border-color: #96565B;
+	color: #96565B;
+}
+
+.tangerine .upgrade_button {
 	
 }
