@@ -14,15 +14,9 @@ function open_notes(notes) {
 }
 
 function save_notes(note_content) {
-	chrome.storage.sync.set({'tickers': tickers, 'notes':notes, 'theme':current_theme}, function() {
-	  setTimeout(function() {
-		  close_notes();
-	  }, 250);
-	});
-}
-
-function close_notes() {
 	notes = $('.notes_field').html();
 	
-	$('.notes_container').addClass('closed').removeClass('open');
+	chrome.storage.sync.set({'tickers': tickers, 'notes':notes, 'theme':current_theme}, function() {
+	  $('.notes_container').addClass('closed').removeClass('open');
+	});
 }
