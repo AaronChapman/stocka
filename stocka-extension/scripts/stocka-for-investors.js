@@ -87,9 +87,9 @@ function onLicenseUpdate(response) {
   var licenses = response.response.details;
   
   if (licenses.length < 1) {
-	  $('#upgrade_stocka').addClass('visible');
+	  $('#show_upgrade').addClass('visible');
   } else {
-	  $('#upgrade_stocka').remove();
+	  $('#show_upgrade').remove();
 	  $('body').addClass('upgraded');
 	  
 	  upgraded = true;

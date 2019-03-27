@@ -9,13 +9,14 @@
 		
 		<link href="https://fonts.googleapis.com/css?family=Varela+Round" rel="stylesheet">
 	
-		<script src="jquery.js" type="text/javascript"></script>
+		<script src="scripts/jquery.js" type="text/javascript"></script>
 		<script src="scripts/globals.js" type="text/javascript"></script>
 		<script src="scripts/stocka.js" type="text/javascript"></script>
 		<script src="scripts/sorting-options.js" type="text/javascript"></script>
 		<script src="scripts/detail-view.js" type="text/javascript"></script>
 		<script src="scripts/ticker-list.js" type="text/javascript"></script>
 		<script src="scripts/interface-utilities.js" type="text/javascript"></script>
+		<script src="scripts/notes.js" type="text/javascript"></script>
 		<script src="scripts/chart.min.js" type="text/javascript"></script>
 		<script src="scripts/buy.js" type="text/javascript"></script>
 		<script src="scripts/stocka-for-investors.js" type="text/javascript"></script>
@@ -45,7 +46,7 @@
 		</div>
 		<div class="tickers">
 			<div class="ticker_detail closed">
-				<button id="show_upgrade" class="upgrade_button visible">upgrade to stocka for investors</button>
+				<button id="show_upgrade" class="upgrade_button">upgrade to stocka for investors</button>
 				<span class="ticker"></span>
 				<div class="timeframe_options">
 					<button class="timeframe_option 1m selected">this month</button>
@@ -65,6 +66,14 @@
 			<div class="ticker_list" data-displayed="price">
 				<span class="loading_message">loading data...</span>
 			</div>
+		</div>
+		<button class="open_notes">notes</button>
+		<div class="notes_container closed">
+			<p class="notes_field" contenteditable="true">
+				here's a test note \n\n\ntesting the note boat mane\n\n$$$$djslkajdsklajdosniud o2urb 8yuwr eyw urew uroeuw ufnewj mdklmld
+			</p>
+			<br><br>
+			<button class="save_notes">save</button>
 		</div>
 		<div class="theme_options">
 			<button class="theme_option default" data-theme-name="default"></button>

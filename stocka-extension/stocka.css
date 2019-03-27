@@ -38,6 +38,10 @@ body {
   background: snow;
 }
 
+button {
+	box-shadow: 0 1px 2px rgba(00, 00, 00, 0.25);
+}
+
 button:hover {
 	opacity: 0.5;
 }
@@ -286,6 +290,41 @@ input:hover, button:hover, a:hover, .ticker:hover {
   margin: 0 0 -20px -5px;
 }
 
+.notes_container {
+	transition: 0.5s ease-in-out;
+  overflow: hidden;
+  margin: 0 0 0 -10px;
+  width: 254px;
+  position: fixed;
+  bottom: 0;
+}
+
+.open_notes {
+	left: 0;
+  bottom: 0;
+  position: inherit;
+  margin: 5px auto 0 0;
+  border-radius: 3px;
+}
+
+.notes_container.open {
+	overflow: scroll;
+  height: 200px;
+  padding: 10px;
+  width: 254px;
+  box-shadow: 0 -3px 5px rgba(00, 00, 00, 0.25);
+}
+
+.notes_container.closed {
+  height: 0px;
+  padding: 0px;
+  width: 254px;
+}
+
+.notes_field {
+	margin: 0;
+}
+
 
 /* :: extension messages :: */
 
@@ -314,8 +353,8 @@ input:hover, button:hover, a:hover, .ticker:hover {
 }
 
 .theme_option {
-	width: 15px;
-  height: 17.5px;
+	width: 20px;
+  height: 20px;
   border: 2px solid darkgray;
   border-radius: 3px;
   margin: 5px 0 0 5px;
@@ -360,21 +399,25 @@ input:hover, button:hover, a:hover, .ticker:hover {
 }
 
 .upgrade_information {
+  margin: -10px !important;
   height: 0px;
   margin: 0;
-  transition: height 0.25s ease-in-out;
+  transition: all 0.25s ease-in-out;
   padding: 0 25px 0 25px;
   overflow: hidden;
   position: absolute;
-  width: 204px;
 }
 
 .upgrade_information.visible {
   height: 170px;
-  padding: 0 25px 15px 25px;
-  border-radius: 5px 5px 0 0;
+  padding: 15px 25px 15px 25px;
   border-bottom: 2px solid darkgray;
-  margin-top: -2.5px;
+  box-shadow: 0 3px 5px rgba(00, 00, 00, 0.25);
+}
+
+.upgrade_information button {
+  border-radius: 3px;
+  margin: 0 20px;
 }
 
 
@@ -385,7 +428,8 @@ input:hover, button:hover, a:hover, .ticker:hover {
 }
 
 .default, .default button, .default input,
-.default .upgrade_information {
+.default .upgrade_information,
+.default .notes_container {
 	background: snow;
 }
 
@@ -443,7 +487,8 @@ input:hover, button:hover, a:hover, .ticker:hover {
 }
 
 .midnight, .midnight button, .midnight input,
-.midnight .upgrade_information {
+.midnight .upgrade_information,
+.midnight .notes_container {
 	background: rgb(45, 40, 50);
 }
 
@@ -502,7 +547,8 @@ input:hover, button:hover, a:hover, .ticker:hover {
 }
 
 .sepia, .sepia button, .sepia input,
-.sepia .upgrade_information {
+.sepia .upgrade_information,
+.sepia .notes_container {
 	background: antiquewhite;
 }
 
@@ -547,7 +593,9 @@ input:hover, button:hover, a:hover, .ticker:hover {
 	border-top: 2px solid #aa9095;
 }
 
-.sepia .options_header {
+.sepia .options_header,
+.sepia .upgrade_information.visible,
+.sepia .ticker_detail.open {
 	border-bottom: 2px solid #aa9095;
 }
 

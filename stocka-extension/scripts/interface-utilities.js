@@ -75,7 +75,7 @@ function setup_upgraded_interface() {
 }
 
 function add_themes() {
-	$('.theme_options').append('<button class="theme_option midnight" data-theme-name="midnight"></button><button class="theme_option tangerine" data-theme-name="tangerine"></button>');
+	$('.theme_options').append('<button class="theme_option midnight" data-theme-name="midnight"></button>');
 
 	setup_theme_listeners();
 }

@@ -5,6 +5,8 @@ let prices = [];
 let changes = [];
 let percentages = [];
 
+let notes = 'you can save notes here\nclick anywhere inside the box to type';
+
 // default symbol set
 let default_tickers = ['AAPL', 'AMZN', 'FB', 'GOOGL', 'MSFT'];
 
