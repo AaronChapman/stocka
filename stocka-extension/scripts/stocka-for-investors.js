@@ -87,7 +87,7 @@ function onLicenseUpdate(response) {
   var licenses = response.response.details;
   
   if (licenses.length < 1) {
-	  $('#show_upgrade').addClass('visible');
+	  console.log('looks like you don\'t have stocka for investors...\nsucks to suck');
   } else {
 	  $('#show_upgrade').remove();
 	  $('body').addClass('upgraded');
@@ -95,8 +95,9 @@ function onLicenseUpdate(response) {
 	  upgraded = true;
 	  
 	  setup_upgraded_interface();
+	  setup_notes();
 	  
-	  console.log('looks like you\'re using stocka for investors\n\nnice');
+	  console.log('looks like you\'re using stocka for investors...\nsick');
   }
 }
 
@@ -124,9 +125,9 @@ function buyProduct(sku) {
 // step 6a - chrome handles transaction
 
 function onPurchase(purchase) {
-  var jwt = purchase.jwt;
+  /*var jwt = purchase.jwt;
   var cartId = purchase.request.cardId;
-  var orderId = purchase.response.orderId;
+  var orderId = purchase.response.orderId;*/
   
   getLicenses();
 }

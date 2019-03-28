@@ -1,4 +1,6 @@
 function setup_notes() {
+	$('.theme_options').prepend('<button class="open_notes">notes</button>');
+	
 	$('.open_notes').click(function() {
 		open_notes(notes);
 	});

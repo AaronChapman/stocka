@@ -5,7 +5,7 @@
 		<meta charset="utf-8">
 		<meta name="description" content="stocka">
 	
-		<link rel="stylesheet" href="stocka.css" type="text/css">
+		<link rel="stylesheet" href="styles/stocka.css" type="text/css">
 		
 		<link href="https://fonts.googleapis.com/css?family=Varela+Round" rel="stylesheet">
 	
@@ -23,7 +23,7 @@
 	</head>
 	<body class="default">
 		<p class="upgrade_information">
-			your favorite portfolio monitor will be expanded with a suite of additional features, including (but not limited to) charted data, additional themes, and access to all future updates of stocka for a <strong>one-time</strong> fee of 0.99<br><br>
+			your favorite portfolio monitor will be expanded with a suite of additional features, including charted data, additional themes, notes, and access to all future updates of stocka for a <strong>one-time</strong> fee of 0.99<br><br>
 			visit <a href="https://oylo.info/stocka" target="_blank">oylo.info/stocka</a> for a closer look at stocka for investors<br><br>
 			<button id="request_upgrade">upgrade</button>
 			<button id="cancel_upgrade">cancel</button>
@@ -46,7 +46,7 @@
 		</div>
 		<div class="tickers">
 			<div class="ticker_detail closed">
-				<button id="show_upgrade" class="upgrade_button">upgrade to stocka for investors</button>
+				<button id="show_upgrade" class="upgrade_button visible">upgrade to stocka for investors</button>
 				<span class="ticker"></span>
 				<div class="timeframe_options">
 					<button class="timeframe_option 1m selected">this month</button>
@@ -72,7 +72,6 @@
 			<button class="save_notes">close and save</button>
 		</div>
 		<div class="theme_options">
-			<button class="open_notes">notes</button>
 			<button class="theme_option default" data-theme-name="default"></button>
 			<button class="theme_option sepia" data-theme-name="sepia"></button>
 			<div class="theme_to_chart">

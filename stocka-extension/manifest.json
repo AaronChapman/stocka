@@ -2,7 +2,7 @@
 	"manifest_version": 2,
 	"name": "stocka",
 	"description": "monitor your portfolio",
-	"version": "2.1.2",
+	"version": "2.1.4",
 	"author": "oylo",
 	"browser_action": {"default_popup": "stocka.html"},
 	"permissions": ["activeTab", "storage"],

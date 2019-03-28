@@ -15,19 +15,7 @@ document.addEventListener("DOMContentLoaded", function(event) {
 		if (result.notes) {
 		  notes = result.notes;
 		}
-		
-		
-		
-		
-		// PUT THIS INSIDE STOCKA FOR INVESTORS
-		setup_notes()
-		
-		
-		
-		
-		
-		
-		
+
 		// ticker information
 	  if (result.tickers && result.tickers.length > 0) {
 		  tickers = result.tickers;

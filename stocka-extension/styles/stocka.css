@@ -302,7 +302,10 @@ input:hover, button:hover, a:hover, .ticker:hover {
   border-radius: 3px;
   position: relative;
   width: -webkit-fill-available;
-  height: fit-content;
+  height: 30px;
+  width: 80%;
+  margin: auto;
+  background: snow !important;
 }
 
 .notes_container {
@@ -454,6 +457,11 @@ input:hover, button:hover, a:hover, .ticker:hover {
 	border-color: darkgray;
 }
 
+.default .save_notes {
+	border-color: #427557;
+	color: #427557;
+}
+
 .default .timeframe_option.selected {
 	color: #ce8988;
 	border-color: #ce8988;
@@ -513,8 +521,13 @@ input:hover, button:hover, a:hover, .ticker:hover {
 	background: rgb(45, 40, 50);
 }
 
-.sepia .notes_container {
+.midnight .notes_container {
 	border-color: darkgray;
+}
+
+.midnight .save_notes {
+	border-color: #627488;
+	color: #627488;
 }
 
 .midnight .notes_field {
@@ -582,8 +595,13 @@ input:hover, button:hover, a:hover, .ticker:hover {
 	background: antiquewhite;
 }
 
-.sepia .notes_container {
+.sepia .notes_field {
 	border-color: #aa9095;
+}
+
+.sepia .save_notes {
+	border-color: #627465;
+	color: #627465;
 }
 
 .sepia .timeframe_option.selected {
@@ -648,66 +666,3 @@ input:hover, button:hover, a:hover, .ticker:hover {
 
 
 /* :: tangerine theme :: */
-
-.theme_option.tangerine {
-	background: antiquewhite !important;
-}
-
-.tangerine, .tangerine button, .tangerine input {
-	background: antiquewhite;
-}
-
-.tangerine .timeframe_option.selected {
-	background: whitesmoke;
-	color: #96565B;
-	border-color: #96565B;
-}
-.tangerine .ascending {
-	border: 2px solid #96565B;
-}
-
-.tangerine .descending {
-	border: 2px solid #627465;
-}
-
-.tangerine .ticker.up {
-	background: #627465;
-}
-
-.tangerine .ticker.down {
-	background: #96565B;
-}
-
-.tangerine .ticker_news span,
-.tangerine .market_closed_message,
-.tangerine .loading_message,
-.tangerine .ticker_detail_data td,
-.tangerine .tickers_to_add,
-.tangerine input,
-.tangerine button {
-	color: #aa9095;
-}
-
-.tangerine .tickers,
-.tangerine .tickers_to_add,
-.tangerine button {
-	border: 2px solid #aa9095;
-}
-
-.tangerine .ticker_news {
-	border-top: 2px solid #aa9095;
-}
-
-.tangerine .options_header {
-	border-bottom: 2px solid #aa9095;
-}
-
-.tangerine .close_detail_view {
-	background: rgba(00, 00, 00, 00);
-	border-color: #96565B;
-	color: #96565B;
-}
-
-.tangerine .upgrade_button {
-	
-}
