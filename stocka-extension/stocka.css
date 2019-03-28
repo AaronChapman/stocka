@@ -67,7 +67,7 @@ input:hover, button:hover, a:hover, .ticker:hover {
   width: 300px;
   zoom: 0.75;
   padding: 10px 10px 15px 10px;
-  min-height: 100px;
+  min-height: 125px;
 	transition: opacity 0.5s ease-in-out !important;
 }
 
@@ -307,7 +307,7 @@ input:hover, button:hover, a:hover, .ticker:hover {
 
 .notes_container {
 	display: inline-grid;
-	transition: 0.5s ease-in-out;
+	transition: 0.25s ease-in-out;
   overflow: hidden;
   margin: 0 0 0 -10px;
   width: 254px;
@@ -436,6 +436,10 @@ input:hover, button:hover, a:hover, .ticker:hover {
 
 /* :: default theme :: */
 
+.default button {
+	color: darkgray;
+}
+
 .theme_option.default {
 	background: snow !important;
 }
@@ -444,6 +448,10 @@ input:hover, button:hover, a:hover, .ticker:hover {
 .default .upgrade_information,
 .default .notes_container {
 	background: snow;
+}
+
+.default .notes_container {
+	border-color: darkgray;
 }
 
 .default .timeframe_option.selected {
@@ -505,6 +513,14 @@ input:hover, button:hover, a:hover, .ticker:hover {
 	background: rgb(45, 40, 50);
 }
 
+.sepia .notes_container {
+	border-color: darkgray;
+}
+
+.midnight .notes_field {
+	color: white;
+}
+
 .midnight .timeframe_option.selected {
 	background: whitesmoke;
 	color: #627488;
@@ -530,6 +546,7 @@ input:hover, button:hover, a:hover, .ticker:hover {
 .midnight .ticker_news span,
 .midnight .ticker_detail_data td,
 .midnight input,
+.midnight button,
 .midnight .market_closed_message,
 .midnight .loading_message {
 	color: white;
@@ -565,11 +582,16 @@ input:hover, button:hover, a:hover, .ticker:hover {
 	background: antiquewhite;
 }
 
+.sepia .notes_container {
+	border-color: #aa9095;
+}
+
 .sepia .timeframe_option.selected {
 	background: whitesmoke;
 	color: #96565B;
 	border-color: #96565B;
 }
+
 .sepia .ascending {
 	border: 2px solid #96565B;
 }
