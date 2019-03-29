@@ -139,17 +139,17 @@ function add_news_to_ticker_detail_view(news_data) {
 		$('.ticker_news').css('height', '50px');
 		
 		if (upgraded) { $('.ticker_detail').css('height', '420px'); }
-		else { $('.ticker_detail').css('height', '240px'); }
+		else { $('.ticker_detail').css('height', '270px'); }
 	} else if (news_data.length === 0) {
 		$('.ticker_news').css('height', '0px');
 		
 		if (upgraded) { $('.ticker_detail').css('height', '370px'); }
-		else { $('.ticker_detail').css('height', '190px');  }
+		else { $('.ticker_detail').css('height', '220px');  }
 	} else {
 		$('.ticker_news').css('height', '100px');
 		
 		if (upgraded) { $('.ticker_detail').css('height', '470px'); }
-		else { $('.ticker_detail').css('height', '290px'); }
+		else { $('.ticker_detail').css('height', '320px'); }
 	}
 	
 	// append each formatted item returned from iex

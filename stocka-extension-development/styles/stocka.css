@@ -13,7 +13,7 @@
 	font-family: 'Varela Round', sans-serif;
 	outline: none !important;
 	-webkit-highlight: none !important;
-	transition: all 0.1s ease-in-out;
+	transition: all 0.1s, height 0.25s ease-in-out;
 	cursor: default;
 }
 
@@ -426,7 +426,7 @@ input:hover, button:hover, a:hover, .ticker:hover {
 
 .upgrade_information.visible {
   height: 170px;
-  padding: 15px 25px 15px 25px;
+  padding: 15px 25px 5px 25px;
   border-bottom: 2px solid darkgray;
   box-shadow: 0 3px 5px rgba(00, 00, 00, 0.25);
 }
@@ -434,6 +434,10 @@ input:hover, button:hover, a:hover, .ticker:hover {
 .upgrade_information button {
   border-radius: 3px;
   margin: 0 20px;
+}
+
+#request_upgrade {
+	margin: 0;
 }
 
 
@@ -666,3 +670,77 @@ input:hover, button:hover, a:hover, .ticker:hover {
 
 
 /* :: tangerine theme :: */
+
+.theme_option.classic {
+	background: #FFEBD9 !important;
+}
+
+.classic, .classic button, .classic input,
+.classic .upgrade_information,
+.classic .notes_container {
+	background: #FFEBD9;
+}
+
+.classic .notes_field {
+	border-color: #356276;
+}
+
+.classic .save_notes {
+	border-color: #356276;
+	color: #356276;
+}
+
+.classic .timeframe_option.selected {
+	background: whitesmoke;
+	color: #BB6450;
+	border-color: #BB6450;
+}
+
+.classic .ascending {
+	border: 2px solid #BB6450;
+}
+
+.classic .descending {
+	border: 2px solid #356276;
+}
+
+.classic .ticker.up {
+	background: #356276;
+}
+
+.classic .ticker.down {
+	background: #BB6450;
+}
+
+.classic .ticker_news span,
+.classic .market_closed_message,
+.classic .loading_message,
+.classic .ticker_detail_data td,
+.classic .tickers_to_add,
+.classic input,
+.classic button {
+	color: #356276;
+}
+
+.classic .tickers,
+.classic .tickers_to_add,
+.classic button {
+	border: 2px solid #356276;
+}
+
+.classic .ticker_news {
+	border-top: 2px solid #356276;
+}
+
+.classic .options_header,
+.classic .upgrade_information.visible,
+.classic .ticker_detail.open {
+	border-bottom: 2px solid #356276;
+}
+
+.classic .close_detail_view {
+	background: rgba(00, 00, 00, 00);
+	border-color: #BB6450;
+	color: #BB6450;
+}
+
