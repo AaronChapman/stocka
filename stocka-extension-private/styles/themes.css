@@ -1,0 +1,383 @@
+/* :: default theme :: */
+
+.default button {
+	color: darkgray;
+}
+
+.theme_option.default {
+	background: snow !important;
+}
+
+.default, .default button, .default input,
+.default .upgrade_information,
+.default .notes_container {
+	background: snow;
+}
+
+.default .notes_container {
+	border-color: darkgray;
+}
+
+.default .save_notes {
+	border-color: #427557;
+	color: #427557;
+}
+
+.default .timeframe_option.selected {
+	color: #ce8988;
+	border-color: #ce8988;
+}
+
+.default .ascending {
+	border: 2px solid #ce8988;
+}
+
+.default .descending {
+	border: 2px solid #427557;
+}
+
+.default .ticker.up {
+	background: #427557;
+}
+
+.default .ticker.down {
+	background: #ce8988;
+}
+
+.default .ticker_ span,
+.default .ticker_detail_data td,
+.default input,
+.default .market_closed_message,
+.default .loading_message {
+	color: darkgray;
+}
+
+.default .tickers,
+.default button {
+	border: 2px solid darkgray;
+}
+
+.default .close_detail_view {
+	background: rgba(00, 00, 00, 00);
+	border-color: darkgray;
+	color: darkgray;
+}
+
+.default .upgrade_button {
+  background: white;
+  color: #ce8988;
+  border: 2px solid #ce8988;
+}
+
+
+/* :: sepia theme :: */
+
+.theme_option.sepia {
+	background: antiquewhite !important;
+}
+
+.sepia, .sepia button, .sepia input,
+.sepia .upgrade_information,
+.sepia .notes_container {
+	background: antiquewhite;
+}
+
+.sepia .notes_field {
+	border-color: #aa9095;
+}
+
+.sepia .save_notes {
+	border-color: #627465;
+	color: #627465;
+}
+
+.sepia .timeframe_option.selected {
+	background: whitesmoke;
+	color: #96565B;
+	border-color: #96565B;
+}
+
+.sepia .ascending {
+	border: 2px solid #96565B;
+}
+
+.sepia .descending {
+	border: 2px solid #627465;
+}
+
+.sepia .ticker.up {
+	background: #627465;
+}
+
+.sepia .ticker.down {
+	background: #96565B;
+}
+
+.sepia .ticker_news span,
+.sepia .market_closed_message,
+.sepia .loading_message,
+.sepia .ticker_detail_data td,
+.sepia .tickers_to_add,
+.sepia input,
+.sepia button {
+	color: #aa9095;
+}
+
+.sepia .tickers,
+.sepia .tickers_to_add,
+.sepia button {
+	border: 2px solid #aa9095;
+}
+
+.sepia .ticker_news {
+	border-top: 2px solid #aa9095;
+}
+
+.sepia .options_header,
+.sepia .upgrade_information.visible,
+.sepia .ticker_detail.open {
+	border-bottom: 2px solid #aa9095;
+}
+
+.sepia .close_detail_view {
+	background: rgba(00, 00, 00, 00);
+	border-color: #96565B;
+	color: #96565B;
+}
+
+
+/* :: classic theme :: */
+
+.theme_option.classic {
+	background: #FFEBD9 !important;
+}
+
+.classic, .classic button, .classic input,
+.classic .upgrade_information,
+.classic .notes_container {
+	background: #FFEBD9;
+}
+
+.classic .notes_field {
+	border-color: #356276;
+}
+
+.classic .save_notes {
+	border-color: #356276;
+	color: #356276;
+}
+
+.classic .timeframe_option.selected {
+	background: whitesmoke;
+	color: #BB6450;
+	border-color: #BB6450;
+}
+
+.classic .ascending {
+	border: 2px solid #BB6450;
+}
+
+.classic .descending {
+	border: 2px solid #356276;
+}
+
+.classic .ticker.up {
+	background: #356276;
+}
+
+.classic .ticker.down {
+	background: #BB6450;
+}
+
+.classic .ticker_news span,
+.classic .market_closed_message,
+.classic .loading_message,
+.classic .ticker_detail_data td,
+.classic .tickers_to_add,
+.classic input,
+.classic button {
+	color: #356276;
+}
+
+.classic .tickers,
+.classic .tickers_to_add,
+.classic button {
+	border: 2px solid #356276;
+}
+
+.classic .ticker_news {
+	border-top: 2px solid #356276;
+}
+
+.classic .options_header,
+.classic .upgrade_information.visible,
+.classic .ticker_detail.open {
+	border-bottom: 2px solid #356276;
+}
+
+.classic .close_detail_view {
+	background: rgba(00, 00, 00, 00);
+	border-color: #BB6450;
+	color: #BB6450;
+}
+
+
+/* :: midnight theme :: */
+
+.theme_option.midnight {
+	background: rgb(45, 40, 50) !important;
+}
+
+.midnight, .midnight button, .midnight input,
+.midnight .upgrade_information,
+.midnight .notes_container {
+	background: rgb(45, 40, 50);
+}
+
+.midnight .notes_container {
+	border-color: darkgray;
+}
+
+.midnight .save_notes {
+	border-color: #627488;
+	color: #627488;
+}
+
+.midnight .notes_field {
+	color: white;
+}
+
+.midnight .timeframe_option.selected {
+	background: whitesmoke;
+	color: #627488;
+	border-color: #627488;
+}
+
+.midnight .ascending {
+	border: 2px solid #965656;
+}
+
+.midnight .descending {
+	border: 2px solid #627488;
+}
+
+.midnight .ticker.up {
+	background: #627488;
+}
+
+.midnight .ticker.down {
+	background:#965656;
+}
+
+.midnight .ticker_news span,
+.midnight .ticker_detail_data td,
+.midnight input,
+.midnight button,
+.midnight .market_closed_message,
+.midnight .loading_message {
+	color: white;
+}
+
+.midnight .tickers,
+.midnight button {
+	border: 2px solid darkgray;
+}
+
+.midnight .close_detail_view {
+	background: rgba(00, 00, 00, 00);
+	border-color: white;
+	color: white;
+}
+
+.midnight .upgrade_button {
+  background: white;
+  color: #965656;
+  border: 2px solid #965656;
+}
+
+
+/* :: midnight theme :: */
+
+.theme_option.greyscale {
+	background: #C6C6C6 !important;
+}
+
+.greyscale a {
+	color: white;
+}
+
+.greyscale, .greyscale button, .greyscale input,
+.greyscale .upgrade_information {
+	background: #C6C6C6;
+}
+
+.greyscale .notes_container {
+	background: white;
+	border-color: #363635;
+}
+
+.greyscale .save_notes {
+	border-color: #9B9B9B;
+	color: #9B9B9B;
+}
+
+.greyscale .notes_field {
+	color: #363635;
+}
+
+.greyscale .timeframe_option.selected {
+	background: white;
+	color: #363635;
+	border-color: #363635;
+}
+
+.greyscale .ascending {
+	border: 2px solid #6E6E6E;
+}
+
+.greyscale .descending {
+	border: 2px solid #9B9B9B;
+}
+
+.greyscale .ticker.up {
+	background: #9B9B9B;
+}
+
+.greyscale .ticker.down {
+	background: #6E6E6E;
+}
+
+.greyscale .ticker_news span,
+.greyscale .ticker_detail_data td,
+.greyscale input,
+.greyscale button,
+.greyscale .market_closed_message,
+.greyscale .loading_message {
+	color: #363635;
+}
+
+.greyscale .ticker_news {
+	border-color: #363635;
+}
+
+.greyscale .ticker_detail {
+	border-color: #363635;
+}
+
+.greyscale .tickers,
+.greyscale button,
+.greyscale .tickers_to_add {
+	border: 2px solid #363635;
+}
+
+.greyscale .close_detail_view {
+	background: rgba(00, 00, 00, 00);
+	border-color: #363635;
+	color: #363635;
+}
+
+.greyscale .upgrade_button {
+  background: white;
+  color: #6E6E6E;
+  border: 2px solid #363635;
+}

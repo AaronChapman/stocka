@@ -13,7 +13,7 @@
 	font-family: 'Varela Round', sans-serif;
 	outline: none !important;
 	-webkit-highlight: none !important;
-	transition: all 0.1s ease-in-out;
+	transition: all 0.1s, height 0.25s ease-in-out;
 	cursor: default;
 }
 
@@ -227,15 +227,15 @@ input:hover, button:hover, a:hover, .ticker:hover {
 	height: 0px;
   overflow: hidden;
   display: grid;
-  transition: all 0.75s ease-in-out, color 0.25s ease-in-out !important;
+  transition: all 0.75s ease-in-out, color 0.25s, height 0.5s ease-in-out !important;
 	padding: 0;
   margin: 0;
   border-top: none;
 }
 
 .ticker_detail.open {
-	height: 290px;
-	max-height: 290px;
+	height: 320px;
+	max-height: 320px;
 	padding-top: 5px;
   border-bottom: 2px solid darkgray;
 }
@@ -283,7 +283,7 @@ input:hover, button:hover, a:hover, .ticker:hover {
 }
 
 .ticker_news {
-  height: 100px;
+  height: 0px;
   padding: 10px;
   border-top: 2px solid lightgray;
   overflow: scroll;
@@ -426,7 +426,7 @@ input:hover, button:hover, a:hover, .ticker:hover {
 
 .upgrade_information.visible {
   height: 170px;
-  padding: 15px 25px 15px 25px;
+  padding: 15px 25px 5px 25px;
   border-bottom: 2px solid darkgray;
   box-shadow: 0 3px 5px rgba(00, 00, 00, 0.25);
 }
@@ -436,233 +436,6 @@ input:hover, button:hover, a:hover, .ticker:hover {
   margin: 0 20px;
 }
 
-
-/* :: default theme :: */
-
-.default button {
-	color: darkgray;
+#request_upgrade {
+	margin: 0;
 }
-
-.theme_option.default {
-	background: snow !important;
-}
-
-.default, .default button, .default input,
-.default .upgrade_information,
-.default .notes_container {
-	background: snow;
-}
-
-.default .notes_container {
-	border-color: darkgray;
-}
-
-.default .save_notes {
-	border-color: #427557;
-	color: #427557;
-}
-
-.default .timeframe_option.selected {
-	color: #ce8988;
-	border-color: #ce8988;
-}
-
-.default .ascending {
-	border: 2px solid #ce8988;
-}
-
-.default .descending {
-	border: 2px solid #427557;
-}
-
-.default .ticker.up {
-	background: #427557;
-}
-
-.default .ticker.down {
-	background: #ce8988;
-}
-
-.default .ticker_news span,
-.default .ticker_detail_data td,
-.default input,
-.default .market_closed_message,
-.default .loading_message {
-	color: darkgray;
-}
-
-.default .tickers,
-.default button {
-	border: 2px solid darkgray;
-}
-
-.default .close_detail_view {
-	background: rgba(00, 00, 00, 00);
-	border-color: darkgray;
-	color: darkgray;
-}
-
-.default .upgrade_button {
-  background: white;
-  color: #ce8988;
-  border: 2px solid #ce8988;
-}
-
-
-/* :: midnight theme :: */
-
-.theme_option.midnight {
-	background: rgb(45, 40, 50) !important;
-}
-
-.midnight, .midnight button, .midnight input,
-.midnight .upgrade_information,
-.midnight .notes_container {
-	background: rgb(45, 40, 50);
-}
-
-.midnight .notes_container {
-	border-color: darkgray;
-}
-
-.midnight .save_notes {
-	border-color: #627488;
-	color: #627488;
-}
-
-.midnight .notes_field {
-	color: white;
-}
-
-.midnight .timeframe_option.selected {
-	background: whitesmoke;
-	color: #627488;
-	border-color: #627488;
-}
-
-.midnight .ascending {
-	border: 2px solid #965656;
-}
-
-.midnight .descending {
-	border: 2px solid #627488;
-}
-
-.midnight .ticker.up {
-	background: #627488;
-}
-
-.midnight .ticker.down {
-	background:#965656;
-}
-
-.midnight .ticker_news span,
-.midnight .ticker_detail_data td,
-.midnight input,
-.midnight button,
-.midnight .market_closed_message,
-.midnight .loading_message {
-	color: white;
-}
-
-.midnight .tickers,
-.midnight button {
-	border: 2px solid darkgray;
-}
-
-.midnight .close_detail_view {
-	background: rgba(00, 00, 00, 00);
-	border-color: white;
-	color: white;
-}
-
-.midnight .upgrade_button {
-  background: white;
-  color: #965656;
-  border: 2px solid #965656;
-}
-
-
-/* :: sepia theme :: */
-
-.theme_option.sepia {
-	background: antiquewhite !important;
-}
-
-.sepia, .sepia button, .sepia input,
-.sepia .upgrade_information,
-.sepia .notes_container {
-	background: antiquewhite;
-}
-
-.sepia .notes_field {
-	border-color: #aa9095;
-}
-
-.sepia .save_notes {
-	border-color: #627465;
-	color: #627465;
-}
-
-.sepia .timeframe_option.selected {
-	background: whitesmoke;
-	color: #96565B;
-	border-color: #96565B;
-}
-
-.sepia .ascending {
-	border: 2px solid #96565B;
-}
-
-.sepia .descending {
-	border: 2px solid #627465;
-}
-
-.sepia .ticker.up {
-	background: #627465;
-}
-
-.sepia .ticker.down {
-	background: #96565B;
-}
-
-.sepia .ticker_news span,
-.sepia .market_closed_message,
-.sepia .loading_message,
-.sepia .ticker_detail_data td,
-.sepia .tickers_to_add,
-.sepia input,
-.sepia button {
-	color: #aa9095;
-}
-
-.sepia .tickers,
-.sepia .tickers_to_add,
-.sepia button {
-	border: 2px solid #aa9095;
-}
-
-.sepia .ticker_news {
-	border-top: 2px solid #aa9095;
-}
-
-.sepia .options_header,
-.sepia .upgrade_information.visible,
-.sepia .ticker_detail.open {
-	border-bottom: 2px solid #aa9095;
-}
-
-.sepia .close_detail_view {
-	background: rgba(00, 00, 00, 00);
-	border-color: #96565B;
-	color: #96565B;
-}
-
-.sepia .upgrade_button {
-	
-}
-
-
-
-
-/* :: tangerine theme :: */
