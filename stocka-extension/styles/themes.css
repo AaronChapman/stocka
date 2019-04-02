@@ -299,16 +299,16 @@
 /* :: midnight theme :: */
 
 .theme_option.greyscale {
-	background: #C6C6C6 !important;
+	background: #D8D8D8 !important;
 }
 
 .greyscale a {
-	color: white;
+	color: #363635;
 }
 
 .greyscale, .greyscale button, .greyscale input,
 .greyscale .upgrade_information {
-	background: #C6C6C6;
+	background: #D8D8D8;
 }
 
 .greyscale .notes_container {
