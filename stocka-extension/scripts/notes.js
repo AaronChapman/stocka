@@ -1,3 +1,4 @@
+// set up event listeners for the notes container
 function setup_notes() {
 	$('.theme_options').prepend('<button class="open_notes">notes</button>');
 	
@@ -10,12 +11,14 @@ function setup_notes() {
 	});
 }
 
+// open the container and fill with notes data
 function open_notes(notes) {
 	$('.open_notes').css('opacity', '0');
 	$('.notes_field').html(notes);
 	$('.notes_container').addClass('open').removeClass('closed');
 }
 
+// save notes
 function save_notes(note_content) {
 	$('.open_notes').css('opacity', '1');
 	

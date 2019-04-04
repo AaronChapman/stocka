@@ -69,17 +69,21 @@ function setup_theme(theme_to_use) {
 	});
 }
 
+// put together additional interface elements for my lovely paying users
 function setup_upgraded_interface() {
 	add_themes();
 	add_chart();
 }
 
+// add extra themes to settings menu
 function add_themes() {
 	$('.theme_option:last').after('<div class="theme_option_container"><button class="theme_option classic" data-theme-name="classic"></button><span class="theme_name">default</span></div><div class="theme_option_container"><button class="theme_option greyscale" data-theme-name="greyscale"></button><span class="theme_name">greyscale</span></div><div class="theme_option_container"><button class="theme_option midnight" data-theme-name="midnight"></button><span class="theme_name">midnight</span></div>');
 
+	// and attach listeners to them
 	setup_theme_listeners();
 }
 
+// add chart data to the detail view
 function add_chart() {
 	$('.ticker_detail_data').before('<div class="chart_container"><canvas id="change_chart" width="200" height="150"></canvas></div>');
 }

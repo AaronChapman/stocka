@@ -318,7 +318,7 @@ input:hover, button:hover, a:hover, .ticker:hover {
 }
 
 .settings_container {
-  display: inline-flex;
+  display: inline-grid;
   flex-wrap: wrap;
   transition: 0.25s ease-in-out;
   overflow: hidden;
@@ -346,8 +346,17 @@ input:hover, button:hover, a:hover, .ticker:hover {
 	padding: 0 5px;
 }
 
+.setting {
+  width: 100%;
+  display: inline-flex;
+  flex-wrap: wrap;
+  height: fit-content;
+}
+
 .save_settings {
-	height: 30px;
+  width: -webkit-fill-available;
+  border-radius: 3px;
+  height: 30px;
 }
 
 .save_notes {
@@ -428,7 +437,7 @@ input:hover, button:hover, a:hover, .ticker:hover {
   margin: 5px 0 0 5px;
 }
 
-.theme_category_title {
+.setting_category_title {
 	
 }
 
