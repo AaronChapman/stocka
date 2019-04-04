@@ -197,7 +197,7 @@ function chart_data(data) {
 	
 	// create chart in the canvas with the appropriate attribute values
 	var change_chart = new Chart(chart_container, {
-    type: 'bar',
+    type: settings.market_performance_graph_type,
     data: {
 	    labels: chart_values,
       datasets: [{

@@ -12,7 +12,7 @@ let default_tickers = ['AAPL', 'AMZN', 'FB', 'GOOGL', 'MSFT'];
 
 // theme data
 let current_theme = 'default';
-let themes = ['default', 'sepia', 'classic', 'midnight', 'greyscale'];
+let themes = ['default', 'sepia', 'classic', 'midnight'];
 let ticker_up_color = '';
 let ticker_down_color = '';
 
@@ -26,6 +26,6 @@ let market_close_hour_utc = 20;
 let local_chart_data = [];
 let current_chart_data = [];
 
-let settings = {};
+let settings = {'theme':'default', 'market_performance_graph_type':'bar'};
 
 let upgraded = false;
