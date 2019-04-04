@@ -224,7 +224,7 @@ function rechart(data) {
 	if (upgraded) { chart_data(data); }
 }
 
-// determine if an object has a key
+// determine if an object has a given key
 function has_key(object, key) {
   return object ? hasOwnProperty.call(object, key) : false;
 }
