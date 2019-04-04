@@ -75,7 +75,7 @@ function setup_upgraded_interface() {
 }
 
 function add_themes() {
-	$('.theme_option:last').after('<button class="theme_option classic" data-theme-name="classic"></button><button class="theme_option midnight" data-theme-name="midnight"><button class="theme_option greyscale" data-theme-name="greyscale"></button>');
+	$('.theme_option:last').after('<div class="theme_option_container"><button class="theme_option classic" data-theme-name="classic"></button><span class="theme_name">default</span></div><div class="theme_option_container"><button class="theme_option greyscale" data-theme-name="greyscale"></button><span class="theme_name">greyscale</span></div><div class="theme_option_container"><button class="theme_option midnight" data-theme-name="midnight"></button><span class="theme_name">midnight</span></div>');
 
 	setup_theme_listeners();
 }

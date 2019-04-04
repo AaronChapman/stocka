@@ -31,6 +31,12 @@ html {
   border-right: 2px solid white;
 }
 
+hr {
+	border: 0.5px solid black;
+  width: 100%;
+  height: 0.5px;
+}
+
 body {
   width: fit-content;
   height: auto;
@@ -312,7 +318,8 @@ input:hover, button:hover, a:hover, .ticker:hover {
 }
 
 .settings_container {
-  display: inline-grid;
+  display: inline-flex;
+  flex-wrap: wrap;
   transition: 0.25s ease-in-out;
   overflow: hidden;
   margin: 0 0 0 -10px;
@@ -328,6 +335,15 @@ input:hover, button:hover, a:hover, .ticker:hover {
   width: 254px;
   padding: 10px 10px;
   box-shadow: 0 -3px 5px rgba(00, 00, 00, 0.25);
+}
+
+.theme_option_container {
+	width: 40%;
+	margin: auto;
+}
+
+.theme_name {
+	padding: 0 5px;
 }
 
 .save_settings {
@@ -410,6 +426,10 @@ input:hover, button:hover, a:hover, .ticker:hover {
   border: 2px solid darkgray;
   border-radius: 3px;
   margin: 5px 0 0 5px;
+}
+
+.theme_category_title {
+	
 }
 
 
