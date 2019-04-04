@@ -298,6 +298,42 @@ input:hover, button:hover, a:hover, .ticker:hover {
   border-radius: 3px;
 }
 
+.open_settings {
+	left: 0;
+  bottom: 0;
+  position: inherit;
+  margin: 5px 0 0 auto;
+  border-radius: 3px;
+}
+
+.settings_container.closed {
+  height: 0px;
+  width: 254px;
+}
+
+.settings_container {
+  display: inline-grid;
+  transition: 0.25s ease-in-out;
+  overflow: hidden;
+  margin: 0 0 0 -10px;
+  width: 254px;
+  position: fixed;
+  bottom: 0;
+  padding: 0 10px;
+  background: snow;
+}
+
+.settings_container.open {
+  height: 210px;
+  width: 254px;
+  padding: 10px 10px;
+  box-shadow: 0 -3px 5px rgba(00, 00, 00, 0.25);
+}
+
+.save_settings {
+	height: 30px;
+}
+
 .save_notes {
   border-radius: 3px;
   position: relative;
@@ -363,7 +399,7 @@ input:hover, button:hover, a:hover, .ticker:hover {
 	display: none;
 }
 
-.theme_options {
+.bottom_options {
 	display: flex;
   justify-content: flex-end;
 }

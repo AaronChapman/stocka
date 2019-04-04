@@ -37,4 +37,5 @@ document.addEventListener("DOMContentLoaded", function(event) {
 	setup_detail_listeners();
 	setup_ticker_list_listeners();
 	setup_theme_listeners();
+	setup_settings();
 });

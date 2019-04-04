@@ -26,4 +26,6 @@ let market_close_hour_utc = 20;
 let local_chart_data = [];
 let current_chart_data = [];
 
+let settings = {};
+
 let upgraded = false;

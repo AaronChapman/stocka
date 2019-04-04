@@ -18,6 +18,7 @@
 		<script src="scripts/ticker-list.js" type="text/javascript"></script>
 		<script src="scripts/interface-utilities.js" type="text/javascript"></script>
 		<script src="scripts/notes.js" type="text/javascript"></script>
+		<script src="scripts/settings.js" type="text/javascript"></script>
 		<script src="scripts/chart.min.js" type="text/javascript"></script>
 		<script src="scripts/buy.js" type="text/javascript"></script>
 		<script src="scripts/stocka-for-investors.js" type="text/javascript"></script>
@@ -69,16 +70,23 @@
 			</div>
 		</div>
 		<div class="notes_container closed">
-			<p class="notes_field" contenteditable="true"></p>
-			<button class="save_notes">close and save</button>
-		</div>
-		<div class="theme_options">
+			<span>theme:</span>
+			<hr>
 			<button class="theme_option default" data-theme-name="default"></button>
 			<button class="theme_option sepia" data-theme-name="sepia"></button>
 			<div class="theme_to_chart">
 				<span class="ticker up">hidden</span>
 				<span class="ticker down">hidden</span>
 			</div>
+			<hr>
+			<span>other settings:</span>
+			<button class="save_notes">close and save</button>
+		</div>
+		<div class="settings_container closed">
+			<button class="save_settings">save settings</button>
+		</div>
+		<div class="bottom_options">
+			<button class="open_settings">settings</button>
 		</div>
 	</body>
 </html>
