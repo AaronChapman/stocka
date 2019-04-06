@@ -10,8 +10,19 @@
 
 .default, .default button, .default input,
 .default .upgrade_information,
-.default .notes_container {
+.default .notes_container,
+.default .settings_container {
 	background: snow;
+}
+
+.default .notes_field,
+.default .setting,
+.default .name_and_exchange {
+	color: darkgray;
+}
+
+.default hr {
+	border-color: darkgray;
 }
 
 .default .notes_container {
@@ -23,7 +34,8 @@
 	color: #427557;
 }
 
-.default .timeframe_option.selected {
+.default .timeframe_option.selected,
+.default .market_performance_chart_type.selected {
 	color: #ce8988;
 	border-color: #ce8988;
 }
@@ -78,11 +90,18 @@
 
 .sepia, .sepia button, .sepia input,
 .sepia .upgrade_information,
-.sepia .notes_container {
+.sepia .notes_container,
+.sepia .settings_container {
 	background: antiquewhite;
 }
 
-.sepia .notes_field {
+.sepia .notes_field,
+.sepia .setting,
+.sepia .name_and_exchange {
+	color: #aa9095;
+}
+
+.sepia hr {
 	border-color: #aa9095;
 }
 
@@ -91,7 +110,8 @@
 	color: #627465;
 }
 
-.sepia .timeframe_option.selected {
+.sepia .timeframe_option.selected,
+.sepia .market_performance_chart_type.selected {
 	background: whitesmoke;
 	color: #96565B;
 	border-color: #96565B;
@@ -154,11 +174,18 @@
 
 .classic, .classic button, .classic input,
 .classic .upgrade_information,
-.classic .notes_container {
+.classic .notes_container,
+.classic .settings_container {
 	background: #FFEBD9;
 }
 
-.classic .notes_field {
+.classic .notes_field,
+.classic .setting,
+.classic .name_and_exchange {
+	color: #356276;
+}
+
+.classic hr {
 	border-color: #356276;
 }
 
@@ -167,7 +194,8 @@
 	color: #356276;
 }
 
-.classic .timeframe_option.selected {
+.classic .timeframe_option.selected,
+.classic .market_performance_chart_type.selected {
 	background: whitesmoke;
 	color: #BB6450;
 	border-color: #BB6450;
@@ -230,7 +258,8 @@
 
 .midnight, .midnight button, .midnight input,
 .midnight .upgrade_information,
-.midnight .notes_container {
+.midnight .notes_container,
+.midnight .settings_container {
 	background: rgb(45, 40, 50);
 }
 
@@ -243,11 +272,18 @@
 	color: #627488;
 }
 
-.midnight .notes_field {
+.midnight .notes_field,
+.midnight .setting,
+.midnight .name_and_exchange {
 	color: white;
 }
 
-.midnight .timeframe_option.selected {
+.midnight hr {
+	border-color: white;
+}
+
+.midnight .timeframe_option.selected,
+.midnight .market_performance_chart_type.selected {
 	background: whitesmoke;
 	color: #627488;
 	border-color: #627488;
@@ -293,91 +329,4 @@
   background: white;
   color: #965656;
   border: 2px solid #965656;
-}
-
-
-/* :: midnight theme :: */
-
-.theme_option.greyscale {
-	background: #D8D8D8 !important;
-}
-
-.greyscale a {
-	color: #363635;
-}
-
-.greyscale, .greyscale button, .greyscale input,
-.greyscale .upgrade_information {
-	background: #D8D8D8;
-}
-
-.greyscale .notes_container {
-	background: white;
-	border-color: #363635;
-}
-
-.greyscale .save_notes {
-	border-color: #9B9B9B;
-	color: #9B9B9B;
-}
-
-.greyscale .notes_field {
-	color: #363635;
-}
-
-.greyscale .timeframe_option.selected {
-	background: white;
-	color: #363635;
-	border-color: #363635;
-}
-
-.greyscale .ascending {
-	border: 2px solid #6E6E6E;
-}
-
-.greyscale .descending {
-	border: 2px solid #9B9B9B;
-}
-
-.greyscale .ticker.up {
-	background: #9B9B9B;
-}
-
-.greyscale .ticker.down {
-	background: #6E6E6E;
-}
-
-.greyscale .ticker_news span,
-.greyscale .ticker_detail_data td,
-.greyscale input,
-.greyscale button,
-.greyscale .market_closed_message,
-.greyscale .loading_message {
-	color: #363635;
-}
-
-.greyscale .ticker_news {
-	border-color: #363635;
-}
-
-.greyscale .ticker_detail {
-	border-color: #363635;
-}
-
-.greyscale .tickers,
-.greyscale button,
-.greyscale .tickers_to_add {
-	border: 2px solid #363635;
-}
-
-.greyscale .close_detail_view {
-	background: rgba(00, 00, 00, 00);
-	border-color: #363635;
-	color: #363635;
-}
-
-.greyscale .upgrade_button {
-  background: white;
-  color: #6E6E6E;
-  border: 2px solid #363635;
 }

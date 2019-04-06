@@ -97,7 +97,7 @@ function fill_detail_table(information_object, for_symbol) {
 	
 	additional_research(for_symbol);
 	
-	if (upgraded) { chart_data(information_object); }
+	if (upgraded) { chart_data(information_object, settings.market_performance_graph_type); }
 		
 	// aesthetic
 	$('.ticker_detail').removeClass('closed').addClass('open');
@@ -106,9 +106,11 @@ function fill_detail_table(information_object, for_symbol) {
 
 // get addition information about the requested symbol
 function additional_research(symbol) {
+	let company_request_url = 'https://api.iextrading.com/1.0/stock/' + symbol + '/company';
 	let quote_request_url = 'https://api.iextrading.com/1.0/stock/' + symbol + '/quote';
 	let news_request_url = 'https://api.iextrading.com/1.0/stock/' + symbol + '/news/last/50';
   
+  fetch(company_request_url).then(res => res.json()).then(data => add_company_info(data));
 	fetch(quote_request_url).then(res => res.json()).then(data => add_ticker_details(data, symbol));
 	fetch(news_request_url).then(res => res.json()).then(data => add_news_to_ticker_detail_view(data));
 }
@@ -146,7 +148,7 @@ function add_news_to_ticker_detail_view(news_data) {
 		if (upgraded) { $('.ticker_detail').css('height', '370px'); }
 		else { $('.ticker_detail').css('height', '220px');  }
 	} else {
-		$('.ticker_news').css('height', '100px');
+		$('.ticker_news').css('height', '110px');
 		
 		if (upgraded) { $('.ticker_detail').css('height', '470px'); }
 		else { $('.ticker_detail').css('height', '320px'); }
@@ -164,64 +166,16 @@ function add_news_to_ticker_detail_view(news_data) {
 	});
 }
 
-// display visually charted data for the symbol over the given timeframe
-function chart_data(data) {
-	current_chart_data = data;
+function add_company_info(company_data) {
+	let company_link_markup = '';
 	
-	// get a reference to the html5 canvas
-	let chart_container = $('#change_chart');
-	// create storage for the chart's values and styles
-	let chart_values = [];
-	let bar_colors = [];
-	// grab ascending or descending day styling from hidden elements on the page
-	let bar_color_up = $('.theme_to_chart .up').css('background-color');
-	let bar_color_down = $('.theme_to_chart .down').css('background-color');
-	// temporary value to determine directional gain
-	let temp_last_close = 0;
+	if (company_data.website.length > 1) {
+		company_link_markup = '<a href="' + company_data.website + '" target="_blank">' + company_data.companyName +'</a>' + ' : : : ' + company_data.exchange;
+	} else {
+		company_link_markup = company_data.companyName + ' : : : ' + company_data.exchange;
+	}
 	
-	// for each value being charted
-	data.forEach(function(item) {
-		// push the closing price to the array of values
-		chart_values.push(item.close);
-		
-		// determine the day's bar color
-		if (temp_last_close < parseFloat(item.close)) {
-			bar_colors.push(bar_color_up);
-		} else {
-			bar_colors.push(bar_color_down);
-		}
-		
-		// update comparator
-		temp_last_close = parseFloat(item.close);
-	});
-	
-	// create chart in the canvas with the appropriate attribute values
-	var change_chart = new Chart(chart_container, {
-    type: settings.market_performance_graph_type,
-    data: {
-	    labels: chart_values,
-      datasets: [{
-        label: 'share price',
-        data: chart_values,
-        backgroundColor: bar_colors,
-        borderColor: 'white',
-        borderWidth: 0
-      }]
-    },
-    options: {
-      scales: {
-        yAxes: [{ ticks: { beginAtZero:false } }],
-        xAxes: [{ display:false  }]
-      },
-			events: ['click'],
-			legend: { display:false}
-    }
-  });
-}
-
-// redraw charted data
-function rechart(data) {
-	if (upgraded) { chart_data(data); }
+	$('.name_and_exchange').html(company_link_markup);
 }
 
 // determine if an object has a given key

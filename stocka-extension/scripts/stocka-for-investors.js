@@ -6,7 +6,8 @@ document.addEventListener('DOMContentLoaded', function() {
   var cancel_upgrade = document.getElementById('cancel_upgrade');
   
   show_upgrade.addEventListener('click', function() {
-	  $('#show_upgrade').css('opacity', '0');
+	  $('.save_settings').click();
+	  $('.detail_view_options.open .close_detail_view').click();
 	  
 	  show_upgrade_information();
   });

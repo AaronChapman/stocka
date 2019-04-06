@@ -40,21 +40,6 @@ function check_if_markets_are_open() {
 	}
 }
 
-// attach events to theme options
-function setup_settings_listeners() {
-	$('.theme_option').click(function() {
-		// set current theme to clicked option
-		current_theme = $(this).attr('data-theme-name');
-		
-		setup_theme(current_theme);
-		save_tickers();
-	});
-	
-	$('.market_performance_graph_type_selection').on('change', function() {
-		settings.market_performance_graph_type = $(this).find('option:selected').attr('value');
-	});
-}
-
 // switch out body's theme class
 function setup_theme(theme_to_use) {
 	themes.forEach(function(theme) {
@@ -86,10 +71,11 @@ function add_settings() {
 	// <div class="theme_option_container"><button class="theme_option greyscale" data-theme-name="greyscale"></button><span class="theme_name">greyscale</span></div>
 	
 	// add graph type toggle here
-	$('.setting:last').after('<select class="market_performance_graph_type_selection"><option value="bar">bar graph</option><option value="line">line graph</option></select>');
+	$('.setting:last').after('<div class="setting market_performance_chart_type_setting"<span class="setting_category_title">chart:</span><hr><div class="graph_option_container"><button class="market_performance_chart_type bar selected">bar graph</button></div><div class="graph_option_container"><button class="market_performance_chart_type line">line graph</button></div></div>');
 	
 	// and attach listeners to them
 	setup_settings_listeners();
+	setup_settings_states();
 }
 
 // add chart data to the detail view

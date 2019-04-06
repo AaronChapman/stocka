@@ -1,9 +1,5 @@
-- company details
 - add more themes
-- add an in-between interface for upgrading with more information
 - pinned tabs
-- line graph toggle
-- notes?
 - fix spacing to be perfect
 - additional news sources 
 - more accurate reading for closed market (dst)
@@ -12,6 +8,7 @@
 - AI screeners
 - search companies
 - symbol lists
-- more clearly outlines chart labels
+- more clearly outlined chart labels
 - better way to visually track points on charted data
-- 
+- refresh periodically for chrome push notifications
+- paletted theme options

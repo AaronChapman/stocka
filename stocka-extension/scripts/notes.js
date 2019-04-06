@@ -1,6 +1,6 @@
 // set up event listeners for the notes container
 function setup_notes() {
-	$('.theme_options').prepend('<button class="open_notes">notes</button>');
+	$('.bottom_options').prepend('<button class="open_notes">notes</button>');
 	
 	$('.open_notes').click(function() {
 		open_notes(notes);
@@ -24,7 +24,7 @@ function save_notes(note_content) {
 	
 	notes = $('.notes_field').html();
 	
-	chrome.storage.sync.set({'tickers': tickers, 'notes':notes, 'theme':current_theme}, function() {
+	chrome.storage.sync.set({'tickers': tickers, 'notes':notes, 'theme':current_theme, 'settings':settings}, function() {
 	  $('.notes_container').addClass('closed').removeClass('open');
 	});
 }

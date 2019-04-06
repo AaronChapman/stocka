@@ -19,6 +19,7 @@
 		<script src="scripts/interface-utilities.js" type="text/javascript"></script>
 		<script src="scripts/notes.js" type="text/javascript"></script>
 		<script src="scripts/settings.js" type="text/javascript"></script>
+		<script src="scripts/charting.js" type="text/javascript"></script>
 		<script src="scripts/chart.min.js" type="text/javascript"></script>
 		<script src="scripts/buy.js" type="text/javascript"></script>
 		<script src="scripts/stocka-for-investors.js" type="text/javascript"></script>
@@ -48,7 +49,7 @@
 		</div>
 		<div class="tickers">
 			<div class="ticker_detail closed">
-				<button id="show_upgrade" class="upgrade_button visible">upgrade to stocka for investors</button>
+				<span class="name_and_exchange">loading company information...</span>
 				<span class="ticker"></span>
 				<div class="timeframe_options">
 					<button class="timeframe_option 1m selected">this month</button>
@@ -70,9 +71,13 @@
 			</div>
 		</div>
 		<div class="notes_container closed">
+			<p class="notes_field" contenteditable="true">
+				you can save notes here. click inside of the box to start editing
+			</p>
 			<button class="save_notes">close and save</button>
 		</div>
 		<div class="settings_container closed">
+			<button id="show_upgrade" class="upgrade_button visible">upgrade to stocka for investors</button>
 			<div class="setting theme_setting"
 				<span class="setting_category_title">theme:</span>
 				<hr>
