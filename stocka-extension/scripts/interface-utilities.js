@@ -71,7 +71,7 @@ function add_settings() {
 	// <div class="theme_option_container"><button class="theme_option greyscale" data-theme-name="greyscale"></button><span class="theme_name">greyscale</span></div>
 	
 	// add graph type toggle here
-	$('.setting:last').after('<div class="setting market_performance_chart_type_setting"<span class="setting_category_title">chart:</span><hr><div class="graph_option_container"><button class="market_performance_chart_type bar selected">bar graph</button></div><div class="graph_option_container"><button class="market_performance_chart_type line">line graph</button></div></div>');
+	$('.setting:last').after('<div class="setting market_performance_chart_type_setting"<span class="setting_category_title">chart:</span><hr><div class="graph_option_container"><button class="market_performance_chart_type bar">bar graph</button></div><div class="graph_option_container"><button class="market_performance_chart_type line">line graph</button></div></div>');
 	
 	// and attach listeners to them
 	setup_settings_listeners();

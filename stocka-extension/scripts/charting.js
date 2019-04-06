@@ -54,11 +54,14 @@ function chart_data(data, graph_type) {
 	  });
 	} else if (graph_type === 'line') {
 		let graph_background_color = 'rgba(00, 00, 00, 00)';
+		let graph_point_color = 'rgba(00, 00, 00, 00)';
 		
-		if ($('.ticker_detail').hasClass('down')) {
+		if ($('.ticker_detail .ticker').hasClass('down')) {
 			graph_background_color = bar_color_down;
+			graph_point_color = bar_color_up;
 		} else {
 			graph_background_color = bar_color_up;
+			graph_point_color = bar_color_down;
 		}
 		
 		var change_chart = new Chart(chart_container, {
@@ -69,10 +72,9 @@ function chart_data(data, graph_type) {
 	        label: 'share price',
 	        data: chart_values,
 	        backgroundColor: graph_background_color,
-	        pointBackgroundColor: bar_color_down,
-	        pointBorderColor: bar_color_down,
-	        pointBorderWidth: 0.5,
-	        pointRadius: 1
+	        pointBackgroundColor: graph_point_color
+	        pointBorderWidth: 0,
+	        pointRadius: 2
 	      }]
 	    },
 	    options: {
