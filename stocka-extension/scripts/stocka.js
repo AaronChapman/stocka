@@ -33,6 +33,8 @@ document.addEventListener("DOMContentLoaded", function(event) {
 		}
 	});
 	
+	getProductList();
+	
 	// check this
 	check_if_markets_are_open();
 	

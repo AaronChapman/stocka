@@ -12,7 +12,7 @@ function chart_data(data, graph_type) {
 	let bar_color_down = $('.theme_to_chart .down').css('background-color');
 	// temporary value to determine directional gain
 	let temp_last_close = 0;
-	
+		
 	// for each value being charted
 	data.forEach(function(item) {
 		// push the closing price to the array of values
@@ -29,9 +29,13 @@ function chart_data(data, graph_type) {
 		temp_last_close = parseFloat(item.close);
 	});
 	
+	if (change_chart != undefined) {
+		change_chart.destroy();
+	}
+	
 	if (graph_type === 'bar') {
 		// create chart in the canvas with the appropriate attribute values
-		var change_chart = new Chart(chart_container, {
+		change_chart = new Chart(chart_container, {
 	    type: 'bar',
 	    data: {
 		    labels: chart_values,
@@ -64,7 +68,7 @@ function chart_data(data, graph_type) {
 			graph_point_color = bar_color_down;
 		}
 		
-		var change_chart = new Chart(chart_container, {
+		change_chart = new Chart(chart_container, {
 	    type: 'line',
 	    data: {
 		    labels: chart_values,
@@ -72,7 +76,7 @@ function chart_data(data, graph_type) {
 	        label: 'share price',
 	        data: chart_values,
 	        backgroundColor: graph_background_color,
-	        pointBackgroundColor: graph_point_color
+	        pointBackgroundColor: graph_point_color,
 	        pointBorderWidth: 0,
 	        pointRadius: 2
 	      }]

@@ -12,3 +12,10 @@
 - better way to visually track points on charted data
 - refresh periodically for chrome push notifications
 - paletted theme options
+
+
+// working out how to easily toggle stocka-for investors features in unpacked extension
+
+-
+-
+-
