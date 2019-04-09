@@ -32,17 +32,11 @@
 			<button id="cancel_upgrade">cancel</button>
 		</p>
 		<div class="options_header">
-			<button class="sorting_options_button container_expander">sort list</button>
+			<!--<button class="sorting_options_button container_expander">sort list</button>-->
 			<button class="add_tickers container_expander">add tickers</button>
 		</div>
 		<div class="add_tickers_area closed">
 			<input class="tickers_to_add" type="text" placeholder="e.g. 'AMD,MU,INT'"></input>
-		</div>
-		<div class="sorting_options closed">
-			<button class="sorting_option sorting_option_symbol unsorted">symbol</button>
-			<button class="sorting_option sorting_option_price unsorted">price</button>
-			<button class="sorting_option sorting_option_change unsorted">change</button>
-			<button class="sorting_option sorting_option_percent unsorted">percent</button>
 		</div>
 		<div class="detail_view_options closed">
 			<button class="close_detail_view container_expander">✕</button>
@@ -64,11 +58,17 @@
 					<tr><td>market cap</td><td class="detail_data_cap" >. . .</td></tr>
 				</table>
 				<div class="ticker_news"></div>
+			</div>			
+			<div class="sorting_options open">
+				<button class="sorting_option sorting_option_symbol unsorted">symbol</button>
+				<button class="sorting_option sorting_option_price unsorted">price</button>
+				<button class="sorting_option sorting_option_change unsorted">change</button>
+				<button class="sorting_option sorting_option_percent unsorted">percent</button>
 			</div>
-			<span class="market_closed_message">the market is closed</span>
 			<div class="ticker_list" data-displayed="price">
 				<span class="loading_message">loading data...</span>
 			</div>
+			<span class="market_closed_message">the market is closed</span>
 		</div>
 		<div class="notes_container closed">
 			<p class="notes_field" contenteditable="true">
@@ -94,7 +94,7 @@
 					<span class="ticker down">hidden</span>
 				</div>
 			</div>
-			<button class="save_settings">save settings</button>
+			<button class="save_settings">close and save</button>
 		</div>
 		<div class="bottom_options">
 			<button class="open_settings">settings</button>

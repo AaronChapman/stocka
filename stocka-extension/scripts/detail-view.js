@@ -170,9 +170,9 @@ function add_company_info(company_data) {
 	let company_link_markup = '';
 	
 	if (company_data.website.length > 1) {
-		company_link_markup = '<a href="' + company_data.website + '" target="_blank">' + company_data.companyName +'</a>' + ' : : : ' + company_data.exchange;
+		company_link_markup = '<a href="' + company_data.website + '" target="_blank">' + company_data.companyName +'</a><br>' + company_data.exchange;
 	} else {
-		company_link_markup = company_data.companyName + ' : : : ' + company_data.exchange;
+		company_link_markup = company_data.companyName + '<br>' + company_data.exchange;
 	}
 	
 	$('.name_and_exchange').html(company_link_markup);

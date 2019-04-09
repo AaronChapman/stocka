@@ -15,6 +15,12 @@
 	-webkit-highlight: none !important;
 	transition: all 0.1s, height 0.25s ease-in-out;
 	cursor: default;
+	-webkit-touch-callout: none;
+  -webkit-user-select: none;
+  -khtml-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none
 }
 
 a {
@@ -70,11 +76,12 @@ input:hover, button:hover, a:hover, .ticker:hover {
 
 .ticker_list {
   display: grid;
-  width: 300px;
+  width: -webkit-fill-available;
   zoom: 0.75;
-  padding: 10px 10px 15px 10px;
+  padding: 0;
+  margin: 5px 10px 10px 0px;
   min-height: 125px;
-	transition: opacity 0.5s ease-in-out !important;
+  transition: opacity 0.5s ease-in-out !important;
 }
 
 .ticker_list .ticker:hover {
@@ -218,7 +225,7 @@ input:hover, button:hover, a:hover, .ticker:hover {
 }
 
 .sorting_options {
-  margin: 5px 0;
+  margin: 0;
   transition: all 0.5s ease-in-out !important;
   overflow: hidden;
   display: flex;
@@ -277,6 +284,7 @@ input:hover, button:hover, a:hover, .ticker:hover {
 	height: 20px;
 	overflow: hidden;
 	transition: height 0.75s ease-in-out;
+	margin-top: 10px;
 }
 
 .detail_view_options.closed {
@@ -372,9 +380,13 @@ input:hover, button:hover, a:hover, .ticker:hover {
 }
 
 .save_settings {
-  width: -webkit-fill-available;
   border-radius: 3px;
+  position: relative;
+  width: -webkit-fill-available;
   height: 30px;
+  width: 80%;
+  margin: 0 auto;
+  background: snow !important;
 }
 
 .save_notes {
@@ -430,7 +442,7 @@ input:hover, button:hover, a:hover, .ticker:hover {
 
 .market_closed_message {
 	display: none;
-	padding-top: 10px;
+	padding: 0 5px 5px 5px;
   text-align: center;
   font-size: 1.25em;
   color: lightgray;
@@ -446,6 +458,7 @@ input:hover, button:hover, a:hover, .ticker:hover {
 .bottom_options {
 	display: flex;
   justify-content: flex-end;
+  margin-bottom: 5px;
 }
 
 .theme_option {

@@ -8,6 +8,10 @@
 	background: snow !important;
 }
 
+.default a {
+	color: lightslategray;
+}
+
 .default, .default button, .default input,
 .default .upgrade_information,
 .default .notes_container,
@@ -29,7 +33,8 @@
 	border-color: darkgray;
 }
 
-.default .save_notes {
+.default .save_notes,
+.default .save_settings {
 	border-color: #427557;
 	color: #427557;
 }
@@ -88,6 +93,10 @@
 	background: antiquewhite !important;
 }
 
+.sepia a {
+	color: #627465;
+}
+
 .sepia, .sepia button, .sepia input,
 .sepia .upgrade_information,
 .sepia .notes_container,
@@ -105,7 +114,8 @@
 	border-color: #aa9095;
 }
 
-.sepia .save_notes {
+.sepia .save_notes,
+.sepia .save_settings {
 	border-color: #627465;
 	color: #627465;
 }
@@ -172,6 +182,10 @@
 	background: #FFEBD9 !important;
 }
 
+.classic a {
+	color: #BB6450;
+}
+
 .classic, .classic button, .classic input,
 .classic .upgrade_information,
 .classic .notes_container,
@@ -189,7 +203,8 @@
 	border-color: #356276;
 }
 
-.classic .save_notes {
+.classic .save_notes,
+.classic .save_settings {
 	border-color: #356276;
 	color: #356276;
 }
@@ -256,6 +271,10 @@
 	background: rgb(45, 40, 50) !important;
 }
 
+.midnight a {
+	color: lightslategray;
+}
+
 .midnight, .midnight button, .midnight input,
 .midnight .upgrade_information,
 .midnight .notes_container,
@@ -267,7 +286,8 @@
 	border-color: darkgray;
 }
 
-.midnight .save_notes {
+.midnight .save_notes,
+.midnight .save_settings {
 	border-color: #627488;
 	color: #627488;
 }
