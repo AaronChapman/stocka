@@ -1,7 +1,7 @@
 // when the document has finished loading
 document.addEventListener("DOMContentLoaded", function(event) {
 	// check extension storage to see if ticker data exists and if so, update local variables
-	chrome.storage.sync.get(['tickers', 'notes', 'theme', 'settings'], function(result) {
+	chrome.storage.sync.get(['tickers', 'saved_sets', 'notes', 'theme', 'settings'], function(result) {
 		// theme information
 		if (result.theme) {
 		  current_theme = result.theme;
@@ -18,6 +18,10 @@ document.addEventListener("DOMContentLoaded", function(event) {
 		
 		if (result.settings) {
 		  settings = result.settings;
+		}
+		
+		if (result.saved_sets) {
+		  saved_sets = result.saved_sets;
 		}
 
 		// ticker information
@@ -43,4 +47,5 @@ document.addEventListener("DOMContentLoaded", function(event) {
 	setup_detail_listeners();
 	setup_ticker_list_listeners();
 	setup_settings_listeners();
+	setup_saved_sets();
 });

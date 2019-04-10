@@ -1,15 +1,36 @@
 - add more themes
 - pinned tabs
-- fix spacing to be perfect
 - additional news sources 
 - more accurate reading for closed market (dst)
 - if market is closed store local data
-- predefined screeners
-- AI screeners
-- search companies
-- symbol lists
 - more clearly outlined chart labels
 - better way to visually track points on charted data
-- refresh periodically for chrome push notifications
 - paletted theme options
 - ability to copy + share ticker sets
+- calculate news container size better
+
+
+// user communication
+- refresh periodically for chrome push notifications
+- let chrome text be set by certain tickers?
+
+
+
+// discovery panel?
+- predefined screeners
+- search companies
+
+
+// ticker sets
+- tickers array becomes tickers array of objects
+- find all spots where tickers is accessed and set named instance of ticker_set object to the tickers being stored
+
+OR
+
+let saved_sets = [{"ticker_set_name":"default", "ticker_set":tickers}, {"ticker_set_name":"FANG", "ticker_set":"FB,AAPL,NTFX,GOOG"}];
+
+- 'saved sets' button > top left
+- 'save set' button > small, bottom right corner?
+- named sets become buttons in saved sets container
+- buttons have data attributes containing the url string needed to build  api call (saved_sets[index of ticker_set_name match].ticker_set)
+- on button click tickers gets assigned, button gets selected, chrome storage gets set

@@ -251,8 +251,8 @@ input:hover, button:hover, a:hover, .ticker:hover {
 }
 
 .ticker_detail.open {
-	height: 320px;
-	max-height: 320px;
+	height: 345px;
+	max-height: 345px;
 	padding-top: 5px;
   border-bottom: 2px solid darkgray;
 }
@@ -297,7 +297,8 @@ input:hover, button:hover, a:hover, .ticker:hover {
 
 .chart_container {
 	display: none;
-	padding: 5px 10px 0 5px;
+	margin: 5px 0;
+  padding: 5px 0 0 5px;
 }
 
 .ticker_news {
@@ -358,7 +359,7 @@ input:hover, button:hover, a:hover, .ticker:hover {
 }
 
 .graph_option_container {
-	margin: auto;
+	margin: 5px auto;
   display: flex;
   justify-content: center;
 }
@@ -481,8 +482,7 @@ input:hover, button:hover, a:hover, .ticker:hover {
 }
 
 .upgrade_button {
-	height: 25px;
-	display: none;
+  display: none;
   background: white;
   color: #965656;
   text-shadow: 1px 1px 1px lightgrey;
@@ -490,9 +490,9 @@ input:hover, button:hover, a:hover, .ticker:hover {
   border-radius: 3px;
   margin: 2.5% 10%;
   width: 80%;
-  padding: 2.5px 0 5px 0;
+  padding: 10px 5px;
   font-size: 12px;
-  margin: 5%;
+  margin: auto 5%;
   width: 90%;
 }
 
@@ -505,8 +505,8 @@ input:hover, button:hover, a:hover, .ticker:hover {
 }
 
 .upgraded .ticker_detail.open {
-	height: 470px;
-	max-height: 470px;
+	height: 495px;
+	max-height: 495px;
 }
 
 .upgraded .timeframe_options {
