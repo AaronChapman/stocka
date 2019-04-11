@@ -108,7 +108,7 @@ function remove_ticker_from_array(temp_ticker, ticker_index, array_to_use) {
 // sync local tickers array to chrome extension storage
 function save_tickers() {
 	chrome.storage.sync.set({'tickers': tickers, 'notes':notes, 'theme':current_theme, 'settings':settings}, function() {
-	  //console.log('saving: ', tickers);
+	  check_if_current_set_is_saved();
 	});
 }
 

@@ -4,10 +4,10 @@ let saved_sets = [];
 
 function setup_saved_sets() {
 	$('.saved_sets').click(function() {
-		if ($('.saved_sets_container').hasClass('visible')) {
-			$('.saved_sets_container').removeClass('visible');
+		if ($('.saved_sets_container').hasClass('closed')) {
+			$('.saved_sets_container').removeClass('closed').addClass('open');
 		} else {
-			$('.saved_sets_container').addClass('visible');
+			$('.saved_sets_container').removeClass('open').addClass('closed');
 		}
 	});
 	
@@ -22,6 +22,7 @@ function setup_saved_sets() {
 	});
 	
 	setup_save_set_button_listeners();
+	check_if_current_set_is_saved();
 }
 
 function setup_save_set_button_listeners() {
@@ -59,7 +60,7 @@ function delete_set(set_to_delete) {
 		}
 	});
 	
-	sync_saved_set();
+	sync_saved_sets();
 	setup_saved_set_buttons();
 }
 
@@ -72,6 +73,7 @@ function setup_saved_set_buttons() {
 	});
 	
 	setup_save_set_button_listeners();
+	check_if_current_set_is_saved();
 }
 
 function load_selected_set(saved_set) {
@@ -79,4 +81,22 @@ function load_selected_set(saved_set) {
 	
 	// do a fancy transition like the sort one
 	stock_up();
+	check_if_current_set_is_saved();
+}
+
+function check_if_current_set_is_saved() {
+	let current_set = tickers.join();
+	let current_set_saved = false;
+	
+	$('.set_saved_status').removeClass('saved');
+	$('.set_saved_status').text(' unsaved');
+	
+	saved_sets.forEach(function(each_set) {
+		if (each_set.ticker_set == current_set) {
+			current_set_saved = true;
+			
+			$('.set_saved_status').addClass('saved');
+			$('.set_saved_status').text(' saved');
+		}
+	});
 }
