@@ -327,7 +327,7 @@ input:hover, button:hover, a:hover, .ticker:hover {
 
 .settings_container.closed {
   height: 0px;
-  width: 254px;
+  width: 270px;
 }
 
 .settings_container {
@@ -338,7 +338,7 @@ input:hover, button:hover, a:hover, .ticker:hover {
   transition: 0.25s ease-in-out;
   overflow: hidden;
   margin: 0 0 0 -10px;
-  width: 254px;
+  width: 270px;
   position: fixed;
   bottom: 0;
   padding: 0 10px;
@@ -348,7 +348,7 @@ input:hover, button:hover, a:hover, .ticker:hover {
 
 .settings_container.open {
   height: 210px;
-  width: 254px;
+  width: 270px;
   padding: 10px 10px;
   box-shadow: 0 -3px 5px rgba(00, 00, 00, 0.25);
 }
@@ -405,7 +405,7 @@ input:hover, button:hover, a:hover, .ticker:hover {
 	transition: 0.25s ease-in-out;
   overflow: hidden;
   margin: 0 0 0 -10px;
-  width: 254px;
+  width: 270px;
   position: fixed;
   bottom: 0;
   padding: 0 10px;
@@ -414,14 +414,14 @@ input:hover, button:hover, a:hover, .ticker:hover {
 
 .notes_container.open {
   height: 210px;
-  width: 254px;
+  width: 270px;
   padding: 10px 10px;
   box-shadow: 0 -3px 5px rgba(00, 00, 00, 0.25);
 }
 
 .notes_container.closed {
   height: 0px;
-  width: 254px;
+  width: 270px;
 }
 
 .notes_field {
@@ -471,11 +471,11 @@ input:hover, button:hover, a:hover, .ticker:hover {
 }
 
 .setting_category_title {
-	
+
 }
 
 
-/* :: stocka for investors :: */
+/* :: stocka for investors styling :: */
 
 .upgraded .upgrade_button {
 	display: none !important;
@@ -542,22 +542,7 @@ input:hover, button:hover, a:hover, .ticker:hover {
 
 
 
-
-.saved_set,
-.save_set,
-.delete_set {
-	margin: 5px 5px 0 0;
-  border-radius: 3px;
-  height: 20px;
-}
-
-.set_saved_status {
-	color: red;
-}
-
-.set_saved_status.saved {
-	color: green;
-}
+/* :: saved sets styling :: */
 
 .saved_sets_container {
   height: 175px;
@@ -580,14 +565,7 @@ input:hover, button:hover, a:hover, .ticker:hover {
 	height: 0px;
 	margin: 0;
 	padding: 0 25px;
-}
-
-.saved_set_name {
-	border: 2px solid darkgrey;
-  padding: 10px;
-  border-radius: 5px;
-  width: -webkit-fill-available;
-  margin-top: 5px;
+	border: none;
 }
 
 .list_of_saved_sets {
@@ -597,4 +575,33 @@ input:hover, button:hover, a:hover, .ticker:hover {
   margin: 0;
   height: auto;
   padding: 0 0 5px 0;
+}
+
+.saved_set,
+.save_set,
+.delete_set {
+	margin: 5px 5px 0 0;
+  border-radius: 3px;
+  height: 20px;
+}
+
+.saved_sets {
+  border-radius: 3px;
+  height: 20px;
+}
+
+.set_saved_status {
+	color: red;
+}
+
+.set_saved_status.saved {
+	color: green;
+}
+
+.saved_set_name {
+	border: 2px solid darkgrey;
+  padding: 10px;
+  border-radius: 5px;
+  width: -webkit-fill-available;
+  margin-top: 5px;
 }

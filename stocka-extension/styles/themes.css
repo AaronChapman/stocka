@@ -15,7 +15,8 @@
 .default, .default button, .default input,
 .default .upgrade_information,
 .default .notes_container,
-.default .settings_container {
+.default .settings_container,
+.default .saved_sets_container {
 	background: snow;
 }
 
@@ -61,6 +62,14 @@
 	background: #ce8988;
 }
 
+.default .set_saved_status {
+	color: #ce8988;
+}
+
+.default .set_saved_status.saved {
+	color: #427557;
+}
+
 .default .ticker_ span,
 .default .ticker_detail_data td,
 .default input,
@@ -100,7 +109,8 @@
 .sepia, .sepia button, .sepia input,
 .sepia .upgrade_information,
 .sepia .notes_container,
-.sepia .settings_container {
+.sepia .settings_container,
+.sepia .saved_sets_container {
 	background: antiquewhite;
 }
 
@@ -143,6 +153,14 @@
 	background: #96565B;
 }
 
+.sepia .set_saved_status {
+	color: #96565B;
+}
+
+.sepia .set_saved_status.saved {
+	color: #627465;
+}
+
 .sepia .ticker_news span,
 .sepia .market_closed_message,
 .sepia .loading_message,
@@ -155,6 +173,7 @@
 
 .sepia .tickers,
 .sepia .tickers_to_add,
+.sepia .saved_set_name,
 .sepia button {
 	border: 2px solid #aa9095;
 }
@@ -165,7 +184,8 @@
 
 .sepia .options_header,
 .sepia .upgrade_information.visible,
-.sepia .ticker_detail.open {
+.sepia .ticker_detail.open,
+.sepia .saved_sets_container.open {
 	border-bottom: 2px solid #aa9095;
 }
 
@@ -189,7 +209,8 @@
 .classic, .classic button, .classic input,
 .classic .upgrade_information,
 .classic .notes_container,
-.classic .settings_container {
+.classic .settings_container ,
+.classic .saved_sets_container{
 	background: #FFEBD9;
 }
 
@@ -232,6 +253,14 @@
 	background: #BB6450;
 }
 
+.classic .set_saved_status {
+	color: #BB6450;
+}
+
+.classic .set_saved_status.saved {
+	color: #356276;
+}
+
 .classic .ticker_news span,
 .classic .market_closed_message,
 .classic .loading_message,
@@ -244,6 +273,7 @@
 
 .classic .tickers,
 .classic .tickers_to_add,
+.classic .saved_set_name,
 .classic button {
 	border: 2px solid #356276;
 }
@@ -278,7 +308,8 @@
 .midnight, .midnight button, .midnight input,
 .midnight .upgrade_information,
 .midnight .notes_container,
-.midnight .settings_container {
+.midnight .settings_container,
+.midnight .saved_sets_container {
 	background: rgb(45, 40, 50);
 }
 
@@ -294,7 +325,8 @@
 
 .midnight .notes_field,
 .midnight .setting,
-.midnight .name_and_exchange {
+.midnight .name_and_exchange,
+.midnight .setting_category_title {
 	color: white;
 }
 
@@ -323,6 +355,14 @@
 
 .midnight .ticker.down {
 	background:#965656;
+}
+
+.midnight .set_saved_status {
+	color: #965656;
+}
+
+.midnight .set_saved_status.saved {
+	color: #62748;
 }
 
 .midnight .ticker_news span,
