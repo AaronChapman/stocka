@@ -22,6 +22,8 @@ document.addEventListener("DOMContentLoaded", function(event) {
 		
 		if (result.saved_sets) {
 		  saved_sets = result.saved_sets;
+		  
+		  setup_saved_set_buttons();
 		}
 
 		// ticker information

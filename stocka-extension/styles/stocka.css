@@ -539,3 +539,37 @@ input:hover, button:hover, a:hover, .ticker:hover {
 #request_upgrade {
 	margin: 0;
 }
+
+
+
+
+.saved_set,
+.save_set,
+.delete_set {
+	margin: 0 5px;
+  border-radius: 3px;
+}
+
+.saved_sets_container {
+  height: 0px;
+  margin: 0;
+  transition: all 0.25s ease-in-out;
+  padding: 0 25px 0 25px;
+  overflow: hidden;
+  z-index: 4;
+  background: snow;
+}
+
+.saved_sets_container.visible {
+	height: 170px;
+  padding: 15px 25px 5px 25px;
+  border-bottom: 2px solid darkgray;
+}
+
+.saved_set_name {
+	border: 2px solid darkgrey;
+  padding: 10px;
+  border-radius: 5px;
+  width: -webkit-fill-available;
+  margin: 5px;
+}

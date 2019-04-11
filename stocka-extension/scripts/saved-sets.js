@@ -1,35 +1,39 @@
 // saved ticker sets
 
-let saved_sets = [{"ticker_set_name":"default", "ticker_set":tickers, 'is_selected':true}, {"ticker_set_name":"FANG", "ticker_set":"FB,AAPL,NTFX,GOOG", 'is_selected':false}];
+let saved_sets = [];
 
 function setup_saved_sets() {
 	$('.saved_sets').click(function() {
-		$('.saved_sets_container').addClass('open').removeClass('closed');
+		if ($('.saved_sets_container').hasClass('visible')) {
+			$('.saved_sets_container').removeClass('visible');
+		} else {
+			$('.saved_sets_container').addClass('visible');
+		}
 	});
 	
+	$('.save_set').click(function() {
+		if ($('.saved_set_name').val().length > 0) {
+			save_set(tickers, $('.saved_set_name').val());
+		}
+	});
+	
+	$('.delete_set').click(function() {
+		delete_set(tickers.join());
+	});
+	
+	setup_save_set_button_listeners();
+}
+
+function setup_save_set_button_listeners() {
 	$('.saved_set').click(function() {
 		load_selected_set($(this).attr('data-saved-set'));
 		
 		$('.saved_set').removeClass('.selected');
 		$(this).addClass('.selected');
 	});
-	
-	$('.save_set').click(function() {
-		save_set();
-	});
-	
-	$('.name_and_save_set').click(function() {
-		if ($('.new_saved_set_name').val().length > 0) {
-			confirm_save_set(tickers, $('.new_saved_set_name').val());
-		}
-	});
 }
 
-function save_set() {
-	$('.set_naming_container').addClass('open').removeClass('closed');
-}
-
-function confirm_save_set(ticker_set, ticker_set_name) {
+function save_set(ticker_set, ticker_set_name) {
 	let new_saved_set_name = ticker_set_name;
 	let new_saved_set = {"ticker_set_name":new_saved_set_name, "ticker_set":tickers.join(), 'is_selected':true};
 	
@@ -39,18 +43,35 @@ function confirm_save_set(ticker_set, ticker_set_name) {
 	
 	saved_sets.push(new_saved_set);
 	
+	sync_saved_sets();
+}
+
+function sync_saved_sets() {
 	chrome.storage.sync.set({'saved_sets':saved_sets}, function() {
-	  setup_saved_set_buttons($('.new_saved_set_name').val(), new_saved_set);
+	  setup_saved_set_buttons();
 	});
 }
 
-function setup_saved_set_buttons(new_set_name, new_set) {
-	$('.saved_sets_container').empty();
-	$('.new_saved_set_name').val('');
+function delete_set(set_to_delete) {
+	saved_sets.forEach(function(each_set) {
+		if (each_set.ticker_set == set_to_delete) {
+			saved_sets.splice(saved_sets.indexOf(each_set), 1);
+		}
+	});
+	
+	sync_saved_set();
+	setup_saved_set_buttons();
+}
+
+function setup_saved_set_buttons() {
+	$('.list_of_saved_sets').empty();
+	$('.saved_set_name').val('');
 	
 	saved_sets.forEach(function(item) {
-		$('.saved_sets_container').append('<button class="saved_set" data-saved-set="' + new_set + '">' + new_set_name + '</button>');
+		$('.list_of_saved_sets').append('<button class="saved_set" data-saved-set="' + item.ticker_set + '">' + item.ticker_set_name + '</button>');
 	});
+	
+	setup_save_set_button_listeners();
 }
 
 function load_selected_set(saved_set) {

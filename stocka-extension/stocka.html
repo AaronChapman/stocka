@@ -37,7 +37,17 @@
 			<button class="add_tickers container_expander">add tickers</button>
 		</div>					
 		<div class="saved_sets_container closed">
-			<button class="saved_set" data-saved-set="AAPL,AMZN,FB,GOOGL,MSFT">default</button>
+			<span class="setting_category_title">saved symbol sets:</span>
+			<hr>
+			<div class="list_of_saved_sets">
+				<button class="saved_set" data-saved-set="AAPL,AMZN,FB,GOOGL,MSFT">default</button>
+			</div>
+			<br>
+			<span class="setting_category_title">current symbol set:</span>
+			<hr>
+			<input class="saved_set_name" type="text" placeholder="symbol set name"></input>
+			<button class="save_set">save</button>
+			<button class="delete_set">delete</button>
 		</div>
 		<div class="add_tickers_area closed">
 			<input class="tickers_to_add" type="text" placeholder="e.g. 'AMD,MU,INT'"></input>
@@ -82,7 +92,7 @@
 		</div>
 		<div class="settings_container closed">
 			<button id="show_upgrade" class="upgrade_button visible">upgrade to stocka for investors</button>
-			<div class="setting theme_setting"
+			<div class="setting theme_setting">
 				<span class="setting_category_title">theme:</span>
 				<hr>
 				<div class="theme_option_container">
