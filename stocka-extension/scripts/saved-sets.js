@@ -32,9 +32,19 @@ function setup_save_set_button_listeners() {
 		$('.saved_set').removeClass('.selected');
 		$(this).addClass('.selected');
 	});
+	
+	$('.saved_set_name').unbind('keydown').on('keydown', function(event) {
+		if (event.keyCode === 13) {
+			event.preventDefault();
+
+			save_set(tickers, $('.saved_set_name').val());
+		}
+	});
 }
 
 function save_set(ticker_set, ticker_set_name) {
+	console.log('saving set...');
+	
 	let new_saved_set_name = ticker_set_name;
 	let new_saved_set = {"ticker_set_name":new_saved_set_name, "ticker_set":tickers.join(), 'is_selected':true};
 	
@@ -79,9 +89,12 @@ function setup_saved_set_buttons() {
 function load_selected_set(saved_set) {
 	tickers = saved_set.split(',');
 	
-	// do a fancy transition like the sort one
-	stock_up();
-	check_if_current_set_is_saved();
+	$('.ticker_list').css('opacity', '0');
+	
+	setTimeout(function() {
+		stock_up();
+		check_if_current_set_is_saved();
+	}, 500);
 }
 
 function check_if_current_set_is_saved() {
@@ -89,14 +102,14 @@ function check_if_current_set_is_saved() {
 	let current_set_saved = false;
 	
 	$('.set_saved_status').removeClass('saved');
-	$('.set_saved_status').text(' unsaved');
+	$('.set_saved_status').text('UNSAVED');
 	
 	saved_sets.forEach(function(each_set) {
 		if (each_set.ticker_set == current_set) {
 			current_set_saved = true;
 			
 			$('.set_saved_status').addClass('saved');
-			$('.set_saved_status').text(' saved');
+			$('.set_saved_status').text(each_set.ticker_set_name);
 		}
 	});
 }

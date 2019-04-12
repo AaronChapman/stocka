@@ -39,8 +39,11 @@ html {
 
 hr {
 	border: 0.5px solid black;
-  width: 100%;
   height: 1px;
+}
+
+.settings_container hr {
+	width: 100%;
 }
 
 body {
@@ -327,7 +330,7 @@ input:hover, button:hover, a:hover, .ticker:hover {
 
 .settings_container.closed {
   height: 0px;
-  width: 270px;
+  width: 258px;
 }
 
 .settings_container {
@@ -338,7 +341,7 @@ input:hover, button:hover, a:hover, .ticker:hover {
   transition: 0.25s ease-in-out;
   overflow: hidden;
   margin: 0 0 0 -10px;
-  width: 270px;
+  width: 258px;
   position: fixed;
   bottom: 0;
   padding: 0 10px;
@@ -348,7 +351,7 @@ input:hover, button:hover, a:hover, .ticker:hover {
 
 .settings_container.open {
   height: 210px;
-  width: 270px;
+  width: 258px;
   padding: 10px 10px;
   box-shadow: 0 -3px 5px rgba(00, 00, 00, 0.25);
 }
@@ -387,7 +390,6 @@ input:hover, button:hover, a:hover, .ticker:hover {
   height: 30px;
   width: 80%;
   margin: 0 auto;
-  background: snow !important;
 }
 
 .save_notes {
@@ -397,7 +399,6 @@ input:hover, button:hover, a:hover, .ticker:hover {
   height: 30px;
   width: 80%;
   margin: auto;
-  background: snow !important;
 }
 
 .notes_container {
@@ -405,7 +406,7 @@ input:hover, button:hover, a:hover, .ticker:hover {
 	transition: 0.25s ease-in-out;
   overflow: hidden;
   margin: 0 0 0 -10px;
-  width: 270px;
+  width: 258px;
   position: fixed;
   bottom: 0;
   padding: 0 10px;
@@ -414,14 +415,14 @@ input:hover, button:hover, a:hover, .ticker:hover {
 
 .notes_container.open {
   height: 210px;
-  width: 270px;
+  width: 258px;
   padding: 10px 10px;
   box-shadow: 0 -3px 5px rgba(00, 00, 00, 0.25);
 }
 
 .notes_container.closed {
   height: 0px;
-  width: 270px;
+  width: 258px;
 }
 
 .notes_field {
@@ -545,20 +546,21 @@ input:hover, button:hover, a:hover, .ticker:hover {
 /* :: saved sets styling :: */
 
 .saved_sets_container {
-  height: 175px;
+  height: 205px;
   margin: 0;
   padding: 25px;
+  padding-top: 5px;
   transition: all 0.25s ease-in-out;
   overflow: hidden;
-  overflow-y: scroll;
   z-index: 4;
   background: snow;
 }
 
 .saved_sets_container.open {
-	height: 175px;
-  padding: 25px;
+	padding: 25px;
+  padding-top: 5px;
   border-bottom: 2px solid darkgray;
+  height: 230px;
 }
 
 .saved_sets_container.closed {
@@ -569,12 +571,14 @@ input:hover, button:hover, a:hover, .ticker:hover {
 }
 
 .list_of_saved_sets {
-  display: inline-block;
-  width: 220px;
-  overflow-x: scroll;
-  margin: 0;
-  height: auto;
-  padding: 0 0 5px 0;
+  overflow: auto;
+  margin: -6px 0 10px 0;
+  padding: 5px;
+  padding-top: 0;
+  height: 75px;
+  border: 2px solid darkgray;
+  border-top: none;
+  border-radius: 0 0 5px 5px;
 }
 
 .saved_set,

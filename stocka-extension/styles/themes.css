@@ -26,7 +26,8 @@
 	color: darkgray;
 }
 
-.default hr {
+.default hr,
+.default .list_of_saved_sets {
 	border-color: darkgray;
 }
 
@@ -52,6 +53,16 @@
 
 .default .descending {
 	border: 2px solid #427557;
+}
+
+.default .save_set {
+	color: #427557;
+	border-color: #427557;
+}
+
+.default .delete_set {
+	color: #ce8988;
+	border-color: #ce8988;
 }
 
 .default .ticker.up {
@@ -120,7 +131,8 @@
 	color: #aa9095;
 }
 
-.sepia hr {
+.sepia hr,
+.sepia .list_of_saved_sets {
 	border-color: #aa9095;
 }
 
@@ -143,6 +155,16 @@
 
 .sepia .descending {
 	border: 2px solid #627465;
+}
+
+.sepia .save_set {
+	color: #627465;
+	border-color: #627465;
+}
+
+.sepia .delete_set {
+	color: #96565B;
+	border-color: #96565B;
 }
 
 .sepia .ticker.up {
@@ -220,7 +242,8 @@
 	color: #356276;
 }
 
-.classic hr {
+.classic hr,
+.classic .list_of_saved_sets {
 	border-color: #356276;
 }
 
@@ -243,6 +266,16 @@
 
 .classic .descending {
 	border: 2px solid #356276;
+}
+
+.classic .save_set {
+	color: #356276;
+	border-color: #356276;
+}
+
+.classic .delete_set {
+	color: #BB6450;
+	border-color: #BB6450;
 }
 
 .classic .ticker.up {
@@ -317,10 +350,10 @@
 	border-color: darkgray;
 }
 
-.midnight .save_notes,
-.midnight .save_settings {
-	border-color: #627488;
-	color: #627488;
+.midnight save_settings,
+.midnight save_notes {
+	color: white;
+	border-color: darkgray;
 }
 
 .midnight .notes_field,
@@ -330,8 +363,9 @@
 	color: white;
 }
 
-.midnight hr {
-	border-color: white;
+.midnight hr,
+.midnight .list_of_saved_sets {
+	border-color: darkgray;
 }
 
 .midnight .timeframe_option.selected,
@@ -349,6 +383,16 @@
 	border: 2px solid #627488;
 }
 
+.midnight .save_set {
+	color: white;
+	border-color: #627488;
+}
+
+.midnight .delete_set {
+	color: white;
+	border-color: #965656;
+}
+
 .midnight .ticker.up {
 	background: #627488;
 }
@@ -362,7 +406,7 @@
 }
 
 .midnight .set_saved_status.saved {
-	color: #62748;
+	color: #627488;
 }
 
 .midnight .ticker_news span,
