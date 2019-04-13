@@ -211,7 +211,7 @@ input:hover, button:hover, a:hover, .ticker:hover {
 /* :: containers :: */
 
 .add_tickers_area {
-  transition: all 0.5s ease-in-out !important;
+  transition: all 0.25s ease-in-out !important;
 	height: 0px;
   overflow: hidden;
 }

@@ -132,7 +132,8 @@
 }
 
 .sepia hr,
-.sepia .list_of_saved_sets {
+.sepia .list_of_saved_sets,
+.sepia .notes_field {
 	border-color: #aa9095;
 }
 
@@ -251,6 +252,10 @@
 .classic .save_settings {
 	border-color: #356276;
 	color: #356276;
+}
+
+.classic .saved_sets_container {
+	border-color: #356276;
 }
 
 .classic .timeframe_option.selected,

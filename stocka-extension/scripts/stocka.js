@@ -22,8 +22,6 @@ document.addEventListener("DOMContentLoaded", function(event) {
 		
 		if (result.saved_sets) {
 		  saved_sets = result.saved_sets;
-		  
-		  setup_saved_set_buttons();
 		}
 
 		// ticker information
@@ -49,5 +47,6 @@ document.addEventListener("DOMContentLoaded", function(event) {
 	setup_detail_listeners();
 	setup_ticker_list_listeners();
 	setup_settings_listeners();
+	setup_saved_set_buttons();
 	setup_saved_sets();
 });

@@ -1,6 +1,6 @@
 // saved ticker sets
 
-let saved_sets = [];
+let saved_sets = [{ticker_set_name: "FANG", ticker_set: "FB,AAPL,NFLX,GOOGL", is_selected: true}];
 
 function setup_saved_sets() {
 	$('.saved_sets').click(function() {
