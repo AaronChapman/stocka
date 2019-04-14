@@ -15,6 +15,7 @@ function setup_ticker_list_listeners() {
 			add_tickers();
 			
 			$('.add_tickers').click();
+			$('.add_tickers').focus();
 		}
 	});
 }
@@ -57,11 +58,17 @@ function setup_added_listeners() {
 		$('.timeframe_option.1m').addClass('selected');
 	});
 	
+	$('.ticker_list .ticker').on('keydown', function(event) {
+		if (event.keyCode === 13 || event.keyCode === 32) {
+			$(this).click();
+		}
+	});
+	
 	// when the detail view's ticker is clicked, close the view
 	$('.ticker_detail .ticker, .close_detail_view').click(function() {
 		$('.ticker_detail').removeClass('open').addClass('closed');
 		$('.detail_view_options').removeClass('open').addClass('closed');
-		$('.ticker_detail').find('a, button, input').attr('tabindex', '-1');
+		$('.ticker_detail').find('a, button, input, [role="button"]').attr('tabindex', '-1');
 		$('.close_detail_view').attr('tabindex', '-1');
 	});
 	

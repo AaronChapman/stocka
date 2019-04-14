@@ -54,7 +54,7 @@ function fill_detail_table(information_object, for_symbol) {
 	// update ticker being displayed in detail view and empty the data table
 	let ticker_to_get = $('.ticker[data-symbol="' + for_symbol + '"]');
 	
-	$('.ticker_detail .ticker').text(ticker_to_get.attr('data-symbol') + ': $' + ticker_to_get.attr('data-latest-price')).attr('class', ticker_to_get.attr('class'));
+	$('.ticker_detail .ticker').text(ticker_to_get.attr('data-symbol') + ': $' + ticker_to_get.attr('data-latest-price')).attr({'class': ticker_to_get.attr('class'), 'tabindex':'0', 'aria-label':ticker_to_get.attr('data-symbol') + ': $' + ticker_to_get.attr('data-latest-price')});
 	//$('.ticker_detail_data').empty();
 	
 	// object that holds details about the ticker
@@ -102,8 +102,9 @@ function fill_detail_table(information_object, for_symbol) {
 	// aesthetic
 	$('.ticker_detail').removeClass('closed').addClass('open');
 	$('.detail_view_options').addClass('open').removeClass('closed');
+	$('.ticker_detail').find('a, button, input, [role="button"]').attr('tabindex', '0');
 	$('.close_detail_view').attr('tabindex', '0');
-	$('.ticker_detail').find('a, button, input').attr('tabindex', '0');
+	$('.close_detail_view').focus();
 }
 
 // get addition information about the requested symbol

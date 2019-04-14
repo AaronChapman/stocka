@@ -49,13 +49,13 @@
 		<div class="add_tickers_area closed">
 			<input class="tickers_to_add" type="text" placeholder="e.g. 'AMD,MU,INT'" aria-label="list of symbols to be added" tabindex="-1"></input>
 		</div>
-		<div class="detail_view_options closed">
-			<button class="close_detail_view container_expander" aria-label="close symbol information" tabindex="-1">✕</button>
+		<div class="detail_view_options closed" aria-label="research panel">
+			<button class="close_detail_view container_expander" aria-label="close" tabindex="-1">✕</button>
 		</div>
 		<div class="tickers">
 			<div class="ticker_detail closed">
 				<span class="name_and_exchange">loading company information...</span>
-				<span class="ticker"></span>
+				<span class="ticker" tabindex="-1"></span>
 				<div class="timeframe_options" aria-label="market data timeframe options">
 					<button class="timeframe_option 1m selected" aria-label="symbol data from this month" tabindex="-1">this month</button>
 					<button class="timeframe_option 6m" aria-label="symbol data from the last six months" tabindex="-1">last six months</button>
@@ -68,7 +68,7 @@
 					<tr><td role="rowheader">volume traded</td><td class="detail_data_volume">. . .</td></tr>
 					<tr><td role="rowheader">market cap</td><td class="detail_data_cap" >. . .</td></tr>
 				</table>
-				<div class="ticker_news"></div>
+				<div class="ticker_news" aria-label="related articles"></div>
 			</div>			
 			<div class="sorting_options open">
 				<button class="sorting_option sorting_option_symbol unsorted" aria-label="sort list by: symbol">symbol</button>
@@ -82,13 +82,13 @@
 			<span class="market_closed_message">the market is closed</span>
 		</div>
 		<div class="notes_container closed" aria-label="notes panel">
-			<p class="notes_field" contenteditable="true" tabindex="0" role="textbox" aria-label="notes area">
+			<p class="notes_field" contenteditable="true" tabindex="-1" role="textbox" aria-label="notes area">
 				you can save notes here. click inside of the box to start editing
 			</p>
 			<button class="save_notes" aria-label="close and save notes" tabindex="-1">close and save</button>
 		</div>
 		<div class="settings_container closed" aria-label="settings panel">
-			<button id="show_upgrade" class="upgrade_button visible" aria-label="more information about upgrading to stocka for investors">upgrade to stocka for investors</button>
+			<button id="show_upgrade" class="upgrade_button visible" aria-label="more information about upgrading to stocka for investors" tabindex="-1">upgrade to stocka for investors</button>
 			<div class="setting theme_setting">
 				<span class="setting_category_title">theme:</span>
 				<hr>
