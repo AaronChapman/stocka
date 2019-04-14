@@ -42,7 +42,7 @@
 			<div class="list_of_saved_sets"></div>
 			<span class="setting_category_title">current symbol set:<br><span class="set_saved_status"> unsaved</span></span>
 			<hr>
-			<input class="saved_set_name" type="text" placeholder="symbol set name" tabindex="-1"></input>
+			<input class="saved_set_name" type="text" placeholder="symbol set name" aria-label="name current symbol set" tabindex="-1"></input>
 			<button class="save_set" aria-label="save current symbol set" tabindex="-1">save</button>
 			<button class="delete_set" aria-label="delete current symbol set" tabindex="-1">delete</button>
 		</div>
@@ -76,7 +76,7 @@
 				<button class="sorting_option sorting_option_change unsorted" aria-label="sort list by: day change (USD)">change</button>
 				<button class="sorting_option sorting_option_percent unsorted" aria-label="sort list by: day change (percentage)">percent</button>
 			</div>
-			<div class="ticker_list" data-displayed="price">
+			<div class="ticker_list" data-displayed="price" aria-label="current symbol set">
 				<span class="loading_message">loading data...</span>
 			</div>
 			<span class="market_closed_message">the market is closed</span>

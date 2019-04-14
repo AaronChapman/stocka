@@ -10,6 +10,16 @@ function setup_detail_listeners() {
 		
 		research(ticker, timeframe);
 	});
+	
+		// when the detail view's ticker is clicked, close the view
+	$('.ticker_detail .ticker, .close_detail_view').click(function() {
+		$('.ticker_detail').removeClass('open').addClass('closed');
+		$('.detail_view_options').removeClass('open').addClass('closed');
+		$('.ticker_detail').find('a, button, input, .ticker_detail .ticker').attr('tabindex', '-1');
+		$('.close_detail_view').attr('tabindex', '-1');
+		
+		$('.ticker_list .ticker:first').focus();
+	});
 }
 
 // individual ticker lookup
