@@ -44,12 +44,18 @@ function setup_settings_states() {
 function open_settings() {
 	$('.open_settings').css('opacity', '0');
 	$('.settings_container').addClass('open').removeClass('closed');
+	$('.settings_container').find('a, button, input').attr('tabindex', '0');
+	
+	$('.settings_container button:first').focus();
 }
 
 // save selected settings
 function save_settings() {
 	chrome.storage.sync.set({'tickers': tickers, 'notes':notes, 'theme':current_theme, 'settings':settings}, function() {
 	  $('.settings_container').addClass('closed').removeClass('open');
+		$('.settings_container').find('a, button, input').attr('tabindex', '-1');
 		$('.open_settings').css('opacity', '1');
+	
+		$('.open_settings').focus();
 	});
 }

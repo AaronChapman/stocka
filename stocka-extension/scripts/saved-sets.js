@@ -7,9 +7,13 @@ function setup_saved_sets() {
 		if ($('.saved_sets_container').hasClass('closed')) {
 			$('.saved_sets_container').removeClass('closed').addClass('open');
 			$('.saved_sets_container').find('a, input, button').attr('tabindex', '0');
+			
+			$('.saved_sets_container').find('a, input, button').first().focus();
 		} else {
 			$('.saved_sets_container').removeClass('open').addClass('closed');
 			$('.saved_sets_container').find('a, input, button').attr('tabindex', '-1');
+			
+			$('.saved_sets').focus();
 		}
 	});
 	
@@ -45,8 +49,6 @@ function setup_save_set_button_listeners() {
 }
 
 function save_set(ticker_set, ticker_set_name) {
-	console.log('saving set...');
-	
 	let new_saved_set_name = ticker_set_name;
 	let new_saved_set = {"ticker_set_name":new_saved_set_name, "ticker_set":tickers.join(), 'is_selected':true};
 	
