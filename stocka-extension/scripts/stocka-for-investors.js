@@ -30,9 +30,8 @@ document.addEventListener('DOMContentLoaded', function() {
 
 
 // upgrade flow
-// step 1 - get products ^
 
-// step 2 - fetch upgrade data from chrome store
+// step 1 - fetch upgrade data from chrome store
 function getProductList() {
   google.payments.inapp.getSkuDetails({
     'parameters': {env: "prod"},
@@ -41,7 +40,7 @@ function getProductList() {
   });
 }
 
-// step 3a - if data was found
+// step 2a - if data was found
 function onSkuDetails(skus) {
 	var product = skus.response.details.inAppProducts[0];
 	
@@ -50,14 +49,14 @@ function onSkuDetails(skus) {
   getLicenses();
 }
 
-// step 3b - if there was a problem loading the upgrade data
+// step 2b - if there was a problem loading the upgrade data
 function onSkuDetailsFailed(response) {
 	if (response.response.errorType === "INVALID_RESPONSE_ERROR") {
 	  console.log('? :: local_setup');
   }
 }
 
-// step 4 - fetch the list of purchased products
+// step 3 - fetch the list of purchased products
 function getLicenses() {
   google.payments.inapp.getPurchases({
     'parameters': {env: "prod"},
@@ -66,7 +65,7 @@ function getLicenses() {
   });
 }
 
-// step 5a - get the list of purchased products
+// step 4a - get the list of purchased products
 function onLicenseUpdate(response) {
   var licenses = response.response.details;
   
@@ -85,13 +84,13 @@ function onLicenseUpdate(response) {
   }
 }
 
-// step 5b - if something went wrong
+// step 4b - if something went wrong
 function onLicenseUpdateFailed(response) {
   console.log('failed to update licenses because');
   console.log(response);
 }
 
-// step 6 - if user tries to upgrade
+// step 5 - if user tries to upgrade
 function buyProduct(sku) {
   google.payments.inapp.buy({
     parameters: {'env': "prod"},

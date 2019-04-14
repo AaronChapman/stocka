@@ -243,6 +243,8 @@ input:hover, button:hover, a:hover, .ticker:hover {
 	height: 0;
 }
 
+
+
 .ticker_detail {
 	height: 0px;
   overflow: hidden;
@@ -263,6 +265,19 @@ input:hover, button:hover, a:hover, .ticker:hover {
 .ticker_detail.closed {
 	height: 0px !important;
 }
+
+.ticker_detail.new_items_0 { height: 220px; }
+.upgraded .ticker_detail.new_items_0 { height: 395px; }
+
+.ticker_detail.new_items_1 { height: 270px; }
+.upgraded .ticker_detail.new_items_1 { height: 445px; }
+
+.ticker_detail.new_items_2 { height: 320px; }
+.upgraded .ticker_detail.new_items_2 { height: 495px; }
+
+.ticker_detail.new_items_0 .ticker_news { height: 0px; }
+.ticker_detail.new_items_1 .ticker_news { height: 50px; }
+.ticker_detail.new_items_2 .ticker_news { height: 110px; }
 
 .timeframe_options {
 	display: inline-flex;

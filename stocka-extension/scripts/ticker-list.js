@@ -160,7 +160,7 @@ function set_content(data) {
 			markup += 'data-latest-price="' + latest_price + '" ';
 			markup += 'data-change="' + change + '" ';
 			markup += 'data-change-percent="' + change_percent + '" ';
-			markup += 'tabindex="0" role="button" aria-label="' + ticker + ': ' + latest_price + ', view more market data">' + ticker + ': ' + latest_price + '</span></li>'
+			markup += 'tabindex="0" role="button" aria-label="' + ticker + ': $' + latest_price + ', view more market data">' + ticker + ': ' + latest_price + '</span></li>'
 			markup += '<li class="ticker_removal"><button class="remove_ticker" aria-label="remove ' + ticker + ' from this set">✕</button></li></div>';
 			
 			// push the information to the ticker list data arrays

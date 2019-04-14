@@ -2,29 +2,7 @@
 document.addEventListener("DOMContentLoaded", function(event) {
 	// check extension storage to see if ticker data exists and if so, update local variables
 	chrome.storage.sync.get(['tickers', 'saved_sets', 'notes', 'theme', 'settings'], function(result) {
-		// theme information
-		if (result.theme) {
-		  current_theme = result.theme;
-		} else {
-			current_theme = 'default';
-		}
-		
-		$('body').addClass(current_theme);
-		
-		// notes information
-		if (result.notes) {
-		  notes = result.notes;
-		}
-		
-		if (result.settings) {
-		  settings = result.settings;
-		}
-		
-		if (result.saved_sets) {
-		  saved_sets = result.saved_sets;
-		}
-
-		// ticker information
+		// load up synbol set
 	  if (result.tickers && result.tickers.length > 0) {
 		  tickers = result.tickers;
 		  
@@ -35,11 +13,30 @@ document.addEventListener("DOMContentLoaded", function(event) {
 		
 			stock_up();	
 		}
+		
+		// load up theme
+		if (result.theme) {
+		  current_theme = result.theme;
+		} else {
+			current_theme = 'default';
+		}
+		// load up notes
+		if (result.notes) { notes = result.notes; }
+		
+		// load up settings
+		if (result.settings) { settings = result.settings; }
+		
+		// load up saved sets
+		if (result.saved_sets) { saved_sets = result.saved_sets; }
 	});
 	
+	// set up theme styling
+	$('body').addClass(current_theme);
+	
+	// initialize stocka for investors check
 	getProductList();
 	
-	// check this
+	// determine whether or not to display a 'closed market' message
 	check_if_markets_are_open();
 	
 	// setup... everything

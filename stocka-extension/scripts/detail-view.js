@@ -151,20 +151,11 @@ function add_news_to_ticker_detail_view(news_data) {
 	
 	// determine news container height	
 	if (news_data.length === 1) {
-		$('.ticker_news').css('height', '50px');
-		
-		if (upgraded) { $('.ticker_detail').css('height', '445px'); }
-		else { $('.ticker_detail').css('height', '270px'); }
+		$('.ticker_detail').removeClass('new_items_0 new_items_2').addClass('new_items_1');
 	} else if (news_data.length === 0) {
-		$('.ticker_news').css('height', '0px');
-		
-		if (upgraded) { $('.ticker_detail').css('height', '395px'); }
-		else { $('.ticker_detail').css('height', '220px');  }
+		$('.ticker_detail').removeClass('new_items_1 new_items_2').addClass('new_items_0');
 	} else {
-		$('.ticker_news').css('height', '110px');
-		
-		if (upgraded) { $('.ticker_detail').css('height', '495px'); }
-		else { $('.ticker_detail').css('height', '320px'); }
+		$('.ticker_detail').removeClass('new_items_0 new_items_1').addClass('new_items_2');
 	}
 	
 	// append each formatted item returned from iex
