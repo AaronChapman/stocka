@@ -102,6 +102,8 @@ function fill_detail_table(information_object, for_symbol) {
 	// aesthetic
 	$('.ticker_detail').removeClass('closed').addClass('open');
 	$('.detail_view_options').addClass('open').removeClass('closed');
+	$('.close_detail_view').attr('tabindex', '0');
+	$('.ticker_detail').find('a, button, input').attr('tabindex', '0');
 }
 
 // get addition information about the requested symbol

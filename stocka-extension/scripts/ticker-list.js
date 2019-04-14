@@ -61,23 +61,17 @@ function setup_added_listeners() {
 	$('.ticker_detail .ticker, .close_detail_view').click(function() {
 		$('.ticker_detail').removeClass('open').addClass('closed');
 		$('.detail_view_options').removeClass('open').addClass('closed');
+		$('.ticker_detail').find('a, button, input').attr('tabindex', '-1');
+		$('.close_detail_view').attr('tabindex', '-1');
 	});
 	
-	// postponed for now because it looks ugly
-	// when a ticker is moused over show the other value change
 	$('.ticker_list .ticker').mouseover(function() {
-		//$(this).text($(this).attr('data-symbol') + ': Details');
-		
-		/*if ($('.ticker_list').attr('data-displayed') === "price" || $('.ticker_list').attr('data-displayed') === "change") {
-			$(this).text($(this).attr('data-symbol') + ': ' + $(this).attr('data-change-percent') + '%');
-		} else if ($('.ticker_list').attr('data-displayed') === "percent") {
-			$(this).text($(this).attr('data-symbol') + ': ' + $(this).attr('data-change'));
-		}*/
+		// nothing for now... it looked ugly
 	});
 	
 	// when the ticker is moused out of, reset the ticker display
 	$('.ticker_list .ticker').mouseout(function() {
-		//set_ticker_display_data();
+		// nope
 	});
 }
 
@@ -166,9 +160,9 @@ function set_content(data) {
 			markup += 'data-symbol="' + ticker + '" ';
 			markup += 'data-latest-price="' + latest_price + '" ';
 			markup += 'data-change="' + change + '" ';
-			markup += 'data-change-percent="' + change_percent + '"';
-			markup += '>' + ticker + ': ' + latest_price + '</span></li>'
-			markup += '<li class="ticker_removal"><button class="remove_ticker">✕</button></li></div>';
+			markup += 'data-change-percent="' + change_percent + '" ';
+			markup += 'tabindex="0" role="button" aria-label="' + ticker + ': ' + latest_price + ', view more market data">' + ticker + ': ' + latest_price + '</span></li>'
+			markup += '<li class="ticker_removal"><button class="remove_ticker" aria-label="remove ' + ticker + ' from this set">✕</button></li></div>';
 			
 			// push the information to the ticker list data arrays
 			prices.push({'ticker':ticker, 'array_value':latest_price});

@@ -6,8 +6,10 @@ function setup_saved_sets() {
 	$('.saved_sets').click(function() {
 		if ($('.saved_sets_container').hasClass('closed')) {
 			$('.saved_sets_container').removeClass('closed').addClass('open');
+			$('.saved_sets_container').find('a, input, button').attr('tabindex', '0');
 		} else {
 			$('.saved_sets_container').removeClass('open').addClass('closed');
+			$('.saved_sets_container').find('a, input, button').attr('tabindex', '-1');
 		}
 	});
 	
@@ -79,7 +81,7 @@ function setup_saved_set_buttons() {
 	$('.saved_set_name').val('');
 	
 	saved_sets.forEach(function(item) {
-		$('.list_of_saved_sets').append('<button class="saved_set" data-saved-set="' + item.ticker_set + '">' + item.ticker_set_name + '</button>');
+		$('.list_of_saved_sets').append('<button class="saved_set" data-saved-set="' + item.ticker_set + '" tabindex="-1">' + item.ticker_set_name + '</button>');
 	});
 	
 	setup_save_set_button_listeners();

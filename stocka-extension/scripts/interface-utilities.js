@@ -2,8 +2,10 @@
 function options_sizing(container) {
 	if (container.hasClass('closed')) {
 		container.addClass('open').removeClass('closed');
+		container.find('a, input, button').attr('tabindex', '0');
 	} else if (container.hasClass('open')) {
 		container.addClass('closed').removeClass('open');
+		container.find('a, input, button').attr('tabindex', '-1');
 	}
 }
 
@@ -67,9 +69,9 @@ function setup_upgraded_interface() {
 
 // add extra themes to settings menu
 function add_settings() {
-	$('.theme_option_container:last').after('<div class="theme_option_container"><button class="theme_option classic" data-theme-name="classic"></button><span class="theme_name">classic</span></div><div class="theme_option_container"><button class="theme_option midnight" data-theme-name="midnight"></button><span class="theme_name">midnight</span></div>');
+	$('.theme_option_container:last').after('<div class="theme_option_container"><button class="theme_option classic" data-theme-name="classic" aria-label="theme option: classic"></button><span class="theme_name">classic</span></div><div class="theme_option_container"><button class="theme_option midnight" data-theme-name="midnight" aria-label="theme option: midnight"></button><span class="theme_name">midnight</span></div>');
 	
-	$('.setting:last').after('<div class="setting market_performance_chart_type_setting"<span class="setting_category_title">chart:</span><hr><div class="graph_option_container"><button class="market_performance_chart_type bar">bar graph</button></div><div class="graph_option_container"><button class="market_performance_chart_type line">line graph</button></div></div>');
+	$('.setting:last').after('<div class="setting market_performance_chart_type_setting"<span class="setting_category_title">chart:</span><hr><div class="graph_option_container"><button class="market_performance_chart_type bar" aria-label="market data chart type: bar graph">bar graph</button></div><div class="graph_option_container"><button class="market_performance_chart_type line" aria-label="market data chart type: line graph">line graph</button></div></div>');
 	
 	// and attach listeners to them
 	setup_settings_listeners();
@@ -82,7 +84,7 @@ function add_chart() {
 }
 
 function add_saved_sets() {
-	$('.options_header').prepend('<button class="saved_sets">saved sets</button>');
+	$('.options_header').prepend('<button class="saved_sets" aria-label="saved sets">saved sets</button>');
 	
 	setup_saved_set_buttons();
 	setup_saved_sets();

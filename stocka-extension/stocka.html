@@ -28,9 +28,9 @@
 	<body class="default">
 		<p class="upgrade_information" aria-label="more information about upgrading to stocka for investors">
 			your favorite portfolio monitor will be expanded with a suite of additional features, including charted data, saved symbol sets, additional themes, notes, and access to all future updates of stocka for a <strong>one-time</strong> fee of 0.99<br><br>
-			visit <a href="https://oylo.info/stocka" target="_blank">oylo.info/stocka</a> for a closer look at stocka for investors<br><br>
-			<button id="request_upgrade" aria-label="purchase upgrade (opens google payment window)">upgrade</button>
-			<button id="cancel_upgrade" aria-label="cancel">cancel</button>
+			visit <a href="https://oylo.info/stocka" target="_blank" tabindex="-1">oylo.info/stocka</a> for a closer look at stocka for investors<br><br>
+			<button id="request_upgrade" aria-label="purchase upgrade (opens google payment window)" tabindex="-1">upgrade</button>
+			<button id="cancel_upgrade" aria-label="cancel" tabindex="-1">cancel</button>
 		</p>
 		<div class="options_header">
 			<button class="add_tickers container_expander" aria-label="add tickers">add tickers</button>
@@ -42,24 +42,24 @@
 			<div class="list_of_saved_sets"></div>
 			<span class="setting_category_title">current symbol set:<br><span class="set_saved_status"> unsaved</span></span>
 			<hr>
-			<input class="saved_set_name" type="text" placeholder="symbol set name"></input>
-			<button class="save_set" aria-label="save current symbol set">save</button>
-			<button class="delete_set" aria-label="delete current symbol set">delete</button>
+			<input class="saved_set_name" type="text" placeholder="symbol set name" tabindex="-1"></input>
+			<button class="save_set" aria-label="save current symbol set" tabindex="-1">save</button>
+			<button class="delete_set" aria-label="delete current symbol set" tabindex="-1">delete</button>
 		</div>
 		<div class="add_tickers_area closed">
-			<input class="tickers_to_add" type="text" placeholder="e.g. 'AMD,MU,INT'" aria-label="list of symbols to be added"></input>
+			<input class="tickers_to_add" type="text" placeholder="e.g. 'AMD,MU,INT'" aria-label="list of symbols to be added" tabindex="-1"></input>
 		</div>
 		<div class="detail_view_options closed">
-			<button class="close_detail_view container_expander" aria-label="close symbol information">✕</button>
+			<button class="close_detail_view container_expander" aria-label="close symbol information" tabindex="-1">✕</button>
 		</div>
 		<div class="tickers">
 			<div class="ticker_detail closed">
 				<span class="name_and_exchange">loading company information...</span>
 				<span class="ticker"></span>
-				<div class="timeframe_options">
-					<button class="timeframe_option 1m selected" aria-label="symbol data from this month">this month</button>
-					<button class="timeframe_option 6m" aria-label="symbol data from the last six months">last six months</button>
-					<button class="timeframe_option 1y" aria-label="symbol data from the last year">last year</button>
+				<div class="timeframe_options" aria-label="market data timeframe options">
+					<button class="timeframe_option 1m selected" aria-label="symbol data from this month" tabindex="-1">this month</button>
+					<button class="timeframe_option 6m" aria-label="symbol data from the last six months" tabindex="-1">last six months</button>
+					<button class="timeframe_option 1y" aria-label="symbol data from the last year" tabindex="-1">last year</button>
 				</div>
 				<table class="ticker_detail_data" aria-label="market data for selected timeframe">
 					<tr><td role="rowheader">change</td><td class="detail_data_change">. . .</td></tr>
@@ -71,33 +71,33 @@
 				<div class="ticker_news"></div>
 			</div>			
 			<div class="sorting_options open">
-				<button class="sorting_option sorting_option_symbol unsorted">symbol</button>
-				<button class="sorting_option sorting_option_price unsorted">price</button>
-				<button class="sorting_option sorting_option_change unsorted">change</button>
-				<button class="sorting_option sorting_option_percent unsorted">percent</button>
+				<button class="sorting_option sorting_option_symbol unsorted" aria-label="sort list by: symbol">symbol</button>
+				<button class="sorting_option sorting_option_price unsorted" aria-label="sort list by: price (USD)">price</button>
+				<button class="sorting_option sorting_option_change unsorted" aria-label="sort list by: day change (USD)">change</button>
+				<button class="sorting_option sorting_option_percent unsorted" aria-label="sort list by: day change (percentage)">percent</button>
 			</div>
 			<div class="ticker_list" data-displayed="price">
 				<span class="loading_message">loading data...</span>
 			</div>
 			<span class="market_closed_message">the market is closed</span>
 		</div>
-		<div class="notes_container closed">
-			<p class="notes_field" contenteditable="true">
+		<div class="notes_container closed" aria-label="notes panel">
+			<p class="notes_field" contenteditable="true" tabindex="0" role="textbox" aria-label="notes area">
 				you can save notes here. click inside of the box to start editing
 			</p>
-			<button class="save_notes">close and save</button>
+			<button class="save_notes" aria-label="close and save notes" tabindex="-1">close and save</button>
 		</div>
-		<div class="settings_container closed">
-			<button id="show_upgrade" class="upgrade_button visible">upgrade to stocka for investors</button>
+		<div class="settings_container closed" aria-label="settings panel">
+			<button id="show_upgrade" class="upgrade_button visible" aria-label="more information about upgrading to stocka for investors">upgrade to stocka for investors</button>
 			<div class="setting theme_setting">
 				<span class="setting_category_title">theme:</span>
 				<hr>
 				<div class="theme_option_container">
-					<button class="theme_option default" data-theme-name="default"></button>
+					<button class="theme_option default" data-theme-name="default" aria-label="theme option: default" tabindex="-1"></button>
 					<span class="theme_name">default</span>
 				</div>
 				<div class="theme_option_container">
-					<button class="theme_option sepia" data-theme-name="sepia"></button>
+					<button class="theme_option sepia" data-theme-name="sepia" aria-label="theme option: sepia" tabindex="-1"></button>
 					<span class="theme_name">sepia</span>
 				</div>
 				<div class="theme_to_chart">
@@ -105,10 +105,10 @@
 					<span class="ticker down">hidden</span>
 				</div>
 			</div>
-			<button class="save_settings">close and save</button>
+			<button class="save_settings" aria-label="close and save settings" tabindex="-1">close and save</button>
 		</div>
 		<div class="bottom_options">
-			<button class="open_settings">settings</button>
+			<button class="open_settings" aria-label="open settings">settings</button>
 		</div>
 	</body>
 </html>
