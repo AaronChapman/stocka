@@ -102,10 +102,6 @@ function buyProduct(sku) {
 
 // step 6a - chrome handles transaction
 function onPurchase(purchase) {
-  /*var jwt = purchase.jwt;
-  var cartId = purchase.request.cardId;
-  var orderId = purchase.response.orderId;*/
-  
   getLicenses();
 }
 

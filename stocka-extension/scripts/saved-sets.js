@@ -21,7 +21,7 @@ function setup_saved_sets() {
 	});
 	
 	// save the current symbol set
-	$('.save_set').click(function() {
+	$('.save_set').unbind('click').on('click', function() {
 		// probably need to do more name input validation
 		if ($('.saved_set_name').val().length > 0) {
 			save_set(tickers, $('.saved_set_name').val());
