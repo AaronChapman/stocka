@@ -80,7 +80,7 @@ function add_settings() {
 
 // add chart data to the detail view
 function add_chart() {
-	$('.ticker_detail_data').before('<div class="chart_container"><canvas id="change_chart" width="200" height="150"></canvas></div>');
+	$('.ticker_detail_data').before('<div class="chart_container" role="presentation"><canvas id="change_chart" width="200" height="150"></canvas></div>');
 }
 
 function add_saved_sets() {
