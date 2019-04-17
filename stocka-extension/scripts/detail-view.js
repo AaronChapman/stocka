@@ -50,7 +50,7 @@ function research(symbol, timeframe) {
 // update ticker detail view
 function set_ticker_details(data, ticker, timeframe, from_local) {
 	if (from_local) {
-		console.log('setting up research view from local copy of symbol data');
+		console.log('same session: loading local data');
 	} else {
 		if (timeframe === '1m') { local_chart_data.push({'symbol':ticker, 'data':{'1m':data}}); }
 		else if (timeframe === '6m') { local_chart_data.push({'symbol':ticker, 'data':{'6m':data}}); }

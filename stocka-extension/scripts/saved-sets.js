@@ -7,14 +7,14 @@ let saved_sets = [{ticker_set_name: "FANG", ticker_set: "FB,AAPL,NFLX,GOOGL", is
 function setup_saved_sets() {
 	// open or close the save symbol sets panel
 	$('.saved_sets').click(function() {
-		if ($('.saved_sets_container').hasClass('closed')) {
-			$('.saved_sets_container').removeClass('closed').addClass('open');
-			$('.saved_sets_container').find('a, input, button').attr('tabindex', '0');
+		options_sizing($('.saved_sets_container'));
+		
+		if ($('.saved_sets').attr('aria-expanded') ==='false') {
+			$('.saved_sets').attr('aria-expanded', 'true');
 			
-			$('.saved_sets_container').find('a, input, button').first().focus();
+			$('.saved_sets').find('a, button, input').eq(0).focus();
 		} else {
-			$('.saved_sets_container').removeClass('open').addClass('closed');
-			$('.saved_sets_container').find('a, input, button').attr('tabindex', '-1');
+			$('.saved_sets').attr('aria-expanded', 'false');
 			
 			$('.saved_sets').focus();
 		}
@@ -106,6 +106,10 @@ function setup_saved_set_buttons() {
 	saved_sets.forEach(function(item) {
 		$('.list_of_saved_sets').append('<button class="saved_set" data-saved-set="' + item.ticker_set + '" aria-label="saved set: ' + item.ticker_set_name + '" tabindex="-1">' + item.ticker_set_name + '</button>');
 	});
+	
+	if ($('.saved_sets_container').hasClass('open')) {
+		$('.saved_set').attr('tabindex', '0');
+	}
 	
 	// then setup listeners and check if current set matches any of 'em
 	setup_save_set_button_listeners();

@@ -84,7 +84,7 @@ function add_chart() {
 }
 
 function add_saved_sets() {
-	$('.options_header').prepend('<button class="saved_sets" aria-label="toggle saved sets panel">saved sets</button>');
+	$('.options_header').prepend('<button class="saved_sets" aria-label="saved sets panel" aria-expanded="false">saved sets</button>');
 	
 	setup_saved_set_buttons();
 	setup_saved_sets();

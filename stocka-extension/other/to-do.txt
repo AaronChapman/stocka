@@ -6,6 +6,9 @@
 - more clearly outlined chart labels
 - paletted theme options
 - ability to copy + share ticker sets
+- save symbol set sort state
+- upgrade text color
+- saved set button accessibility
 
 
 // user communication

@@ -4,7 +4,15 @@ function setup_ticker_list_listeners() {
 	$('.add_tickers').click(function() {
 		options_sizing($('.add_tickers_area'));
 		
-		$('.tickers_to_add').focus();
+		if ($('.add_tickers').attr('aria-expanded') ==='false') {
+			$('.add_tickers').attr('aria-expanded', 'true');
+			
+			$('.tickers_to_add').focus();
+		} else {
+			$('.add_tickers').attr('aria-expanded', 'false');
+			
+			$('.add_tickers').focus();
+		}
 	});
 	
 	// when [enter] is pressed on the tickers_to_add input
@@ -153,7 +161,7 @@ function set_content(data) {
 			let change_percent = parseFloat(data[ticker].quote.changePercent).toFixed(2);
 			// and create a ticker container element with data attributes
 			let markup = '<div class="ticker_container">';
-			markup += '<ul class="ticker_elements"><li class="ticker_symbol">';
+			markup += '<ul class="ticker_elements" role="presentation"><li class="ticker_symbol">';
 			markup += '<span class="ticker" ';
 			markup += 'data-displayed="price" ';
 			markup += 'data-symbol="' + ticker + '" ';

@@ -418,6 +418,7 @@
 .midnight .ticker_detail_data td,
 .midnight input,
 .midnight button,
+.midnight p,
 .midnight .market_closed_message,
 .midnight .loading_message {
 	color: white;
