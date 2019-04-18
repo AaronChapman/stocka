@@ -1,7 +1,7 @@
 // saved ticker sets
 
 // default saved symbol set
-let saved_sets = [{ticker_set_name: "FANG", ticker_set: "FB,AAPL,NFLX,GOOGL", is_selected: true}];
+let saved_sets = [{ticker_set_name: "FANG", ticker_set: "FB,AMZN,NFLX,GOOGL", is_selected: true}];
 
 // set up event listeners for existing html elements involving saved sets
 function setup_saved_sets() {

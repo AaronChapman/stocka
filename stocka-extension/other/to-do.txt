@@ -1,14 +1,16 @@
-- add more themes
-- pinned tabs
-- additional news sources 
+- more themes
+- pinned symbol tabs
+- additional news sources
 - more accurate reading for closed market (dst (moment.js))
-- if market is closed store local data... oooh yeah good one
-- more clearly outlined chart labels
-- paletted theme options
+- if market is closed store local data...
+- more clearly outlined chart labelling
+- palette theme options
 - ability to copy + share ticker sets
 - save symbol set sort state
 - upgrade text color
 - saved set button accessibility
+- make upgrade button stand out, style it better
+- set default theme to sepia?
 
 
 // user communication
@@ -18,3 +20,6 @@
 // discovery panel
 - predefined screeners
 - search companies by name & sector
+
+// scraper
+- ...
