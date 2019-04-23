@@ -166,6 +166,12 @@ input:hover, button:hover, a:hover, .ticker:hover {
   margin: 5px;
 }
 
+.copy_current_symbol_set {
+  width: 80%;
+  margin: 5px 10% 0 10%;
+  border-radius: 3px;
+}
+
 .container_expander {
   height: 20px;
   border: 2px solid darkgray;
@@ -220,7 +226,7 @@ input:hover, button:hover, a:hover, .ticker:hover {
 }
 
 .add_tickers_area.open {
-	height: 45px;
+	height: 75px;
   padding-top: 7px;
 }
 

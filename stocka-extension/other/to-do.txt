@@ -5,10 +5,7 @@
 - if market is closed store local data...
 - more clearly outlined chart labelling
 - palette theme options
-- ability to copy + share ticker sets
 - save symbol set sort state
-- upgrade text color
-- saved set button accessibility
 - make upgrade button stand out, style it better
 - set default theme to sepia?
 

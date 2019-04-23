@@ -26,6 +26,14 @@ function setup_ticker_list_listeners() {
 			$('.add_tickers').focus();
 		}
 	});
+	
+	$('.copy_current_symbol_set').hover(function() {
+		var symbol_set_to_copy = tickers.join();
+		
+		$(this).attr('data-clipboard-text', symbol_set_to_copy);
+	});
+	
+	new ClipboardJS('.copy_current_symbol_set');
 }
 
 // adding event listeners for content that was appended to the page
