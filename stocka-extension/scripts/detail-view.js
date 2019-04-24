@@ -168,6 +168,18 @@ function add_news_to_ticker_detail_view(news_data) {
 				$('.ticker_news').append('<br><br>');
 			}
 	});
+	
+	additional_news_articles();
+}
+
+function additional_news_articles() {
+	let url = 'http://finance.yahoo.com/rss/headline?s=' + $('.ticker_detail .ticker').attr('data-symbol');
+	  
+	fetch(url).then(res => res.json()).then(data => add_additional_news_articles(data, false));
+}
+
+function add_additional_news_articles(articles) {
+	console.log(artciles);
 }
 
 function add_company_info(company_data) {
