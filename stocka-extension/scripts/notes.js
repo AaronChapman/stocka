@@ -32,5 +32,7 @@ function save_notes(note_content) {
 		$('.notes_container').find('a, button, input, [role="textbox"]').attr('tabindex', '-1');
 		
 		$('.open_notes').focus();
+		
+		alert_user('saved notes');
 	});
 }

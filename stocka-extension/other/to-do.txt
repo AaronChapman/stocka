@@ -8,6 +8,7 @@
 - save symbol set sort state
 - make upgrade button stand out, style it better
 - set default theme to sepia?
+- create a popup area
 
 
 // user communication

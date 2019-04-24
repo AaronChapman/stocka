@@ -33,6 +33,10 @@ function setup_ticker_list_listeners() {
 		$(this).attr('data-clipboard-text', symbol_set_to_copy);
 	});
 	
+	$('.copy_current_symbol_set').click(function() {
+		alert_user('copied symbol set to clipboard');
+	});
+	
 	new ClipboardJS('.copy_current_symbol_set');
 }
 

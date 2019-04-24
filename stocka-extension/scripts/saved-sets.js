@@ -73,6 +73,8 @@ function save_set(ticker_set, ticker_set_name) {
 	// push the new saved symbol set
 	saved_sets.push(new_saved_set);
 	
+	alert_user('saved symbol set');
+	
 	// and sync with chrome
 	sync_saved_sets();
 }

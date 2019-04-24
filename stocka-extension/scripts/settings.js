@@ -62,5 +62,7 @@ function save_settings() {
 		$('.open_settings').css('opacity', '1');
 	
 		$('.open_settings').focus();
+		
+		alert_user('saved settings');
 	});
 }

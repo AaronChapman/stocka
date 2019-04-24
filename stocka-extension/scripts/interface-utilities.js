@@ -60,6 +60,13 @@ function setup_theme(theme_to_use) {
 	});
 }
 
+function alert_user(alert_string) {
+	$('.stockalert').text(alert_string);
+	$('.stockalert').addClass('visible');
+	
+	setTimeout(function() { $('.stockalert').removeClass('visible'); }, 1750);
+}
+
 // format larger numbers
 function number_with_commas(num) {
   return num.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",");
