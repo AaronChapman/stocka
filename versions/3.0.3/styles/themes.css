@@ -1,0 +1,466 @@
+/* :: default theme :: */
+
+.default button {
+	color: darkgray;
+}
+
+.theme_option.default {
+	background: snow !important;
+}
+
+.default a {
+	color: lightslategray;
+}
+
+.default, .default button, .default input,
+.default .upgrade_information,
+.default .notes_container,
+.default .settings_container,
+.default .saved_sets_container {
+	background: snow;
+}
+
+.default .stockalert {
+  color: #427557;
+  border-color: #427557;
+  background: snow;
+}
+
+.default .notes_field,
+.default .setting,
+.default .name_and_exchange {
+	color: darkgray;
+}
+
+.default hr,
+.default .list_of_saved_sets {
+	border-color: darkgray;
+}
+
+.default .notes_container {
+	border-color: darkgray;
+}
+
+.default .save_notes,
+.default .save_settings {
+	border-color: #427557;
+	color: #427557;
+}
+
+.default .timeframe_option.selected,
+.default .market_performance_chart_type.selected {
+	color: #ce8988;
+	border-color: #ce8988;
+}
+
+.default .ascending {
+	border: 2px solid #ce8988;
+}
+
+.default .descending {
+	border: 2px solid #427557;
+}
+
+.default .save_set {
+	color: #427557;
+	border-color: #427557;
+}
+
+.default .delete_set {
+	color: #ce8988;
+	border-color: #ce8988;
+}
+
+.default .ticker.up {
+	background: #427557;
+}
+
+.default .ticker.down {
+	background: #ce8988;
+}
+
+.default .set_saved_status {
+	color: #ce8988;
+}
+
+.default .set_saved_status.saved {
+	color: #427557;
+}
+
+.default .ticker_ span,
+.default .ticker_detail_data td,
+.default input,
+.default .market_closed_message,
+.default .loading_message {
+	color: darkgray;
+}
+
+.default .tickers,
+.default button {
+	border: 2px solid darkgray;
+}
+
+.default .close_detail_view {
+	background: rgba(00, 00, 00, 00);
+	border-color: darkgray;
+	color: darkgray;
+}
+
+.default .upgrade_button {
+  background: white;
+  color: #ce8988;
+  border: 2px solid #ce8988;
+}
+
+
+/* :: sepia theme :: */
+
+.theme_option.sepia {
+	background: antiquewhite !important;
+}
+
+.sepia a {
+	color: #627465;
+}
+
+.sepia, .sepia button, .sepia input,
+.sepia .upgrade_information,
+.sepia .notes_container,
+.sepia .settings_container,
+.sepia .saved_sets_container {
+	background: antiquewhite;
+}
+
+.sepia .stockalert {
+  color: #627465;
+  border-color: #627465;
+  background: antiquewhite;
+}
+
+.sepia .notes_field,
+.sepia .setting,
+.sepia .name_and_exchange {
+	color: #aa9095;
+}
+
+.sepia hr,
+.sepia .list_of_saved_sets,
+.sepia .notes_field {
+	border-color: #aa9095;
+}
+
+.sepia .save_notes,
+.sepia .save_settings {
+	border-color: #627465;
+	color: #627465;
+}
+
+.sepia .timeframe_option.selected,
+.sepia .market_performance_chart_type.selected {
+	background: whitesmoke;
+	color: #96565B;
+	border-color: #96565B;
+}
+
+.sepia .ascending {
+	border: 2px solid #96565B;
+}
+
+.sepia .descending {
+	border: 2px solid #627465;
+}
+
+.sepia .save_set {
+	color: #627465;
+	border-color: #627465;
+}
+
+.sepia .delete_set {
+	color: #96565B;
+	border-color: #96565B;
+}
+
+.sepia .ticker.up {
+	background: #627465;
+}
+
+.sepia .ticker.down {
+	background: #96565B;
+}
+
+.sepia .set_saved_status {
+	color: #96565B;
+}
+
+.sepia .set_saved_status.saved {
+	color: #627465;
+}
+
+.sepia .ticker_news span,
+.sepia .market_closed_message,
+.sepia .loading_message,
+.sepia .ticker_detail_data td,
+.sepia .tickers_to_add,
+.sepia input,
+.sepia button {
+	color: #aa9095;
+}
+
+.sepia .tickers,
+.sepia .tickers_to_add,
+.sepia .saved_set_name,
+.sepia button {
+	border: 2px solid #aa9095;
+}
+
+.sepia .ticker_news {
+	border-top: 2px solid #aa9095;
+}
+
+.sepia .options_header,
+.sepia .upgrade_information.visible,
+.sepia .ticker_detail.open,
+.sepia .saved_sets_container.open {
+	border-bottom: 2px solid #aa9095;
+}
+
+.sepia .close_detail_view {
+	background: rgba(00, 00, 00, 00);
+	border-color: #96565B;
+	color: #96565B;
+}
+
+
+/* :: classic theme :: */
+
+.theme_option.classic {
+	background: #FFEBD9 !important;
+}
+
+.classic a {
+	color: #BB6450;
+}
+
+.classic, .classic button, .classic input,
+.classic .upgrade_information,
+.classic .notes_container,
+.classic .settings_container ,
+.classic .saved_sets_container{
+	background: #FFEBD9;
+}
+
+.classic .stockalert {
+  color: #356276;
+  border-color: #356276;
+  background: whitesmoke;
+}
+
+.classic .notes_field,
+.classic .setting,
+.classic .name_and_exchange {
+	color: #356276;
+}
+
+.classic hr,
+.classic .list_of_saved_sets {
+	border-color: #356276;
+}
+
+.classic .save_notes,
+.classic .save_settings {
+	border-color: #356276;
+	color: #356276;
+}
+
+.classic .saved_sets_container {
+	border-color: #356276;
+}
+
+.classic .timeframe_option.selected,
+.classic .market_performance_chart_type.selected {
+	background: whitesmoke;
+	color: #BB6450;
+	border-color: #BB6450;
+}
+
+.classic .ascending {
+	border: 2px solid #BB6450;
+}
+
+.classic .descending {
+	border: 2px solid #356276;
+}
+
+.classic .save_set {
+	color: #356276;
+	border-color: #356276;
+}
+
+.classic .delete_set {
+	color: #BB6450;
+	border-color: #BB6450;
+}
+
+.classic .ticker.up {
+	background: #356276;
+}
+
+.classic .ticker.down {
+	background: #BB6450;
+}
+
+.classic .set_saved_status {
+	color: #BB6450;
+}
+
+.classic .set_saved_status.saved {
+	color: #356276;
+}
+
+.classic .ticker_news span,
+.classic .market_closed_message,
+.classic .loading_message,
+.classic .ticker_detail_data td,
+.classic .tickers_to_add,
+.classic input,
+.classic button {
+	color: #356276;
+}
+
+.classic .tickers,
+.classic .tickers_to_add,
+.classic .saved_set_name,
+.classic button {
+	border: 2px solid #356276;
+}
+
+.classic .ticker_news {
+	border-top: 2px solid #356276;
+}
+
+.classic .options_header,
+.classic .upgrade_information.visible,
+.classic .ticker_detail.open {
+	border-bottom: 2px solid #356276;
+}
+
+.classic .close_detail_view {
+	background: rgba(00, 00, 00, 00);
+	border-color: #BB6450;
+	color: #BB6450;
+}
+
+
+/* :: midnight theme :: */
+
+.theme_option.midnight {
+	background: rgb(45, 40, 50) !important;
+}
+
+.midnight a {
+	color: lightslategray;
+}
+
+.midnight, .midnight button, .midnight input,
+.midnight .upgrade_information,
+.midnight .notes_container,
+.midnight .settings_container,
+.midnight .saved_sets_container {
+	background: rgb(45, 40, 50);
+}
+
+.midnight .stockalert {
+  color: white;
+  border-color: white;
+  background: #627488;
+}
+
+.midnight .notes_container {
+	border-color: darkgray;
+}
+
+.midnight save_settings,
+.midnight save_notes {
+	color: white;
+	border-color: darkgray;
+}
+
+.midnight .notes_field,
+.midnight .setting,
+.midnight .name_and_exchange,
+.midnight .setting_category_title {
+	color: white;
+}
+
+.midnight hr,
+.midnight .list_of_saved_sets {
+	border-color: darkgray;
+}
+
+.midnight .timeframe_option.selected,
+.midnight .market_performance_chart_type.selected {
+	background: whitesmoke;
+	color: #627488;
+	border-color: #627488;
+}
+
+.midnight .ascending {
+	border: 2px solid #965656;
+}
+
+.midnight .descending {
+	border: 2px solid #627488;
+}
+
+.midnight .save_set {
+	color: white;
+	border-color: #627488;
+}
+
+.midnight .delete_set {
+	color: white;
+	border-color: #965656;
+}
+
+.midnight .ticker.up {
+	background: #627488;
+}
+
+.midnight .ticker.down {
+	background:#965656;
+}
+
+.midnight .set_saved_status {
+	color: #965656;
+}
+
+.midnight .set_saved_status.saved {
+	color: #627488;
+}
+
+.midnight .ticker_news span,
+.midnight .ticker_detail_data td,
+.midnight input,
+.midnight button,
+.midnight p,
+.midnight .market_closed_message,
+.midnight .loading_message {
+	color: white;
+}
+
+.midnight .tickers,
+.midnight button {
+	border: 2px solid darkgray;
+}
+
+.midnight .close_detail_view {
+	background: rgba(00, 00, 00, 00);
+	border-color: white;
+	color: white;
+}
+
+.midnight .upgrade_button {
+  background: white;
+  color: #965656;
+  border: 2px solid #965656;
+}

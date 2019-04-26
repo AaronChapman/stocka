@@ -27,6 +27,7 @@ function save_notes(note_content) {
 	
 	notes = $('.notes_field').html();
 	
+	// sync extension data and notify user of state
 	chrome.storage.sync.set({'tickers': tickers, 'notes':notes, 'theme':current_theme, 'settings':settings}, function() {
 	  $('.notes_container').addClass('closed').removeClass('open');
 		$('.notes_container').find('a, button, input, [role="textbox"]').attr('tabindex', '-1');

@@ -20,6 +20,12 @@
 	background: snow;
 }
 
+.default .stockalert {
+  color: #427557;
+  border-color: #427557;
+  background: snow;
+}
+
 .default .notes_field,
 .default .setting,
 .default .name_and_exchange {
@@ -123,6 +129,12 @@
 .sepia .settings_container,
 .sepia .saved_sets_container {
 	background: antiquewhite;
+}
+
+.sepia .stockalert {
+  color: #627465;
+  border-color: #627465;
+  background: antiquewhite;
 }
 
 .sepia .notes_field,
@@ -237,6 +249,12 @@
 	background: #FFEBD9;
 }
 
+.classic .stockalert {
+  color: #356276;
+  border-color: #356276;
+  background: whitesmoke;
+}
+
 .classic .notes_field,
 .classic .setting,
 .classic .name_and_exchange {
@@ -349,6 +367,12 @@
 .midnight .settings_container,
 .midnight .saved_sets_container {
 	background: rgb(45, 40, 50);
+}
+
+.midnight .stockalert {
+  color: white;
+  border-color: white;
+  background: #627488;
 }
 
 .midnight .notes_container {

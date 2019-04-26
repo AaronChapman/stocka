@@ -18,7 +18,7 @@ document.addEventListener("DOMContentLoaded", function(event) {
 		if (result.theme) {
 		  current_theme = result.theme;
 		} else {
-			current_theme = 'default';
+			current_theme = 'sepia';
 		}
 		// load up notes
 		if (result.notes) { notes = result.notes; }

@@ -33,8 +33,14 @@ function setup_ticker_list_listeners() {
 		$(this).attr('data-clipboard-text', symbol_set_to_copy);
 	});
 	
+	$('.copy_current_symbol_set').on('keydown', function(event) {
+		if (event.keyCode === 13 || event.keyCode === 32) {
+			$(this)[0].click();
+		}
+	});
+	
 	$('.copy_current_symbol_set').click(function() {
-		alert_user('copied symbol set to clipboard');
+		alert_user('copied to clipboard');
 	});
 	
 	new ClipboardJS('.copy_current_symbol_set');
@@ -70,6 +76,8 @@ function setup_added_listeners() {
 	
 	// when a symbol is clicked
 	$('.ticker_list .ticker').click(function() {
+		//alert_user('loading...');
+		
 		// research the symbol
 		research($(this).attr('data-symbol'), '1m');
 		

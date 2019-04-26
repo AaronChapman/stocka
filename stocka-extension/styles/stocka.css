@@ -636,6 +636,7 @@ input:hover, button:hover, a:hover, .ticker:hover {
 
 
 .stockalert {
+	z-index: 4;
   width: 150px;
 	margin: -25% 5%;
 	padding:  10px 0;
@@ -649,10 +650,4 @@ input:hover, button:hover, a:hover, .ticker:hover {
 
 .stockalert.visible {
   margin: 0 5%;
-}
-
-.default .stockalert {
-  color: #427557;
-  border-color: #427557;
-  background: snow;
 }

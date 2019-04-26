@@ -11,7 +11,7 @@ let notes = 'you can save notes here. click inside of the box to start editing';
 let default_tickers = ['AAPL', 'AMZN', 'FB', 'GOOGL', 'MSFT'];
 
 // theme data
-let current_theme = 'default';
+let current_theme = 'sepia';
 let themes = ['default', 'sepia', 'classic', 'midnight'];
 let ticker_up_color = '';
 let ticker_down_color = '';
@@ -27,6 +27,6 @@ let local_chart_data = [];
 let current_chart_data = [];
 let change_chart;
 
-let settings = {'theme':'default', 'market_performance_graph_type':'bar'};
+let settings = {'theme':'sepia', 'market_performance_graph_type':'bar'};
 
 let upgraded = false;
