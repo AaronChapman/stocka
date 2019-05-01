@@ -15,10 +15,13 @@ function setup_detail_listeners() {
 	$('.ticker_detail .ticker, .close_detail_view').click(function() {
 		$('.ticker_detail').removeClass('open').addClass('closed');
 		$('.detail_view_options').removeClass('open').addClass('closed');
+		
 		$('.ticker_detail').find('a, button, input, .ticker_detail .ticker').attr('tabindex', '-1');
 		$('.close_detail_view').attr('tabindex', '-1');
-		
+	
 		$('.ticker_list .ticker:first').focus();
+		
+		$('html').scrollTop(0);
 	});
 }
 
@@ -64,7 +67,10 @@ function fill_detail_table(information_object, for_symbol) {
 	// update ticker being displayed in detail view and empty the data table
 	let ticker_to_get = $('.ticker[data-symbol="' + for_symbol + '"]');
 	
-	$('.ticker_detail .ticker').text(ticker_to_get.attr('data-symbol') + ': $' + ticker_to_get.attr('data-latest-price')).attr({'class': ticker_to_get.attr('class'), 'tabindex':'0', 'aria-label':ticker_to_get.attr('data-symbol') + ': $' + ticker_to_get.attr('data-latest-price')});
+	console.log('LATEST PRICE FOR ', for_symbol);
+	console.log('$' + ticker_to_get.attr('data-latest-price'));
+	
+	$('.ticker_detail .ticker').text(ticker_to_get.attr('data-symbol') + ': $' + ticker_to_get.attr('data-latest-price')).attr({'class': ticker_to_get.attr('class'), 'tabindex':'0', 'aria-label':ticker_to_get.attr('data-symbol') + ': $' + ticker_to_get.attr('data-latest-price'), 'data-symbol':for_symbol});
 	//$('.ticker_detail_data').empty();
 	
 	// object that holds details about the ticker
@@ -173,13 +179,13 @@ function add_news_to_ticker_detail_view(news_data) {
 }
 
 function additional_news_articles() {
-	let url = 'http://finance.yahoo.com/rss/headline?s=' + $('.ticker_detail .ticker').attr('data-symbol');
+	let url = 'https://cors-anywhere.herokuapp.com/http://finance.yahoo.com/rss/headline?s=' + $('.ticker_detail .ticker').attr('data-symbol');
 	  
-	fetch(url).then(res => res.json()).then(data => add_additional_news_articles(data, false));
+	//fetch(url).then(res => res.json()).then(data => add_additional_news_articles(data));
 }
 
 function add_additional_news_articles(articles) {
-	console.log(artciles);
+	console.log(articles);
 }
 
 function add_company_info(company_data) {

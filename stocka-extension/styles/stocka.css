@@ -258,7 +258,7 @@ input:hover, button:hover, a:hover, .ticker:hover {
 	height: 0px;
   overflow: hidden;
   display: grid;
-  transition: all 0.75s ease-in-out, color 0.25s, height 0.5s ease-in-out !important;
+  transition: all 0.75s ease-in-out, color 0.25s, height 1s ease-in-out !important;
 	padding: 0;
   margin: 0;
   border-top: none;
@@ -275,13 +275,13 @@ input:hover, button:hover, a:hover, .ticker:hover {
 	height: 0px !important;
 }
 
-.ticker_detail.new_items_0 { height: 220px; }
+.ticker_detail.new_items_0 { height: 245px; }
 .upgraded .ticker_detail.new_items_0 { height: 395px; }
 
-.ticker_detail.new_items_1 { height: 270px; }
+.ticker_detail.new_items_1 { height: 295px; }
 .upgraded .ticker_detail.new_items_1 { height: 445px; }
 
-.ticker_detail.new_items_2 { height: 320px; }
+.ticker_detail.new_items_2 { height: 345px; }
 .upgraded .ticker_detail.new_items_2 { height: 495px; }
 
 /*.ticker_detail.new_items_0 .ticker_news { height: 0px; }*/

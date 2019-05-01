@@ -7,7 +7,9 @@
 - palette theme options
 - save symbol set sort state
 - make upgrade button stand out, style it better
-- set default theme to sepia?
+- placeholder content for loading news section
+- fix scroll height styling
+- fix $undefined ticker detail ticker
 
 
 // user communication
