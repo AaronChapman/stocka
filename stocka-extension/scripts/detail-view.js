@@ -65,10 +65,7 @@ function set_ticker_details(data, ticker, timeframe, from_local) {
 
 function fill_detail_table(information_object, for_symbol) {
 	// update ticker being displayed in detail view and empty the data table
-	let ticker_to_get = $('.ticker[data-symbol="' + for_symbol + '"]');
-	
-	console.log('LATEST PRICE FOR ', for_symbol);
-	console.log('$' + ticker_to_get.attr('data-latest-price'));
+	let ticker_to_get = $('.ticker[data-symbol="' + for_symbol + '"]:last');
 	
 	$('.ticker_detail .ticker').text(ticker_to_get.attr('data-symbol') + ': $' + ticker_to_get.attr('data-latest-price')).attr({'class': ticker_to_get.attr('class'), 'tabindex':'0', 'aria-label':ticker_to_get.attr('data-symbol') + ': $' + ticker_to_get.attr('data-latest-price'), 'data-symbol':for_symbol});
 	//$('.ticker_detail_data').empty();
