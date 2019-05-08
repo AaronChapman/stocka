@@ -27,6 +27,6 @@ let local_chart_data = [];
 let current_chart_data = [];
 let change_chart;
 
-let settings = {'theme':'sepia', 'market_performance_graph_type':'bar'};
+let settings = {'theme':'sepia', 'market_performance_graph_type':'bar', 'sort_type':'symbol'};
 
 let upgraded = false;

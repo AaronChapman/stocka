@@ -1,3 +1,7 @@
+function set_saved_sort(sort_type) {
+	sort_update_interface($('.sorting_option:contains(' + sort_type) + ')'));
+}
+
 // update the ticker list based on the sortion option clicked
 function sort_update_interface(sorting_option) {
 	// first return ascending array and interface updates
@@ -15,6 +19,10 @@ function sort_update_interface(sorting_option) {
 			$(this).removeClass('ascending descending').addClass('unsorted');
 		}
 	});
+	
+	settings.sort_type = $(this).text();
+	
+	sync_settings();
 }
 
 // for sorting numeric value arrays

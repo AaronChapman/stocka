@@ -8,14 +8,19 @@ document.addEventListener("DOMContentLoaded", function(event) {
 	
 	// setup... everything
 	setup_sorting_listeners();
+	
 	setup_detail_listeners();
 	setup_ticker_list_listeners();
 	setup_settings_listeners();
+	
+	// put saved set content together
 	setup_saved_set_buttons();
 	setup_saved_sets();
 	
 	// determine whether or not to display a 'closed market' message
 	check_if_markets_are_open();
+	
+	set_saved_sort(settings.sort_type));
 	
 	// set up theme styling
 	$('body').addClass(current_theme);
