@@ -5,10 +5,7 @@
 - if market is closed store local data & retrieve said data if market is closed and timestamp is after market hours
 - more clearly outlined chart labelling
 - palette theme options
-- save symbol set sort state
-- make upgrade button stand out, style it better
-- placeholder content for loading news section
-- refactor all storage syncing
+]- placeholder content for loading news section
 
 
 // user communication

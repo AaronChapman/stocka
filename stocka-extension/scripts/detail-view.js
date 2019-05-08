@@ -176,9 +176,13 @@ function add_news_to_ticker_detail_view(news_data) {
 }
 
 function additional_news_articles() {
-	let url = 'https://cors-anywhere.herokuapp.com/http://finance.yahoo.com/rss/headline?s=' + $('.ticker_detail .ticker').attr('data-symbol');
-	  
-	//fetch(url).then(res => res.json()).then(data => add_additional_news_articles(data));
+	let the_url = 'https://cors-anywhere.herokuapp.com/http://finance.yahoo.com/rss/headline?s=' + $('.ticker_detail .ticker').attr('data-symbol');
+	
+	/*$.ajax({url: the_url, success: function(result) {
+    console.log(result);
+  }});*/
+  
+  // GOT DATA, TIME TO PARSE FOR 3.2
 }
 
 function add_additional_news_articles(articles) {
