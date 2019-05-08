@@ -24,7 +24,13 @@ function load_saved_data() {
 		if (result.settings) { 
 			settings = result.settings; 
 			
-			set_saved_sort(settings.sort_type.option_type, settings.sort_type.option_direction); 
+			if (settings.sort_type && settings.sort_type.length > 0) {
+				set_saved_sort(settings.sort_type.option_type, settings.sort_type.option_direction); 
+			} else {
+				settings.sort_type = {'option_type':'symbol', 'option_direction':'ascending'};
+				
+				set_saved_sort('symbol', 'ascending'); 
+			}
 		}
 	});
 }
