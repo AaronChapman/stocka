@@ -507,18 +507,13 @@ input:hover, button:hover, a:hover, .ticker:hover {
 }
 
 .upgrade_button {
-  display: none;
-  background: white;
-  color: #965656;
-  text-shadow: 1px 1px 1px lightgrey;
-  border: 2px solid #965656;
-  border-radius: 3px;
-  margin: 2.5% 10%;
-  width: 80%;
-  padding: 10px 5px;
-  font-size: 12px;
-  margin: auto 5%;
-  width: 90%;
+  border-radius: 5px;
+  border: 2px solid white;
+  width: 125px;
+  margin: -75px 25px 0 auto;
+  background: #627465;
+  color: white;
+  text-shadow: none;
 }
 
 .upgrade_button.visible {

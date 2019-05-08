@@ -107,9 +107,9 @@
 }
 
 .default .upgrade_button {
-  background: white;
-  color: #ce8988;
-  border: 2px solid #ce8988;
+  background: #ce8988;
+  color: white;
+  border: 2px solid white;
 }
 
 
@@ -228,6 +228,12 @@
 	background: rgba(00, 00, 00, 00);
 	border-color: #96565B;
 	color: #96565B;
+}
+
+.sepia .upgrade_button {
+	background: #96565B;
+	color: white;
+	border: 2px solid white;
 }
 
 
@@ -350,6 +356,12 @@
 	color: #BB6450;
 }
 
+.classic .upgrade_button {
+  background: #BB6450;
+  color: white;
+  border: 2px solid white;
+}
+
 
 /* :: midnight theme :: */
 
@@ -372,7 +384,7 @@
 .midnight .stockalert {
   color: white;
   border-color: white;
-  background: #627488;
+  background: rgb(45, 40, 50);
 }
 
 .midnight .notes_container {
@@ -460,7 +472,7 @@
 }
 
 .midnight .upgrade_button {
-  background: white;
-  color: #965656;
-  border: 2px solid #965656;
+  background: #965656;
+  color: white;
+  border: 2px solid white;
 }

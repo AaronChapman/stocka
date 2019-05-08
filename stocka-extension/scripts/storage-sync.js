@@ -31,7 +31,7 @@ function load_saved_data() {
 
 function sync_symbol_set() {
 	chrome.storage.sync.set({'tickers': tickers}, function() {
-	  console.log('🔔 updated symbol set');
+	  console.log('🔔 updated default symbol set');
 	});
 }
 

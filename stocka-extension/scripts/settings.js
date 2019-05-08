@@ -1,19 +1,18 @@
 // attach events to theme options
 function setup_settings_listeners() {
-	$('.open_settings').click(function() {
+	$('.open_settings').unbind('click').on('click', function() {
 		open_settings();
 	});
 	
-	$('.save_settings').click(function() {
+	$('.save_settings').unbind('click').on('click', function() {
 		save_settings();
 	});
 	
-	$('.theme_option').click(function() {
+	$('.theme_option').unbind('click').on('click', function() {
 		// set current theme to clicked option
 		current_theme = $(this).attr('data-theme-name');
 		
 		setup_theme(current_theme);
-		save_tickers();
 	});
 	
 	// when a chart type selection is made
