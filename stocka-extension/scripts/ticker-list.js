@@ -92,13 +92,15 @@ function setup_added_listeners() {
 		}
 	});
 	
-	$('.ticker_list .ticker').mouseover(function() {
-		// nothing for now... it looked ugly
+	$('.ticker_list .ticker').on('mouseover focus', function() {
+		$(this).text($(this).attr('data-symbol') + ': ' + $(this).attr('data-latest-price') + ' ...');
 	});
 	
 	// when the ticker is moused out of, reset the ticker display
-	$('.ticker_list .ticker').mouseout(function() {
-		// nope
+	$('.ticker_list .ticker').on('mouseout blur', function() {
+		if (!$(this).is(':focus')) {
+			$(this).text($(this).attr('data-symbol') + ': ' + $(this).attr('data-latest-price'));
+		}
 	});
 }
 

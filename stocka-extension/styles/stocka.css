@@ -90,7 +90,7 @@ input:hover, button:hover, a:hover, .ticker:hover {
   transition: opacity 0.5s ease-in-out !important;
 }
 
-.ticker_list .ticker:hover {
+.ticker_list .ticker:hover, .ticker_list .ticker:focus {
 	margin-left: 10px;
 	opacity: 0.75;
 }
@@ -275,13 +275,13 @@ input:hover, button:hover, a:hover, .ticker:hover {
 	height: 0px !important;
 }
 
-.ticker_detail.new_items_0 { height: 245px; }
+.ticker_detail.new_items_0 { height: 225px; }
 .upgraded .ticker_detail.new_items_0 { height: 395px; }
 
-.ticker_detail.new_items_1 { height: 295px; }
+.ticker_detail.new_items_1 { height: 275px; }
 .upgraded .ticker_detail.new_items_1 { height: 445px; }
 
-.ticker_detail.new_items_2 { height: 345px; }
+.ticker_detail.new_items_2 { height: 325px; }
 .upgraded .ticker_detail.new_items_2 { height: 495px; }
 
 /*.ticker_detail.new_items_0 .ticker_news { height: 0px; }*/
@@ -325,7 +325,7 @@ input:hover, button:hover, a:hover, .ticker:hover {
 .chart_container {
 	display: none;
 	margin: 5px 0;
-  padding: 5px 0 0 5px;
+  padding: 5px 0 0 0;
 }
 
 .ticker_news {
