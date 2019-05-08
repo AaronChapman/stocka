@@ -56,13 +56,11 @@ function open_settings() {
 
 // save selected settings
 function save_settings() {
-	chrome.storage.sync.set({'tickers': tickers, 'notes':notes, 'theme':current_theme, 'settings':settings}, function() {
-	  $('.settings_container').addClass('closed').removeClass('open');
-		$('.settings_container').find('a, button, input').attr('tabindex', '-1');
-		$('.open_settings').css('opacity', '1');
+	sync_settings();
 	
-		$('.open_settings').focus();
-		
-		alert_user('saved settings');
-	});
+	$('.settings_container').addClass('closed').removeClass('open');
+	$('.settings_container').find('a, button, input').attr('tabindex', '-1');
+	$('.open_settings').css('opacity', '1');
+
+	$('.open_settings').focus();
 }

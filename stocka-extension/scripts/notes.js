@@ -23,17 +23,13 @@ function open_notes(notes) {
 
 // save notes
 function save_notes(note_content) {
-	$('.open_notes').css('opacity', '1');
-	
 	notes = $('.notes_field').html();
 	
-	// sync extension data and notify user of state
-	chrome.storage.sync.set({'tickers': tickers, 'notes':notes, 'theme':current_theme, 'settings':settings}, function() {
-	  $('.notes_container').addClass('closed').removeClass('open');
-		$('.notes_container').find('a, button, input, [role="textbox"]').attr('tabindex', '-1');
+	sync_notes();
+	
+	$('.open_notes').css('opacity', '1');
+	$('.notes_container').addClass('closed').removeClass('open');
+	$('.notes_container').find('a, button, input, [role="textbox"]').attr('tabindex', '-1');
 		
-		$('.open_notes').focus();
-		
-		alert_user('saved notes');
-	});
+	$('.open_notes').focus();
 }
