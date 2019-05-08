@@ -20,8 +20,6 @@ document.addEventListener("DOMContentLoaded", function(event) {
 	// determine whether or not to display a 'closed market' message
 	check_if_markets_are_open();
 	
-	set_saved_sort(settings.sort_type));
-	
 	// set up theme styling
 	$('body').addClass(current_theme);
 });

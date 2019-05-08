@@ -1,15 +1,14 @@
 function load_saved_data() {
 	chrome.storage.sync.get(['tickers', 'saved_sets', 'notes', 'theme', 'settings'], function(result) {
+		// load up saved sets
+		if (result.saved_sets) { saved_sets = result.saved_sets; }
+		
 		// load up synbol set
 	  if (result.tickers && result.tickers.length > 0) {
 		  tickers = result.tickers;
-		  
-		  stock_up();
 		// and stock up with default data if data is absent
 		} else {
 			tickers = default_tickers;
-		
-			stock_up();	
 		}
 		
 		// load up theme
@@ -22,16 +21,17 @@ function load_saved_data() {
 		if (result.notes) { notes = result.notes; }
 		
 		// load up settings
-		if (result.settings) { settings = result.settings; }
-		
-		// load up saved sets
-		if (result.saved_sets) { saved_sets = result.saved_sets; }
+		if (result.settings) { 
+			settings = result.settings; 
+			
+			set_saved_sort(settings.sort_type.option_type, settings.sort_type.option_direction); 
+		}
 	});
 }
 
 function sync_symbol_set() {
 	chrome.storage.sync.set({'tickers': tickers}, function() {
-	  console.log('🔔 updated current symbol set 🔔');
+	  console.log('🔔 updated symbol set');
 	});
 }
 
@@ -51,8 +51,4 @@ function sync_settings() {
 	chrome.storage.sync.set({'settings':settings}, function() {		
 		alert_user('saved settings');
 	});
-}
-
-function sync_sort_state() {
-	
 }

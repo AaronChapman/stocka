@@ -93,13 +93,13 @@ function setup_added_listeners() {
 	});
 	
 	$('.ticker_list .ticker').on('mouseover focus', function() {
-		$(this).text($(this).attr('data-symbol') + ': ' + $(this).attr('data-latest-price') + ' ...');
+			set_ticker_display_data(true);
 	});
 	
 	// when the ticker is moused out of, reset the ticker display
 	$('.ticker_list .ticker').on('mouseout blur', function() {
 		if (!$(this).is(':focus')) {
-			$(this).text($(this).attr('data-symbol') + ': ' + $(this).attr('data-latest-price'));
+			set_ticker_display_data(true);
 		}
 	});
 }
@@ -224,14 +224,18 @@ function set_content(data) {
 }
 
 // update which data point is being displayed for each ticker
-function set_ticker_display_data() {	
+function set_ticker_display_data(detail_hover) {	
+	let detail_signal = '';
+	
+	if (detail_hover) { detail_signal = ' ...'; }
+	
 	$('.ticker_list .ticker').each(function() {
-		if ($('.ticker_list').attr('data-displayed') === "price") {
-			$(this).text($(this).attr('data-symbol') + ': ' + $(this).attr('data-latest-price'));
+		if ($('.ticker_list').attr('data-displayed') === "price" || $('.ticker_list').attr('data-displayed') === "symbol") {
+			$(this).text($(this).attr('data-symbol') + ': ' + $(this).attr('data-latest-price') + detail_signal).attr('data-displayed', 'price');
 		} else if ($('.ticker_list').attr('data-displayed') === "change") {
-			$(this).text($(this).attr('data-symbol') + ': ' + $(this).attr('data-change'));
+			$(this).text($(this).attr('data-symbol') + ': ' + $(this).attr('data-change') + detail_signal).attr('data-displayed', 'change');
 		}  else if ($('.ticker_list').attr('data-displayed') === "percent") {
-			$(this).text($(this).attr('data-symbol') + ': ' + $(this).attr('data-change-percent') + '%');
+			$(this).text($(this).attr('data-symbol') + ': ' + $(this).attr('data-change-percent') + '%' + detail_signal).attr('data-displayed', 'percent');
 		} 
 	});
 	
