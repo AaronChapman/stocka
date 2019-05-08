@@ -58,6 +58,8 @@ function open_settings() {
 function save_settings() {
 	sync_settings();
 	
+	alert_user('saved settings');
+	
 	$('.settings_container').addClass('closed').removeClass('open');
 	$('.settings_container').find('a, button, input').attr('tabindex', '-1');
 	$('.open_settings').css('opacity', '1');

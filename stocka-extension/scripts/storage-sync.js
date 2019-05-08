@@ -49,6 +49,6 @@ function sync_notes() {
 
 function sync_settings() {
 	chrome.storage.sync.set({'settings':settings}, function() {		
-		alert_user('saved settings');
+		console.log('💾 saved settings');
 	});
 }
