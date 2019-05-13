@@ -12,7 +12,7 @@ let default_tickers = ['AAPL', 'AMZN', 'FB', 'GOOGL', 'MSFT'];
 
 // theme data
 let current_theme = 'sepia';
-let themes = ['default', 'sepia', 'classic', 'midnight'];
+let themes = ['default', 'sepia', 'classic', 'midnight', 'tangerine'];
 let ticker_up_color = '';
 let ticker_down_color = '';
 

@@ -476,3 +476,127 @@
   color: white;
   border: 2px solid white;
 }
+
+
+/* :: tangerine theme :: */
+
+.theme_option.tangerine {
+	background: antiquewhite !important;
+}
+
+.tangerine a {
+	color: #a56864;
+}
+
+.tangerine, .tangerine button, .tangerine input,
+.tangerine .upgrade_information,
+.tangerine .notes_container,
+.tangerine .settings_container,
+.tangerine .saved_sets_container {
+	background: #ffbb8f;
+}
+
+.tangerine .stockalert {
+  color: #627465;
+  border-color: #627465;
+  background: antiquewhite;
+}
+
+.tangerine .notes_field,
+.tangerine .setting,
+.tangerine .name_and_exchange {
+	color: mintcream;
+}
+
+.tangerine hr,
+.tangerine .list_of_saved_sets,
+.tangerine .notes_field {
+	border-color: mintcream;
+}
+
+.tangerine .save_notes,
+.tangerine .save_settings {
+	border-color: #627465;
+	color: #627465;
+}
+
+.tangerine .timeframe_option.selected,
+.tangerine .market_performance_chart_type.selected {
+	background: whitesmoke;
+	color: #c6565B;
+	border-color: #c6565B;
+}
+
+.tangerine .ascending {
+	border: 2px solid #c6565B;
+}
+
+.tangerine .descending {
+	border: 2px solid #a56864;
+}
+
+.tangerine .save_set {
+	color: #627465;
+	border-color: #627465;
+}
+
+.tangerine .delete_set {
+	color: #96565B;
+	border-color: #96565B;
+}
+
+.tangerine .ticker.up {
+	background: #a56864;
+}
+
+.tangerine .ticker.down {
+	background: #c6565B;
+}
+
+.tangerine .set_saved_status {
+	color: #96565B;
+}
+
+.tangerine .set_saved_status.saved {
+	color: #627465;
+}
+
+.tangerine .ticker_news span,
+.tangerine .market_closed_message,
+.tangerine .loading_message,
+.tangerine .ticker_detail_data td,
+.tangerine .tickers_to_add,
+.tangerine input,
+.tangerine button {
+	color: mintcream;
+}
+
+.tangerine .tickers,
+.tangerine .tickers_to_add,
+.tangerine .saved_set_name,
+.tangerine button {
+	border: 2px solid mintcream;
+}
+
+.tangerine .ticker_news {
+	border-top: 2px solid mintcream;
+}
+
+.tangerine .options_header,
+.tangerine .upgrade_information.visible,
+.tangerine .ticker_detail.open,
+.tangerine .saved_sets_container.open {
+	border-bottom: 2px solid mintcream;
+}
+
+.tangerine .close_detail_view {
+	background: rgba(00, 00, 00, 00);
+	border-color: #c6565B;
+	color: #c6565B;
+}
+
+.tangerine .upgrade_button {
+	background: #96565B;
+	color: white;
+	border: 2px solid white;
+}
