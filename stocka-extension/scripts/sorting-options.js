@@ -4,6 +4,8 @@ function set_saved_sort(sort_type, sort_direction) {
 	
 	sort_update_interface($('.sorting_option:contains(' + sort_type + ')'));
 	stock_up();
+	
+	//console.log('setting up interface for selected sort option');
 }
 
 // update the ticker list based on the sortion option clicked

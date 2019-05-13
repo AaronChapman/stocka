@@ -172,21 +172,35 @@ function add_news_to_ticker_detail_view(news_data) {
 			}
 	});
 	
-	additional_news_articles();
+	if (upgraded) { additional_news_articles(); }
 }
 
 function additional_news_articles() {
 	let the_url = 'https://cors-anywhere.herokuapp.com/http://finance.yahoo.com/rss/headline?s=' + $('.ticker_detail .ticker').attr('data-symbol');
 	
-	/*$.ajax({url: the_url, success: function(result) {
-    console.log(result);
-  }});*/
-  
-  // GOT DATA, TIME TO PARSE FOR 3.2
+	$.ajax({url: the_url, success: function(result) {
+    add_additional_news_articles(result);
+  }});
 }
 
 function add_additional_news_articles(articles) {
-	console.log(articles);
+	$('.ticker_news').append('<br><br>');
+	
+	$(articles).find('item').each(function() {
+		let headline_markup = '<span>' + parse_yahoo_date($(this).find('pubDate').text().trim()) + ':<br></span><a target="_blank" href="' + $(this).find('link').text().trim() + '">' + $(this).find('title').text().trim() + '</a>';
+		
+		$('.ticker_news').append(headline_markup);
+			
+		if ($(this).not(':last')) {$('.ticker_news').append('<br><br>');
+		}
+
+	});
+}
+
+function parse_yahoo_date(full_date) {
+	let parsed_date = full_date.substring(full_date.indexOf(',') + 2, full_date.indexOf(':') - 3);
+	
+	return parsed_date;
 }
 
 function add_company_info(company_data) {

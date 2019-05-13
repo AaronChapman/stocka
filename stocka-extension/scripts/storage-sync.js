@@ -24,11 +24,16 @@ function load_saved_data() {
 		if (result.settings) { 
 			settings = result.settings; 
 			
-			if (settings.sort_type && settings.sort_type.length > 0) {
+			//console.log(settings);
+			if (result.settings.sort_type) {
+				//console.log('SETTING SAVED SORT FROM DATA');
 				set_saved_sort(settings.sort_type.option_type, settings.sort_type.option_direction); 
+				
 			} else {
+				//console.log('SETTING SAVED SORT FROM DEFAULT');
 				settings.sort_type = {'option_type':'symbol', 'option_direction':'ascending'};
 				
+				//console.log(settings);
 				set_saved_sort('symbol', 'ascending'); 
 			}
 		}

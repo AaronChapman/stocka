@@ -1,11 +1,10 @@
 - more themes
 - pinned symbol tabs
-- additional news sources
 - more accurate reading for closed market (dst (moment.js))
 - if market is closed store local data & retrieve said data if market is closed and timestamp is after market hours
 - more clearly outlined chart labelling
 - palette theme options
-]- placeholder content for loading news section
+- placeholder content for loading news section
 
 
 // user communication
