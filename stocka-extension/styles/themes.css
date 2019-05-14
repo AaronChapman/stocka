@@ -600,3 +600,129 @@
 	color: white;
 	border: 2px solid white;
 }
+
+
+/* :: berry theme :: */
+
+.theme_option.berry {
+	background: #B55F69 !important;
+}
+
+.berry a {
+	color: #BB6450;
+}
+
+.berry, .berry button, .berry input,
+.berry .upgrade_information,
+.berry .notes_container,
+.berry .settings_container ,
+.berry .saved_sets_container{
+	background: #B55F69;
+}
+
+.berry .stockalert {
+  color: #356276;
+  border-color: #356276;
+  background: whitesmoke;
+}
+
+.berry .notes_field,
+.berry .setting,
+.berry .name_and_exchange {
+	color: #356276;
+}
+
+.berry hr,
+.berry .list_of_saved_sets {
+	border-color: beige;
+}
+
+.berry .save_notes,
+.berry .save_settings {
+	border-color: #356276;
+	color: #356276;
+}
+
+.berry .saved_sets_container {
+	border-color: beige;
+}
+
+.berry .timeframe_option.selected,
+.berry .market_performance_chart_type.selected {
+	background: whitesmoke;
+	color: #BB6450;
+	border-color: #BB6450;
+}
+
+.berry .ascending {
+	border: 2px solid rosybrown;
+}
+
+.berry .descending {
+	border: 2px solid #356276;
+}
+
+.berry .save_set {
+	color: #356276;
+	border-color: #356276;
+}
+
+.berry .delete_set {
+	color: #BB6450;
+	border-color: #BB6450;
+}
+
+.berry .ticker.up {
+	background: #356276;
+}
+
+.berry .ticker.down {
+	background: rosybrown;
+}
+
+.berry .set_saved_status {
+	color: rosybrown;
+}
+
+.berry .set_saved_status.saved {
+	color: #356276;
+}
+
+.berry .ticker_news span,
+.berry .market_closed_message,
+.berry .loading_message,
+.berry .ticker_detail_data td,
+.berry .tickers_to_add,
+.berry input,
+.berry button {
+	color: beige;
+}
+
+.berry .tickers,
+.berry .tickers_to_add,
+.berry .saved_set_name,
+.berry button {
+	border: 2px solid beige;
+}
+
+.berry .ticker_news {
+	border-top: 2px solid #356276;
+}
+
+.berry .options_header,
+.berry .upgrade_information.visible,
+.berry .ticker_detail.open {
+	border-bottom: 2px solid beige;
+}
+
+.berry .close_detail_view {
+	background: rgba(00, 00, 00, 00);
+	border-color: #BB6450;
+	color: #BB6450;
+}
+
+.berry .upgrade_button {
+  background: #BB6450;
+  color: white;
+  border: 2px solid white;
+}
