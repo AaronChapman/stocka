@@ -481,7 +481,7 @@
 /* :: tangerine theme :: */
 
 .theme_option.tangerine {
-	background: antiquewhite !important;
+	background: #efab8f !important;
 }
 
 .tangerine a {
@@ -493,13 +493,13 @@
 .tangerine .notes_container,
 .tangerine .settings_container,
 .tangerine .saved_sets_container {
-	background: #ffbb8f;
+	background: #efab8f;
 }
 
 .tangerine .stockalert {
-  color: #627465;
-  border-color: #627465;
-  background: antiquewhite;
+  color: #a56864;
+  border-color: #a56864;
+  background: #efab8f;
 }
 
 .tangerine .notes_field,
@@ -516,8 +516,8 @@
 
 .tangerine .save_notes,
 .tangerine .save_settings {
-	border-color: #627465;
-	color: #627465;
+	border-color: #a56864;
+	color: #a56864;
 }
 
 .tangerine .timeframe_option.selected,
@@ -536,13 +536,13 @@
 }
 
 .tangerine .save_set {
-	color: #627465;
-	border-color: #627465;
+	color: #a56864;
+	border-color: #a56864;
 }
 
 .tangerine .delete_set {
-	color: #96565B;
-	border-color: #96565B;
+	color: #c6565B;
+	border-color: #c6565B;
 }
 
 .tangerine .ticker.up {
