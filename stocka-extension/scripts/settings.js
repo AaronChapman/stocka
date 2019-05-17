@@ -8,12 +8,21 @@ function setup_settings_listeners() {
 		save_settings();
 	});
 	
-	$('.theme_option').unbind('click').on('click', function() {
+	$('.theme_option_palette').unbind('click').on('click', function() {
 		// set current theme to clicked option
 		current_theme = $(this).attr('data-theme-name');
 		
 		setup_theme(current_theme);
 	});
+	
+	$('.theme_option_palette').unbind('keydown').on('keydown', function(event) {
+		if (event.keyCode === 13) {
+			event.preventDefault();
+
+			this.click();
+		}
+	});
+
 	
 	// when a chart type selection is made
 	$('.market_performance_chart_type').click(function() {

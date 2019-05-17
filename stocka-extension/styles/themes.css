@@ -4,10 +4,6 @@
 	color: darkgray;
 }
 
-.theme_option.default {
-	background: snow !important;
-}
-
 .default a {
 	color: lightslategray;
 }
@@ -114,10 +110,6 @@
 
 
 /* :: sepia theme :: */
-
-.theme_option.sepia {
-	background: antiquewhite !important;
-}
 
 .sepia a {
 	color: #627465;
@@ -238,10 +230,6 @@
 
 
 /* :: classic theme :: */
-
-.theme_option.classic {
-	background: #FFEBD9 !important;
-}
 
 .classic a {
 	color: #BB6450;
@@ -365,10 +353,6 @@
 
 /* :: midnight theme :: */
 
-.theme_option.midnight {
-	background: rgb(45, 40, 50) !important;
-}
-
 .midnight a {
 	color: lightslategray;
 }
@@ -479,10 +463,6 @@
 
 
 /* :: tangerine theme :: */
-
-.theme_option.tangerine {
-	background: #efab8f !important;
-}
 
 .tangerine a {
 	color: #a56864;
@@ -604,12 +584,8 @@
 
 /* :: berry theme :: */
 
-.theme_option.berry {
-	background: #B55F69 !important;
-}
-
 .berry a {
-	color: #BB6450;
+	color: lightsteelblue;
 }
 
 .berry, .berry button, .berry input,
@@ -629,7 +605,7 @@
 .berry .notes_field,
 .berry .setting,
 .berry .name_and_exchange {
-	color: #356276;
+	color: beige;
 }
 
 .berry hr,
@@ -639,8 +615,8 @@
 
 .berry .save_notes,
 .berry .save_settings {
-	border-color: #356276;
-	color: #356276;
+	border-color: beige;
+	color: beige;
 }
 
 .berry .saved_sets_container {
@@ -650,8 +626,8 @@
 .berry .timeframe_option.selected,
 .berry .market_performance_chart_type.selected {
 	background: whitesmoke;
-	color: #BB6450;
-	border-color: #BB6450;
+	color: #356276;
+	border-color: #356276;
 }
 
 .berry .ascending {
@@ -663,13 +639,13 @@
 }
 
 .berry .save_set {
-	color: #356276;
+	color: beige;
 	border-color: #356276;
 }
 
 .berry .delete_set {
-	color: #BB6450;
-	border-color: #BB6450;
+	color: beige;
+	border-color: beige;
 }
 
 .berry .ticker.up {
@@ -717,12 +693,112 @@
 
 .berry .close_detail_view {
 	background: rgba(00, 00, 00, 00);
-	border-color: #BB6450;
-	color: #BB6450;
+	border-color: beige;
+	color: beige;
 }
 
 .berry .upgrade_button {
   background: #BB6450;
   color: white;
   border: 2px solid white;
+}
+
+
+
+/* theme option palettes */
+
+.default .theme_option_palette {
+  border: 2px solid darkgray;
+}
+
+.sepia .theme_option_palette {
+  border: 2px solid #aa9095;
+}
+
+.classic .theme_option_palette {
+  border: 2px solid #356276;
+}
+
+.midnight .theme_option_palette {
+  border: 2px solid darkgray;
+}
+
+.tangerine .theme_option_palette {
+  border: 2px solid mintcream;
+}
+
+.berry .theme_option_palette {
+  border: 2px solid beige;
+}
+
+.default.theme_option_palette .theme_option_first_color {
+  background: snow;
+}
+
+.default.theme_option_palette .theme_option_second_color {
+  background: #ce8988;
+}
+
+.default.theme_option_palette .theme_option_third_color {
+  background: #427557;
+}
+
+.sepia.theme_option_palette .theme_option_first_color {
+  background: antiquewhite;
+}
+
+.sepia.theme_option_palette .theme_option_second_color {
+  background: #627465;
+}
+
+.sepia.theme_option_palette .theme_option_third_color {
+  background: #96565B;
+}
+
+.classic.theme_option_palette .theme_option_first_color {
+  background: #FFEBD9;
+}
+
+.classic.theme_option_palette .theme_option_second_color {
+  background: #BB6450;
+}
+
+.classic.theme_option_palette .theme_option_third_color {
+  background: #356276;
+}
+
+.midnight.theme_option_palette .theme_option_first_color {
+  background: rgb(45, 40, 50);
+}
+
+.midnight.theme_option_palette .theme_option_second_color {
+  background: #965656;
+}
+
+.midnight.theme_option_palette .theme_option_third_color {
+  background: #627488;
+}
+
+.tangerine.theme_option_palette .theme_option_first_color {
+  background: #efab8f;
+}
+
+.tangerine.theme_option_palette .theme_option_second_color {
+  background: #a56864;
+}
+
+.tangerine.theme_option_palette .theme_option_third_color {
+  background: #c6565B;
+}
+
+.berry.theme_option_palette .theme_option_first_color {
+  background: beige;
+}
+
+.berry.theme_option_palette .theme_option_second_color {
+  background: #B55F69;
+}
+
+.berry.theme_option_palette .theme_option_third_color {
+  background: #356276;
 }
