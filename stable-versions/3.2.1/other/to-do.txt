@@ -1,0 +1,20 @@
+- more themes
+- pinned symbol tabs
+- more accurate reading for closed market (dst (moment.js))
+- if market is closed store local data & retrieve said data if market is closed and timestamp is after market hours
+- more clearly outlined chart labelling
+- palette theme options
+- placeholder content for loading news section
+- see if there's some way to optimize sorting option code even more
+
+
+// user communication
+- refresh periodically for chrome push notifications
+- let chrome text be set by certain tickers?
+
+// discovery panel
+- predefined screeners
+- search companies by name & sector
+
+// scraper
+- ...

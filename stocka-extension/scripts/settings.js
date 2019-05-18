@@ -59,7 +59,7 @@ function open_settings() {
 	$('.settings_container').addClass('open').removeClass('closed');
 	$('.settings_container').find('a, button, input, [role="button"]').attr('tabindex', '0');
 	
-	$('.settings_container [role="button"]:first').focus();
+	$('.settings_container').find('button, [role="button"]').first().focus();
 }
 
 // save selected settings
