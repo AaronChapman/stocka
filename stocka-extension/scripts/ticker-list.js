@@ -27,22 +27,27 @@ function setup_ticker_list_listeners() {
 		}
 	});
 	
+	// when the user is about to copy the symbol set to their clipboard
 	$('.copy_current_symbol_set').hover(function() {
 		var symbol_set_to_copy = tickers.join();
 		
+		// update the attribute holding the text to be copied
 		$(this).attr('data-clipboard-text', symbol_set_to_copy);
 	});
 	
+	// and when the button is actually activated...
 	$('.copy_current_symbol_set').on('keydown', function(event) {
 		if (event.keyCode === 13 || event.keyCode === 32) {
 			$(this)[0].click();
 		}
 	});
 	
+	// let the user know
 	$('.copy_current_symbol_set').click(function() {
 		alert_user('copied to clipboard');
 	});
 	
+	// clipboard.js takes care clipboard stuff using 'data-clipboard-text' onclick of the element
 	new ClipboardJS('.copy_current_symbol_set');
 }
 
@@ -86,12 +91,14 @@ function setup_added_listeners() {
 		$('.timeframe_option.1m').addClass('selected');
 	});
 	
+	// keyboard support
 	$('.ticker_list .ticker').on('keydown', function(event) {
 		if (event.keyCode === 13 || event.keyCode === 32) {
 			$(this).click();
 		}
 	});
 	
+	// visually show that there is more data upon activation
 	$('.ticker_list .ticker').on('mouseover focus', function() {
 			set_ticker_display_data(true, $(this));
 	});

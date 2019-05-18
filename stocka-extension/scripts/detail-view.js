@@ -15,8 +15,8 @@ function setup_detail_listeners() {
 	$('.ticker_detail .ticker, .close_detail_view').click(function() {
 		$('.ticker_detail').removeClass('open').addClass('closed');
 		$('.detail_view_options').removeClass('open').addClass('closed');
-		
-		$('.ticker_detail').find('a, button, input, .ticker_detail .ticker').attr('tabindex', '-1');
+	
+		$('.ticker_detail').find('a, button, input, .ticker').attr('tabindex', '-1');
 		$('.close_detail_view').attr('tabindex', '-1');
 	
 		$('.ticker_list .ticker:first').focus();
@@ -175,6 +175,7 @@ function add_news_to_ticker_detail_view(news_data) {
 	if (upgraded) { additional_news_articles(); }
 }
 
+// for investors users, add more articles to news section
 function additional_news_articles() {
 	let the_url = 'https://cors-anywhere.herokuapp.com/http://finance.yahoo.com/rss/headline?s=' + $('.ticker_detail .ticker').attr('data-symbol');
 	
@@ -183,6 +184,7 @@ function additional_news_articles() {
   }});
 }
 
+// append each item returned from yahoo finance rss feed
 function add_additional_news_articles(articles) {
 	$('.ticker_news').append('<br><br>');
 	
@@ -197,12 +199,15 @@ function add_additional_news_articles(articles) {
 	});
 }
 
+
+// make date format prettier
 function parse_yahoo_date(full_date) {
 	let parsed_date = full_date.substring(full_date.indexOf(',') + 2, full_date.indexOf(':') - 3);
 	
 	return parsed_date;
 }
 
+// add company website link and exchange to the ticker detail view
 function add_company_info(company_data) {
 	let company_link_markup = '';
 	

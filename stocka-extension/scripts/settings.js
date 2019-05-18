@@ -8,8 +8,8 @@ function setup_settings_listeners() {
 		save_settings();
 	});
 	
+	// set current theme to clicked (or keyed) option
 	$('.theme_option_palette').unbind('click').on('click', function() {
-		// set current theme to clicked option
 		current_theme = $(this).attr('data-theme-name');
 		
 		setup_theme(current_theme);
@@ -57,9 +57,9 @@ function setup_settings_states() {
 function open_settings() {
 	$('.open_settings').css('opacity', '0');
 	$('.settings_container').addClass('open').removeClass('closed');
-	$('.settings_container').find('a, button, input').attr('tabindex', '0');
+	$('.settings_container').find('a, button, input, [role="button"]').attr('tabindex', '0');
 	
-	$('.settings_container button:first').focus();
+	$('.settings_container [role="button"]:first').focus();
 }
 
 // save selected settings
@@ -69,7 +69,7 @@ function save_settings() {
 	alert_user('saved settings');
 	
 	$('.settings_container').addClass('closed').removeClass('open');
-	$('.settings_container').find('a, button, input').attr('tabindex', '-1');
+	$('.settings_container').find('a, button, input, [role="button"]').attr('tabindex', '-1');
 	$('.open_settings').css('opacity', '1');
 
 	$('.open_settings').focus();

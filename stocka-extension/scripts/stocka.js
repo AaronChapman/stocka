@@ -8,7 +8,6 @@ document.addEventListener("DOMContentLoaded", function(event) {
 	
 	// setup... everything
 	setup_sorting_listeners();
-	
 	setup_detail_listeners();
 	setup_ticker_list_listeners();
 	setup_settings_listeners();

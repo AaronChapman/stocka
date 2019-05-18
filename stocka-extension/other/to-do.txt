@@ -5,7 +5,7 @@
 - more clearly outlined chart labelling
 - palette theme options
 - placeholder content for loading news section
-- correct stockalert for saved sets options
+- see if there's some way to optimize sorting option code even more
 
 
 // user communication

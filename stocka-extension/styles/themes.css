@@ -748,11 +748,11 @@
 }
 
 .sepia.theme_option_palette .theme_option_second_color {
-  background: #627465;
+  background: #96565B;
 }
 
 .sepia.theme_option_palette .theme_option_third_color {
-  background: #96565B;
+  background: #627465;
 }
 
 .classic.theme_option_palette .theme_option_first_color {
@@ -792,11 +792,11 @@
 }
 
 .berry.theme_option_palette .theme_option_first_color {
-  background: beige;
+  background: #B55F69;
 }
 
 .berry.theme_option_palette .theme_option_second_color {
-  background: #B55F69;
+  background: rosybrown;
 }
 
 .berry.theme_option_palette .theme_option_third_color {

@@ -60,6 +60,7 @@ function setup_theme(theme_to_use) {
 	});
 }
 
+// stockalert functionality
 function alert_user(alert_string) {
 	$('.stockalert').text(alert_string);
 	$('.stockalert').addClass('visible');
