@@ -58,9 +58,13 @@ visual | features
 default | sepia
 --- | ---
 ![default theme](stocka-extension/images/screenshots/readme/default.png "default theme") | ![sepia theme](stocka-extension/images/screenshots/readme/sepia.png "sepia theme")
+
 classic | midnight
+--- | ---
 ![classic theme](stocka-extension/images/screenshots/readme/classic.png "classic theme") | ![midnight theme](stocka-extension/images/screenshots/readme/midnight.png "midnight theme")
+
 tangerine | berry
+--- | ---
 ![tangerine theme](stocka-extension/images/screenshots/readme/tangerine.png "tangerine theme") | ![berry theme](stocka-extension/images/screenshots/readme/berry.png "berry theme")
 
 ---
