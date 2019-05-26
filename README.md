@@ -11,18 +11,18 @@ many of the features outlined in this document are unlocked with the upgraded ve
 
 ---
 
-## adding symbols
-
-visual | features
---- | ---
-![adding symbols](stocka-extension/images/screenshots/readme/add-copy.png "adding symbols") | **`adding symbols:`**<br/>_the regex is pretty forgiving, just try to be accurate with your input (OTC & FOREX not yet supported)_<br/><br/>**`copy symbol set:`**<br/>_copies your current symbol set to your clipboard so you can share it or whatever_<br/><br/>
-
-
 ## viewing market data
 
 visual | features
 --- | ---
 ![market data](stocka-extension/images/screenshots/readme/market-data.png  "market data") | **`company website:`**<br/>_a link to the company's website_<br/><br/>**`share price graph:`**<br/>_stock share price over specified amounts of time_<br/><br/>**`market data points:`**<br/>_change, high, low, & volume traded over specified amount of time, as well as the stock's market cap_<br/><br/>**`news articles:`**<br/>_articles and listings that mention the symbol from a variety of sources_
+
+
+## adding symbols
+
+visual | features
+--- | ---
+![adding symbols](stocka-extension/images/screenshots/readme/add-copy.png "adding symbols") | **`adding symbols:`**<br/>_the regex is pretty forgiving, just try to be accurate with your input (OTC & FOREX not yet supported)_<br/><br/>**`copy symbol set:`**<br/>_copies your current symbol set to your clipboard so you can share it or whatever_
 
 
 ## sorting symbols
@@ -36,17 +36,33 @@ visual | features
 
 visual | features
 --- | ---
-![sorting symbols](stocka-extension/images/screenshots/readme/saved-sets.png "saved symbol sets") | **`saved symbol sets:`**<br/>_a list of symbol sets that have been named and saved_<br/><br/>**`name current symbol set:`**<br/>_give your shit a name_<br/><br/>**`save symbol set:`**<br/>_honestly it's pretty straight-forward_<br/><br/>**`delete symbol set:`**<br/>_deletes currently loaded symbol set (if saved)_
+![saved symbol sets](stocka-extension/images/screenshots/readme/saved-sets.png "saved symbol sets") | **`saved symbol sets:`**<br/>_a list of symbol sets that have been named and saved_<br/><br/>**`name current symbol set:`**<br/>_give your shit a name_<br/><br/>**`save symbol set:`**<br/>_honestly it's pretty straight-forward_<br/><br/>**`delete symbol set:`**<br/>_deletes currently loaded symbol set (if saved)_
+
+
+## notes
+
+visual | features
+--- | ---
+![notes](stocka-extension/images/screenshots/readme/notes.png "notes") | **`saving notes:`**<br/>_if you need 'em_
+
+
+## settings
+
+visual | features
+--- | ---
+![settings](stocka-extension/images/screenshots/readme/settings.png "settings") | **`extension upgrade:`**<br/>_if user has not upgraded, an option to do so will appear in the settings panel_<br/><br/>**`theme options:`**<br/>_six different themes to choose from (visuals below)_<br/><br/>**`market data chart type:`**<br/>_toggles bar graph or line graph chart type in market data panel_
 
 ---
 
-**`themes ▫️▪️`**
+**`theme previews`**
 
-regular theme | dark theme
+default | sepia | classic
 --- | ---
-![regular padseek theme](images/README/regular-theme.png "regular padseek theme") | ![dark padseek theme](images/README/dark-theme.png "dark padseek theme")
-
-<sup>**switch themes using the options in top right corner**</sup>
+![default theme](stocka-extension/images/screenshots/readme/default.png "default theme") | ![sepia theme](stocka-extension/images/screenshots/readme/sepia.png "sepia theme") | ![classic theme](stocka-extension/images/screenshots/readme/classic.png "classic theme")
+--- | ---
+midnight | tangerine | berry
+--- | ---
+![midnight theme](stocka-extension/images/screenshots/readme/midnight.png "midnight theme") | ![tangerine theme](stocka-extension/images/screenshots/readme/tangerine.png "tangerine theme") | ![berry theme](stocka-extension/images/screenshots/readme/berry.png "berry theme")
 
 ---
 
