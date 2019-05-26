@@ -3,11 +3,10 @@
 
 
 this repository includes all extension files and resources with the exception of upgrade scripts
-
 many of the features outlined in this document are unlocked with the upgraded version: stocka for investors
 
-<br/>[download stocka for chrome](https://aaronchapman.github.io/padseek)
-<br/>[download stocka for firefox](https://aaronchapman.github.io/padseek)
+<br/>[download stocka for chrome](https://chrome.google.com/webstore/detail/stocka/lmjgcjcjefogafhmhefbibnnkpgkkdgh)
+<br/>[download stocka for firefox](https://chrome.google.com/webstore/detail/stocka/lmjgcjcjefogafhmhefbibnnkpgkkdgh)
 
 ---
 
@@ -15,7 +14,7 @@ many of the features outlined in this document are unlocked with the upgraded ve
 
 visual | features
 --- | ---
-![market data](stocka-extension/images/screenshots/readme/market-data.png  "market data") | **`company website:`**<br/>_a link to the company's website_<br/><br/>**`share price graph:`**<br/>_stock share price over specified amounts of time_<br/><br/>**`market data points:`**<br/>_change, high, low, & volume traded over specified amount of time, as well as the stock's market cap_<br/><br/>**`news articles:`**<br/>_articles and listings that mention the symbol from a variety of sources_
+![market data](stocka-extension/images/screenshots/readme/market-data.png  "market data") | **`company website:`**<br/>_a link to the company's website_<br/><br/>**`share price graph:`**<br/>_stock share price over specified amounts of time_<br/><br/>**`exchange:`**<br/>_which exchange the symbol is listed on_<br/><br/>**`share price graph:`**<br/>_stock share price over specified amounts of time_<br/><br/>**`market data points:`**<br/>_change, high, low, & volume traded over specified amount of time, as well as the stock's market cap_<br/><br/>**`news articles:`**<br/>_articles and listings that mention the symbol from a variety of sources_
 
 
 ## adding symbols
@@ -29,7 +28,7 @@ visual | features
 
 visual | features
 --- | ---
-![sorting symbols](stocka-extension/images/screenshots/readme/sort-1.png "sorting symbol set")<br/>![sorting symbols](stocka-extension/images/screenshots/readme/sort-2.png "sorting symbol set") | **`sort by symbol:`**<br/>_alphabetically, ascending or descending_<br/><br/>**`sort by share price`**<br/>_current share price, ascending or descending_<br/><br/>**`sort by day change:`**<br/>_share price change, ascending or descending_<br/><br/>**`sorty by day change (percentage):`**<br/>_share price change as a percentage value, ascending or descending_
+![sorting symbols](stocka-extension/images/screenshots/readme/sort-1.png "sorting symbol set") | **`sort by symbol:`**<br/>_alphabetically, ascending or descending_<br/><br/>**`sort by share price`**<br/>_current share price, ascending or descending_<br/><br/>**`sort by day change:`**<br/>_share price change, ascending or descending_<br/><br/>**`sorty by day change (percentage):`**<br/>_share price change as a percentage value, ascending or descending_
 
 
 ## saved symbol sets
@@ -59,9 +58,7 @@ visual | features
 default | sepia | classic
 --- | ---
 ![default theme](stocka-extension/images/screenshots/readme/default.png "default theme") | ![sepia theme](stocka-extension/images/screenshots/readme/sepia.png "sepia theme") | ![classic theme](stocka-extension/images/screenshots/readme/classic.png "classic theme")
---- | ---
 midnight | tangerine | berry
---- | ---
 ![midnight theme](stocka-extension/images/screenshots/readme/midnight.png "midnight theme") | ![tangerine theme](stocka-extension/images/screenshots/readme/tangerine.png "tangerine theme") | ![berry theme](stocka-extension/images/screenshots/readme/berry.png "berry theme")
 
 ---
