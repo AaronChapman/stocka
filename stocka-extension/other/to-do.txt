@@ -8,6 +8,9 @@
 - interface for creating themes quickly
 - turn off grammar checks on text input areas
 - change 'tickers' to symbols
+- new date formatting
+- OTC market data
+- FOREX
 
 
 // user communication
@@ -19,4 +22,6 @@
 - search companies by name & sector
 
 // scraper
-- ...
+- write script to open https://www.otcmarkets.com/research/stock-screener & click $('.util-header .dl-btn')
+- write function to download data and move it to a folder
+- write function to upload data to public storage
