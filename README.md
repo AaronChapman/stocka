@@ -6,7 +6,7 @@ this repository includes all extension files and resources with the exception of
 many of the features outlined in this document are unlocked with the upgraded version: stocka for investors
 
 <br/>[download stocka for chrome](https://chrome.google.com/webstore/detail/stocka/lmjgcjcjefogafhmhefbibnnkpgkkdgh)
-<br/>[download stocka for firefox](https://chrome.google.com/webstore/detail/stocka/lmjgcjcjefogafhmhefbibnnkpgkkdgh)
+<br/>firefox download coming soon
 
 ---
 
