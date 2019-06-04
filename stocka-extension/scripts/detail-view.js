@@ -128,7 +128,10 @@ function additional_research(symbol) {
   
   fetch(company_request_url).then(res => res.json()).then(data => add_company_info(data));
 	fetch(quote_request_url).then(res => res.json()).then(data => add_ticker_details(data, symbol));
-	fetch(news_request_url).then(res => res.json()).then(data => add_news_to_ticker_detail_view(data));
+	
+	//fetch(news_request_url).then(res => res.json()).then(data => add_news_to_ticker_detail_view(data));
+	
+	additional_news_articles();
 }
 
 // add market cap info
@@ -186,7 +189,18 @@ function additional_news_articles() {
 
 // append each item returned from yahoo finance rss feed
 function add_additional_news_articles(articles) {
-	$('.ticker_news').append('<br><br>');
+	$('.ticker_news').empty();
+	
+	var number_of_news_items = $(articles).find('item');
+	
+	// determine news container height	
+	if (number_of_news_items === 1) {
+		$('.ticker_detail').removeClass('new_items_0 new_items_2').addClass('new_items_1');
+	} else if (number_of_news_items === 0) {
+		$('.ticker_detail').removeClass('new_items_1 new_items_2').addClass('new_items_0');
+	} else {
+		$('.ticker_detail').removeClass('new_items_0 new_items_1').addClass('new_items_2');
+	}
 	
 	$(articles).find('item').each(function() {
 		let headline_markup = '<span>' + parse_yahoo_date($(this).find('pubDate').text().trim()) + ':<br></span><a target="_blank" href="' + $(this).find('link').text().trim() + '">' + $(this).find('title').text().trim() + '</a>';
