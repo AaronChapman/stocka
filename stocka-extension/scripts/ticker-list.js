@@ -181,12 +181,41 @@ function set_content(data) {
 	percentages = [];
 	
 	// for each item defined in the tickers array
-	tickers.forEach(function(ticker) {
-		if (data[ticker]) {
+	data.forEach(function(symbol) {
+		// get & store the data requested from iex
+		let latest_price = parseFloat(symbol.price).toFixed(2);
+		let change = parseFloat(symbol.change).toFixed(2);
+		let change_percent = parseFloat(symbol.percentageChange).toFixed(2);
+		// and create a ticker container element with data attributes
+		let markup = '<div class="ticker_container">';
+		markup += '<ul class="ticker_elements" role="presentation"><li class="ticker_symbol">';
+		markup += '<span class="ticker" ';
+		markup += 'data-displayed="price" ';
+		markup += 'data-symbol="' + symbol.ticker + '" ';
+		markup += 'data-latest-price="' + latest_price + '" ';
+		markup += 'data-change="' + change + '" ';
+		markup += 'data-change-percent="' + change_percent + '" ';
+		markup += 'tabindex="0" role="button" aria-label="' + symbol.ticker + ': $' + latest_price + ', view more market data">' + symbol.ticker + ': ' + latest_price + '</span></li>'
+		markup += '<li class="ticker_removal"><button class="remove_ticker" aria-label="remove ' + symbol.ticker + ' from this set">✕</button></li></div>';
+		
+		// push the information to the ticker list data arrays
+		prices.push({'ticker':symbol.ticker, 'array_value':latest_price});
+		changes.push({'ticker':symbol.ticker, 'array_value':change});
+		percentages.push({'ticker':symbol.ticker, 'array_value':change_percent});
+				
+		// and append the new ticker to the document
+		$('.ticker_list').append(markup);
+					
+		// determine styling for the newly added ticker based on day change
+		if (change.indexOf('-') != -1) { $('.ticker_list .ticker:last').addClass('down'); }
+		else if (change == '0') { $('.ticker_list .ticker:last').addClass('no_change'); }
+		else { $('.ticker_list .ticker:last').addClass('up'); }
+		
+		/*if (data[ticker]) {
 			// get & store the data requested from iex
-			let latest_price = parseFloat(data[ticker].quote.latestPrice).toFixed(2);
-			let change = parseFloat(data[ticker].quote.change).toFixed(2);
-			let change_percent = parseFloat(data[ticker].quote.changePercent).toFixed(2);
+			let latest_price = parseFloat(data[ticker].price).toFixed(2);
+			let change = parseFloat(data[ticker].change).toFixed(2);
+			let change_percent = parseFloat(data[ticker].percentageChange).toFixed(2);
 			// and create a ticker container element with data attributes
 			let markup = '<div class="ticker_container">';
 			markup += '<ul class="ticker_elements" role="presentation"><li class="ticker_symbol">';
@@ -219,7 +248,7 @@ function set_content(data) {
 			let index = tickers.indexOf(ticker);
 			
 			if (index !== -1) tickers.splice(index, 1);
-		}
+		}*/
 	});
 	
 	// put forth the ticker data that is to be displayed
@@ -262,9 +291,10 @@ function set_ticker_display_data(detail_hover, symbol_hovered) {
 function stock_up() {
 	// currently asking for symbol, price change (day), latest share price, and percentage change (day)
 	let url = 'https://api.iextrading.com/1.0/stock/market/batch?types=quote&symbols=' + tickers.join(',');
+	let new_url = 'http://54.224.104.209:7810/symbol?tickers=' + tickers.join(',');
   
   // make the api request and start setting up ticker elements in the DOM
   if (tickers.length > 0) {
-	  fetch(url).then(res => res.json()).then(data => set_content(data));
+	  fetch(new_url).then(res => res.json()).then(data => set_content(data));
 	}
 }

@@ -43,10 +43,11 @@ function research(symbol, timeframe) {
 	
 	if (!local_check) {
 		// fetch ticker data for selected timeframe from iex api
-		let url = 'https://api.iextrading.com/1.0/stock/' + symbol + '/chart/' + timeframe;
+		//let url = 'https://api.iextrading.com/1.0/stock/' + symbol + '/chart/' + timeframe;
+		let new_url = 'http://54.224.104.209:7810/symbol?tickers=' + symbol;
 	  
 		// set up ticker detail view with response data	
-		fetch(url).then(res => res.json()).then(data => set_ticker_details(data, symbol, timeframe, false));
+		fetch(new_url).then(res => res.json()).then(data => set_ticker_details(data, symbol, timeframe, false));
 	}
 }
 
@@ -55,9 +56,9 @@ function set_ticker_details(data, ticker, timeframe, from_local) {
 	if (from_local) {
 		console.log('same session: loading local data');
 	} else {
-		if (timeframe === '1m') { local_chart_data.push({'symbol':ticker, 'data':{'1m':data}}); }
-		else if (timeframe === '6m') { local_chart_data.push({'symbol':ticker, 'data':{'6m':data}}); }
-		else if (timeframe === '1y') { local_chart_data.push({'symbol':ticker, 'data':{'1y':data}}); }
+		if (timeframe === '1m') { local_chart_data.push({'symbol':ticker, 'data':{'1m':data[0]}}); }
+		else if (timeframe === '6m') { local_chart_data.push({'symbol':ticker, 'data':{'6m':data[0]}}); }
+		else if (timeframe === '1y') { local_chart_data.push({'symbol':ticker, 'data':{'1y':data[0]}}); }
 	}
 	
 	fill_detail_table(data, ticker);
@@ -79,10 +80,11 @@ function fill_detail_table(information_object, for_symbol) {
 	};
 	
 	// fill up that object with parsed data from iex
-	let temp_change = parseFloat(information_object[information_object.length - 1].open - information_object[0].close).toFixed(2);
+	//let temp_change = parseFloat(information_object[information_object.length - 1].open - information_object[0].close).toFixed(2);
+	let temp_change = information_object[0].change;
 	
 	ticker_details['change'] = temp_change.toString();
-	ticker_details['lowest_price'] = parseFloat(information_object[0].low).toFixed(2);
+	//ticker_details['lowest_price'] = parseFloat(information_object[0].low).toFixed(2);
 	
 	// loop through object to find highest & lowest prices, as well as volume
 	information_object.forEach(function(obj) {
@@ -122,12 +124,14 @@ function fill_detail_table(information_object, for_symbol) {
 
 // get addition information about the requested symbol
 function additional_research(symbol) {
-	let company_request_url = 'https://api.iextrading.com/1.0/stock/' + symbol + '/company';
-	let quote_request_url = 'https://api.iextrading.com/1.0/stock/' + symbol + '/quote';
-	let news_request_url = 'https://api.iextrading.com/1.0/stock/' + symbol + '/news/last/50';
+	//let company_request_url = 'https://api.iextrading.com/1.0/stock/' + symbol + '/company';
+	//let quote_request_url = 'https://api.iextrading.com/1.0/stock/' + symbol + '/quote';
+	//let news_request_url = 'https://api.iextrading.com/1.0/stock/' + symbol + '/news/last/50';
+	
+	let new_company_request_url = 'http://54.224.104.209:7810/symbol?tickers=' + symbol;
   
-  fetch(company_request_url).then(res => res.json()).then(data => add_company_info(data));
-	fetch(quote_request_url).then(res => res.json()).then(data => add_ticker_details(data, symbol));
+  fetch(new_company_request_url).then(res => res.json()).then(data => add_company_info(data));
+	//fetch(new_company_request_url).then(res => res.json()).then(data => add_ticker_details(data, symbol));
 	
 	//fetch(news_request_url).then(res => res.json()).then(data => add_news_to_ticker_detail_view(data));
 	
@@ -149,6 +153,8 @@ function add_ticker_details(data, ticker) {
     
     data_point_index++;
 	}
+	
+	//add_company_info(data);
 }
 
 // pull news items for symbol
@@ -225,10 +231,10 @@ function parse_yahoo_date(full_date) {
 function add_company_info(company_data) {
 	let company_link_markup = '';
 	
-	if (company_data.website.length > 1) {
-		company_link_markup = '<a href="' + company_data.website + '" target="_blank">' + company_data.companyName +'</a><br>' + company_data.exchange;
+	if (company_data[0].website.length > 1) {
+		company_link_markup = '<a href="' + company_data[0].website + '" target="_blank">' + company_data[0].name +'</a><br>' + company_data[0].market;
 	} else {
-		company_link_markup = company_data.companyName + '<br>' + company_data.exchange;
+		company_link_markup = company_data[0].name + '<br>' + company_data[0].market;
 	}
 	
 	$('.name_and_exchange').html(company_link_markup);
