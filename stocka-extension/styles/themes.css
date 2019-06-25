@@ -33,6 +33,11 @@
 	border-color: darkgray;
 }
 
+.default .timeframe_label {
+	border-color: beige;
+	color: beige;
+}
+
 .default .notes_container {
 	border-color: darkgray;
 }
@@ -139,6 +144,11 @@
 .sepia .list_of_saved_sets,
 .sepia .notes_field {
 	border-color: #aa9095;
+}
+
+.sepia .timeframe_label {
+	border-color: beige;
+	color: beige;
 }
 
 .sepia .save_notes,
@@ -258,6 +268,11 @@
 .classic hr,
 .classic .list_of_saved_sets {
 	border-color: #356276;
+}
+
+.classic .timeframe_label {
+	border-color: beige;
+	color: beige;
 }
 
 .classic .save_notes,
@@ -393,6 +408,11 @@
 	border-color: darkgray;
 }
 
+.midnight .timeframe_label {
+	border-color: beige;
+	color: beige;
+}
+
 .midnight .timeframe_option.selected,
 .midnight .market_performance_chart_type.selected {
 	background: whitesmoke;
@@ -492,6 +512,11 @@
 .tangerine .list_of_saved_sets,
 .tangerine .notes_field {
 	border-color: mintcream;
+}
+
+.tangerine .timeframe_label {
+	border-color: beige;
+	color: beige;
 }
 
 .tangerine .save_notes,
@@ -611,6 +636,11 @@
 .berry hr,
 .berry .list_of_saved_sets {
 	border-color: beige;
+}
+
+.berry .timeframe_label {
+	border-color: beige;
+	color: beige;
 }
 
 .berry .save_notes,

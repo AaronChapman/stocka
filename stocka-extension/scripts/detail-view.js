@@ -88,21 +88,14 @@ function fill_detail_table(information_object, for_symbol) {
 	ticker_details['lowest_price'] = temp_low;
 	//ticker_details['lowest_price'] = parseFloat(information_object[0].low).toFixed(2);
 	
-	console.log(information_object);
-	
 	// loop through object to find highest & lowest prices, as well as volume
 	information_object.forEach(function(obj) {
 		if (parseFloat(obj['last']) > ticker_details['highest_price']) {
 			ticker_details['highest_price'] = parseFloat(obj['high']).toFixed(2);
 		}
 		
-		console.log(parseFloat(obj['low']));
-		console.log(ticker_details['lowest_price']);
-		
 		if (parseFloat(obj['low']) < ticker_details['lowest_price']) {
 			ticker_details['lowest_price'] = parseFloat(obj['low']).toFixed(2);
-			
-			console.log('new low: ' + ticker_details['lowest_price']);
 		}
 		
 		ticker_details['volume_traded'] += parseInt(obj['volume'].replace(',', ''));
@@ -113,8 +106,6 @@ function fill_detail_table(information_object, for_symbol) {
 	// loop through the ticker details object and append table data
 	for (var datum in ticker_details) {
     if (ticker_details.hasOwnProperty(datum)) {
-	    console.log(ticker_details[datum]);
-	    
 	    $('.ticker_detail_data').find('tr').eq(data_point_index).find('td').eq(1).text(number_with_commas(ticker_details[datum]));   
     }
     

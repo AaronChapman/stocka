@@ -200,6 +200,17 @@ input:hover, button:hover, a:hover, .ticker:hover {
   white-space: nowrap;
 }
 
+.timeframe_label {
+	padding: 2.5px 10px;
+  margin: 10px 0 5px 0;
+  border-top: 2px solid darkgray;
+  border-bottom: none !important;
+  border-left: none !important;
+  border-right: none !important;
+  width: -webkit-fill-available;
+  max-height: 15px;
+}
+
 .close_detail_view {
 	height: 20px;
 	overflow: hidden;
