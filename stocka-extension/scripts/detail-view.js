@@ -29,7 +29,7 @@ function setup_detail_listeners() {
 function research(symbol, timeframe) {
 	let local_check = false;
 	
-	local_chart_data.forEach(function(item) {
+	/*local_chart_data.forEach(function(item) {
 		if (item.symbol === symbol) {
 			if (has_key(item.data, timeframe)) {
 				local_check = true;
@@ -39,12 +39,12 @@ function research(symbol, timeframe) {
 				else if (timeframe === '1y') { set_ticker_details(item.data['1y'], symbol, timeframe, true); }
 			}
 		}
-	});
+	});*/
 	
 	if (!local_check) {
 		// fetch ticker data for selected timeframe from iex api
 		//let url = 'https://api.iextrading.com/1.0/stock/' + symbol + '/chart/' + timeframe;
-		let new_url = 'http://54.224.104.209:7810/symbol?tickers=' + symbol;
+		let new_url = 'http://54.224.104.209:7810/chart?ticker=' + symbol;
 	  
 		// set up ticker detail view with response data	
 		fetch(new_url).then(res => res.json()).then(data => set_ticker_details(data, symbol, timeframe, false));
@@ -53,13 +53,16 @@ function research(symbol, timeframe) {
 
 // update ticker detail view
 function set_ticker_details(data, ticker, timeframe, from_local) {
-	if (from_local) {
+	console.log(data);
+	
+	/*if (from_local) {
 		console.log('same session: loading local data');
 	} else {
+		// all of this may be obsolete now
 		if (timeframe === '1m') { local_chart_data.push({'symbol':ticker, 'data':{'1m':data[0]}}); }
 		else if (timeframe === '6m') { local_chart_data.push({'symbol':ticker, 'data':{'6m':data[0]}}); }
 		else if (timeframe === '1y') { local_chart_data.push({'symbol':ticker, 'data':{'1y':data[0]}}); }
-	}
+	}*/
 	
 	fill_detail_table(data, ticker);
 }
@@ -79,16 +82,17 @@ function fill_detail_table(information_object, for_symbol) {
 		'volume_traded':0
 	};
 	
-	// fill up that object with parsed data from iex
-	//let temp_change = parseFloat(information_object[information_object.length - 1].open - information_object[0].close).toFixed(2);
-	let temp_change = information_object[0].change;
+	console.log(information_object);
+	
+	// fill up that object with parsed data
+	let temp_change = parseFloat(information_object[information_object.length - 1].open - information_object[0].last).toFixed(2);
 	
 	ticker_details['change'] = temp_change.toString();
 	//ticker_details['lowest_price'] = parseFloat(information_object[0].low).toFixed(2);
 	
 	// loop through object to find highest & lowest prices, as well as volume
 	information_object.forEach(function(obj) {
-		if (obj['high'] > ticker_details['highest_price']) {
+		if (obj['last'] > ticker_details['highest_price']) {
 			ticker_details['highest_price'] = parseFloat(obj['high']).toFixed(2);
 		}
 		
@@ -96,7 +100,7 @@ function fill_detail_table(information_object, for_symbol) {
 			ticker_details['lowest_price'] = parseFloat(obj['low']).toFixed(2);
 		}
 		
-		ticker_details['volume_traded'] += obj['volume'];
+		ticker_details['volume_traded'] += parseInt(obj['volume'].replace(',', ''));
 	});
 	
 	let data_point_index = 0;
