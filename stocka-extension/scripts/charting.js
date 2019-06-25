@@ -16,17 +16,17 @@ function chart_data(data, graph_type) {
 	// for each value being charted
 	data.forEach(function(item) {
 		// push the closing price to the array of values
-		chart_values.push(item.close);
+		chart_values.push(item.last);
 		
 		// determine the day's bar color
-		if (temp_last_close < parseFloat(item.close)) {
+		if (temp_last_close < parseFloat(item.last)) {
 			bar_colors.push(bar_color_up);
 		} else {
 			bar_colors.push(bar_color_down);
 		}
 		
 		// update comparator
-		temp_last_close = parseFloat(item.close);
+		temp_last_close = parseFloat(item.last);
 	});
 	
 	if (change_chart != undefined) {

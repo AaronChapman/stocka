@@ -53,8 +53,6 @@ function research(symbol, timeframe) {
 
 // update ticker detail view
 function set_ticker_details(data, ticker, timeframe, from_local) {
-	console.log(data);
-	
 	/*if (from_local) {
 		console.log('same session: loading local data');
 	} else {
@@ -82,22 +80,29 @@ function fill_detail_table(information_object, for_symbol) {
 		'volume_traded':0
 	};
 	
-	console.log(information_object);
-	
 	// fill up that object with parsed data
 	let temp_change = parseFloat(information_object[information_object.length - 1].open - information_object[0].last).toFixed(2);
+	let temp_low = parseFloat(information_object[0].low).toFixed(2);
 	
 	ticker_details['change'] = temp_change.toString();
+	ticker_details['lowest_price'] = temp_low;
 	//ticker_details['lowest_price'] = parseFloat(information_object[0].low).toFixed(2);
+	
+	console.log(information_object);
 	
 	// loop through object to find highest & lowest prices, as well as volume
 	information_object.forEach(function(obj) {
-		if (obj['last'] > ticker_details['highest_price']) {
+		if (parseFloat(obj['last']) > ticker_details['highest_price']) {
 			ticker_details['highest_price'] = parseFloat(obj['high']).toFixed(2);
 		}
 		
-		if (obj['low'] < ticker_details['lowest_price']) {
+		console.log(parseFloat(obj['low']));
+		console.log(ticker_details['lowest_price']);
+		
+		if (parseFloat(obj['low']) < ticker_details['lowest_price']) {
 			ticker_details['lowest_price'] = parseFloat(obj['low']).toFixed(2);
+			
+			console.log('new low: ' + ticker_details['lowest_price']);
 		}
 		
 		ticker_details['volume_traded'] += parseInt(obj['volume'].replace(',', ''));
@@ -108,6 +113,8 @@ function fill_detail_table(information_object, for_symbol) {
 	// loop through the ticker details object and append table data
 	for (var datum in ticker_details) {
     if (ticker_details.hasOwnProperty(datum)) {
+	    console.log(ticker_details[datum]);
+	    
 	    $('.ticker_detail_data').find('tr').eq(data_point_index).find('td').eq(1).text(number_with_commas(ticker_details[datum]));   
     }
     
@@ -142,8 +149,9 @@ function additional_research(symbol) {
 	additional_news_articles();
 }
 
-// add market cap info
+
 function add_ticker_details(data, ticker) {
+	/*
 	let additional_ticker_details = {
 		'market_cap':data.marketCap
 	};
@@ -158,8 +166,11 @@ function add_ticker_details(data, ticker) {
     data_point_index++;
 	}
 	
-	//add_company_info(data);
+	*/
+	
+	add_company_info(data);
 }
+
 
 // pull news items for symbol
 function add_news_to_ticker_detail_view(news_data) {
