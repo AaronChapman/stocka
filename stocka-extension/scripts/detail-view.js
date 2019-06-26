@@ -47,7 +47,10 @@ function research(symbol, timeframe) {
 		let new_url = 'http://54.224.104.209:7810/chart?ticker=' + symbol;
 	  
 		// set up ticker detail view with response data	
-		fetch(new_url).then(res => res.json()).then(data => set_ticker_details(data, symbol, timeframe, false));
+		fetch(new_url).then(res => res.json()).then(data => set_ticker_details(data, symbol, timeframe, false)).catch(function() {
+        alert_user('market data not yet available for OTCMKTS');
+    });
+		
 	}
 }
 
@@ -61,6 +64,8 @@ function set_ticker_details(data, ticker, timeframe, from_local) {
 		else if (timeframe === '6m') { local_chart_data.push({'symbol':ticker, 'data':{'6m':data[0]}}); }
 		else if (timeframe === '1y') { local_chart_data.push({'symbol':ticker, 'data':{'1y':data[0]}}); }
 	}*/
+	
+	additional_research(ticker);
 	
 	fill_detail_table(data, ticker);
 }
@@ -112,11 +117,13 @@ function fill_detail_table(information_object, for_symbol) {
     data_point_index++;
 	}
 	
-	additional_research(for_symbol);
+	additional_news_articles();
+	//additional_research(for_symbol);
 	
 	if (upgraded) { chart_data(information_object, settings.market_performance_graph_type); }
 		
 	// aesthetic
+	// run a loading screen thing here
 	$('.ticker_detail').removeClass('closed').addClass('open');
 	$('.detail_view_options').addClass('open').removeClass('closed');
 	$('.ticker_detail').find('a, button, input, [role="button"]').attr('tabindex', '0');
@@ -134,15 +141,12 @@ function additional_research(symbol) {
   
   fetch(new_company_request_url).then(res => res.json()).then(data => add_company_info(data));
 	//fetch(new_company_request_url).then(res => res.json()).then(data => add_ticker_details(data, symbol));
-	
 	//fetch(news_request_url).then(res => res.json()).then(data => add_news_to_ticker_detail_view(data));
-	
-	additional_news_articles();
 }
 
-
+/*
 function add_ticker_details(data, ticker) {
-	/*
+	
 	let additional_ticker_details = {
 		'market_cap':data.marketCap
 	};
@@ -157,14 +161,15 @@ function add_ticker_details(data, ticker) {
     data_point_index++;
 	}
 	
-	*/
+	
 	
 	add_company_info(data);
 }
+*/
 
 
 // pull news items for symbol
-function add_news_to_ticker_detail_view(news_data) {
+/*function add_news_to_ticker_detail_view(news_data) {
 	$('.ticker_news').empty();
 	
 	// determine news container height	
@@ -188,13 +193,15 @@ function add_news_to_ticker_detail_view(news_data) {
 	});
 	
 	if (upgraded) { additional_news_articles(); }
-}
+}*/
 
 // for investors users, add more articles to news section
 function additional_news_articles() {
 	let the_url = 'https://cors-anywhere.herokuapp.com/http://finance.yahoo.com/rss/headline?s=' + $('.ticker_detail .ticker').attr('data-symbol');
 	
 	$.ajax({url: the_url, success: function(result) {
+		console.log(result);
+		
     add_additional_news_articles(result);
   }});
 }
@@ -219,7 +226,8 @@ function add_additional_news_articles(articles) {
 		
 		$('.ticker_news').append(headline_markup);
 			
-		if ($(this).not(':last')) {$('.ticker_news').append('<br><br>');
+		if ($(this).not(':last')) {
+			$('.ticker_news').append('<br><br>');
 		}
 
 	});

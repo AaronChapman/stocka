@@ -82,13 +82,14 @@ function setup_added_listeners() {
 	// when a symbol is clicked
 	$('.ticker_list .ticker').click(function() {
 		//alert_user('loading...');
+		alert_user('loading market data');
 		
 		// research the symbol
 		research($(this).attr('data-symbol'), '1m');
 		
 		// change the classes of the options for aesthetic
-		$('.timeframe_option').removeClass('selected');
-		$('.timeframe_option.1m').addClass('selected');
+		//$('.timeframe_option').removeClass('selected');
+		//$('.timeframe_option.1m').addClass('selected');
 	});
 	
 	// keyboard support

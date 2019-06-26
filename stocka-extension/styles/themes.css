@@ -34,8 +34,8 @@
 }
 
 .default .timeframe_label {
-	border-color: beige;
-	color: beige;
+	border-color: darkgray;
+	color: darkgray;
 }
 
 .default .notes_container {
@@ -147,8 +147,8 @@
 }
 
 .sepia .timeframe_label {
-	border-color: beige;
-	color: beige;
+	border-color: #aa9095;
+	color: #aa9095;
 }
 
 .sepia .save_notes,
@@ -271,8 +271,8 @@
 }
 
 .classic .timeframe_label {
-	border-color: beige;
-	color: beige;
+	border-color: #356276;
+	color: #356276;
 }
 
 .classic .save_notes,
@@ -409,8 +409,8 @@
 }
 
 .midnight .timeframe_label {
-	border-color: beige;
-	color: beige;
+	border-color: darkgray;
+	color: darkgray;
 }
 
 .midnight .timeframe_option.selected,
@@ -515,8 +515,8 @@
 }
 
 .tangerine .timeframe_label {
-	border-color: beige;
-	color: beige;
+	border-color: mintcream;
+	color: mintcream;
 }
 
 .tangerine .save_notes,
