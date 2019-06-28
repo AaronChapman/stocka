@@ -11,6 +11,9 @@ function setup_settings_listeners() {
 	// set current theme to clicked (or keyed) option
 	$('.theme_option_palette').unbind('click').on('click', function() {
 		current_theme = $(this).attr('data-theme-name');
+		settings.theme = current_theme;
+		
+		sync_settings();
 		
 		setup_theme(current_theme);
 	});

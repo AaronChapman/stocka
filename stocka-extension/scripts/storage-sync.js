@@ -12,11 +12,14 @@ function load_saved_data() {
 		}
 		
 		// load up theme
-		if (result.theme) {
-		  current_theme = result.theme;
+		if (result.settings.theme) {
+		  current_theme = result.settings.theme;
 		} else {
 			current_theme = 'sepia';
 		}
+		
+		setup_theme();
+		
 		// load up notes
 		if (result.notes) { notes = result.notes; }
 		

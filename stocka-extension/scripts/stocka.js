@@ -1,5 +1,7 @@
 // when the document has finished loading
 document.addEventListener("DOMContentLoaded", function(event) {
+	alert_user('loading symbol set');
+	
 	// check extension storage to see if ticker data exists and if so, update local variables
 	load_saved_data();
 	

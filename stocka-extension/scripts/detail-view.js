@@ -200,9 +200,7 @@ function additional_news_articles() {
 	let the_url = 'https://cors-anywhere.herokuapp.com/http://finance.yahoo.com/rss/headline?s=' + $('.ticker_detail .ticker').attr('data-symbol');
 	
 	$.ajax({url: the_url, success: function(result) {
-		console.log(result);
-		
-    add_additional_news_articles(result);
+		add_additional_news_articles(result);
   }});
 }
 

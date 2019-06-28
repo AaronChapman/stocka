@@ -42,6 +42,8 @@ function setup_saved_sets() {
 function setup_save_set_button_listeners() {
 	// when a saved set button is clicked
 	$('.saved_set').click(function() {
+		alert_user('loading saved set');
+		
 		// load the set and update the interface
 		load_selected_set($(this).attr('data-saved-set'));
 		
