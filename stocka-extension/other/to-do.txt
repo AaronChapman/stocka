@@ -1,16 +1,12 @@
 - pinned symbol tabs
 - more accurate reading for closed market (dst (moment.js))
-- if market is closed store local data & retrieve said data if market is closed and timestamp is after market hours
 - more clearly outlined chart labelling
 - placeholder content for loading news section
 - see if there's some way to optimize sorting option code even more
 - smoother scroll to top on container collapse
-- interface for creating themes quickly
+- interface for creating themes quickly??
 - turn off grammar checks on text input areas
-- change 'tickers' to symbols
-- new date formatting
-- OTC market data
-- FOREX
+- change 'tickers' to symbols errwherr
 
 
 // user communication
@@ -20,8 +16,3 @@
 // discovery panel
 - predefined screeners
 - search companies by name & sector
-
-// scraper
-- write script to open https://www.otcmarkets.com/research/stock-screener & click $('.util-header .dl-btn')
-- write function to download data and move it to a folder
-- write function to upload data to public storage

@@ -27,44 +27,16 @@ function setup_detail_listeners() {
 
 // individual ticker lookup
 function research(symbol, timeframe) {
-	let local_check = false;
-	
-	/*local_chart_data.forEach(function(item) {
-		if (item.symbol === symbol) {
-			if (has_key(item.data, timeframe)) {
-				local_check = true;
-			
-				if (timeframe === '1m') { set_ticker_details(item.data['1m'], symbol, timeframe, true); }
-				else if (timeframe === '6m') { set_ticker_details(item.data['6m'], symbol, timeframe, true); }
-				else if (timeframe === '1y') { set_ticker_details(item.data['1y'], symbol, timeframe, true); }
-			}
-		}
-	});*/
-	
-	if (!local_check) {
-		// fetch ticker data for selected timeframe from iex api
-		//let url = 'https://api.iextrading.com/1.0/stock/' + symbol + '/chart/' + timeframe;
-		let new_url = 'http://54.224.104.209:7810/chart?ticker=' + symbol;
-	  
-		// set up ticker detail view with response data	
-		fetch(new_url).then(res => res.json()).then(data => set_ticker_details(data, symbol, timeframe, false)).catch(function() {
-        alert_user('market data not yet available for OTCMKTS');
-    });
-		
-	}
+	let request_url = 'http://54.224.104.209:7810/chart?ticker=' + symbol;
+  
+	// set up ticker detail view with response data	
+	fetch(request_url).then(res => res.json()).then(data => set_ticker_details(data, symbol, timeframe)).catch(function() {
+      alert_user('market data not yet available for OTCMKTS');
+  });
 }
 
 // update ticker detail view
-function set_ticker_details(data, ticker, timeframe, from_local) {
-	/*if (from_local) {
-		console.log('same session: loading local data');
-	} else {
-		// all of this may be obsolete now
-		if (timeframe === '1m') { local_chart_data.push({'symbol':ticker, 'data':{'1m':data[0]}}); }
-		else if (timeframe === '6m') { local_chart_data.push({'symbol':ticker, 'data':{'6m':data[0]}}); }
-		else if (timeframe === '1y') { local_chart_data.push({'symbol':ticker, 'data':{'1y':data[0]}}); }
-	}*/
-	
+function set_ticker_details(data, ticker, timeframe) {
 	additional_research(ticker);
 	
 	fill_detail_table(data, ticker);
@@ -75,7 +47,6 @@ function fill_detail_table(information_object, for_symbol) {
 	let ticker_to_get = $('.ticker[data-symbol="' + for_symbol + '"]:last');
 	
 	$('.ticker_detail .ticker').text(ticker_to_get.attr('data-symbol') + ': $' + ticker_to_get.attr('data-latest-price')).attr({'class': ticker_to_get.attr('class'), 'tabindex':'0', 'aria-label':ticker_to_get.attr('data-symbol') + ': $' + ticker_to_get.attr('data-latest-price'), 'data-symbol':for_symbol});
-	//$('.ticker_detail_data').empty();
 	
 	// object that holds details about the ticker
 	let ticker_details = {
@@ -91,7 +62,6 @@ function fill_detail_table(information_object, for_symbol) {
 	
 	ticker_details['change'] = temp_change.toString();
 	ticker_details['lowest_price'] = temp_low;
-	//ticker_details['lowest_price'] = parseFloat(information_object[0].low).toFixed(2);
 	
 	// loop through object to find highest & lowest prices, as well as volume
 	information_object.forEach(function(obj) {
@@ -126,74 +96,19 @@ function fill_detail_table(information_object, for_symbol) {
 	// run a loading screen thing here
 	$('.ticker_detail').removeClass('closed').addClass('open');
 	$('.detail_view_options').addClass('open').removeClass('closed');
+	
 	$('.ticker_detail').find('a, button, input, [role="button"]').attr('tabindex', '0');
 	$('.close_detail_view').attr('tabindex', '0');
+	
 	$('.close_detail_view').focus();
 }
 
 // get addition information about the requested symbol
 function additional_research(symbol) {
-	//let company_request_url = 'https://api.iextrading.com/1.0/stock/' + symbol + '/company';
-	//let quote_request_url = 'https://api.iextrading.com/1.0/stock/' + symbol + '/quote';
-	//let news_request_url = 'https://api.iextrading.com/1.0/stock/' + symbol + '/news/last/50';
-	
-	let new_company_request_url = 'http://54.224.104.209:7810/symbol?tickers=' + symbol;
+	let request_url = 'http://54.224.104.209:7810/symbol?tickers=' + symbol;
   
-  fetch(new_company_request_url).then(res => res.json()).then(data => add_company_info(data));
-	//fetch(new_company_request_url).then(res => res.json()).then(data => add_ticker_details(data, symbol));
-	//fetch(news_request_url).then(res => res.json()).then(data => add_news_to_ticker_detail_view(data));
+  fetch(request_url).then(res => res.json()).then(data => add_company_info(data));
 }
-
-/*
-function add_ticker_details(data, ticker) {
-	
-	let additional_ticker_details = {
-		'market_cap':data.marketCap
-	};
-	
-	let data_point_index = 4;
-		
-	for (var datum in additional_ticker_details) {
-    if (additional_ticker_details.hasOwnProperty(datum)) { 
-			$('.ticker_detail_data').find('tr').eq(data_point_index).find('td').eq(1).text(number_with_commas(additional_ticker_details[datum]));     
-    }
-    
-    data_point_index++;
-	}
-	
-	
-	
-	add_company_info(data);
-}
-*/
-
-
-// pull news items for symbol
-/*function add_news_to_ticker_detail_view(news_data) {
-	$('.ticker_news').empty();
-	
-	// determine news container height	
-	if (news_data.length === 1) {
-		$('.ticker_detail').removeClass('new_items_0 new_items_2').addClass('new_items_1');
-	} else if (news_data.length === 0) {
-		$('.ticker_detail').removeClass('new_items_1 new_items_2').addClass('new_items_0');
-	} else {
-		$('.ticker_detail').removeClass('new_items_0 new_items_1').addClass('new_items_2');
-	}
-	
-	// append each formatted item returned from iex
-	news_data.forEach(function(news_item) {
-		let headline_markup = '<span>' + news_item.datetime.substring(0, news_item.datetime.indexOf('T')) + ':<br></span><a target="_blank" href="' + news_item.url + '">' + news_item.headline + '</a>';
-		
-			$('.ticker_news').append(headline_markup);
-			
-			if (news_data.indexOf(news_item) != news_data.length -1) {
-				$('.ticker_news').append('<br><br>');
-			}
-	});
-	
-	if (upgraded) { additional_news_articles(); }
-}*/
 
 // for investors users, add more articles to news section
 function additional_news_articles() {
@@ -250,9 +165,4 @@ function add_company_info(company_data) {
 	}
 	
 	$('.name_and_exchange').html(company_link_markup);
-}
-
-// determine if an object has a given key
-function has_key(object, key) {
-  return object ? hasOwnProperty.call(object, key) : false;
 }

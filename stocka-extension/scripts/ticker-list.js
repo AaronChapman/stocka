@@ -81,7 +81,6 @@ function setup_added_listeners() {
 	
 	// when a symbol is clicked
 	$('.ticker_list .ticker').click(function() {
-		//alert_user('loading...');
 		alert_user('loading market data');
 		
 		// research the symbol
@@ -150,7 +149,7 @@ function validate_ticker_input(ticker_input) {
 	// uppercase user input and remove invalid characters
 	ticker_input = ticker_input.toUpperCase().replace(/[^A-Z,+$]/g, '');
 		
-	// and verify that there is still valid conent to be sent off to the iex api
+	// and verify that there is still valid conent
 	if (ticker_input.length > 0) {
 		// basically format the new list
 		ticker_input = ticker_input.split(',');
@@ -184,9 +183,10 @@ function set_content(data) {
 	// for each item defined in the tickers array
 	data.forEach(function(symbol) {
 		// get & store the data requested from iex
-		let latest_price = parseFloat(symbol.price).toFixed(2);
+		let latest_price = parseFloat(symbol.price.replace(/\,/g, '')).toFixed(2);
 		let change = parseFloat(symbol.change).toFixed(2);
-		let change_percent = parseFloat(symbol.percentageChange).toFixed(2);
+		let change_percent = parseFloat(symbol.percentChange).toFixed(2);
+		
 		// and create a ticker container element with data attributes
 		let markup = '<div class="ticker_container">';
 		markup += '<ul class="ticker_elements" role="presentation"><li class="ticker_symbol">';
@@ -211,45 +211,6 @@ function set_content(data) {
 		if (change.indexOf('-') != -1) { $('.ticker_list .ticker:last').addClass('down'); }
 		else if (change == '0') { $('.ticker_list .ticker:last').addClass('no_change'); }
 		else { $('.ticker_list .ticker:last').addClass('up'); }
-		
-		/*if (data[ticker]) {
-			// get & store the data requested from iex
-			let latest_price = parseFloat(data[ticker].price).toFixed(2);
-			let change = parseFloat(data[ticker].change).toFixed(2);
-			let change_percent = parseFloat(data[ticker].percentageChange).toFixed(2);
-			// and create a ticker container element with data attributes
-			let markup = '<div class="ticker_container">';
-			markup += '<ul class="ticker_elements" role="presentation"><li class="ticker_symbol">';
-			markup += '<span class="ticker" ';
-			markup += 'data-displayed="price" ';
-			markup += 'data-symbol="' + ticker + '" ';
-			markup += 'data-latest-price="' + latest_price + '" ';
-			markup += 'data-change="' + change + '" ';
-			markup += 'data-change-percent="' + change_percent + '" ';
-			markup += 'tabindex="0" role="button" aria-label="' + ticker + ': $' + latest_price + ', view more market data">' + ticker + ': ' + latest_price + '</span></li>'
-			markup += '<li class="ticker_removal"><button class="remove_ticker" aria-label="remove ' + ticker + ' from this set">✕</button></li></div>';
-			
-			// push the information to the ticker list data arrays
-			prices.push({'ticker':ticker, 'array_value':latest_price});
-			changes.push({'ticker':ticker, 'array_value':change});
-			percentages.push({'ticker':ticker, 'array_value':change_percent});
-					
-			// and append the new ticker to the document
-			$('.ticker_list').append(markup);
-						
-			// determine styling for the newly added ticker based on day change
-			if (change.indexOf('-') != -1) { $('.ticker_list .ticker:last').addClass('down'); }
-			else if (change == '0') { $('.ticker_list .ticker:last').addClass('no_change'); }
-			else { $('.ticker_list .ticker:last').addClass('up'); }
-		} else {
-			// if the ticker being added did not receive a valid response from iex
-			console.log(ticker, ' is not a valid ticker');
-			
-			// find the index of the invalid ticker in the newly formed array and snatch that shit outta there
-			let index = tickers.indexOf(ticker);
-			
-			if (index !== -1) tickers.splice(index, 1);
-		}*/
 	});
 	
 	// put forth the ticker data that is to be displayed
@@ -290,12 +251,10 @@ function set_ticker_display_data(detail_hover, symbol_hovered) {
 
 // get ticker data from the iex api for every symbol in the local tickers array
 function stock_up() {
-	// currently asking for symbol, price change (day), latest share price, and percentage change (day)
-	let url = 'https://api.iextrading.com/1.0/stock/market/batch?types=quote&symbols=' + tickers.join(',');
-	let new_url = 'http://54.224.104.209:7810/symbol?tickers=' + tickers.join(',');
+	let request_url = 'http://54.224.104.209:7810/symbol?tickers=' + tickers.join(',');
   
-  // make the api request and start setting up ticker elements in the DOM
+  // make the request and start setting up ticker elements in the DOM
   if (tickers.length > 0) {
-	  fetch(new_url).then(res => res.json()).then(data => set_content(data));
+	  fetch(request_url).then(res => res.json()).then(data => set_content(data));
 	}
 }

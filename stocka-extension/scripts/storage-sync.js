@@ -12,7 +12,7 @@ function load_saved_data() {
 		}
 		
 		// load up theme
-		if (result.settings.theme) {
+		if (result.settings && result.settings.theme) {
 		  current_theme = result.settings.theme;
 		} else {
 			current_theme = 'sepia';
@@ -28,7 +28,7 @@ function load_saved_data() {
 			settings = result.settings; 
 			
 			//console.log(settings);
-			if (result.settings.sort_type) {
+			if (result.settings && result.settings.sort_type) {
 				//console.log('SETTING SAVED SORT FROM DATA');
 				set_saved_sort(settings.sort_type.option_type, settings.sort_type.option_direction); 
 				
@@ -65,4 +65,9 @@ function sync_settings() {
 	chrome.storage.sync.set({'settings':settings}, function() {		
 		console.log('💾 saved settings');
 	});
+}
+
+// determine if an object has a given key
+function has_key(object, key) {
+  return object ? hasOwnProperty.call(object, key) : false;
 }

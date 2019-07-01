@@ -21,12 +21,12 @@ let market_open_hour_utc = 13;
 let market_open_minute_utc = 30;
 let market_close_hour_utc = 20;
 
-// to help prevent spammy users from getting their ip addresses blocked by iex
-// if another research request is made for the same symbol in the same session, the data will be pulled from a local copy
-let local_chart_data = [];
+// chart data
 let current_chart_data = [];
-let change_chart;
+let share_price_chart;
 
+// settings
 let settings = {'theme':'sepia', 'market_performance_graph_type':'bar', 'sort_type':{'option_type':'symbol', 'option_direction':'ascending'}};
 
+// user type
 let upgraded = false;

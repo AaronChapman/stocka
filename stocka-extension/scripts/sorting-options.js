@@ -48,11 +48,6 @@ function sorting_option_number(array_to_use, option_clicked) {
 
 	sort_option_chosen(option_clicked);
 	sort_update_interface(option_clicked);
-			
-	tickers = temporary_tickers;
-	
-	// and stock up
-	stock_up();
 }
 
 function setup_sorting_listeners() {
@@ -60,74 +55,53 @@ function setup_sorting_listeners() {
 	
 	// sort ticker list by symbol
 	$('.sorting_option_symbol').click(function() {
+		sorting_option_clicked($(this), 'alphabetic', 'symbol', [], '');
+	});
+	
+	
+	
+	function sorting_option_clicked(option_clicked, sort_type, data_displayed, data_array, attr_displayed) {
 		$('.ticker_list').css('opacity', '0');
-		
-		var option_clicked = $(this);
 		
 		setTimeout(function() {			
 			temporary_tickers = tickers.sort();
 			
-			sort_option_chosen(option_clicked);
-			sort_update_interface(option_clicked);
+			$('.ticker_list').attr('data-displayed', data_displayed);
 			
-			$('.ticker_list').attr('data-displayed', 'symbol');
+			if (sort_type === "alphabetic") {
+				sort_option_chosen(option_clicked);
+				sort_update_interface(option_clicked);
+			} else if (sort_type === "numeric") {
+				sorting_option_number(data_array, option_clicked);
+			}
 			
-			// update local array and ticker list container
+			if (attr_displayed.length) {
+				$('.ticker_list .ticker').each(function() {
+					$(this).text($(this).attr('data-symbol') + ': ' + $(this).attr(attr_displayed));
+					
+					if (data_displayed === "percent") { $(this).text($(this).text() + ' %'); }
+				});
+			}
+			
 			tickers = temporary_tickers;
 			
 			stock_up();
 		}, 500);
-	});
+	}
 	
 	// sort ticker list by price
 	$('.sorting_option_price').click(function() {
-		$('.ticker_list').css('opacity', '0');
-		
-		var option_clicked = $(this);
-		
-		setTimeout(function() {	
-			sorting_option_number(prices, option_clicked);
-			
-			$('.ticker_list').attr('data-displayed', 'price');
-			
-			$('.ticker_list .ticker').each(function() {
-				$(this).text(option_clicked.attr('data-symbol') + ': ' + option_clicked.attr('data-latest-price'));
-			});
-		}, 500);
+		sorting_option_clicked($(this), 'numeric', 'price', prices, 'data-latest-price');
 	});
 	
 	
 	// sort ticker list by price
 	$('.sorting_option_change').click(function() {
-		$('.ticker_list').css('opacity', '0');
-		
-		var option_clicked = $(this);
-		
-		setTimeout(function() {	
-			sorting_option_number(changes, option_clicked);
-			
-			$('.ticker_list').attr('data-displayed', 'change');
-			
-			$('.ticker_list .ticker').each(function() {
-				$(this).text($(this).attr('data-symbol') + ': ' + $(this).attr('data-change'));
-			});
-		}, 500);
+		sorting_option_clicked($(this), 'numeric', 'change', changes, 'data-change');
 	});
 	
 	// sort ticker list by price
 	$('.sorting_option_percent').click(function() {
-		$('.ticker_list').css('opacity', '0');
-		
-		var option_clicked = $(this);
-		
-		setTimeout(function() {	
-			sorting_option_number(percentages, option_clicked);
-			
-			$('.ticker_list').attr('data-displayed', 'percent');
-			
-			$('.ticker_list .ticker').each(function() {
-				$(this).text($(this).attr('data-symbol') + ': ' + $(this).attr('data-change-percent') + '%');
-			});
-		}, 500);
+		sorting_option_clicked($(this), 'numeric', 'percent', percentages, 'data-change-percent');
 	});
 }

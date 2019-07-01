@@ -3,7 +3,7 @@ function chart_data(data, graph_type) {
 	current_chart_data = data;
 	
 	// get a reference to the html5 canvas
-	let chart_container = $('#change_chart');
+	let chart_container = $('#share_price_chart');
 	// create storage for the chart's values and styles
 	let chart_values = [];
 	let bar_colors = [];
@@ -29,13 +29,13 @@ function chart_data(data, graph_type) {
 		temp_last_close = parseFloat(item.last);
 	});
 	
-	if (change_chart != undefined) {
-		change_chart.destroy();
+	if (share_price_chart != undefined) {
+		share_price_chart.destroy();
 	}
 	
 	if (graph_type === 'bar') {
 		// create chart in the canvas with the appropriate attribute values
-		change_chart = new Chart(chart_container, {
+		share_price_chart = new Chart(chart_container, {
 	    type: 'bar',
 	    data: {
 		    labels: chart_values,
@@ -68,7 +68,7 @@ function chart_data(data, graph_type) {
 			graph_point_color = bar_color_down;
 		}
 		
-		change_chart = new Chart(chart_container, {
+		share_price_chart = new Chart(chart_container, {
 	    type: 'line',
 	    data: {
 		    labels: chart_values,
