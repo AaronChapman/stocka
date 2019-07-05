@@ -231,12 +231,13 @@ input:hover, button:hover, a:hover, .ticker:hover {
 /* :: containers :: */
 
 .add_tickers_area {
-  transition: all 0.25s ease-in-out !important;
+  transition: height 0.25s ease-in-out !important;
 	height: 0px;
   overflow: hidden;
 }
 
 .add_tickers_area.open {
+  transition: height 0.25s ease-in-out !important;
 	height: 75px;
   padding-top: 7px;
 }
@@ -261,9 +262,8 @@ input:hover, button:hover, a:hover, .ticker:hover {
 
 .closed {
 	height: 0;
+  transition: height 0.25s ease-in-out;
 }
-
-
 
 .ticker_detail {
 	height: 0px;
@@ -276,28 +276,23 @@ input:hover, button:hover, a:hover, .ticker:hover {
 }
 
 .ticker_detail.open {
-	height: 345px;
-	max-height: 345px;
+	height: 305px;
+	max-height: 305px;
 	padding-top: 5px;
   border-bottom: 2px solid darkgray;
+  transition: height 1s ease-in-out !important;
 }
 
 .ticker_detail.closed {
 	height: 0px !important;
+  transition: height 1s ease-in-out !important;
 }
 
-.ticker_detail.new_items_0 { height: 225px; }
-.upgraded .ticker_detail.new_items_0 { height: 395px; }
-
-.ticker_detail.new_items_1 { height: 275px; }
-.upgraded .ticker_detail.new_items_1 { height: 445px; }
-
-.ticker_detail.new_items_2 { height: 325px; }
-.upgraded .ticker_detail.new_items_2 { height: 495px; }
-
-/*.ticker_detail.new_items_0 .ticker_news { height: 0px; }*/
-.ticker_detail.new_items_1 .ticker_news { height: 50px; }
-.ticker_detail.new_items_2 .ticker_news { height: 110px; }
+.upgraded .ticker_detail.open { 
+	height: 495px;
+	max-height: 495px; 
+  transition: height 1s ease-in-out !important;
+}
 
 .timeframe_options {
 	display: inline-flex;
@@ -345,6 +340,10 @@ input:hover, button:hover, a:hover, .ticker:hover {
   border-top: 2px solid lightgray;
   overflow: scroll;
   margin: 0 0 -20px -5px;
+}
+
+.ticker_detail.open .ticker_news {
+	height: 100px;
 }
 
 .open_notes {
@@ -499,6 +498,9 @@ input:hover, button:hover, a:hover, .ticker:hover {
 
 .loading_message {
 	margin: auto;
+	text-align: center;
+  font-size: 16px;
+  opacity: 0.5;
 }
 
 .market_closed_message {
@@ -542,13 +544,19 @@ input:hover, button:hover, a:hover, .ticker:hover {
 }
 
 .upgrade_button {
-  border-radius: 5px;
+  border-radius: 3px;
   border: 2px solid white;
   width: 125px;
-  margin: -75px 25px 0 auto;
+  margin: 0;
   background: #627465;
   color: white;
   text-shadow: none;
+  opacity: 0.75 !important;
+}
+
+.upgrade_button:hover,
+.upgrade_button:focus {
+  opacity: 1.0 !important;
 }
 
 .upgrade_button.visible {
@@ -581,7 +589,7 @@ input:hover, button:hover, a:hover, .ticker:hover {
 
 .upgrade_information.visible {
   height: 175px;
-  padding: 15px 25px 5px 25px;
+  padding: 15px 25px 10px 25px;
   border-bottom: 2px solid darkgray;
   box-shadow: 0 3px 5px rgba(00, 00, 00, 0.25);
 }

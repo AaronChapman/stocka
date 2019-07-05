@@ -51,7 +51,7 @@ function sync_symbol_set() {
 
 function sync_saved_sets() {
 	chrome.storage.sync.set({'saved_sets':saved_sets}, function() {
-		alert_user('updated saved symbol sets');
+		alert_user('updated saved sets');
 	});
 }
 

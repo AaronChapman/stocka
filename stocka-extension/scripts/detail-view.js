@@ -125,15 +125,6 @@ function add_additional_news_articles(articles) {
 	
 	var number_of_news_items = $(articles).find('item');
 	
-	// determine news container height	
-	if (number_of_news_items === 1) {
-		$('.ticker_detail').removeClass('new_items_0 new_items_2').addClass('new_items_1');
-	} else if (number_of_news_items === 0) {
-		$('.ticker_detail').removeClass('new_items_1 new_items_2').addClass('new_items_0');
-	} else {
-		$('.ticker_detail').removeClass('new_items_0 new_items_1').addClass('new_items_2');
-	}
-	
 	$(articles).find('item').each(function() {
 		let headline_markup = '<span>' + parse_yahoo_date($(this).find('pubDate').text().trim()) + ':<br></span><a target="_blank" href="' + $(this).find('link').text().trim() + '">' + $(this).find('title').text().trim() + '</a>';
 		

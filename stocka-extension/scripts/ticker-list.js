@@ -119,6 +119,8 @@ function add_tickers() {
 		// validate user input
 		validate_ticker_input($('.tickers_to_add').val().trim());
 		
+		alert_user('loading data... please wait');
+		
 		// and update the ticker list
 		stock_up();
 	}

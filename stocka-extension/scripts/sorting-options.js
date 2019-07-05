@@ -58,9 +58,23 @@ function setup_sorting_listeners() {
 		sorting_option_clicked($(this), 'alphabetic', 'symbol', [], '');
 	});
 	
+	// sort ticker list by price
+	$('.sorting_option_price').click(function() {
+		sorting_option_clicked($(this), 'numeric', 'price', prices, 'data-latest-price');
+	});
 	
+	// sort ticker list by price
+	$('.sorting_option_change').click(function() {
+		sorting_option_clicked($(this), 'numeric', 'change', changes, 'data-change');
+	});
 	
-	function sorting_option_clicked(option_clicked, sort_type, data_displayed, data_array, attr_displayed) {
+	// sort ticker list by price
+	$('.sorting_option_percent').click(function() {
+		sorting_option_clicked($(this), 'numeric', 'percent', percentages, 'data-change-percent');
+	});
+}
+
+function sorting_option_clicked(option_clicked, sort_type, data_displayed, data_array, attr_displayed) {
 		$('.ticker_list').css('opacity', '0');
 		
 		setTimeout(function() {			
@@ -88,20 +102,3 @@ function setup_sorting_listeners() {
 			stock_up();
 		}, 500);
 	}
-	
-	// sort ticker list by price
-	$('.sorting_option_price').click(function() {
-		sorting_option_clicked($(this), 'numeric', 'price', prices, 'data-latest-price');
-	});
-	
-	
-	// sort ticker list by price
-	$('.sorting_option_change').click(function() {
-		sorting_option_clicked($(this), 'numeric', 'change', changes, 'data-change');
-	});
-	
-	// sort ticker list by price
-	$('.sorting_option_percent').click(function() {
-		sorting_option_clicked($(this), 'numeric', 'percent', percentages, 'data-change-percent');
-	});
-}
