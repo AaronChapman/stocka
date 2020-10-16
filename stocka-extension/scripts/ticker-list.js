@@ -183,28 +183,28 @@ function set_content(data) {
 	percentages = [];
 	
 	// for each item defined in the tickers array
-	data.forEach(function(symbol) {
-		// get & store the data requested from iex
-		let latest_price = parseFloat(symbol.price.replace(/\,/g, '')).toFixed(2);
-		let change = parseFloat(symbol.change).toFixed(2);
-		let change_percent = parseFloat(symbol.percentChange).toFixed(2);
+    Object.entries(data).forEach(function(symbol) {
+        // get & store the data requested from iex
+		let latest_price = parseFloat(symbol[1].quote.latestPrice).toFixed(2);
+		let change = parseFloat(symbol[1].quote.change).toFixed(2);
+		let change_percent = parseFloat(symbol[1].quote.changePercent).toFixed(2);
 		
 		// and create a ticker container element with data attributes
 		let markup = '<div class="ticker_container">';
 		markup += '<ul class="ticker_elements" role="presentation"><li class="ticker_symbol">';
 		markup += '<span class="ticker" ';
 		markup += 'data-displayed="price" ';
-		markup += 'data-symbol="' + symbol.ticker + '" ';
+		markup += 'data-symbol="' + symbol[0] + '" ';
 		markup += 'data-latest-price="' + latest_price + '" ';
 		markup += 'data-change="' + change + '" ';
 		markup += 'data-change-percent="' + change_percent + '" ';
-		markup += 'tabindex="0" role="button" aria-label="' + symbol.ticker + ': $' + latest_price + ', view more market data">' + symbol.ticker + ': ' + latest_price + '</span></li>'
-		markup += '<li class="ticker_removal"><button class="remove_ticker" aria-label="remove ' + symbol.ticker + ' from this set">✕</button></li></div>';
+		markup += 'tabindex="0" role="button" aria-label="' + symbol[0] + ': $' + latest_price + ', view more market data">' + symbol[0] + ': ' + latest_price + '</span></li>'
+		markup += '<li class="ticker_removal"><button class="remove_ticker" aria-label="remove ' + symbol[0] + ' from this set">✕</button></li></div>';
 		
 		// push the information to the ticker list data arrays
-		prices.push({'ticker':symbol.ticker, 'array_value':latest_price});
-		changes.push({'ticker':symbol.ticker, 'array_value':change});
-		percentages.push({'ticker':symbol.ticker, 'array_value':change_percent});
+		prices.push({'ticker':symbol[0], 'array_value':latest_price});
+		changes.push({'ticker':symbol[0], 'array_value':change});
+		percentages.push({'ticker':symbol[0], 'array_value':change_percent});
 				
 		// and append the new ticker to the document
 		$('.ticker_list').append(markup);
@@ -253,7 +253,7 @@ function set_ticker_display_data(detail_hover, symbol_hovered) {
 
 // get ticker data from the iex api for every symbol in the local tickers array
 function stock_up() {
-	let request_url = 'http://54.224.104.209:7810/symbol?tickers=' + tickers.join(',');
+    let request_url = 'https://cloud.iexapis.com/stable/stock/market/batch?symbols=' + tickers.join(',') + '&types=quote,news,chart&range=1m&last=5&token=pk_e7f9b64921c940fc9130bbb040277c37';
   
   // make the request and start setting up ticker elements in the DOM
   if (tickers.length > 0) {

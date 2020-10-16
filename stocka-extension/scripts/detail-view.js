@@ -27,7 +27,7 @@ function setup_detail_listeners() {
 
 // individual ticker lookup
 function research(symbol, timeframe) {
-	let request_url = 'http://54.224.104.209:7810/chart?ticker=' + symbol;
+    let request_url = 'https://cloud.iexapis.com/stable/stock/' + symbol + '/batch?types=quote,news,chart&range=' + timeframe + '&token=pk_e7f9b64921c940fc9130bbb040277c37';
   
 	// set up ticker detail view with response data	
 	fetch(request_url).then(res => res.json()).then(data => set_ticker_details(data, symbol, timeframe)).catch(function() {
@@ -37,13 +37,11 @@ function research(symbol, timeframe) {
 
 // update ticker detail view
 function set_ticker_details(data, ticker, timeframe) {
-	additional_research(ticker);
-	
 	fill_detail_table(data, ticker);
 }
 
 function fill_detail_table(information_object, for_symbol) {
-	// update ticker being displayed in detail view and empty the data table
+    // update ticker being displayed in detail view and empty the data table
 	let ticker_to_get = $('.ticker[data-symbol="' + for_symbol + '"]:last');
 	
 	$('.ticker_detail .ticker').text(ticker_to_get.attr('data-symbol') + ': $' + ticker_to_get.attr('data-latest-price')).attr({'class': ticker_to_get.attr('class'), 'tabindex':'0', 'aria-label':ticker_to_get.attr('data-symbol') + ': $' + ticker_to_get.attr('data-latest-price'), 'data-symbol':for_symbol});
@@ -55,41 +53,45 @@ function fill_detail_table(information_object, for_symbol) {
 		'lowest_price':0.00,
 		'volume_traded':0
 	};
-	
+
 	// fill up that object with parsed data
-	let temp_change = parseFloat(information_object[information_object.length - 1].open - information_object[0].last).toFixed(2);
-	let temp_low = parseFloat(information_object[0].low).toFixed(2);
+	let temp_change = parseFloat(information_object.quote.change).toFixed(2);
+	let temp_low = parseFloat(information_object.quote.low).toFixed(2);
 	
 	ticker_details['change'] = temp_change.toString();
 	ticker_details['lowest_price'] = temp_low;
 	
 	// loop through object to find highest & lowest prices, as well as volume
-	information_object.forEach(function(obj) {
-		if (parseFloat(obj['last']) > ticker_details['highest_price']) {
-			ticker_details['highest_price'] = parseFloat(obj['high']).toFixed(2);
+	information_object.chart.forEach(function(item) {
+		if (parseFloat(item.high) > parseFloat(ticker_details['highest_price'])) {
+			ticker_details['highest_price'] = parseFloat(item.high).toFixed(2);
 		}
-		
-		if (parseFloat(obj['low']) < ticker_details['lowest_price']) {
-			ticker_details['lowest_price'] = parseFloat(obj['low']).toFixed(2);
+        
+		if (parseFloat(item.low) < parseFloat(ticker_details['lowest_price'])) {
+			ticker_details['lowest_price'] = parseFloat(item.low).toFixed(2);
 		}
+
+		ticker_details['volume_traded'] = parseInt(ticker_details['volume_traded']) + information_object.quote.volume;
 		
-		ticker_details['volume_traded'] += parseInt(obj['volume'].replace(',', ''));
+        console.log('GOING');
 	});
 	
+    console.log('TEST');
 	let data_point_index = 0;
 		
 	// loop through the ticker details object and append table data
 	for (var datum in ticker_details) {
-    if (ticker_details.hasOwnProperty(datum)) {
-	    $('.ticker_detail_data').find('tr').eq(data_point_index).find('td').eq(1).text(number_with_commas(ticker_details[datum]));   
-    }
+        if (ticker_details.hasOwnProperty(datum)) {
+            $('.ticker_detail_data').find('tr').eq(data_point_index).find('td').eq(1).text(number_with_commas(ticker_details[datum]));   
+        }
     
-    data_point_index++;
+        data_point_index++;
 	}
 	
 	additional_news_articles();
 	//additional_research(for_symbol);
 	
+    console.log('TEST');
 	if (upgraded) { chart_data(information_object, settings.market_performance_graph_type); }
 		
 	// aesthetic
@@ -101,13 +103,7 @@ function fill_detail_table(information_object, for_symbol) {
 	$('.close_detail_view').attr('tabindex', '0');
 	
 	$('.close_detail_view').focus();
-}
-
-// get addition information about the requested symbol
-function additional_research(symbol) {
-	let request_url = 'http://54.224.104.209:7810/symbol?tickers=' + symbol;
-  
-  fetch(request_url).then(res => res.json()).then(data => add_company_info(data));
+    console.log('TEST');
 }
 
 // for investors users, add more articles to news section
