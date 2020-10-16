@@ -60,6 +60,7 @@ function setup_settings_states() {
 function open_settings() {
 	$('.open_settings').css('opacity', '0');
 	$('.settings_container').addClass('open').removeClass('closed');
+	$('body').addClass('settings');
 	$('.settings_container').find('a, button, input, [role="button"]').attr('tabindex', '0');
 	
 	$('.settings_container').find('button, [role="button"]').first().focus();
@@ -72,6 +73,7 @@ function save_settings() {
 	alert_user('saved settings');
 	
 	$('.settings_container').addClass('closed').removeClass('open');
+	$('body').removeClass('settings');
 	$('.settings_container').find('a, button, input, [role="button"]').attr('tabindex', '-1');
 	$('.open_settings').css('opacity', '1');
 

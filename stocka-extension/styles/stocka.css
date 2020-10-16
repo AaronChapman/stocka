@@ -55,6 +55,11 @@ body {
   height: fit-content;
   overflow-y: scroll;
   background: snow;
+	transition: heigh 1s ease-in-out;
+}
+
+body.upgraded.settings {
+    min-height: 300px;
 }
 
 button {

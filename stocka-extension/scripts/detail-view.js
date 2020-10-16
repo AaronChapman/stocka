@@ -27,8 +27,8 @@ function setup_detail_listeners() {
 
 // individual ticker lookup
 function research(symbol, timeframe) {
-    let request_url = 'https://cloud.iexapis.com/stable/stock/' + symbol + '/batch?types=quote,news,chart&range=' + timeframe + '&token=pk_e7f9b64921c940fc9130bbb040277c37';
-    let second_request_url = 'https://cloud.iexapis.com/stable/stock/' + symbol + '/company?token=pk_e7f9b64921c940fc9130bbb040277c37'
+	let request_url = 'https://cloud.iexapis.com/stable/stock/' + symbol + '/batch?types=quote,news,chart&range=' + timeframe + '&token=pk_e7f9b64921c940fc9130bbb040277c37';
+	let second_request_url = 'https://cloud.iexapis.com/stable/stock/' + symbol + '/company?token=pk_e7f9b64921c940fc9130bbb040277c37'
   
 	// set up ticker detail view with response data	
 	fetch(request_url).then(res => res.json()).then(data => set_ticker_details(data, symbol, timeframe)).catch(function() {
@@ -72,9 +72,7 @@ function fill_detail_table(information_object, for_symbol) {
 		if (item.high > parseFloat(ticker_details['highest_price'])) {
 			ticker_details['highest_price'] = item.high.toFixed(2);
 		}
-        
-			console.log(item.low);console.log(parseFloat(ticker_details['lowest_price']));
-		if (item.low < parseFloat(ticker_details['lowest_price'])) {
+  		if (item.low < parseFloat(ticker_details['lowest_price'])) {
 			ticker_details['lowest_price'] = item.low.toFixed(2);
 		} else {
 				ticker_details['lowest_price'] = information_object.chart[0].close.toFixed(2);
