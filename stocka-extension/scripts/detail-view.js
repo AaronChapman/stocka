@@ -28,10 +28,15 @@ function setup_detail_listeners() {
 // individual ticker lookup
 function research(symbol, timeframe) {
     let request_url = 'https://cloud.iexapis.com/stable/stock/' + symbol + '/batch?types=quote,news,chart&range=' + timeframe + '&token=pk_e7f9b64921c940fc9130bbb040277c37';
+    let second_request_url = 'https://cloud.iexapis.com/stable/stock/' + symbol + '/company?token=pk_e7f9b64921c940fc9130bbb040277c37'
   
 	// set up ticker detail view with response data	
 	fetch(request_url).then(res => res.json()).then(data => set_ticker_details(data, symbol, timeframe)).catch(function() {
       alert_user('market data not yet available for OTCMKTS');
+  });
+    
+    fetch(second_request_url).then(res => res.json()).then(data => add_company_info(data)).catch(function() {
+      console.log('~');
   });
 }
 
@@ -138,10 +143,10 @@ function parse_yahoo_date(full_date) {
 function add_company_info(company_data) {
 	let company_link_markup = '';
 	
-	if (company_data[0].website.length > 1) {
-		company_link_markup = '<a href="' + company_data[0].website + '" target="_blank">' + company_data[0].name +'</a><br>' + company_data[0].market;
+	if (company_data.website.length > 1) {
+		company_link_markup = '<a href="' + company_data.website + '" target="_blank">' + company_data.companyName +'</a><br>' + company_data.exchange;
 	} else {
-		company_link_markup = company_data[0].name + '<br>' + company_data[0].market;
+		company_link_markup = company_data.companyName + '<br>' + company_data.exchange;
 	}
 	
 	$('.name_and_exchange').html(company_link_markup);

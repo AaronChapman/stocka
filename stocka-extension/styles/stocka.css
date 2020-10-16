@@ -42,7 +42,7 @@ html {
 
 hr {
 	border: 0.5px solid black;
-  height: 1px;
+  height: 0;
 }
 
 .settings_container hr {
@@ -51,7 +51,7 @@ hr {
 
 body {
   width: fit-content;
-  height: auto;
+  height: fit-content;
   overflow-y: scroll;
   background: snow;
 }
@@ -612,7 +612,7 @@ input:hover, button:hover, a:hover, .ticker:hover {
   margin: 0;
   padding: 25px;
   padding-top: 5px;
-  transition: all 0.25s ease-in-out;
+  transition: all 0.4s ease-in-out;
   overflow: hidden;
   z-index: 4;
   background: snow;
@@ -623,6 +623,7 @@ input:hover, button:hover, a:hover, .ticker:hover {
   padding-top: 5px;
   border-bottom: 2px solid darkgray;
   height: 230px;
+    transition: all 0.4s ease-in-out !important;
 }
 
 .saved_sets_container.closed {
@@ -630,6 +631,7 @@ input:hover, button:hover, a:hover, .ticker:hover {
 	margin: 0;
 	padding: 0 25px;
 	border: none;
+    transition: all 0.4s ease-in-out !important;
 }
 
 .list_of_saved_sets {
