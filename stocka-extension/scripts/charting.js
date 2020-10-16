@@ -13,7 +13,6 @@ function chart_data(data, graph_type) {
 	// temporary value to determine directional gain
 	let temp_last_close = 0;
 		
-    console.log(data);
 	// for each value being charted
 	data.chart.forEach(function(item) {
 		// push the closing price to the array of values

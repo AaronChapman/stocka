@@ -60,24 +60,30 @@ function fill_detail_table(information_object, for_symbol) {
 	};
 
 	// fill up that object with parsed data
-	let temp_change = parseFloat(information_object.quote.change).toFixed(2);
-	let temp_low = parseFloat(information_object.quote.low).toFixed(2);
+	let temp_change_a = information_object.chart[0].close.toFixed(2);
+	let temp_change_b = information_object.chart[information_object.chart.length - 1].close.toFixed(2);
+	let temp_change_c = 0;
 	
-	ticker_details['change'] = temp_change.toString();
-	ticker_details['lowest_price'] = temp_low;
+		if (temp_change_a > temp_change_b) { temp_change_c = ((temp_change_a - temp_change_b) * -1).toFixed(2); }
+		else { temp_change_c = Math.abs((temp_change_b - temp_change_a).toFixed(2)); }
 	
 	// loop through object to find highest & lowest prices, as well as volume
 	information_object.chart.forEach(function(item) {
-		if (parseFloat(item.high) > parseFloat(ticker_details['highest_price'])) {
-			ticker_details['highest_price'] = parseFloat(item.high).toFixed(2);
+		if (item.high > parseFloat(ticker_details['highest_price'])) {
+			ticker_details['highest_price'] = item.high.toFixed(2);
 		}
         
-		if (parseFloat(item.low) < parseFloat(ticker_details['lowest_price'])) {
-			ticker_details['lowest_price'] = parseFloat(item.low).toFixed(2);
+			console.log(item.low);console.log(parseFloat(ticker_details['lowest_price']));
+		if (item.low < parseFloat(ticker_details['lowest_price'])) {
+			ticker_details['lowest_price'] = item.low.toFixed(2);
+		} else {
+				ticker_details['lowest_price'] = information_object.chart[0].close.toFixed(2);
 		}
 
 		ticker_details['volume_traded'] = parseInt(ticker_details['volume_traded']) + information_object.quote.volume;
 	});
+		
+	ticker_details['change'] = temp_change_c;
 	
 	let data_point_index = 0;
 		
@@ -126,7 +132,7 @@ function add_additional_news_articles(articles) {
 		$('.ticker_news').append(headline_markup + '<br><br>');
 	});
     
-    $('.ticker_news').find('br').last().remove();
+    //$('.ticker_news').find('br').last().remove();
 }
 
 // make date format prettier
