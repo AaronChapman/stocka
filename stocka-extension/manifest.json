@@ -5,6 +5,6 @@
 	"version": "3.5",
 	"author": "oylo",
 	"browser_action": {"default_popup": "stocka.html"},
-	"permissions": ["activeTab", "storage"],
+	"permissions": ["storage"],
 	"icons": {"16": "icon16.png", "48": "icon48.png", "128": "icon128.png"}
 }
