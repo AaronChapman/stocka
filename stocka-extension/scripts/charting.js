@@ -13,20 +13,21 @@ function chart_data(data, graph_type) {
 	// temporary value to determine directional gain
 	let temp_last_close = 0;
 		
+    console.log(data);
 	// for each value being charted
-	data.forEach(function(item) {
+	data.chart.forEach(function(item) {
 		// push the closing price to the array of values
-		chart_values.push(item.last);
+		chart_values.push(item.close);
 		
 		// determine the day's bar color
-		if (temp_last_close < parseFloat(item.last)) {
+		if (temp_last_close < parseFloat(item.close)) {
 			bar_colors.push(bar_color_up);
 		} else {
 			bar_colors.push(bar_color_down);
 		}
 		
 		// update comparator
-		temp_last_close = parseFloat(item.last);
+		temp_last_close = parseFloat(item.close);
 	});
 	
 	if (share_price_chart != undefined) {

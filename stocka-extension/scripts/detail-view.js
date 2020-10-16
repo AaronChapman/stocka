@@ -72,11 +72,8 @@ function fill_detail_table(information_object, for_symbol) {
 		}
 
 		ticker_details['volume_traded'] = parseInt(ticker_details['volume_traded']) + information_object.quote.volume;
-		
-        console.log('GOING');
 	});
 	
-    console.log('TEST');
 	let data_point_index = 0;
 		
 	// loop through the ticker details object and append table data
@@ -89,9 +86,7 @@ function fill_detail_table(information_object, for_symbol) {
 	}
 	
 	additional_news_articles();
-	//additional_research(for_symbol);
 	
-    console.log('TEST');
 	if (upgraded) { chart_data(information_object, settings.market_performance_graph_type); }
 		
 	// aesthetic
@@ -103,7 +98,6 @@ function fill_detail_table(information_object, for_symbol) {
 	$('.close_detail_view').attr('tabindex', '0');
 	
 	$('.close_detail_view').focus();
-    console.log('TEST');
 }
 
 // for investors users, add more articles to news section
@@ -132,7 +126,6 @@ function add_additional_news_articles(articles) {
 
 	});
 }
-
 
 // make date format prettier
 function parse_yahoo_date(full_date) {
