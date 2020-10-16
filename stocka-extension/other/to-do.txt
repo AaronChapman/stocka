@@ -16,3 +16,6 @@
 // discovery panel
 - predefined screeners
 - search companies by name & sector
+
+
+- change to donation model? unlock all features by default?

@@ -51,6 +51,7 @@ hr {
 
 body {
   width: fit-content;
+    max-width: 260px !important;
   height: fit-content;
   overflow-y: scroll;
   background: snow;
@@ -120,18 +121,18 @@ input:hover, button:hover, a:hover, .ticker:hover {
 
 .ticker {
 	margin: 5px;
-  height: 30px;
-  width: fit-content;
-  font-size: x-large;
-  color: white;
-  background: lightgrey;
-  transition: opacity margin 0.5s ease-in-out !important;
-  padding: 5px 10px;
-  white-space: nowrap;
-  overflow: hidden;
-  text-shadow: 0 2px 1px #000000;
-  border-radius: 5px;
-  box-shadow: 0 2px 1px #000000;
+	height: 30px;
+	width: fit-content;
+	font-size: x-large;
+	color: white;
+	background: lightgrey;
+	transition: opacity margin 0.5s ease-in-out !important;
+	padding: 5px 10px;
+	white-space: nowrap;
+	overflow: hidden;
+	text-shadow: 0 2px 1px #000000;
+	border-radius: 5px;
+	box-shadow: 0 2px 1px #000000;
 }
 
 .ticker_removal {
@@ -148,7 +149,7 @@ input:hover, button:hover, a:hover, .ticker:hover {
 }
 
 .ticker_detail .ticker {
-	margin: 0 auto;
+    margin: 0 auto;
 }
 
 
@@ -185,7 +186,7 @@ input:hover, button:hover, a:hover, .ticker:hover {
   height: 20px;
   border: 2px solid darkgray;
   border-radius: 3px;
-  margin: 5px;
+  margin: 1px;
   color: darkgray;
 }
 
@@ -193,7 +194,7 @@ input:hover, button:hover, a:hover, .ticker:hover {
   height: 20px;
   border: 2px solid darkgray;
   border-radius: 3px;
-  margin: 10px 5px 0 5px;
+  margin: 0 5px;
   color: darkgray;
   background: white;
   padding: 0 5px;
@@ -254,6 +255,7 @@ input:hover, button:hover, a:hover, .ticker:hover {
   overflow: hidden;
   display: flex;
   justify-content: center;
+    opacity: 0.75;
 }
 
 .sorting_options.open {
@@ -266,42 +268,54 @@ input:hover, button:hover, a:hover, .ticker:hover {
 }
 
 .ticker_detail {
+	width: 92.5vw;
 	height: 0px;
-  overflow: hidden;
-  display: grid;
-  transition: all 0.75s ease-in-out, color 0.25s, height 1s ease-in-out !important;
+	overflow: hidden;
+	display: flex;
+	flex-wrap: wrap;
+	transition: all 0.75s ease-in-out, color 0.25s, all 1s ease-in-out !important;
 	padding: 0;
-  margin: 0;
-  border-top: none;
+	margin: 0;
+	border-top: none;
 }
 
 .ticker_detail.open {
+	width: 92.5vw;
 	height: 305px;
 	max-height: 305px;
 	padding-top: 5px;
-  border-bottom: 2px solid darkgray;
-  transition: height 1s ease-in-out !important;
+	border-bottom: 2px solid darkgray;
+	transition: height 1s ease-in-out !important;
 }
 
 .ticker_detail.closed {
+	width: 92.5vw;
+	overflow: hidden;
+	display: flex;
+	flex-wrap: wrap;
+	transition: all 0.75s ease-in-out, color 0.25s, all 1s ease-in-out !important;
+	padding: 0;
+	margin: 0;
+	border-top: none;
 	height: 0px !important;
-  transition: height 1s ease-in-out !important;
+	transition: height 1s ease-in-out !important;
 }
 
 .upgraded .ticker_detail.open { 
 	height: 495px;
 	max-height: 495px; 
-  transition: height 1s ease-in-out !important;
+  transition: all 1s ease-in-out !important;
 }
 
 .timeframe_options {
 	display: inline-flex;
 	justify-content: center;
-	margin-bottom: 10px;
+    margin: 0 auto;
 }
 
 .ticker_detail_data {
-	margin: -5px 10px 0 10px;
+	margin: -10px 0;
+	width: inherit;
 }
 
 .ticker_detail_data tr td:nth-child(1) {
@@ -329,9 +343,10 @@ input:hover, button:hover, a:hover, .ticker:hover {
 }
 
 .chart_container {
-	display: none;
-	margin: 5px 2.5px 5px 0;
-  padding: 5px 0 0 0;
+    display: none;
+    margin: -10px 0 -5px 0;
+    padding: 5px 0 0 0;
+		width: 90vw;
 }
 
 .ticker_news {
@@ -339,7 +354,8 @@ input:hover, button:hover, a:hover, .ticker:hover {
   padding: 10px;
   border-top: 2px solid lightgray;
   overflow: scroll;
-  margin: 0 0 -20px -5px;
+  margin: 0 0 -45px 0;
+  width: fit-content;
 }
 
 .ticker_detail.open .ticker_news {
@@ -364,7 +380,7 @@ input:hover, button:hover, a:hover, .ticker:hover {
 
 .settings_container.closed {
   height: 0px;
-  width: 258px;
+  width: 260px;
 }
 
 .settings_container {
@@ -375,7 +391,7 @@ input:hover, button:hover, a:hover, .ticker:hover {
   transition: 0.25s ease-in-out;
   overflow: hidden;
   margin: 0 0 0 -10px;
-  width: 258px;
+  width: 260px;
   position: fixed;
   bottom: 0;
   padding: 0 10px;
@@ -385,7 +401,7 @@ input:hover, button:hover, a:hover, .ticker:hover {
 
 .settings_container.open {
   height: 290px;
-  width: 258px;
+  width: 260px;
   padding: 10px 10px;
   box-shadow: 0 -3px 5px rgba(00, 00, 00, 0.25);
 }
@@ -427,6 +443,8 @@ input:hover, button:hover, a:hover, .ticker:hover {
 
 .name_and_exchange {
 	text-align: center;
+	width: inherit;
+    margin-bottom: -10px;
 }
 
 .theme_name {
@@ -464,7 +482,7 @@ input:hover, button:hover, a:hover, .ticker:hover {
 	transition: 0.25s ease-in-out;
   overflow: hidden;
   margin: 0 0 0 -10px;
-  width: 258px;
+  width: 260px;
   position: fixed;
   bottom: 0;
   padding: 0 10px;
@@ -473,14 +491,14 @@ input:hover, button:hover, a:hover, .ticker:hover {
 
 .notes_container.open {
   height: 210px;
-  width: 258px;
+  width: 260px;
   padding: 10px 10px;
   box-shadow: 0 -3px 5px rgba(00, 00, 00, 0.25);
 }
 
 .notes_container.closed {
   height: 0px;
-  width: 258px;
+  width: 260px;
 }
 
 .notes_field {

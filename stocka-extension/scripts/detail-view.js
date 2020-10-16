@@ -123,13 +123,10 @@ function add_additional_news_articles(articles) {
 	$(articles).find('item').each(function() {
 		let headline_markup = '<span>' + parse_yahoo_date($(this).find('pubDate').text().trim()) + ':<br></span><a target="_blank" href="' + $(this).find('link').text().trim() + '">' + $(this).find('title').text().trim() + '</a>';
 		
-		$('.ticker_news').append(headline_markup);
-			
-		if ($(this).not(':last')) {
-			$('.ticker_news').append('<br><br>');
-		}
-
+		$('.ticker_news').append(headline_markup + '<br><br>');
 	});
+    
+    $('.ticker_news').find('br').last().remove();
 }
 
 // make date format prettier
