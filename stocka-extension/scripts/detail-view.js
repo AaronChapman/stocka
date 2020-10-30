@@ -78,7 +78,7 @@ function fill_detail_table(information_object, for_symbol) {
 				ticker_details['lowest_price'] = information_object.chart[0].close.toFixed(2);
 		}
 
-		ticker_details['volume_traded'] = parseInt(ticker_details['volume_traded']) + information_object.quote.volume;
+		ticker_details['volume_traded'] = ticker_details['volume_traded'] + item.volume;
 	});
 		
 	ticker_details['change'] = temp_change_c;

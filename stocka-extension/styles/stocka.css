@@ -51,11 +51,12 @@ hr {
 
 body {
   width: fit-content;
-    max-width: 260px !important;
+  max-width: 260px !important;
   height: fit-content;
   overflow-y: scroll;
   background: snow;
 	transition: heigh 1s ease-in-out;
+	margin: 5px;
 }
 
 body.upgraded.settings {
@@ -147,8 +148,8 @@ input:hover, button:hover, a:hover, .ticker:hover {
 .remove_ticker {
   height: 28px;
   width: 30px;
-  border: 2px solid darkgray;
-  border-radius: 5px;
+  box-shadow: none !important;
+  border: none !important;
   padding-top: 4px;
   color: darkgray;
 }
@@ -189,9 +190,12 @@ input:hover, button:hover, a:hover, .ticker:hover {
 .sorting_option {
 	transition: border-color 0.25s ease-in-out;
   height: 20px;
-  border: 2px solid darkgray;
-  border-radius: 3px;
-  margin: 1px;
+  border-top: none !important;
+  border-left: none !important;
+  border-right: none !important;
+  box-shadow: none;
+  border-radius: 0;
+  margin: 0;
   color: darkgray;
 }
 
@@ -396,8 +400,7 @@ input:hover, button:hover, a:hover, .ticker:hover {
   align-items: flex-end;
   transition: 0.25s ease-in-out;
   overflow: hidden;
-  margin: 0 0 0 -10px;
-  width: 260px;
+  margin: 0 0 0 -5px;
   position: fixed;
   bottom: 0;
   padding: 0 10px;
@@ -407,7 +410,6 @@ input:hover, button:hover, a:hover, .ticker:hover {
 
 .settings_container.open {
   height: 290px;
-  width: 260px;
   padding: 10px 10px;
   box-shadow: 0 -3px 5px rgba(00, 00, 00, 0.25);
 }

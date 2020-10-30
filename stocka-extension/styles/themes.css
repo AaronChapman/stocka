@@ -484,8 +484,14 @@
 
 .tangerine .notes_field,
 .tangerine .setting,
-.tangerine .name_and_exchange {
+.tangerine .name_and_exchange,
+.tangerine .setting_category_title {
 	color: mintcream;
+}
+
+.tangerine input::placeholder {
+  color: mintcream;
+  opacity: 0.5;
 }
 
 .tangerine hr,
@@ -593,7 +599,7 @@
 .berry .notes_container,
 .berry .settings_container ,
 .berry .saved_sets_container{
-	background: #B55F69;
+	background: #C56F79;
 }
 
 .berry .stockalert {
@@ -604,7 +610,8 @@
 
 .berry .notes_field,
 .berry .setting,
-.berry .name_and_exchange {
+.berry .name_and_exchange,
+.berry .setting_category_title {
 	color: beige;
 }
 
@@ -672,6 +679,11 @@
 .berry input,
 .berry button {
 	color: beige;
+}
+
+.berry input::placeholder {
+  color: beige;
+  opacity: 0.5;
 }
 
 .berry .tickers,
@@ -792,7 +804,7 @@
 }
 
 .berry.theme_option_palette .theme_option_first_color {
-  background: #B55F69;
+  background: #C56F79;
 }
 
 .berry.theme_option_palette .theme_option_second_color {
