@@ -16,12 +16,6 @@
 	background: snow;
 }
 
-.default .stockalert {
-  color: #427557;
-  border-color: #427557;
-  background: snow;
-}
-
 .default .notes_field,
 .default .setting,
 .default .name_and_exchange {
@@ -121,12 +115,6 @@
 .sepia .settings_container,
 .sepia .saved_sets_container {
 	background: antiquewhite;
-}
-
-.sepia .stockalert {
-  color: #627465;
-  border-color: #627465;
-  background: antiquewhite;
 }
 
 .sepia .notes_field,
@@ -241,12 +229,6 @@
 .classic .settings_container ,
 .classic .saved_sets_container{
 	background: #FFEBD9;
-}
-
-.classic .stockalert {
-  color: #356276;
-  border-color: #356276;
-  background: whitesmoke;
 }
 
 .classic .notes_field,
@@ -365,12 +347,6 @@
 	background: rgb(45, 40, 50);
 }
 
-.midnight .stockalert {
-  color: white;
-  border-color: white;
-  background: rgb(45, 40, 50);
-}
-
 .midnight .notes_container {
 	border-color: darkgray;
 }
@@ -474,12 +450,6 @@
 .tangerine .settings_container,
 .tangerine .saved_sets_container {
 	background: #efab8f;
-}
-
-.tangerine .stockalert {
-  color: #a56864;
-  border-color: #a56864;
-  background: #efab8f;
 }
 
 .tangerine .notes_field,
@@ -600,12 +570,6 @@
 .berry .settings_container ,
 .berry .saved_sets_container{
 	background: #C56F79;
-}
-
-.berry .stockalert {
-  color: #356276;
-  border-color: #356276;
-  background: whitesmoke;
 }
 
 .berry .notes_field,

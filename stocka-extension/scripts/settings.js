@@ -1,15 +1,15 @@
 // attach events to theme options
 function setup_settings_listeners() {
-	$('.open_settings').unbind('click').on('click', function() {
+	$('.open_settings').off('click').on('click', function() {
 		open_settings();
 	});
 	
-	$('.save_settings').unbind('click').on('click', function() {
+	$('.save_settings').off('click').on('click', function() {
 		save_settings();
 	});
 	
 	// set current theme to clicked (or keyed) option
-	$('.theme_option_palette').unbind('click').on('click', function() {
+	$('.theme_option_palette').off('click').on('click', function() {
 		current_theme = $(this).attr('data-theme-name');
 		settings.theme = current_theme;
 		
@@ -18,7 +18,7 @@ function setup_settings_listeners() {
 		setup_theme(current_theme);
 	});
 	
-	$('.theme_option_palette').unbind('keydown').on('keydown', function(event) {
+	$('.theme_option_palette').off('keydown').on('keydown', function(event) {
 		if (event.keyCode === 13) {
 			event.preventDefault();
 

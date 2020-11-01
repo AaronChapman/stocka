@@ -6,7 +6,11 @@ document.addEventListener("DOMContentLoaded", function(event) {
 	load_saved_data();
 	
 	// initialize stocka for investors check
-	getProductList();
+	// moving to fremium?
+	
+	/* getProductList(); */
+	
+	local_setup();
 	
 	// setup... everything
 	setup_sorting_listeners();

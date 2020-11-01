@@ -52,6 +52,10 @@ function setup_theme(theme_to_use) {
 			if (upgraded) {
 				$('body').addClass('upgraded');
 				
+				if ($('.settings_container').hasClass('open')) {
+					$('body').addClass('settings');
+				}
+				
 				if ($('.ticker_detail').hasClass('open')) {
 					rechart(current_chart_data);
 				}

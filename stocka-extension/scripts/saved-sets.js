@@ -6,10 +6,10 @@ let saved_sets = [{ticker_set_name: "FANG", ticker_set: "FB,AMZN,NFLX,GOOGL", is
 // set up event listeners for existing html elements involving saved sets
 function setup_saved_sets() {
 	// open or close the save symbol sets panel
-	$('.saved_sets').click(function() {
+	$('.saved_sets').off('click').on('click', function() {
 		options_sizing($('.saved_sets_container'));
-		
-		if ($('.saved_sets').attr('aria-expanded') ==='false') {
+		console.log('HEY');
+		if ($('.saved_sets').attr('aria-expanded') === 'false') {
 			$('.saved_sets').attr('aria-expanded', 'true');
 			
 			$('.saved_sets').find('a, button, input').eq(0).focus();

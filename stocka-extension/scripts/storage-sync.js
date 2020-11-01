@@ -1,7 +1,11 @@
 function load_saved_data() {
 	chrome.storage.sync.get(['tickers', 'saved_sets', 'notes', 'theme', 'settings'], function(result) {
 		// load up saved sets
-		if (result.saved_sets) { saved_sets = result.saved_sets; }
+		if (result.saved_sets) {
+			saved_sets = result.saved_sets;
+			
+			setup_saved_set_buttons();
+		}
 		
 		// load up synbol set
 	  if (result.tickers && result.tickers.length > 0) {
